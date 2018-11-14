@@ -38,6 +38,7 @@ export const XXXL = rem('32px');
   Font-weight
 */
 export const weightBold = 'bold';
+export const weightMedium = '600';
 export const weightBase = '400';
 export const weightThin = '100';
 
