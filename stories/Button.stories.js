@@ -9,6 +9,7 @@ const buttonProps = () => ({
   size: select('size', Object.keys(Sizes), Object.keys(Sizes)[0]),
   children: text('children', 'Download'),
   disabled: boolean('disabled', false),
+  shadow: boolean('shadow', false),
 });
 
 storiesOf('Atom|Button', module)
