@@ -38,7 +38,7 @@ class App extends React.Component {
         >
           <html lang="en" />
         </Helmet>
-        <Header />
+        <Header header={this.props.header} />
         <main
           className={css({
             padding: rem('20px'),
