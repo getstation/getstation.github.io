@@ -1,10 +1,18 @@
 export const light = '#ffffff';
-export const neutralDark = '#212121';
-export const neutral = '#666';
-export const neutralLight = '#888';
-export const neutralLighter = '#ccc';
+export const neutralDarker = '#292929';
+export const neutralDark = '#363636';
+export const neutral = '#59626E';
+export const neutralLight = '#898F98';
+export const neutralLighter = '#F0F0F0';
 
-export const clr1 = '#663399';
-export const clr1Light = '#8C65B3';
+export const clr1Light = '#63a0e6';
+export const clr1 = '#3070cd';
+export const clr1Dark = '#3165B1';
 
-export const border = '#ededed';
+export const clr2 = '#e6be22';
+
+export const clr3 = '#76cca5';
+
+export const clr4 = '#66c6ed';
+
+export const border = '#979797';

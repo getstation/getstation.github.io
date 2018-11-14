@@ -7,6 +7,6 @@ export const styleBase = css`
   &:active,
   &:hover,
   &:focus {
-    color: ${color.clr1Light};
+    color: ${color.clr1Dark};
   }
 `;

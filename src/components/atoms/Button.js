@@ -30,7 +30,7 @@ const Button = ({ element, disabled, ...props }) => {
         opacity: disabled ? state.disabledOpacity : 1,
         pointerEvents: disabled ? 'none' : 'auto',
         '&:hover, &:focus, &:active': {
-          background: color.clr1Light,
+          background: color.clr1Dark,
           color: color.light,
         },
       }),
