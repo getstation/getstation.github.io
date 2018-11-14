@@ -1,6 +1,7 @@
 import React from 'react';
 import { css } from 'emotion';
 import { rem } from 'polished';
+import { graphql } from 'gatsby';
 import { Link as GatsbyLink } from 'gatsby';
 import Link from '../atoms/Link';
 import Button from '../atoms/Button';
