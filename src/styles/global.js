@@ -9,6 +9,7 @@ import * as color from './colors';
 */
 injectGlobal`
   ${normalize};
+  ${font.fontFace};
   *,
   *::before,
   *::after {

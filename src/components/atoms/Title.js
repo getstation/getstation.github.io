@@ -12,7 +12,7 @@ const Title = ({ element, ...props }) => {
     className: cx(
       props.className,
       css({
-        fontWeight: font.weightBold,
+        fontFamily: font.secondary,
         lineHeight: font.lineHeightL,
       }),
     ),
