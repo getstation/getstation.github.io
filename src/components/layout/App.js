@@ -47,7 +47,7 @@ class App extends React.Component {
         >
           {this.props.children}
         </main>
-        <Footer />
+        <Footer footer={this.props.footer} />
       </div>
     );
   }

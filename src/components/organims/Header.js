@@ -17,8 +17,8 @@ const Header = ({ header, ...rest }) => {
       {data.link_1_text && <Link to="/">{data.link_1_text}</Link>}
       {data.link_2_text && <Link to="/">{data.link_2_text}</Link>}
       {data.link_3_text && <Link to="/">{data.link_3_text}</Link>}
-      {data.download_text && data.download_link && (
-        <a href={data.download_link.url}>{data.download_text}</a>
+      {data.download_text && data.download_url && (
+        <a href={data.download_url.url}>{data.download_text}</a>
       )}
     </header>
   );
