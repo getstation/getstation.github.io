@@ -3,6 +3,7 @@ import { css } from 'emotion';
 import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import { rem } from 'polished';
+import Logo from '../../images/logo-station-blue.svg';
 
 const Header = ({ header, ...rest }) => {
   const data = header.data;
@@ -13,7 +14,11 @@ const Header = ({ header, ...rest }) => {
       })}
       {...rest}
     >
-      <Link to="/">Logo</Link>
+      <h1>
+        <Link to="/">
+          <img src={Logo} alt="Station" width="100" height="28" />
+        </Link>
+      </h1>
       {data.link_1_text && <Link to="/">{data.link_1_text}</Link>}
       {data.link_2_text && <Link to="/">{data.link_2_text}</Link>}
       {data.link_3_text && <Link to="/">{data.link_3_text}</Link>}
