@@ -308,7 +308,6 @@ export const query = graphql`
       download_url {
         url
       }
-      producthunt_title
       producthunt_subtitle
       column_1_title
       column_2_title
