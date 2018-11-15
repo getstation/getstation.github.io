@@ -2,14 +2,13 @@ import React from 'react';
 import { css, cx } from 'emotion';
 import { rem, rgba } from 'polished';
 import { graphql } from 'gatsby';
-import Button from '../atoms/Button';
 import FooterLink from '../../components/atoms/LinkFooter';
 import Tooltip from '../../components/atoms/Tooltip';
 import Icon from '../../components/atoms/Icon';
 import Wrapper from '../layout/Wrapper';
+import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
-import * as transition from '../../styles/transitions';
 import { mq, mqOnlyPhone } from '../../styles/breackpoint';
 import ProductHunt from '../../images/product-hunt-logo.svg';
 
@@ -141,46 +140,7 @@ const Footer = ({ footer, download, ...rest }) => {
               },
             })}
           >
-            <div
-              className={css({
-                marginBottom: rem(15),
-                textAlign: 'center',
-              })}
-            >
-              {DOWNLOAD.button_text && DOWNLOAD.button_url && (
-                <Button to={DOWNLOAD.button_url.url} theme="light" size="L">
-                  {DOWNLOAD.button_text}
-                </Button>
-              )}
-            </div>
-            <div
-              className={css({
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
-              })}
-            >
-              {DOWNLOAD.plateform_list &&
-                DOWNLOAD.plateform_list.map(item => (
-                  <a
-                    key={item.type}
-                    href={item.url.url}
-                    className={css({
-                      padding: rem(5),
-                      display: 'block',
-                      margin: `0 ${rem(5)}`,
-                      cursor: 'pointer',
-                      opacity: 0.666,
-                      transition: `opacity 0.3s ${transition.base}`,
-                      '&:hover, &:focus, &:active': {
-                        opacity: 1,
-                      },
-                    })}
-                  >
-                    <Icon type={item.type} size={20} color="light" />
-                  </a>
-                ))}
-            </div>
+            <DownloadApp data={download} />
           </div>
         </div>
         <div
