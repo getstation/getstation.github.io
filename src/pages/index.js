@@ -8,11 +8,7 @@ import * as font from '../styles/fonts';
 const IndexPage = props => {
   const DATA = props.data.content.data;
   return (
-    <App
-      header={props.data.prismicHeader}
-      footer={props.data.prismicFooter}
-      download={props.data.prismicDownloadapp}
-    >
+    <App>
       {DATA.title && (
         <Title
           element="h1"
@@ -31,15 +27,6 @@ const IndexPage = props => {
 export default IndexPage;
 export const pageQuery = graphql`
   query IndexQuery {
-    prismicDownloadapp {
-      ...DownloadData
-    }
-    prismicHeader {
-      ...HeaderData
-    }
-    prismicFooter {
-      ...FooterData
-    }
     content: prismicTest {
       data {
         title

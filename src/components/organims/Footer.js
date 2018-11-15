@@ -1,7 +1,6 @@
 import React from 'react';
 import { css, cx } from 'emotion';
 import { rem, rgba } from 'polished';
-import { graphql } from 'gatsby';
 import FooterLink from '../../components/atoms/LinkFooter';
 import Tooltip from '../../components/atoms/Tooltip';
 import Icon from '../../components/atoms/Icon';
@@ -261,34 +260,3 @@ const Footer = ({ footer, download, ...rest }) => {
 };
 
 export default Footer;
-
-export const query = graphql`
-  fragment FooterData on PrismicFooter {
-    data {
-      producthunt_subtitle
-      column_1_title
-      column_2_title
-      column_3_title
-      column_1_list {
-        type
-        text
-        url
-      }
-      column_2_list {
-        type
-        text
-        url
-        tooltip
-      }
-      column_3_list {
-        type
-        text
-        url
-      }
-      socials_links {
-        type
-        url
-      }
-    }
-  }
-`;

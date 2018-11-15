@@ -1,6 +1,5 @@
 import React from 'react';
 import { css } from 'emotion';
-import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import { rem } from 'polished';
 import Button from '../atoms/Button';
@@ -81,13 +80,3 @@ const Header = ({ header, download, ...rest }) => {
 };
 
 export default Header;
-
-export const query = graphql`
-  fragment HeaderData on PrismicHeader {
-    data {
-      link_1_text
-      link_2_text
-      link_3_text
-    }
-  }
-`;

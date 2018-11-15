@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { graphql } from 'gatsby';
+import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import { css } from 'emotion';
 import { rem } from 'polished';
@@ -39,7 +39,10 @@ class App extends React.Component {
         >
           <html lang="en" />
         </Helmet>
-        <Header header={this.props.header} download={this.props.download} />
+        <Header
+          header={this.props.data.header}
+          download={this.props.data.download}
+        />
         <main
           className={css({
             padding: rem('20px'),
@@ -48,7 +51,10 @@ class App extends React.Component {
         >
           {this.props.children}
         </main>
-        <Footer footer={this.props.footer} download={this.props.download} />
+        <Footer
+          footer={this.props.data.footer}
+          download={this.props.data.download}
+        />
       </div>
     );
   }
@@ -57,21 +63,61 @@ class App extends React.Component {
 App.propTypes = {
   children: PropTypes.node.isRequired,
 };
-export default App;
-
-export const query = graphql`
-  fragment DownloadData on PrismicDownloadapp {
-    data {
-      button_text
-      button_url {
-        url
-      }
-      plateform_list {
-        type
-        url {
-          url
+export default props => (
+  <StaticQuery
+    query={graphql`
+      query {
+        download: prismicDownloadapp {
+          data {
+            button_text
+            button_url {
+              url
+            }
+            plateform_list {
+              type
+              url {
+                url
+              }
+            }
+          }
+        }
+        header: prismicHeader {
+          data {
+            link_1_text
+            link_2_text
+            link_3_text
+          }
+        }
+        footer: prismicFooter {
+          data {
+            producthunt_subtitle
+            column_1_title
+            column_2_title
+            column_3_title
+            column_1_list {
+              type
+              text
+              url
+            }
+            column_2_list {
+              type
+              text
+              url
+              tooltip
+            }
+            column_3_list {
+              type
+              text
+              url
+            }
+            socials_links {
+              type
+              url
+            }
+          }
         }
       }
-    }
-  }
-`;
+    `}
+    render={data => <App data={data} {...props} />}
+  />
+);

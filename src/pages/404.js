@@ -7,7 +7,7 @@ import * as font from '../styles/fonts';
 
 const NotFoundPage = props => {
   return (
-    <App header={props.data.prismicHeader} footer={props.data.prismicFooter}>
+    <App>
       <Title
         element="h1"
         className={css`
@@ -20,13 +20,3 @@ const NotFoundPage = props => {
   );
 };
 export default NotFoundPage;
-export const pageQuery = graphql`
-  query NotFoundPageQuery {
-    prismicHeader {
-      ...HeaderData
-    }
-    prismicFooter {
-      ...FooterData
-    }
-  }
-`;
