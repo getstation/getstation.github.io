@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import { css } from 'emotion';
 import { rem } from 'polished';
@@ -38,7 +39,7 @@ class App extends React.Component {
         >
           <html lang="en" />
         </Helmet>
-        <Header header={this.props.header} />
+        <Header header={this.props.header} download={this.props.download} />
         <main
           className={css({
             padding: rem('20px'),
@@ -47,7 +48,7 @@ class App extends React.Component {
         >
           {this.props.children}
         </main>
-        <Footer footer={this.props.footer} />
+        <Footer footer={this.props.footer} download={this.props.download} />
       </div>
     );
   }
@@ -57,3 +58,20 @@ App.propTypes = {
   children: PropTypes.node.isRequired,
 };
 export default App;
+
+export const query = graphql`
+  fragment DownloadData on PrismicDownloadapp {
+    data {
+      button_text
+      button_url {
+        url
+      }
+      plateform_list {
+        type
+        url {
+          url
+        }
+      }
+    }
+  }
+`;

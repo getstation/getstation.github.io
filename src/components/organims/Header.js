@@ -21,8 +21,9 @@ const navLink = css`
   }
 `;
 
-const Header = ({ header, ...rest }) => {
-  const data = header.data;
+const Header = ({ header, download, ...rest }) => {
+  const DATA = header.data;
+  const DOWNLOAD = download.data;
   return (
     <header
       className={css({
@@ -55,23 +56,23 @@ const Header = ({ header, ...rest }) => {
             },
           })}
         >
-          {data.link_1_text && (
+          {DATA.link_1_text && (
             <Link className={navLink} to="/">
-              {data.link_1_text}
+              {DATA.link_1_text}
             </Link>
           )}
-          {data.link_2_text && (
+          {DATA.link_2_text && (
             <Link className={navLink} to="/">
-              {data.link_2_text}
+              {DATA.link_2_text}
             </Link>
           )}
-          {data.link_3_text && (
+          {DATA.link_3_text && (
             <Link className={navLink} to="/">
-              {data.link_3_text}
+              {DATA.link_3_text}
             </Link>
           )}
-          {data.download_text && data.download_url && (
-            <Button to={data.download_url.url}>{data.download_text}</Button>
+          {DOWNLOAD.button_text && DOWNLOAD.button_url && (
+            <Button to={DOWNLOAD.button_url.url}>{DOWNLOAD.button_text}</Button>
           )}
         </div>
       </Wrapper>
@@ -87,10 +88,6 @@ export const query = graphql`
       link_1_text
       link_2_text
       link_3_text
-      download_text
-      download_url {
-        url
-      }
     }
   }
 `;

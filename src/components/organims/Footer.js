@@ -83,8 +83,9 @@ const Col = ({ title, list, className, ...rest }) => {
   );
 };
 
-const Footer = ({ footer, ...rest }) => {
-  const data = footer.data;
+const Footer = ({ footer, download, ...rest }) => {
+  const DATA = footer.data;
+  const DOWNLOAD = download.data;
   return (
     <footer
       className={css({
@@ -114,14 +115,14 @@ const Footer = ({ footer, ...rest }) => {
               },
             })}
           >
-            {data.column_1_title && (
-              <Col title={data.column_1_title} list={data.column_1_list} />
+            {DATA.column_1_title && (
+              <Col title={DATA.column_1_title} list={DATA.column_1_list} />
             )}
-            {data.column_2_title && (
-              <Col title={data.column_2_title} list={data.column_2_list} />
+            {DATA.column_2_title && (
+              <Col title={DATA.column_2_title} list={DATA.column_2_list} />
             )}
-            {data.column_3_title && (
-              <Col title={data.column_3_title} list={data.column_3_list} />
+            {DATA.column_3_title && (
+              <Col title={DATA.column_3_title} list={DATA.column_3_list} />
             )}
           </div>
 
@@ -146,9 +147,9 @@ const Footer = ({ footer, ...rest }) => {
                 textAlign: 'center',
               })}
             >
-              {data.download_text && data.download_url && (
-                <Button to={data.download_url.url} theme="light" size="L">
-                  {data.download_text}
+              {DOWNLOAD.button_text && DOWNLOAD.button_url && (
+                <Button to={DOWNLOAD.button_url.url} theme="light" size="L">
+                  {DOWNLOAD.button_text}
                 </Button>
               )}
             </div>
@@ -159,8 +160,8 @@ const Footer = ({ footer, ...rest }) => {
                 alignItems: 'center',
               })}
             >
-              {data.download_link &&
-                data.download_link.map(item => (
+              {DOWNLOAD.plateform_list &&
+                DOWNLOAD.plateform_list.map(item => (
                   <a
                     key={item.type}
                     href={item.url.url}
@@ -217,7 +218,7 @@ const Footer = ({ footer, ...rest }) => {
               },
             })}
           >
-            {data.producthunt_title && data.producthunt_subtitle && (
+            {DATA.producthunt_title && DATA.producthunt_subtitle && (
               <div
                 className={css({
                   display: 'flex',
@@ -254,12 +255,12 @@ const Footer = ({ footer, ...rest }) => {
                       fontSize: rem(12),
                     })}
                   >
-                    {data.producthunt_subtitle}
+                    {DATA.producthunt_subtitle}
                   </div>
                 </div>
               </div>
             )}
-            {data.socials_links && (
+            {DATA.socials_links && (
               <ul
                 className={css({
                   display: 'flex',
@@ -270,7 +271,7 @@ const Footer = ({ footer, ...rest }) => {
                   },
                 })}
               >
-                {data.socials_links.map(item => (
+                {DATA.socials_links.map(item => (
                   <li
                     key={item.type}
                     className={css({
@@ -304,10 +305,6 @@ export default Footer;
 export const query = graphql`
   fragment FooterData on PrismicFooter {
     data {
-      download_text
-      download_url {
-        url
-      }
       producthunt_subtitle
       column_1_title
       column_2_title
@@ -331,12 +328,6 @@ export const query = graphql`
       socials_links {
         type
         url
-      }
-      download_link {
-        type
-        url {
-          url
-        }
       }
     }
   }
