@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import { Link } from 'gatsby';
 import { rem } from 'polished';
 import Button from '../atoms/Button';
+import Wrapper from '../layout/Wrapper';
 import Logo from '../../images/logo-station-blue.svg';
 import { mq } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
@@ -26,49 +27,54 @@ const Header = ({ header, ...rest }) => {
     <header
       className={css({
         padding: rem('20px'),
-        [mq[1]]: {
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-        },
       })}
       {...rest}
     >
-      <h1>
-        <Link to="/">
-          <img src={Logo} alt="Station" width="100" height="28" />
-        </Link>
-      </h1>
-      <div
+      <Wrapper
         className={css({
           [mq[1]]: {
             display: 'flex',
             alignItems: 'center',
-            '> *:not(:first-child)': {
-              marginLeft: rem(50),
-            },
+            justifyContent: 'space-between',
           },
         })}
       >
-        {data.link_1_text && (
-          <Link className={navLink} to="/">
-            {data.link_1_text}
+        <h1>
+          <Link to="/">
+            <img src={Logo} alt="Station" width="100" height="28" />
           </Link>
-        )}
-        {data.link_2_text && (
-          <Link className={navLink} to="/">
-            {data.link_2_text}
-          </Link>
-        )}
-        {data.link_3_text && (
-          <Link className={navLink} to="/">
-            {data.link_3_text}
-          </Link>
-        )}
-        {data.download_text && data.download_url && (
-          <Button to={data.download_url.url}>{data.download_text}</Button>
-        )}
-      </div>
+        </h1>
+        <div
+          className={css({
+            [mq[1]]: {
+              display: 'flex',
+              alignItems: 'center',
+              '> *:not(:first-child)': {
+                marginLeft: rem(50),
+              },
+            },
+          })}
+        >
+          {data.link_1_text && (
+            <Link className={navLink} to="/">
+              {data.link_1_text}
+            </Link>
+          )}
+          {data.link_2_text && (
+            <Link className={navLink} to="/">
+              {data.link_2_text}
+            </Link>
+          )}
+          {data.link_3_text && (
+            <Link className={navLink} to="/">
+              {data.link_3_text}
+            </Link>
+          )}
+          {data.download_text && data.download_url && (
+            <Button to={data.download_url.url}>{data.download_text}</Button>
+          )}
+        </div>
+      </Wrapper>
     </header>
   );
 };
