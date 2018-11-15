@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 23.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Calque_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 100 100" style="enable-background:new 0 0 100 100;" xml:space="preserve">
+<title>station-symbol</title>
+<desc>Created with Sketch.</desc>
+<g id="Symbols">
+	<g id="footer" transform="translate(-103.000000, -352.000000)">
+		<path id="station-symbol" d="M153,418.7c14.9,0,27-12.3,27-27.5c0-15.2-12.1-27.5-27-27.5s-27,12.3-27,27.5
+			C126,406.4,138.1,418.7,153,418.7z M153,430.5c-21.3,0-38.6-17.6-38.6-39.3c0-21.7,17.3-39.3,38.6-39.3s38.6,17.6,38.6,39.3
+			C191.6,412.9,174.3,430.5,153,430.5z M124,442.2h58v9.8h-58V442.2z"/>
+	</g>
+</g>
+</svg>

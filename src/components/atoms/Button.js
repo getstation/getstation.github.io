@@ -9,12 +9,12 @@ import * as transition from '../../styles/transitions';
 import { Span } from 'opentracing';
 
 export const Sizes = {
-  L: {
+  M: {
     padding: `${rem(10)} ${rem(27)}`,
     minHeight: rem(36),
     fontSize: 'inherit',
   },
-  M: {
+  L: {
     padding: `${rem(18)} ${rem(40)}`,
     minHeight: rem(54),
     fontSize: rem(18),
@@ -32,6 +32,18 @@ export const Themes = {
     '&:active': {
       background: color.clr1Dark,
       color: rgba(color.light, 0.7),
+    },
+  },
+  light: {
+    background: color.light,
+    color: color.clr1,
+    '&:hover, &:focus': {
+      background: rgba(color.light, 0.7),
+      color: color.clr1,
+    },
+    '&:active': {
+      background: rgba(color.light, 0.7),
+      color: rgba(color.clr1, 0.7),
     },
   },
   ghost: {
@@ -129,7 +141,7 @@ Button.propTypes = {
 Button.defaultProps = {
   element: 'a',
   disabled: false,
-  size: 'L',
+  size: 'M',
   theme: 'primary',
   onClick: () => {},
 };

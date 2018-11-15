@@ -2,10 +2,10 @@ import React from 'react';
 import { css, cx } from 'emotion';
 import { rem } from 'polished';
 import { Link } from 'gatsby';
-import { IconExternalLink } from '../atoms/Icon';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import * as transition from '../../styles/transitions';
+import Icon from '../atoms/Icon';
 
 const linkStyles = css`
   color: ${color.light};
@@ -33,9 +33,13 @@ const FooterLink = ({ url, text, type }) => (
         href={url}
         target="_blank"
       >
-        <span>{text}</span>{' '}
-        <IconExternalLink
+        <span>{text}</span>
+        <Icon
+          type="externalLink"
+          color="light"
+          size={12}
           className={css({
+            flexShrink: 0,
             marginLeft: rem(10),
             transform: `translateY(${rem(1)})`,
           })}
