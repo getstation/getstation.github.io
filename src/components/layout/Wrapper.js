@@ -16,7 +16,7 @@ export const elements = [
 export const sizes = {
   full: '100%',
   XL: rem(1500),
-  L: rem(1200),
+  L: rem(1240),
   M: rem(1000),
   S: rem(800),
   XS: rem(520),
