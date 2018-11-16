@@ -19,7 +19,7 @@ injectGlobal`
   body {
     height: 100%;
     font-family: ${font.primary};
-    font-size: ${rem('16px')};
+    font-size: ${rem(16)};
     font-weight: ${font.weightBase};
     line-height: ${font.lineHeightL};
     text-rendering: optimizeLegibility;

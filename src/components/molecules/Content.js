@@ -11,7 +11,7 @@ const title = css`
 `;
 
 const spacing = css`
-  margin: ${rem('24px')} 0;
+  margin: ${rem(24)} 0;
 `;
 
 const Content = styled('div')`
@@ -76,13 +76,13 @@ const Content = styled('div')`
       padding: 0.25rem 0.75rem;
       background: hsla(0, 0%, 0%, 0.04);
       border: 1px solid #eee;
-      border-radius: ${rem('3px')};
+      border-radius: ${rem(3)};
     }
   }
 
   blockquote {
     ${spacing};
-    padding-left: ${rem('20px')};
+    padding-left: ${rem(20)};
     border-left: 4px solid;
 
     p {
@@ -114,7 +114,7 @@ const Content = styled('div')`
 
   ul,
   ol {
-    padding-left: ${rem('20px')};
+    padding-left: ${rem(20)};
     ${spacing};
     ol,
     ul {
@@ -138,7 +138,7 @@ const Content = styled('div')`
   dt {
     font-weight: bold;
     &:not(:first-child) {
-      margin-top: ${rem('12px')};
+      margin-top: ${rem(12)};
     }
   }
 
@@ -164,7 +164,7 @@ const Content = styled('div')`
 
   thead {
     th {
-      padding: ${rem('10px')};
+      padding: ${rem(10)};
       vertical-align: bottom;
       border-bottom: 2px solid ${color.border};
       font-weight: ${font.weightBold};
@@ -173,7 +173,7 @@ const Content = styled('div')`
 
   tbody {
     td {
-      padding: ${rem('10px')};
+      padding: ${rem(10)};
       border-bottom: 1px solid ${color.border};
     }
   }

@@ -25,14 +25,14 @@ export const secondary = 'Asap medium';
 /*
   Font-sizes
 */
-export const XXS = rem('12px');
-export const XS = rem('14px');
-export const S = rem('16px');
-export const M = rem('18px');
-export const L = rem('20px');
-export const XL = rem('22px');
-export const XXL = rem('24px');
-export const XXXL = rem('32px');
+export const XXS = rem(12);
+export const XS = rem(14);
+export const S = rem(16);
+export const M = rem(18);
+export const L = rem(20);
+export const XL = rem(22);
+export const XXL = rem(24);
+export const XXXL = rem(32);
 
 /*
   Font-weight

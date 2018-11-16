@@ -45,7 +45,7 @@ class App extends React.Component {
         />
         <main
           className={css({
-            padding: rem('20px'),
+            padding: rem(20),
             flexGrow: 1,
           })}
         >

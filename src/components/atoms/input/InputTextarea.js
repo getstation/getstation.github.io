@@ -35,9 +35,9 @@ const InputTextarea = ({
       input.inputBase,
       input.inputReadOnly,
       css({
-        padding: `${rem('7px')} ${input.paddingHorizontal}`,
+        padding: `${rem(7)} ${input.paddingHorizontal}`,
         lineHeight: 1.5,
-        minHeight: rem('200px'),
+        minHeight: rem(200),
         opacity: disabled ? state.disabledOpacity : 1,
         pointerEvents: disabled ? 'none' : 'auto',
       }),

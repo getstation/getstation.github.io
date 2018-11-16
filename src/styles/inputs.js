@@ -3,7 +3,7 @@ import { rem } from 'polished';
 import * as color from './colors';
 import * as radius from './radius';
 
-export const paddingHorizontal = rem('20px');
+export const paddingHorizontal = rem(20);
 
 export const inputBase = css`
   display: block;
@@ -12,7 +12,7 @@ export const inputBase = css`
   background-color: ${color.light};
   box-shadow: none;
   border-radius: ${radius.S};
-  min-height: ${rem('40px')};
+  min-height: ${rem(40)};
 `;
 
 export const inputReadOnly = css`

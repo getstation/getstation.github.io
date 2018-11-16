@@ -24,15 +24,11 @@ const Header = ({ header, download, ...rest }) => {
   const DATA = header.data;
   const DOWNLOAD = download.data;
   return (
-    <header
-      className={css({
-        padding: rem('20px'),
-      })}
-      {...rest}
-    >
+    <header className={css({})} {...rest}>
       <Wrapper
         className={css({
           [mq[1]]: {
+            height: rem(88),
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
