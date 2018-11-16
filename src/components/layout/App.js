@@ -11,7 +11,15 @@ import * as colors from '../../styles/colors';
 import '../../styles/global';
 
 class App extends React.Component {
-  state = {};
+  state = {
+    navMobileOpen: false,
+  };
+
+  toggleNavMobile = () => {
+    this.setState(prevState => ({
+      navMobileOpen: !prevState.navMobileOpen,
+    }));
+  };
   render() {
     return (
       <div
@@ -35,8 +43,10 @@ class App extends React.Component {
         </Helmet>
         <Headroom>
           <Header
+            navMobileOpen={this.state.navMobileOpen}
             header={this.props.data.header}
             download={this.props.data.download}
+            toggleNavMobile={this.toggleNavMobile}
           />
         </Headroom>
 

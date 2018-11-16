@@ -219,6 +219,10 @@ injectGlobal`
     font-weight: inherit;
     text-align: left;
   }
+  
+  .headroom-wrapper {
+    height: auto !important;
+  }
   .headroom--pinned {
     display: block;
     backdrop-filter: blur(5px);
