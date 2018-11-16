@@ -24,7 +24,7 @@ const Header = ({ header, download, ...rest }) => {
   const DATA = header.data;
   const DOWNLOAD = download.data;
   return (
-    <header className={css({})} {...rest}>
+    <header {...rest}>
       <Wrapper
         className={css({
           [mq[1]]: {

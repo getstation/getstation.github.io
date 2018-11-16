@@ -22,6 +22,7 @@
     "react": "^16.5.1",
     "react-dom": "^16.5.1",
     "react-emotion": "^9.2.12",
+    "react-headroom": "^2.2.4",
     "react-helmet": "^5.2.0",
     "yarn": "^1.12.1"
   },

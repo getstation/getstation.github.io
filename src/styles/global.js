@@ -17,7 +17,7 @@ injectGlobal`
   }
   html
   body {
-    height: 100%;
+    min-height: 100%;
     font-family: ${font.primary};
     font-size: ${rem(16)};
     font-weight: ${font.weightBase};
@@ -25,7 +25,6 @@ injectGlobal`
     text-rendering: optimizeLegibility;
     color: ${color.neutralDark};
     background: ${color.light};
-    overflow: hidden;
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -219,6 +218,14 @@ injectGlobal`
   th {
     font-weight: inherit;
     text-align: left;
+  }
+  .headroom--pinned {
+    display: block;
+    backdrop-filter: blur(5px);
+    background-color: rgba(255, 255, 255, 0.88);
+  }
+  .headroom--unpinned {
+    display: none;
   }
 }
 `;

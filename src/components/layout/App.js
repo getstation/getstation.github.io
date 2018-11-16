@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import Headroom from 'react-headroom';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import { css } from 'emotion';
@@ -15,16 +16,9 @@ class App extends React.Component {
     return (
       <div
         className={css({
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
           display: 'flex',
           flexDirection: 'column',
-          height: '100vh',
           background: colors.light,
-          overflowX: 'hidden',
-          overflowY: 'scroll',
         })}
       >
         <Helmet
@@ -39,10 +33,13 @@ class App extends React.Component {
         >
           <html lang="en" />
         </Helmet>
-        <Header
-          header={this.props.data.header}
-          download={this.props.data.download}
-        />
+        <Headroom>
+          <Header
+            header={this.props.data.header}
+            download={this.props.data.download}
+          />
+        </Headroom>
+
         <main
           className={css({
             padding: rem(20),
