@@ -4,6 +4,7 @@ import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
+import Presentation from '../components/organims/Presentation';
 import * as font from '../styles/fonts';
 
 const IndexPage = props => {
@@ -22,6 +23,7 @@ const IndexPage = props => {
         content={DATA.reassurance_content}
         logos={DATA.reassurance_logos}
       />
+      <Presentation data={DATA.presentation_list} />
     </App>
   );
 };
@@ -38,6 +40,20 @@ export const pageQuery = graphql`
         reassurance_content
         reassurance_logos {
           title
+          image {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+        }
+        presentation_list {
+          subtitle
+          title
+          content {
+            html
+          }
           image {
             url
             dimensions {
