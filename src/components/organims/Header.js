@@ -3,6 +3,7 @@ import { css } from 'emotion';
 import { Link } from 'gatsby';
 import { rem, rgba } from 'polished';
 import Button from '../atoms/Button';
+import NavButton from '../atoms/NavButton';
 import Wrapper from '../layout/Wrapper';
 import * as color from '../../styles/colors';
 import Logo from '../../images/logo-station-blue.svg';
@@ -15,7 +16,7 @@ const navLink = css`
   font-weight: ${font.weightMedium};
   color: '#6E7782';
   transition: opacity 0.3s ${transition.base};
-  padding: ${rem(10)} ${rem(20)};
+  padding: ${rem(15)} ${rem(20)};
   ${mqNavDesktop} {
     padding: ${rem(10)};
   }
@@ -35,15 +36,21 @@ const Header = ({
 }) => {
   const DATA = header.data;
   const DOWNLOAD = download.data;
-  console.log(toggleNavMobile);
   return (
-    <header {...rest}>
-      <Wrapper
-        className={css({
+    <header
+      {...rest}
+      className={css({
+        [mqNavMobile]: {
+          height: navMobileOpen ? '100vh' : 'auto',
           background: navMobileOpen ? color.light : 'transparent',
           boxShadow: navMobileOpen
             ? `0 0 30px ${rgba(color.clr1, 0.7)}`
             : 'none',
+        },
+      })}
+    >
+      <Wrapper
+        className={css({
           [mqNavMobile]: {
             paddingBottom: rem(20),
           },
@@ -69,27 +76,14 @@ const Header = ({
           </Link>
         </h1>
         <div>
-          <div
-            className={css({
-              position: 'absolute',
-              top: rem(20),
-              right: rem(20),
-              width: rem(40),
-              height: rem(40),
-              background: 'red',
-              cursor: 'pointer',
-            })}
-            onClick={() => toggleNavMobile()}
-          >
-            Menu
-          </div>
+          <NavButton onClick={toggleNavMobile} open={navMobileOpen} />
         </div>
         <div
           className={css({
             [mqNavMobile]: {
               display: navMobileOpen ? 'block' : 'none',
               textAlign: 'center',
-              padding: `${rem(10)} ${rem(20)}`,
+              padding: `${rem(40)} 0`,
             },
             [mqNavDesktop]: {
               display: 'flex',

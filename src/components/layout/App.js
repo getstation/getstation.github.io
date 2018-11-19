@@ -7,6 +7,7 @@ import { css } from 'emotion';
 import { rem } from 'polished';
 import Header from '../organims/Header';
 import Footer from '../organims/Footer';
+import { mqNavMobile } from '../../styles/breackpoint';
 import * as colors from '../../styles/colors';
 import '../../styles/global';
 
@@ -24,9 +25,14 @@ class App extends React.Component {
     return (
       <div
         className={css({
+          minHeight: '100vh',
           display: 'flex',
           flexDirection: 'column',
           background: colors.light,
+          [mqNavMobile]: {
+            height: this.state.navMobileOpen ? '100vh' : 'auto',
+            overflow: this.state.navMobileOpen ? 'hidden' : 'auto',
+          },
         })}
       >
         <Helmet

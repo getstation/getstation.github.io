@@ -1,6 +1,6 @@
 import { injectGlobal } from 'emotion';
 import normalize from './normalize';
-import { rem } from 'polished';
+import { rem, rgba } from 'polished';
 import * as font from './fonts';
 import * as color from './colors';
 
@@ -28,6 +28,9 @@ injectGlobal`
     -ms-text-size-adjust: 100%;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    overflow-y: scroll;
   }
   [tabindex="-1"]:focus {
     outline: none !important;
@@ -220,16 +223,34 @@ injectGlobal`
     text-align: left;
   }
   
-  .headroom-wrapper {
-    height: auto !important;
+  .headroom {
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    transition: background .3s ease-in-out;
   }
-  .headroom--pinned {
-    display: block;
-    backdrop-filter: blur(5px);
-    background-color: rgba(255, 255, 255, 0.88);
+
+  .headroom--unfixed {
+    position: fixed;
+    transform: translateY(0);
   }
+
+  .headroom--scrolled {
+    transition: transform 200ms ease-in-out;
+  }
+
   .headroom--unpinned {
-    display: none;
+    transform: translateY(-100%);
+    transition: none !important; /* Temporary fix : https://github.com/KyleAMathews/react-headroom/issues/154 */
   }
+
+  .headroom--pinned {
+    position: fixed;
+    background: ${rgba(color.light, 0.9)};
+    backdrop-filter: blur(10px);
+    transform: translateY(0%);
+  }
+
 }
 `;
