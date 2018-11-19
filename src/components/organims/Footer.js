@@ -8,7 +8,7 @@ import Wrapper from '../layout/Wrapper';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
-import { mq, mqOnlyPhone } from '../../styles/breackpoint';
+import { mqMin, mqMax } from '../../styles/breackpoint';
 import ProductHunt from '../../images/product-hunt-logo.svg';
 
 const Item = ({ type, text, url, tooltip, className, ...rest }) => (
@@ -44,12 +44,12 @@ const Col = ({ title, list, className, ...rest }) => {
     <div
       className={cx(
         css({
-          [mqOnlyPhone]: {
+          [mqMax[0]]: {
             '&:not(:first-child)': {
               marginTop: rem(30),
             },
           },
-          [mq[0]]: {
+          [mqMin[0]]: {
             flexGrow: 1,
             padding: `0 ${rem(20)}`,
           },
@@ -89,7 +89,7 @@ const Footer = ({ footer, download, ...rest }) => {
       className={css({
         padding: `${rem(40)} 0 ${rem(40)}`,
         background: 'linear-gradient(to top, #130cb7, #52e5e7)',
-        [mq[0]]: {
+        [mqMin[0]]: {
           padding: `${rem(100)} 0 ${rem(40)}`,
         },
       })}
@@ -98,14 +98,14 @@ const Footer = ({ footer, download, ...rest }) => {
       <Wrapper>
         <div
           className={css({
-            [mq[1]]: {
+            [mqMin[1]]: {
               display: 'flex',
             },
           })}
         >
           <div
             className={css({
-              [mq[0]]: {
+              [mqMin[0]]: {
                 display: 'flex',
                 justifyContent: 'space-between',
                 margin: `0 ${rem(-20)}`,
@@ -129,7 +129,7 @@ const Footer = ({ footer, download, ...rest }) => {
               marginTop: rem(30),
               paddingTop: rem(30),
               borderTop: `1px solid ${rgba(color.light, 0.2)}`,
-              [mq[1]]: {
+              [mqMin[1]]: {
                 marginTop: 0,
                 paddingTop: 0,
                 borderTop: 'none',
@@ -146,10 +146,10 @@ const Footer = ({ footer, download, ...rest }) => {
           className={css({
             paddingTop: rem(60),
             display: 'flex',
-            [mqOnlyPhone]: {
+            [mqMax[0]]: {
               flexDirection: 'column',
             },
-            [mq[0]]: {
+            [mqMin[0]]: {
               alignItems: 'center',
               justifyContent: 'space-between',
             },
@@ -157,7 +157,7 @@ const Footer = ({ footer, download, ...rest }) => {
         >
           <div
             className={css({
-              [mqOnlyPhone]: {
+              [mqMax[0]]: {
                 marginTop: rem(60),
                 textAlign: 'center',
               },
@@ -167,11 +167,11 @@ const Footer = ({ footer, download, ...rest }) => {
           </div>
           <div
             className={css({
-              [mqOnlyPhone]: {
+              [mqMax[0]]: {
                 marginTop: rem(20),
                 order: -1,
               },
-              [mq[0]]: {
+              [mqMin[0]]: {
                 display: 'flex',
                 alignItems: 'center',
               },
@@ -182,10 +182,10 @@ const Footer = ({ footer, download, ...rest }) => {
                 className={css({
                   display: 'flex',
                   alignItems: 'center',
-                  [mqOnlyPhone]: {
+                  [mqMax[0]]: {
                     justifyContent: 'center',
                   },
-                  [mq[0]]: {
+                  [mqMin[0]]: {
                     paddingRight: rem(30),
                   },
                 })}
@@ -224,7 +224,7 @@ const Footer = ({ footer, download, ...rest }) => {
                 className={css({
                   display: 'flex',
                   alignItems: 'center',
-                  [mqOnlyPhone]: {
+                  [mqMax[0]]: {
                     marginTop: rem(20),
                     justifyContent: 'center',
                   },
