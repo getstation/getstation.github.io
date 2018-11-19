@@ -3,7 +3,7 @@ import { css } from 'emotion';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import HeroHome from '../components/organims/HeroHome';
-import Title from '../components/atoms/Title';
+import Reassurance from '../components/organims/Reassurance';
 import * as font from '../styles/fonts';
 
 const IndexPage = props => {
@@ -17,6 +17,11 @@ const IndexPage = props => {
         legend={DATA.hero_legend}
         download={DOWNLOAD}
       />
+      <Reassurance
+        title={DATA.reassurance_title}
+        content={DATA.reassurance_content}
+        logos={DATA.reassurance_logos}
+      />
     </App>
   );
 };
@@ -29,6 +34,18 @@ export const pageQuery = graphql`
         hero_title
         hero_content
         hero_legend
+        reassurance_title
+        reassurance_content
+        reassurance_logos {
+          title
+          image {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+        }
       }
     }
     download: prismicDownloadapp {
