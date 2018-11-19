@@ -38,7 +38,7 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
                 marginBottom: rem(10),
               },
               [[mqMin[2]]]: {
-                fontSize: rem(30),
+                fontSize: font.XXXL,
               },
             })}
           >

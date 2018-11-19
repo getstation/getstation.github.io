@@ -32,7 +32,8 @@ export const M = rem(18);
 export const L = rem(20);
 export const XL = rem(22);
 export const XXL = rem(24);
-export const XXXL = rem(32);
+export const XXXL = rem(30);
+export const XXXXL = rem(42);
 
 /*
   Font-weight
