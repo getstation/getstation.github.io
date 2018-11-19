@@ -2,149 +2,21 @@ import React from 'react';
 import { css } from 'emotion';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
+import HeroHome from '../components/organims/HeroHome';
 import Title from '../components/atoms/Title';
 import * as font from '../styles/fonts';
 
 const IndexPage = props => {
   const DATA = props.data.content.data;
+  const DOWNLOAD = props.data.download;
   return (
     <App>
-      {DATA.title && (
-        <Title
-          element="h1"
-          className={css`
-            font-size: ${font.XXXL};
-          `}
-        >
-          {DATA.title}
-        </Title>
-      )}
-      {DATA.exemple_text && <p>{DATA.exemple_text}</p>}
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Fuga provident
-        molestiae officia dolorum minus. Id inventore aliquam earum error vitae
-        voluptatum magnam quaerat, autem et facere eum, laboriosam cum rerum?
-      </p>
+      <HeroHome
+        title={DATA.hero_title}
+        content={DATA.hero_content}
+        legend={DATA.hero_legend}
+        download={DOWNLOAD}
+      />
     </App>
   );
 };
@@ -152,10 +24,25 @@ const IndexPage = props => {
 export default IndexPage;
 export const pageQuery = graphql`
   query IndexQuery {
-    content: prismicTest {
+    content: prismicHomepage {
       data {
-        title
-        exemple_text
+        hero_title
+        hero_content
+        hero_legend
+      }
+    }
+    download: prismicDownloadapp {
+      data {
+        button_text
+        button_url {
+          url
+        }
+        plateform_list {
+          type
+          url {
+            url
+          }
+        }
       }
     }
   }

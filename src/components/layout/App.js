@@ -4,12 +4,16 @@ import Headroom from 'react-headroom';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import { css } from 'emotion';
-import { rem } from 'polished';
+import styled from 'react-emotion';
 import Header from '../organims/Header';
 import Footer from '../organims/Footer';
 import { mqNavMobile } from '../../styles/breackpoint';
 import * as colors from '../../styles/colors';
 import '../../styles/global';
+
+const Main = styled('main')`
+  flex-grow: 1;
+`;
 
 class App extends React.Component {
   state = {
@@ -56,14 +60,7 @@ class App extends React.Component {
           />
         </Headroom>
 
-        <main
-          className={css({
-            padding: rem(20),
-            flexGrow: 1,
-          })}
-        >
-          {this.props.children}
-        </main>
+        <Main>{this.props.children}</Main>
         <Footer
           footer={this.props.data.footer}
           download={this.props.data.download}

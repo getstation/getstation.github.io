@@ -4,11 +4,12 @@ import Icon from '../../components/atoms/Icon';
 import { rem } from 'polished';
 import Button from '../atoms/Button';
 import * as transition from '../../styles/transitions';
+import * as color from '../../styles/colors';
 
-const DownloadApp = ({ data, ...rest }) => {
+const DownloadApp = ({ data, theme, ...rest }) => {
   const DATA = data.data;
   return (
-    <div>
+    <div {...rest}>
       <div
         className={css({
           marginBottom: rem(15),
@@ -16,7 +17,7 @@ const DownloadApp = ({ data, ...rest }) => {
         })}
       >
         {DATA.button_text && DATA.button_url && (
-          <Button to={DATA.button_url.url} theme="light" size="L">
+          <Button to={DATA.button_url.url} theme={theme} size="L">
             {DATA.button_text}
           </Button>
         )}
@@ -45,7 +46,11 @@ const DownloadApp = ({ data, ...rest }) => {
                 },
               })}
             >
-              <Icon type={item.type} size={20} color="light" />
+              <Icon
+                type={item.type}
+                size={20}
+                color={theme === 'light' ? 'light' : 'clr1Light'}
+              />
             </a>
           ))}
       </div>

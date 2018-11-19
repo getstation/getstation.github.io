@@ -83,7 +83,6 @@ const Col = ({ title, list, className, ...rest }) => {
 
 const Footer = ({ footer, download, ...rest }) => {
   const DATA = footer.data;
-  const DOWNLOAD = download.data;
   return (
     <footer
       className={css({
@@ -139,7 +138,7 @@ const Footer = ({ footer, download, ...rest }) => {
               },
             })}
           >
-            <DownloadApp data={download} />
+            <DownloadApp data={download} theme="light" />
           </div>
         </div>
         <div
