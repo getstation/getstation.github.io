@@ -40,6 +40,7 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
         css({
           overflow: 'hidden',
           position: 'relative',
+          marginTop: rem(-88),
           backgroundImage: 'linear-gradient(to top, #f5f7ff, #ffffff)',
         }),
         className,
@@ -50,9 +51,9 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
         className={css({
           zIndex: 1,
           position: 'relative',
-          padding: `${rem(90)} 0`,
+          padding: `${rem(90 + 88)} 0 ${rem(90)}`,
           [[mqMax[2]]]: {
-            padding: `${rem(100)} 0`,
+            padding: `${rem(188)} 0`,
           },
           [[mqMin[2]]]: {
             minHeight: '50vh',
