@@ -1,5 +1,6 @@
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import { mqMin } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as color from '../../styles/colors';
 import * as link from '../../styles/links';
@@ -8,6 +9,7 @@ import { rem } from 'polished';
 const title = css`
   font-weight: ${font.weightBold};
   line-height: ${font.lineHeightL};
+  color: ${color.neutralDark};
 `;
 
 const spacing = css`
@@ -15,6 +17,10 @@ const spacing = css`
 `;
 
 const Content = styled('div')`
+  color: ${color.neutralLight};
+  ${[mqMin[2]]} {
+    font-size: ${font.M};
+  }
   h1,
   h2,
   h3,
