@@ -1,5 +1,5 @@
 import React from 'react';
-import { rem } from 'polished';
+import { rem, rgba } from 'polished';
 import { css } from 'emotion';
 import styled from 'react-emotion';
 import Title from '../atoms/Title';
@@ -8,7 +8,6 @@ import Wrapper from '../layout/Wrapper';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
-import pattern1 from '../../images/pattern-form1.png';
 
 const ColText = styled('div')`
   ${mqMin[1]} {
@@ -22,6 +21,7 @@ const ColImage = styled('div')`
   position: relative;
   ${mqMax[1]} {
     margin-top: ${rem(30)};
+    order: 666 !important;
   }
   ${mqMin[1]} {
     width: 50%;
@@ -57,10 +57,63 @@ const Subtitle = styled('div')`
   font-size: ${rem(20)};
 `;
 
+const SectionTitle = styled(Title)`
+  display: inline-block;
+  position: relative;
+  font-size: ${font.XXL};
+  ${[mqMin[2]]} {
+    font-size: ${font.XXXL};
+  }
+  &:after {
+    content: '';
+    display: block;
+    width: ${rem(170)};
+    height: ${rem(26)};
+    position: absolute;
+    opacity: 0.28;
+    top: ${rem(18)};
+    right: ${rem(-30)};
+    border-radius: ${rem(2)};
+    ${[mqMin[1]]} {
+      top: ${rem(18)};
+      right: ${rem(33)};
+      height: ${rem(28)};
+    }
+    ${[mqMin[2]]} {
+      top: ${rem(22)};
+      height: ${rem(30)};
+    }
+  }
+`;
+
+const Comet = styled('div')`
+  ${mqMax[2]} {
+    display: none;
+  }
+  position: relative;
+  height: ${rem(60)};
+  width: ${rem(500)};
+  border-radius: ${rem(666)};
+  margin-top: ${rem(-60)};
+  transform: translateX(20vw) translateY(${rem(160)});
+  &:after {
+    content: '';
+    display: block;
+    width: ${rem(60)};
+    height: ${rem(60)};
+    border: 4px solid;
+    border-radius: ${rem(666)};
+    position: absolute;
+    top: 0;
+    opacity: 0.8;
+  }
+`;
+
 const Section = styled('div')`
-  margin-top: ${rem(100)};
+  padding: ${rem(50)} 0;
+  overflow: hidden;
   ${mqMin[1]} {
-    margin-top: ${rem(150)};
+    padding: ${rem(100)} 0;
   }
   &:nth-child(2n + 1) {
     ${ColImage} {
@@ -71,15 +124,50 @@ const Section = styled('div')`
     ${Subtitle} {
       color: ${color.clr2};
     }
+    ${SectionTitle} {
+      &:after {
+        background: ${color.clr2};
+      }
+    }
+    ${Comet} {
+      background: ${rgba(color.clr2, 0.3)};
+      &:after {
+        border-color: ${color.clr2};
+      }
+    }
   }
   &:nth-child(3n + 2) {
     ${Subtitle} {
       color: ${color.clr3};
     }
+    ${SectionTitle} {
+      &:after {
+        background: ${color.clr3};
+      }
+    }
+    ${Comet} {
+      background: ${rgba(color.clr3, 0.3)};
+      transform: translateX(-10vw) translateY(${rem(160)});
+      &:after {
+        border-color: ${color.clr3};
+        right: 0;
+      }
+    }
   }
   &:nth-child(3n + 3) {
     ${Subtitle} {
       color: ${color.clr4};
+    }
+    ${SectionTitle} {
+      &:after {
+        background: ${color.clr4};
+      }
+    }
+    ${Comet} {
+      background: ${rgba(color.clr4, 0.3)};
+      &:after {
+        border-color: ${color.clr4};
+      }
     }
   }
 `;
@@ -92,26 +180,27 @@ const Presentation = ({ data, ...rest }) => {
           <Section key={item.title}>
             <Wrapper
               className={css({
+                display: 'flex',
+                flexDirection: 'column',
                 [mqMin[1]]: {
-                  display: 'flex',
+                  flexDirection: 'row',
                   alignItems: 'center',
-                  overflow: 'hidden',
                 },
               })}
             >
               <ColText>
                 {item.subtitle && <Subtitle>{item.subtitle}</Subtitle>}
                 {item.title && (
-                  <Title
-                    className={css({
-                      fontSize: font.XXL,
-                      [[mqMin[2]]]: {
-                        fontSize: font.XXXL,
-                      },
-                    })}
-                  >
-                    {item.title}
-                  </Title>
+                  <SectionTitle>
+                    <div
+                      className={css({
+                        position: 'relative',
+                        zIndex: 1,
+                      })}
+                    >
+                      {item.title}
+                    </div>
+                  </SectionTitle>
                 )}
                 {item.content && (
                   <Content
@@ -121,6 +210,7 @@ const Presentation = ({ data, ...rest }) => {
                     `}
                   />
                 )}
+                <Comet />
               </ColText>
               <ColImage>
                 <ColImageInner>

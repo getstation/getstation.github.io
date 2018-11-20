@@ -227,7 +227,7 @@ injectGlobal`
     top: 0;
     left: 0;
     right: 0;
-    z-index: 1;
+    z-index: 666 !important;
     transition: background .3s ease-in-out;
   }
 
