@@ -5,6 +5,7 @@ import App from '../components/layout/App';
 import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
 import Presentation from '../components/organims/Presentation';
+import More from '../components/organims/More';
 import * as font from '../styles/fonts';
 
 const IndexPage = props => {
@@ -24,6 +25,11 @@ const IndexPage = props => {
         logos={DATA.reassurance_logos}
       />
       <Presentation data={DATA.presentation_list} />
+      <More
+        title={DATA.more_title}
+        data={DATA.more_list}
+        button={DATA.more_button_text}
+      />
     </App>
   );
 };
@@ -62,6 +68,19 @@ export const pageQuery = graphql`
             }
           }
         }
+        more_title
+        more_list {
+          title
+          content
+          image {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+        }
+        more_button_text
       }
     }
     download: prismicDownloadapp {
