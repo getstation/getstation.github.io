@@ -8,7 +8,6 @@ import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 
 const Reassurance = ({ title, content, logos, ...rest }) => {
-  console.log(logos);
   return (
     <div
       className={css({
@@ -76,12 +75,14 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
                   margin: rem(10),
                 })}
               >
-                <img
-                  src={item.image.url}
-                  alt={item.title}
-                  width={item.image.dimensions.width}
-                  height={item.image.dimensions.height}
-                />
+                {item.image.url && (
+                  <img
+                    src={item.image.url}
+                    alt={item.title}
+                    width={item.image.dimensions.width}
+                    height={item.image.dimensions.height}
+                  />
+                )}
               </li>
             ))}
           </ul>

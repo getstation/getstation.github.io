@@ -105,18 +105,21 @@ const More = ({ title, data, button, ...rest }) => {
           <Grid>
             {data.map(item => (
               <Box key={item.title}>
-                <img
-                  src={item.image.url}
-                  width={item.image.dimensions.width}
-                  height={item.image.dimensions.height}
-                  alt=""
-                  className={css({
-                    marginTop: -item.image.dimensions.height,
-                    transform: `translateY(${rem(-15)})`,
-                  })}
-                />
-                <BoxTitle>{item.title}</BoxTitle>
-                <BoxContent>{item.content}</BoxContent>
+                {item.image.url && (
+                  <img
+                    src={item.image.url}
+                    width={item.image.dimensions.width}
+                    height={item.image.dimensions.height}
+                    alt=""
+                    className={css({
+                      marginTop: -item.image.dimensions.height,
+                      transform: `translateY(${rem(-15)})`,
+                    })}
+                  />
+                )}
+
+                {item.title && <BoxTitle>{item.title}</BoxTitle>}
+                {item.content && <BoxContent>{item.content}</BoxContent>}
               </Box>
             ))}
           </Grid>
