@@ -6,7 +6,6 @@ import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
 import Presentation from '../components/organims/Presentation';
 import More from '../components/organims/More';
-import * as font from '../styles/fonts';
 
 const IndexPage = props => {
   const DATA = props.data.content.data;
@@ -24,12 +23,15 @@ const IndexPage = props => {
         content={DATA.reassurance_content}
         logos={DATA.reassurance_logos}
       />
-      <Presentation data={DATA.presentation_list} />
-      <More
-        title={DATA.more_title}
-        data={DATA.more_list}
-        button={DATA.more_button_text}
-      />
+      {DATA.presentation_list && <Presentation data={DATA.presentation_list} />}
+      {DATA.more_title && (
+        <More
+          title={DATA.more_title}
+          data={DATA.more_list}
+          button={DATA.more_button_text}
+          buttonUrl="/"
+        />
+      )}
     </App>
   );
 };
