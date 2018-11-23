@@ -4,6 +4,7 @@ import { css } from 'emotion';
 import { rem } from 'polished';
 import SectionBase from '../molecules/SectionBase';
 import Button from '../atoms/Button';
+import Wrapper from '../layout/Wrapper';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
@@ -83,30 +84,32 @@ const More = ({ title, data, button, buttonUrl, ...rest }) => {
       {...rest}
     >
       {data && (
-        <Grid>
-          {data.map(
-            (item, index) =>
-              item.image.url && (
-                <Box key={`${index}-more-data`}>
-                  {item.image.url && (
-                    <img
-                      src={item.image.url}
-                      width={84}
-                      height={84}
-                      alt=""
-                      className={css({
-                        marginTop: rem(-84),
-                        transform: `translateY(${rem(-15)})`,
-                      })}
-                    />
-                  )}
+        <Wrapper className={css({ overflow: 'hidden' })}>
+          <Grid>
+            {data.map(
+              (item, index) =>
+                item.image.url && (
+                  <Box key={`${index}-more-data`}>
+                    {item.image.url && (
+                      <img
+                        src={item.image.url}
+                        width={84}
+                        height={84}
+                        alt=""
+                        className={css({
+                          marginTop: rem(-84),
+                          transform: `translateY(${rem(-15)})`,
+                        })}
+                      />
+                    )}
 
-                  {item.title && <BoxTitle>{item.title}</BoxTitle>}
-                  {item.content && <BoxContent>{item.content}</BoxContent>}
-                </Box>
-              ),
-          )}
-        </Grid>
+                    {item.title && <BoxTitle>{item.title}</BoxTitle>}
+                    {item.content && <BoxContent>{item.content}</BoxContent>}
+                  </Box>
+                ),
+            )}
+          </Grid>
+        </Wrapper>
       )}
     </SectionBase>
   );

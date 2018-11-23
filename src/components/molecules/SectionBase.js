@@ -41,7 +41,7 @@ const Line = styled('div')`
 const SectionBase = ({ title, footer, children, ...rest }) => {
   return (
     <Box {...rest}>
-      <Wrapper className={css({ overflow: 'hidden' })}>
+      <Wrapper>
         {title && (
           <Header>
             <Title
@@ -58,9 +58,13 @@ const SectionBase = ({ title, footer, children, ...rest }) => {
             <Line />
           </Header>
         )}
-        {children && children}
-        {footer && <Footer>{footer}</Footer>}
       </Wrapper>
+      {children && children}
+      {footer && (
+        <Wrapper>
+          <Footer>{footer}</Footer>
+        </Wrapper>
+      )}
     </Box>
   );
 };

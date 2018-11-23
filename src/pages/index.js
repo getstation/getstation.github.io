@@ -1,11 +1,11 @@
 import React from 'react';
-import { css } from 'emotion';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
 import Presentation from '../components/organims/Presentation';
 import More from '../components/organims/More';
+import SeeAllApps from '../components/organims/SeeAllApps';
 
 const IndexPage = props => {
   const DATA = props.data.content.data;
@@ -30,6 +30,14 @@ const IndexPage = props => {
           data={DATA.more_list}
           button={DATA.more_button_text}
           buttonUrl="/"
+        />
+      )}
+      {DATA.seeallapps_title && (
+        <SeeAllApps
+          title={DATA.seeallapps_title}
+          button={DATA.seeallapps_button_text}
+          buttonUrl="/"
+          data={DATA.seeallapps_image}
         />
       )}
     </App>
@@ -83,6 +91,15 @@ export const pageQuery = graphql`
           }
         }
         more_button_text
+        seeallapps_title
+        seeallapps_image {
+          url
+          dimensions {
+            width
+            height
+          }
+        }
+        seeallapps_button_text
       }
     }
     download: prismicDownloadapp {
