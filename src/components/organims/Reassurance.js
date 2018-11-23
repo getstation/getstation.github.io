@@ -68,23 +68,26 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
               alignItems: 'center',
             })}
           >
-            {logos.map((item, index) => (
-              <li
-                key={`${index}-logos`}
-                className={css({
-                  margin: rem(10),
-                })}
-              >
-                {item.image.url && (
-                  <img
-                    src={item.image.url}
-                    alt={item.title}
-                    width={item.image.dimensions.width}
-                    height={item.image.dimensions.height}
-                  />
-                )}
-              </li>
-            ))}
+            {logos.map(
+              (item, index) =>
+                item.image.url && (
+                  <li
+                    key={`${index}-logos`}
+                    className={css({
+                      margin: rem(10),
+                    })}
+                  >
+                    {item.image.url && (
+                      <img
+                        src={item.image.url}
+                        alt={item.title}
+                        width={item.image.dimensions.width}
+                        height={item.image.dimensions.height}
+                      />
+                    )}
+                  </li>
+                ),
+            )}
           </ul>
         )}
       </div>
