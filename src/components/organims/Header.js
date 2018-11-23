@@ -72,7 +72,21 @@ const Header = ({
           })}
         >
           <Link to="/">
-            <img src={Logo} alt="Station" width="100" height="28" />
+            {DATA.logo.url ? (
+              <img
+                src={DATA.logo.url}
+                alt={DATA.logo_alt_text}
+                width={DATA.logo.dimensions.width}
+                height={DATA.logo.dimensions.height}
+              />
+            ) : (
+              <img
+                src={Logo}
+                alt={DATA.logo_alt_text}
+                width="100"
+                height="28"
+              />
+            )}
           </Link>
         </h1>
         <div>

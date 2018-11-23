@@ -93,6 +93,14 @@ export default props => (
         }
         header: prismicHeader {
           data {
+            logo {
+              url
+              dimensions {
+                width
+                height
+              }
+            }
+            logo_alt_text
             link_1_text
             link_2_text
             link_3_text
