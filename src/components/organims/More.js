@@ -55,20 +55,21 @@ const Grid = styled('div')`
   margin-bottom: ${rem(60)};
   ${mqMin[1]} {
     display: flex;
+    flex-wrap: wrap;
     margin: ${rem(60)} ${rem(-20)};
     > * {
-      margin: 0 ${rem(20)};
-      flex: 1 1 33.333%;
+      margin: ${rem(20)};
+      width: calc(33.333% - ${rem(20 * 2)});
     }
   }
   ${mqMin[2]} {
-    margin-top: ${rem(120)};
-    margin-bottom: ${rem(100)};
+    margin-top: ${rem(75)};
+    margin-bottom: ${rem(55)};
     margin-left: ${rem(-45)};
     margin-right: ${rem(-45)};
     > * {
-      margin-left: ${rem(45)};
-      margin-right: ${rem(45)};
+      margin: ${rem(45)};
+      width: calc(33.333% - ${rem(45 * 2)});
     }
   }
 `;
@@ -84,7 +85,7 @@ const Line = styled('div')`
 const More = ({ title, data, button, ...rest }) => {
   return (
     <Section {...rest}>
-      <Wrapper>
+      <Wrapper className={css({ overflow: 'hidden' })}>
         {title && (
           <React.Fragment>
             <Title
@@ -103,25 +104,28 @@ const More = ({ title, data, button, ...rest }) => {
         )}
         {data && (
           <Grid>
-            {data.map(item => (
-              <Box key={item.title}>
-                {item.image.url && (
-                  <img
-                    src={item.image.url}
-                    width={item.image.dimensions.width}
-                    height={item.image.dimensions.height}
-                    alt=""
-                    className={css({
-                      marginTop: -item.image.dimensions.height,
-                      transform: `translateY(${rem(-15)})`,
-                    })}
-                  />
-                )}
+            {data.map(
+              (item, index) =>
+                item.image.url && (
+                  <Box key={`${index}-more-data`}>
+                    {item.image.url && (
+                      <img
+                        src={item.image.url}
+                        width={84}
+                        height={84}
+                        alt=""
+                        className={css({
+                          marginTop: rem(-84),
+                          transform: `translateY(${rem(-15)})`,
+                        })}
+                      />
+                    )}
 
-                {item.title && <BoxTitle>{item.title}</BoxTitle>}
-                {item.content && <BoxContent>{item.content}</BoxContent>}
-              </Box>
-            ))}
+                    {item.title && <BoxTitle>{item.title}</BoxTitle>}
+                    {item.content && <BoxContent>{item.content}</BoxContent>}
+                  </Box>
+                ),
+            )}
           </Grid>
         )}
         {button && (

@@ -68,9 +68,9 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
               alignItems: 'center',
             })}
           >
-            {logos.map(item => (
+            {logos.map((item, index) => (
               <li
-                key={item.title}
+                key={`${index}-logos`}
                 className={css({
                   margin: rem(10),
                 })}

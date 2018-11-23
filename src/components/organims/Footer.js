@@ -72,8 +72,8 @@ const Col = ({ title, list, className, ...rest }) => {
       </div>
       {list && (
         <ul>
-          {list.map(item => (
-            <Item key={item.text} {...item} />
+          {list.map((item, index) => (
+            <Item key={`${index}-footer-list`} {...item} />
           ))}
         </ul>
       )}

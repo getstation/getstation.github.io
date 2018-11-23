@@ -30,9 +30,9 @@ const DownloadApp = ({ data, theme, ...rest }) => {
         })}
       >
         {DATA.plateform_list &&
-          DATA.plateform_list.map(item => (
+          DATA.plateform_list.map((item, index) => (
             <a
-              key={item.type}
+              key={`${index}-plateform-list`}
               href={item.url.url}
               className={css({
                 padding: rem(5),
