@@ -7,6 +7,7 @@ import NavButton from '../atoms/NavButton';
 import Wrapper from '../layout/Wrapper';
 import * as color from '../../styles/colors';
 import Logo from '../../images/logo-station-blue.svg';
+import { URL } from '../../const';
 import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as transition from '../../styles/transitions';
@@ -109,7 +110,7 @@ const Header = ({
           })}
         >
           {DATA.link_1_text && (
-            <Link className={navLink} to="/">
+            <Link className={navLink} to={URL.features}>
               {DATA.link_1_text}
             </Link>
           )}
