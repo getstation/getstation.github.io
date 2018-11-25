@@ -48,7 +48,7 @@ const BoxContent = styled('p')`
 
 const Grid = styled('div')`
   ${mqMax[1]} {
-    padding-top: ${rem(34)};
+    padding-top: ${rem(42)};
   }
   ${mqMin[1]} {
     display: flex;
