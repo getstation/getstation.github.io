@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import { Link } from 'gatsby';
 import { rem } from 'polished';
 import SectionBase from '../molecules/SectionBase';
 import Button from '../atoms/Button';
@@ -71,7 +72,7 @@ const Grid = styled('div')`
 
 const Footer = ({ button, url = '/' }) =>
   button && (
-    <Button to={url} size="L" theme="ghost">
+    <Button to={url} size="L" theme="ghost" element={Link}>
       {button}
     </Button>
   );

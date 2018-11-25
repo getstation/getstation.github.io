@@ -19,7 +19,6 @@ const Footer = ({ button, url = '/' }) =>
   );
 
 const More = ({ title, data, button, buttonUrl, ...rest }) => {
-  console.log(data);
   return (
     <SectionBase
       title={title}
