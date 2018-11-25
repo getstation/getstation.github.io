@@ -6,6 +6,7 @@ import Reassurance from '../components/organims/Reassurance';
 import Presentation from '../components/organims/Presentation';
 import More from '../components/organims/More';
 import SeeAllApps from '../components/organims/SeeAllApps';
+import { URL } from '../const';
 
 const IndexPage = props => {
   const DATA = props.data.content.data;
@@ -29,7 +30,7 @@ const IndexPage = props => {
           title={DATA.more_title}
           data={DATA.more_list}
           button={DATA.more_button_text}
-          buttonUrl="/"
+          buttonUrl={URL.features}
         />
       )}
       {DATA.seeallapps_title && (
