@@ -40,7 +40,6 @@ const GridItem = styled('div')`
 `;
 
 const FeatureCards = ({ data, ...rest }) => {
-  console.log(data.body);
   return (
     <Wrapper className={css({ overflow: 'hidden' })}>
       <Grid>
@@ -48,6 +47,7 @@ const FeatureCards = ({ data, ...rest }) => {
           if (item.slice_type === 'featurecard') {
             return (
               <GridItem
+                key={`${index}-grid-item`}
                 css={`
                   ${mqMin[0]} {
                     width: 50%;
@@ -57,12 +57,13 @@ const FeatureCards = ({ data, ...rest }) => {
                   }
                 `}
               >
-                <FeatureCardBase key={index} data={item.primary} />
+                <FeatureCardBase data={item.primary} />
               </GridItem>
             );
           } else if (item.slice_type === 'featureslider') {
             return (
               <GridItem
+                key={`${index}-grid-item`}
                 css={`
                   ${mqMin[0]} {
                     width: 100%;
@@ -72,11 +73,7 @@ const FeatureCards = ({ data, ...rest }) => {
                   }
                 `}
               >
-                <FeatureCardSlider
-                  key={index}
-                  data={item.primary}
-                  items={item.items}
-                />
+                <FeatureCardSlider data={item.primary} items={item.items} />
               </GridItem>
             );
           }
