@@ -66,10 +66,10 @@ const FeatureCards = ({ data, ...rest }) => {
                 key={`${index}-grid-item`}
                 css={`
                   ${mqMin[0]} {
-                    width: 100%;
+                    width: 50%;
                   }
                   ${mqMin[2]} {
-                    width: 66.666%;
+                    width: 33.333%;
                   }
                 `}
               >
