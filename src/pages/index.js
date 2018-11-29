@@ -38,7 +38,7 @@ const IndexPage = props => {
           title={DATA.seeallapps_title}
           button={DATA.seeallapps_button_text}
           buttonUrl="/"
-          data={DATA.apps}
+          data={DATA.seeallapps_image}
         />
       )}
     </App>
@@ -93,13 +93,11 @@ export const pageQuery = graphql`
         }
         more_button_text
         seeallapps_title
-        apps {
-          image {
-            url
-            dimensions {
-              width
-              height
-            }
+        seeallapps_image {
+          url
+          dimensions {
+            width
+            height
           }
         }
         seeallapps_button_text

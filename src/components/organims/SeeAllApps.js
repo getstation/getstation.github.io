@@ -5,20 +5,9 @@ import { css } from 'emotion';
 import SectionBase from '../molecules/SectionBase';
 import Button from '../atoms/Button';
 
-const isEven = n => {
-  return n % 2 == 0;
-};
-
 const slide = keyframes`
-  from { background-position: 0 0; }
-    to { background-position: -1500px 0; }
-}
-`;
-
-const slideBack = keyframes`
-  from { background-position: 0 0; }
-    to { background-position: 1500px; }
-}
+  from { background-position: 0 0 }
+  to { background-position: 1520px 0 }
 `;
 
 const Footer = ({ button, url = '/' }) =>
@@ -36,19 +25,15 @@ const More = ({ title, data, button, buttonUrl, ...rest }) => {
       footer={button && buttonUrl && <Footer button={button} url={buttonUrl} />}
       {...rest}
     >
-      {data &&
-        data.map((item, index) => (
-          <div
-            key={`${index}-slide-app`}
-            className={css({
-              height: item.image.dimensions.height + 25,
-              background: `url(${item.image.url}) center repeat-x`,
-              animation: `${
-                isEven(index) ? slide : slideBack
-              } 100s linear infinite`,
-            })}
-          />
-        ))}
+      {data && (
+        <div
+          className={css({
+            height: rem(data.dimensions.height),
+            backgroundImage: `url(${data.url})`,
+            animation: `${slide} 30s linear infinite`,
+          })}
+        />
+      )}
     </SectionBase>
   );
 };
