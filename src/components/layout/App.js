@@ -1,4 +1,5 @@
 import React from 'react';
+import { rem } from 'polished';
 import PropTypes from 'prop-types';
 import Headroom from 'react-headroom';
 import { StaticQuery, graphql } from 'gatsby';
@@ -12,6 +13,7 @@ import * as colors from '../../styles/colors';
 import '../../styles/global';
 
 const Main = styled('main')`
+  margin-top: ${rem(-88)};
   flex-grow: 1;
 `;
 

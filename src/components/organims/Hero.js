@@ -7,15 +7,16 @@ import Wrapper from '../layout/Wrapper';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
+import Seprator from '../../images/hero-separator-bottom.svg';
 
 const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
   return (
     <div
       className={cx(
         css({
-          padding: `${rem(140)} 0`,
           color: color.light,
           textAlign: 'center',
+          position: 'relative',
           background: `linear-gradient(to bottom, ${gradient.top} 0%, ${
             gradient.bottom
           } 100%)`,
@@ -24,7 +25,11 @@ const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
       )}
       {...rest}
     >
-      <Wrapper>
+      <Wrapper
+        className={css({
+          padding: `${rem(160)} 0 ${rem(100)}`,
+        })}
+      >
         {title && (
           <Title
             element="h2"
@@ -51,41 +56,13 @@ const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
           </div>
         )}
       </Wrapper>
-
-      <svg
-        width="1439px"
-        height="54px"
-        viewBox="0 0 1439 54"
-        version="1.1"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g
-          id="Website"
-          stroke="none"
-          stroke-width="1"
-          fill="none"
-          fill-rule="evenodd"
-        >
-          <g
-            id="Web-—-Features"
-            transform="translate(0.000000, -322.000000)"
-            fill="#fff"
-          >
-            <path
-              d="M-2.27373675e-13,322 C720,331 720,371.781515 1440,376 C1440,376 960,376 -2.27373675e-13,376 C-2.27373675e-13,340 -2.27373675e-13,322 -2.27373675e-13,322 Z"
-              id="Rectangle"
-            />
-          </g>
-        </g>
-      </svg>
-
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        height="54px"
-        width="100%"
-        height="100"
-        viewBox="0 0 100 100"
-        preserveAspectRatio="none"
+      <img
+        src={Seprator}
+        alt=""
+        className={css({
+          width: '100%',
+          display: 'block',
+        })}
       />
     </div>
   );

@@ -40,7 +40,6 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
         css({
           overflow: 'hidden',
           position: 'relative',
-          marginTop: rem(-88),
           backgroundImage: 'linear-gradient(to top, #f5f7ff, #ffffff)',
         }),
         className,
