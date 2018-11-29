@@ -1,8 +1,29 @@
-import { injectGlobal } from 'emotion';
+import { injectGlobal, css } from 'emotion';
 import normalize from './normalize';
 import { rem, rgba } from 'polished';
 import * as font from './fonts';
 import * as color from './colors';
+import { mqNavMobile } from './breackpoint';
+
+const navItems = css`
+  .header-logo {
+    filter: none;
+  }
+  .header-nav {
+    a {
+      color: ${color.neutral};
+    }
+  }
+  .header-nav-button span {
+    background: ${color.clr1};
+    color: ${color.light};
+    &:hover,
+    &:focus {
+      background: ${color.clr1Dark};
+      color: ${color.light};
+    }
+  }
+`;
 
 /*
  Injects global styles
@@ -250,6 +271,12 @@ injectGlobal`
     background: ${rgba(color.light, 0.9)};
     backdrop-filter: blur(10px);
     transform: translateY(0%);
+    ${navItems};
+  }
+  .navMobile-open {
+    ${mqNavMobile} {
+    ${navItems};
+    }
   }
 
 }
