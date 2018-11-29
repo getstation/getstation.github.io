@@ -47,26 +47,13 @@ const BoxContent = styled('p')`
 `;
 
 const Grid = styled('div')`
-  ${mqMax[1]} {
-    padding-top: ${rem(42)};
-  }
   ${mqMin[1]} {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: ${rem(-20)};
-    margin-right: ${rem(-20)};
-    > * {
-      margin: ${rem(20)};
-      width: calc(33.333% - ${rem(20 * 2)});
-    }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: ${rem(20)};
   }
   ${mqMin[2]} {
-    margin-left: ${rem(-45)};
-    margin-right: ${rem(-45)};
-    > * {
-      margin: ${rem(45)};
-      width: calc(33.333% - ${rem(45 * 2)});
-    }
+    grid-gap: ${rem(90)};
   }
 `;
 
@@ -85,7 +72,7 @@ const More = ({ title, data, button, buttonUrl, ...rest }) => {
       {...rest}
     >
       {data && (
-        <Wrapper className={css({ overflow: 'hidden' })}>
+        <Wrapper>
           <Grid>
             {data.map(
               (item, index) =>
@@ -98,7 +85,7 @@ const More = ({ title, data, button, buttonUrl, ...rest }) => {
                         height={84}
                         alt=""
                         className={css({
-                          marginTop: rem(-84),
+                          marginTop: -item.image.dimensions.height,
                           transform: `translateY(${rem(-15)})`,
                         })}
                       />
