@@ -7,7 +7,7 @@ import Button from '../atoms/Button';
 
 const slide = keyframes`
   from { background-position: 0 0 }
-  to { background-position: 1520px 0 }
+  to { background-position: -1520px 0 }
 `;
 
 const Footer = ({ button, url = '/' }) =>
@@ -29,7 +29,7 @@ const More = ({ title, data, button, buttonUrl, ...rest }) => {
           className={css({
             height: rem(data.dimensions.height),
             backgroundImage: `url(${data.url})`,
-            animation: `${slide} 30s linear infinite`,
+            animation: `${slide} 60s linear infinite`,
           })}
         />
       )}
