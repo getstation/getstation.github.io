@@ -52,7 +52,6 @@ const Header = ({
 }) => {
   const DATA = header.data;
   const DOWNLOAD = download.data;
-  console.log(DATA);
   return (
     <header
       {...rest}

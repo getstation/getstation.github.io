@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { rem } from 'polished';
-import { mqMin } from '../../styles/breackpoint';
+import { Tag } from '../atoms/Tag';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import * as transition from '../../styles/transitions';
@@ -82,13 +82,6 @@ const ActiveLine = styled('div')`
   transition: transform 0.3s ${transition.base};
 `;
 
-const FeatureCardBody = ({ title, content }) => (
-  <Body>
-    {title && <Title>{title}</Title>}
-    {content && <Content>{content}</Content>}
-  </Body>
-);
-
 const FeatureCardBase = ({ data, ...rest }) => {
   return (
     <Box {...rest}>
@@ -98,7 +91,13 @@ const FeatureCardBase = ({ data, ...rest }) => {
         </Thumb>
       )}
       {data.title && (
-        <FeatureCardBody title={data.title} content={data.content} />
+        <Body>
+          {data.title && <Title>{data.title}</Title>}
+          {data.content && <Content>{data.content}</Content>}
+          {data.tag && (
+            <Tag text={data.tag} className={css({ marginTop: rem(20) })} />
+          )}
+        </Body>
       )}
     </Box>
   );
@@ -148,6 +147,12 @@ class FeatureCardSlider extends React.Component {
           )}
           {this.props.items[this.state.slide].content && (
             <Content>{this.props.items[this.state.slide].content}</Content>
+          )}
+          {this.props.data.tag && (
+            <Tag
+              text={this.props.data.tag}
+              className={css({ marginTop: rem(20) })}
+            />
           )}
         </Body>
       </Box>
