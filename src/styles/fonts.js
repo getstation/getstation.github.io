@@ -1,16 +1,16 @@
 import { rem } from 'polished';
 import { css } from 'emotion';
 
-import asap_v8_latin_700_woff from '../fonts/asap-v8-latin-700.woff';
-import asap_v8_latin_700_woff2 from '../fonts/asap-v8-latin-700.woff2';
+import asap_medium_woff from '../fonts/asap-medium-webfont.woff';
+import asap_medium_woff2 from '../fonts/asap-medium-webfont.woff2';
 
 export const fontFace = css`
   @font-face {
     font-family: 'Asap medium';
     font-style: normal;
-    font-weight: 400;
-    src: url(${asap_v8_latin_700_woff}) format('woff2'),
-      url(${asap_v8_latin_700_woff2}) format('woff');
+    font-weight: normal;
+    src: url(${asap_medium_woff2}) format('woff2'),
+      url(${asap_medium_woff}) format('woff');
   }
 `;
 
