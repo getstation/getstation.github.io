@@ -55,6 +55,7 @@ class App extends React.Component {
         </Helmet>
         <Headroom>
           <Header
+            theme={this.props.headerTheme}
             navMobileOpen={this.state.navMobileOpen}
             header={this.props.data.header}
             download={this.props.data.download}

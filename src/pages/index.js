@@ -12,7 +12,7 @@ const IndexPage = props => {
   const DATA = props.data.content.data;
   const DOWNLOAD = props.data.download;
   return (
-    <App>
+    <App headerTheme="dark">
       <HeroHome
         title={DATA.hero_title}
         content={DATA.hero_content}

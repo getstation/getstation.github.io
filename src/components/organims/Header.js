@@ -6,29 +6,34 @@ import Button from '../atoms/Button';
 import NavButton from '../atoms/NavButton';
 import Wrapper from '../layout/Wrapper';
 import * as color from '../../styles/colors';
-import Logo from '../../images/logo-station-blue.svg';
 import { URL } from '../../const';
 import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as transition from '../../styles/transitions';
 
-const navLink = css`
-  display: block;
-  font-weight: ${font.weightMedium};
-  color: '#6E7782';
-  transition: opacity 0.3s ${transition.base};
-  padding: ${rem(15)} ${rem(20)};
-  ${mqNavDesktop} {
-    padding: ${rem(10)};
-  }
-  &:active,
-  &:hover,
-  &:focus {
-    opacity: 0.4;
-  }
-`;
+const NavLink = ({ element, theme, ...props }) => {
+  props.href = props.to;
+  return React.createElement(element, {
+    ...props,
+    className: css({
+      display: 'block',
+      fontWeight: font.weightMedium,
+      color: theme === 'dark' ? '#6E7782' : color.light,
+      transition: `opacity 0.3s ${transition.base}`,
+      padding: `${rem(15)} ${rem(20)}`,
+      [mqNavDesktop]: {
+        padding: rem(10),
+      },
+      '&:active, &:hover, &:focus': {
+        opacity: 0.4,
+        color: theme === 'dark' ? '#6E7782' : color.light,
+      },
+    }),
+  });
+};
 
 const Header = ({
+  theme,
   header,
   download,
   toggleNavMobile,
@@ -79,15 +84,11 @@ const Header = ({
                 alt={DATA.logo_alt_text}
                 width={DATA.logo.dimensions.width}
                 height={DATA.logo.dimensions.height}
+                className={css({
+                  filter: theme === 'dark' ? 'none' : 'brightness(100)'
+                })}
               />
-            ) : (
-              <img
-                src={Logo}
-                alt={DATA.logo_alt_text}
-                width="100"
-                height="28"
-              />
-            )}
+            ) : (<div>Station</div>)}
           </Link>
         </h1>
         <div>
@@ -110,22 +111,23 @@ const Header = ({
           })}
         >
           {DATA.link_1_text && (
-            <Link className={navLink} to={URL.features}>
+            <NavLink theme={theme} element={Link} to={URL.features}>
               {DATA.link_1_text}
-            </Link>
+            </NavLink>
           )}
           {DATA.link_2_text && (
-            <Link className={navLink} to="/">
+            <NavLink theme={theme} element={Link} to="/">
               {DATA.link_2_text}
-            </Link>
+            </NavLink>
           )}
           {DATA.link_3_text && (
-            <Link className={navLink} to="/">
+            <NavLink theme={theme} element={Link} to="/">
               {DATA.link_3_text}
-            </Link>
+            </NavLink>
           )}
           {DOWNLOAD.button_text && DOWNLOAD.button_url && (
             <Button
+              theme={theme === 'dark' ? 'primary' : 'light'}
               to={DOWNLOAD.button_url.url}
               className={css({
                 [mqNavMobile]: {
