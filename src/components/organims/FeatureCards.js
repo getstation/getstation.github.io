@@ -8,26 +8,20 @@ import { FeatureCardBase, FeatureCardSlider } from '../molecules/FeatureCard';
 
 const gutter = {
   s: 15,
-  m: 20,
-  l: 25,
+  m: 30,
+  l: 50,
 };
 
 const Grid = styled('div')`
   ${mqMin[0]} {
-    display: flex;
-    flex-wrap: wrap;
-    margin-left: -${rem(gutter.m)};
-    margin-right: -${rem(gutter.m)};
-    > * {
-      padding: ${rem(gutter.m)};
-    }
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: ${rem(gutter.m)};
+    grid-auto-flow: row dense;
   }
   ${mqMin[2]} {
-    margin-left: -${rem(gutter.l)};
-    margin-right: -${rem(gutter.l)};
-    > * {
-      padding: ${rem(gutter.l)};
-    }
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: ${rem(gutter.l)};
   }
 `;
 
@@ -46,17 +40,7 @@ const FeatureCards = ({ data, ...rest }) => {
         {data.body.map((item, index) => {
           if (item.slice_type === 'featurecard') {
             return (
-              <GridItem
-                key={`${index}-grid-item`}
-                css={`
-                  ${mqMin[0]} {
-                    width: 50%;
-                  }
-                  ${mqMin[2]} {
-                    width: 33.333%;
-                  }
-                `}
-              >
+              <GridItem key={`${index}-grid-item`}>
                 <FeatureCardBase data={item.primary} />
               </GridItem>
             );
@@ -66,10 +50,7 @@ const FeatureCards = ({ data, ...rest }) => {
                 key={`${index}-grid-item`}
                 css={`
                   ${mqMin[0]} {
-                    width: 50%;
-                  }
-                  ${mqMin[2]} {
-                    width: 33.333%;
+                    grid-column: 1 / 3;
                   }
                 `}
               >
