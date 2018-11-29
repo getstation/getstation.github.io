@@ -104,9 +104,11 @@ export default props => (
               }
             }
             logo_alt_text
-            link_1_text
-            link_2_text
-            link_3_text
+            links {
+              text
+              url
+              type
+            }
           }
         }
         footer: prismicFooter {

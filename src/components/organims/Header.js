@@ -11,6 +11,16 @@ import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as transition from '../../styles/transitions';
 
+const linkType = type => {
+  switch (type) {
+    case 'external':
+      return 'a';
+      break;
+    default:
+      return Link;
+  }
+};
+
 const NavLink = ({ element, theme, ...props }) => {
   props.href = props.to;
   return React.createElement(element, {
@@ -42,6 +52,7 @@ const Header = ({
 }) => {
   const DATA = header.data;
   const DOWNLOAD = download.data;
+  console.log(DATA);
   return (
     <header
       {...rest}
@@ -122,21 +133,17 @@ const Header = ({
             }),
           )}
         >
-          {DATA.link_1_text && (
-            <NavLink theme={theme} element={Link} to={URL.features}>
-              {DATA.link_1_text}
-            </NavLink>
-          )}
-          {DATA.link_2_text && (
-            <NavLink theme={theme} element={Link} to="/">
-              {DATA.link_2_text}
-            </NavLink>
-          )}
-          {DATA.link_3_text && (
-            <NavLink theme={theme} element={Link} to="/">
-              {DATA.link_3_text}
-            </NavLink>
-          )}
+          {DATA.links &&
+            DATA.links.map((link, index) => (
+              <NavLink
+                key={`nav-link-${index}`}
+                theme={theme}
+                element={linkType(link.type)}
+                to={link.url}
+              >
+                {link.text}
+              </NavLink>
+            ))}
           {DOWNLOAD.button_text && DOWNLOAD.button_url && (
             <Button
               theme={theme === 'dark' ? 'primary' : 'light'}
