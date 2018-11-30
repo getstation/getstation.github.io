@@ -73,7 +73,7 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
         props.className,
         css({
           position: 'relative',
-          display: 'inline-flex',
+          display: 'inline-block',
           cursor: 'pointer',
           userSelect: 'none',
           textAlign: 'center',
