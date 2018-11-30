@@ -4,8 +4,9 @@ import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
 import FeatureCards from '../components/organims/FeatureCards';
 
-const IndexPage = props => {
+const FeaturesPage = props => {
   const CARDS = JSON.parse(props.data.cards.dataString);
+  const DOWNLOAD = props.data.download;
   return (
     <App>
       <Hero
@@ -13,16 +14,24 @@ const IndexPage = props => {
         subtitle="Check what’s under the hood!"
         gradient={{ top: '#4ED8E4', bottom: '#1410B8' }}
       />
-      <FeatureCards data={CARDS} />
+      <FeatureCards data={CARDS} download={DOWNLOAD.data} />
     </App>
   );
 };
 
-export default IndexPage;
+export default FeaturesPage;
 export const pageQuery = graphql`
-  query featureQuery {
+  query featuresQuery {
     cards: prismicFeaturespage {
       dataString
+    }
+    download: prismicDownloadapp {
+      data {
+        button_text
+        button_url {
+          url
+        }
+      }
     }
   }
 `;

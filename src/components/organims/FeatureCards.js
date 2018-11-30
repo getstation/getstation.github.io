@@ -7,6 +7,7 @@ import { mqMin, mqMax } from '../../styles/breackpoint';
 import SectionBase from '../molecules/SectionBase';
 import { FeatureCardBase, FeatureCardSlider } from '../molecules/FeatureCard';
 import Tag from '../atoms/Tag';
+import Button from '../atoms/Button';
 
 const gutter = {
   s: 15,
@@ -15,7 +16,7 @@ const gutter = {
 };
 
 const Grid = styled('div')`
-  padding: ${rem(60)} 0;
+  padding-top: ${rem(60)};
   ${mqMin[0]} {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -23,7 +24,7 @@ const Grid = styled('div')`
     grid-auto-flow: row dense;
   }
   ${mqMin[1]} {
-    padding: ${rem(100)} 0;
+    padding-top: ${rem(100)};
   }
   ${mqMin[2]} {
     grid-template-columns: repeat(3, 1fr);
@@ -49,6 +50,13 @@ const Tags = styled('div')`
   }
 `;
 
+const Footer = ({ button, url = '/' }) =>
+  button && (
+    <Button to={url} size="L">
+      {button}
+    </Button>
+  );
+
 class FeatureCards extends React.Component {
   state = {};
   resetTagFilter = () => {
@@ -67,8 +75,19 @@ class FeatureCards extends React.Component {
       item => item.primary.tag === this.state.activeFilter,
     );
     return (
-      <SectionBase title={this.props.data.title}>
-        <Wrapper className={css({ overflow: 'hidden' })}>
+      <SectionBase
+        title={this.props.data.title}
+        footer={
+          this.props.download.button_text &&
+          this.props.download.button_url.url && (
+            <Footer
+              button={this.props.download.button_text}
+              url={this.props.download.button_url.url}
+            />
+          )
+        }
+      >
+        <Wrapper>
           <Tags>
             <Tag
               key={'tag-filter-all'}
