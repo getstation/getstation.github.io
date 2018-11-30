@@ -11,6 +11,7 @@ import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 
 const Box = styled('div')`
+  text-align: center;
   padding: ${rem(30)};
   background: ${color.light};
   box-shadow: 0 7px 25px 0 rgba(48, 112, 205, 0.1),

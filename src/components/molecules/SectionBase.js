@@ -9,7 +9,6 @@ import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 
 const Box = styled('div')`
-  text-align: center;
   padding: ${rem(60)} 0;
   ${mqMin[1]} {
     padding: ${rem(100)} 0;
@@ -17,6 +16,7 @@ const Box = styled('div')`
 `;
 
 const Header = styled('div')`
+  text-align: center;
   margin-bottom: ${rem(60)};
   ${mqMin[1]} {
     margin-bottom: ${rem(100)};
@@ -24,6 +24,7 @@ const Header = styled('div')`
 `;
 
 const Footer = styled('div')`
+  text-align: center;
   margin-top: ${rem(60)};
   ${mqMin[1]} {
     margin-top: ${rem(100)};
