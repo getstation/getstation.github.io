@@ -6,7 +6,7 @@ import Wrapper from '../layout/Wrapper';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import SectionBase from '../molecules/SectionBase';
 import { FeatureCardBase, FeatureCardSlider } from '../molecules/FeatureCard';
-import { TagButton } from '../atoms/Tag';
+import Tag from '../atoms/Tag';
 
 const gutter = {
   s: 15,
@@ -70,18 +70,22 @@ class FeatureCards extends React.Component {
       <SectionBase title={'Pick your superpower'}>
         <Wrapper className={css({ overflow: 'hidden' })}>
           <Tags>
-            <TagButton
+            <Tag
               key={'tag-filter-all'}
               text={'All'}
               onClick={() => this.resetTagFilter()}
               active={this.state.activeFilter ? false : true}
+              size="L"
+              element="button"
             />
             {getCurrentTags.map((item, index) => (
-              <TagButton
+              <Tag
                 key={`tag-filter-${index}`}
                 text={item}
                 onClick={() => this.setTagFilter(item)}
                 active={this.state.activeFilter === item ? true : false}
+                size="L"
+                element="button"
               />
             ))}
           </Tags>

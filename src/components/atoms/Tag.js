@@ -3,6 +3,7 @@ import { cx, css } from 'emotion';
 import { rem, rgba, backgrounds } from 'polished';
 import * as font from '../../styles/fonts.js';
 import * as color from '../../styles/colors';
+import * as transition from '../../styles/transitions';
 
 const themeSwitcher = theme => {
   switch (theme) {
@@ -19,6 +20,17 @@ const themeSwitcher = theme => {
     default:
       return Themes.clr1;
   }
+};
+
+export const Sizes = {
+  M: {
+    padding: `${rem(4)} ${rem(18)}`,
+    fontSize: rem(11),
+  },
+  L: {
+    padding: `${rem(8)} ${rem(15)}`,
+    fontSize: rem(13),
+  },
 };
 
 export const Themes = {
@@ -78,55 +90,35 @@ export const Themes = {
   },
 };
 
-const TagButton = ({ text, className, active, ...rest }) => {
-  return (
-    <button
-      {...rest}
-      className={cx(
+const Tag = ({ element, text, className, active, size, ...props }) => {
+  return React.createElement(
+    element,
+    {
+      ...props,
+      className: cx(
         css({
-          cursor: 'pointer',
           display: 'inline-block',
-          padding: `${rem(10)} ${rem(18)}`,
           lineHeight: 1,
           borderStyle: 'solid',
           borderWidth: 1,
-          fontSize: rem(12),
           fontWeight: font.weightBold,
           borderRadius: rem(666),
+          transition: `all .2s ${transition.base}`,
+          cursor: element === 'button' ? 'pointer' : 'auto',
           ...themeSwitcher(text),
+          ...Sizes[size],
         }),
         active ? 'is-active' : null,
         className,
-      )}
-    >
-      {text}
-    </button>
+      ),
+    },
+    text,
   );
 };
 
-const Tag = ({ text, className, active, ...rest }) => {
-  return (
-    <div
-      {...rest}
-      className={cx(
-        css({
-          display: 'inline-block',
-          padding: `${rem(4)} ${rem(18)}`,
-          lineHeight: 1,
-          borderStyle: 'solid',
-          borderWidth: 1,
-          fontSize: rem(11),
-          fontWeight: font.weightBold,
-          borderRadius: rem(666),
-          ...themeSwitcher(text),
-        }),
-        active ? 'is-active' : null,
-        className,
-      )}
-    >
-      {text}
-    </div>
-  );
-};
+export default Tag;
 
-export { Tag, TagButton };
+Tag.defaultProps = {
+  element: 'div',
+  size: 'M',
+};

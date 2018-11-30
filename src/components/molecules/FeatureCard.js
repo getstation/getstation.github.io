@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { rem } from 'polished';
-import { Tag } from '../atoms/Tag';
+import Tag from '../atoms/Tag';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import * as transition from '../../styles/transitions';
