@@ -34,6 +34,7 @@ const GridItem = styled('div')`
 `;
 
 const FeatureCards = ({ data, ...rest }) => {
+  console.log(data);
   return (
     <Wrapper className={css({ overflow: 'hidden' })}>
       <Grid>

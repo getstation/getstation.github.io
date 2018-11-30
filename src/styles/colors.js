@@ -15,4 +15,8 @@ export const clr3 = '#76cca5';
 
 export const clr4 = '#66c6ed';
 
+export const clr5 = '#7985ff';
+
+export const clr6 = '#f2827d';
+
 export const border = '#979797';
