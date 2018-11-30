@@ -67,7 +67,7 @@ class FeatureCards extends React.Component {
       item => item.primary.tag === this.state.activeFilter,
     );
     return (
-      <SectionBase title={'Pick your superpower'}>
+      <SectionBase title={this.props.data.title}>
         <Wrapper className={css({ overflow: 'hidden' })}>
           <Tags>
             <Tag
