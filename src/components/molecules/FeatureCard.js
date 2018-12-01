@@ -13,6 +13,7 @@ const sliderButton = {
 };
 
 const Box = styled('div')`
+  position: relative;
   flex-grow: 0;
   overflow: hidden;
   background: ${color.light};
@@ -82,9 +83,27 @@ const ActiveLine = styled('div')`
   transition: transform 0.3s ${transition.base};
 `;
 
+const Ribbon = styled('div')`
+  position: absolute;
+  left: -62px;
+  top: 25px;
+  display: block;
+  height: ${rem(24)};
+  width: ${rem(200)};
+  text-align: center;
+  font-size: ${rem(14)};
+  line-height: ${rem(24)};
+  white-space: nowrap;
+  font-family: ${font.secondary};
+  color: ${color.light};
+  background: #ffd429;
+  transform: rotate(-45deg);
+`;
+
 const FeatureCardBase = ({ data, ...rest }) => {
   return (
     <Box {...rest}>
+      {data.ribbon && <Ribbon>{data.ribbon}</Ribbon>}
       {data.image.url && (
         <Thumb>
           <img src={data.image.url} alt="" />
@@ -113,6 +132,7 @@ class FeatureCardSlider extends React.Component {
   render() {
     return (
       <Box className={this.props.className}>
+        {this.props.data.ribbon && <Ribbon>{this.props.data.ribbon}</Ribbon>}
         <Thumb>
           <img src={this.props.items[this.state.slide].image.url} alt="" />
         </Thumb>
