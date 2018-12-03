@@ -43,9 +43,13 @@ const Illustration = styled('div')`
     border: 1px solid red;
     position: absolute;
     left: 50%;
-    transform: translateX(calc(-50% + 53px));
-    width: 41%;
-    top: 0;
+    transform: translateX(-50%);
+    width: 28%;
+    top: 1.5vw;
+    ${[mqMin[2]]} {
+      width: 35%;
+      top: 12px;
+    }
   }
 `;
 
