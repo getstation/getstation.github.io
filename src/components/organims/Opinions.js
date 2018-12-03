@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
-import { css } from 'emotion';
-import Typing from 'react-typing-animation';
+import ReactTypingEffect from 'react-typing-effect';
+import { css, keyframes } from 'emotion';
 import { Link } from 'gatsby';
 import { rem, rgba } from 'polished';
 import SectionBase from '../molecules/SectionBase';
@@ -103,14 +103,12 @@ const QuoteArrow = styled('div')`
   border-right: ${rem(14)} solid transparent;
   transform: translateX(-50%);
 `;
-
 class Opinons extends React.Component {
   state = {
     slide: 0,
   };
   componentDidMount() {
-    this.timerID = setInterval(this.tick, 2000);
-    this.forceUpdate();
+    this.timerID = setInterval(this.tick, 4000);
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
@@ -132,7 +130,13 @@ class Opinons extends React.Component {
             <Left>
               <Title>
                 <b>{items[0].job}</b> {this.props.slideUseText}{' '}
-                <b>{items[this.state.slide].use_for}</b>
+                <b>
+                  <ReactTypingEffect
+                    text={['Stay Focus', 'Have fun', 'Icrase Productivity']}
+                    speed="100"
+                    eraseDeay="100" //text=["Hello.", "World!"]
+                  />
+                </b>
               </Title>
             </Left>
             <Right>

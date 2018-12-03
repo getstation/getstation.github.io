@@ -9755,7 +9755,7 @@ react-docgen@^3.0.0-rc.1:
     node-dir "^0.1.10"
     recast "^0.16.0"
 
-react-dom@^16.5.1:
+react-dom@^16.2.0, react-dom@^16.5.1:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.6.3.tgz#8fa7ba6883c85211b8da2d0efeffc9d3825cccc0"
   dependencies:
@@ -9893,7 +9893,23 @@ react-treebeard@^3.1.0:
     shallowequal "^1.1.0"
     velocity-react "^1.4.1"
 
-react@^16.5.1:
+react-typing-effect@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/react-typing-effect/-/react-typing-effect-1.0.3.tgz#3ad266180e6b59ae9b60fd8afa457bd53f469271"
+  integrity sha1-OtJmGA5rWa6bYP2K+kV71T9GknE=
+  dependencies:
+    classnames "^2.2.5"
+    react "^16.2.0"
+    react-dom "^16.2.0"
+
+react-typist@^2.0.4:
+  version "2.0.4"
+  resolved "https://registry.yarnpkg.com/react-typist/-/react-typist-2.0.4.tgz#e7ee4de53ead913d363d38f07b700c00ce271be0"
+  integrity sha512-2sCW7BcEQJILdPtG4tItCPv3RKVXWEDnfiIWhmbkAf4733kEkrvc9KkOCyZ/J8BeATNYF5wQSrSUY93ACA9Bjg==
+  dependencies:
+    prop-types "^15.5.10"
+
+react@^16.2.0, react@^16.5.1:
   version "16.6.3"
   resolved "https://registry.yarnpkg.com/react/-/react-16.6.3.tgz#25d77c91911d6bbdd23db41e70fb094cc1e0871c"
   dependencies:
