@@ -132,7 +132,11 @@ class Opinons extends React.Component {
                 <b>{items[0].job}</b> {this.props.slideUseText}{' '}
                 <b>
                   <ReactTypingEffect
-                    text={['Stay Focus', 'Have fun', 'Icrase Productivity']}
+                    text={[
+                      'Stay Focus',
+                      'Work faster',
+                      'Incrase Productivity, Centralise everything',
+                    ]}
                     speed="100"
                     eraseDeay="100" //text=["Hello.", "World!"]
                   />
