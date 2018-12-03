@@ -13,6 +13,7 @@ import blueGradient from '../../images/hero-home-gradient.png';
 import blueGradientS from '../../images/hero-home-gradient-s.png';
 import blueGradientM from '../../images/hero-home-gradient-m.png';
 import heroHomeImg from '../../images/hero-home-illustration.svg';
+import video from '../../images/station-video-LP.mp4';
 
 const Background = styled('div')`
   z-index: 0;
@@ -30,6 +31,21 @@ const Background = styled('div')`
   ${[mqMin[2]]} {
     background-image: url(${blueGradient});
     background-size: 60%;
+  }
+`;
+
+const Illustration = styled('div')`
+  position: relative;
+  img {
+    border: 1px solid blue;
+  }
+  video {
+    border: 1px solid red;
+    position: absolute;
+    left: 50%;
+    transform: translateX(calc(-50% + 53px));
+    width: 41%;
+    top: 0;
   }
 `;
 
@@ -115,13 +131,10 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
             className={css({ [[mqMin[2]]]: { display: 'inline-block' } })}
           />
         </div>
-        <div
-          className={css({
-            [[mqMin[2]]]: {
-              transform: `translateX(${rem(50)})`,
-            },
-          })}
-        >
+        <Illustration>
+          <video width="300" height="200" autoPlay="autoplay" loop>
+            <source src={video} type="video/mp4" />
+          </video>
           <img
             src={heroHomeImg}
             alt=""
@@ -132,6 +145,8 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
                 margin: `${rem(40)} auto 0`,
               },
             })}
+            width="794px"
+            height="357"
           />
           {legend && (
             <p
@@ -149,21 +164,9 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
               {legend}
             </p>
           )}
-        </div>
+        </Illustration>
       </Wrapper>
       <Background />
-      {/* <Lottie
-        options={{
-          loop: true,
-          autoplay: true,
-          animationData: require('../../animations/coffee.json'),
-          rendererSettings: {
-            preserveAspectRatio: 'xMidYMid slice',
-          },
-        }}
-        height={400}
-        width={400}
-      /> */}
     </div>
   );
 };
