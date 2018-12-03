@@ -5,12 +5,14 @@ import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
 import Presentation from '../components/organims/Presentation';
 import More from '../components/organims/More';
+import Opinions from '../components/organims/Opinions';
 import SeeAllApps from '../components/organims/SeeAllApps';
 import { URL } from '../const';
 
 const IndexPage = props => {
   const DATA = props.data.content.data;
   const DOWNLOAD = props.data.download;
+
   return (
     <App headerTheme="dark">
       <HeroHome
@@ -24,6 +26,7 @@ const IndexPage = props => {
         content={DATA.reassurance_content}
         logos={DATA.reassurance_logos}
       />
+
       {DATA.presentation_list && <Presentation data={DATA.presentation_list} />}
       {DATA.more_title && (
         <More
@@ -31,6 +34,12 @@ const IndexPage = props => {
           data={DATA.more_list}
           button={DATA.more_button_text}
           buttonUrl={URL.features}
+        />
+      )}
+      {DATA.opinion && DATA.opinon___use_station_to && (
+        <Opinions
+          slideUseText={DATA.opinon___use_station_to}
+          slideText={DATA.opinion}
         />
       )}
       {DATA.seeallapps_title && (
@@ -92,6 +101,20 @@ export const pageQuery = graphql`
           }
         }
         more_button_text
+        opinion {
+          name
+          job
+          use_for
+          quote
+          logo {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+        }
+        opinon___use_station_to
         seeallapps_title
         seeallapps_image {
           url
