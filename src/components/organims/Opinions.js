@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
+import Typing from 'react-typing-animation';
 import { Link } from 'gatsby';
 import { rem, rgba } from 'polished';
 import SectionBase from '../molecules/SectionBase';
@@ -109,6 +110,7 @@ class Opinons extends React.Component {
   };
   componentDidMount() {
     this.timerID = setInterval(this.tick, 2000);
+    this.forceUpdate();
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
@@ -129,7 +131,7 @@ class Opinons extends React.Component {
           <Grid>
             <Left>
               <Title>
-                <b>{items[this.state.slide].job}</b> {this.props.slideUseText}{' '}
+                <b>{items[0].job}</b> {this.props.slideUseText}{' '}
                 <b>{items[this.state.slide].use_for}</b>
               </Title>
             </Left>
