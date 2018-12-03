@@ -129,13 +129,14 @@ class Opinons extends React.Component {
           <Grid>
             <Left>
               <Title>
-                <b>{items[0].job}</b> {this.props.slideUseText}{' '}
+                User {this.props.slideUseText}{' '}
                 <b>
                   <ReactTypingEffect
                     text={[
                       'Stay Focus',
                       'Work faster',
-                      'Incrase Productivity, Centralise everything',
+                      'Incrase Productivity',
+                      'Centralise everything',
                     ]}
                     speed="100"
                     eraseDeay="100" //text=["Hello.", "World!"]
