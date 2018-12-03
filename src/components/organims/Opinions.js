@@ -27,6 +27,9 @@ const Title = styled('div')`
   ${mqMin[1]} {
     font-size: ${rem(28)};
   }
+  div {
+    display: inline-block;
+  }
 `;
 
 const Quote = styled('div')`
@@ -129,7 +132,7 @@ class Opinons extends React.Component {
           <Grid>
             <Left>
               <Title>
-                User {this.props.slideUseText}{' '}
+                <b>{items[0].job}</b> {this.props.slideUseText}{' '}
                 <b>
                   <ReactTypingEffect
                     text={[
