@@ -73,7 +73,6 @@ const Author = styled('div')`
 const Grid = styled('div')`
   ${mqMin[1]} {
     display: flex;
-    align-items: center;
   }
 `;
 
@@ -81,6 +80,7 @@ const Left = styled('div')`
   ${mqMin[1]} {
     flex-grow: 1;
     padding-right: ${rem(100)};
+    padding-top: ${rem(40)};
   }
 `;
 const Right = styled('div')`
