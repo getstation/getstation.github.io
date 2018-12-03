@@ -27,15 +27,11 @@ const Title = styled('div')`
   ${mqMin[1]} {
     font-size: ${rem(28)};
   }
-  div {
-    display: inline-block;
-  }
 `;
 
 const Quote = styled('div')`
-  ${mqMax[1]} {
-    margin-top: ${rem(40)};
-  }
+  margin: ${rem(40)} auto;
+  max-width: ${rem(400)};
   position: relative;
   padding: ${rem(50)};
   text-align: center;
@@ -76,22 +72,24 @@ const Author = styled('div')`
 
 const Grid = styled('div')`
   ${mqMin[1]} {
-    display: flex;
+    /*display: flex;*/
+    text-align: center;
   }
 `;
 
 const Left = styled('div')`
   ${mqMin[1]} {
-    flex-grow: 1;
-    padding-right: ${rem(100)};
+    /* flex-grow: 1;
+    padding-right: ${rem(100)}; */
     padding-top: ${rem(40)};
   }
 `;
 const Right = styled('div')`
   text-align: center;
   ${mqMin[1]} {
-    flex-shrink: 0;
+    /* flex-shrink: 0; */
     width: ${rem(400)};
+    padding-top: ${rem(40)};
   }
 `;
 
@@ -128,47 +126,39 @@ class Opinons extends React.Component {
     const items = this.props.slideText;
     return (
       <Section>
-        <Wrapper className={css({})}>
-          <Grid>
-            <Left>
-              <Title>
-                <b>{items[0].job}</b> {this.props.slideUseText}{' '}
-                <b>
-                  <ReactTypingEffect
-                    text={[
-                      'Stay Focus',
-                      'Work faster',
-                      'Incrase Productivity',
-                      'Centralise everything',
-                    ]}
-                    speed="100"
-                    eraseDeay="100" //text=["Hello.", "World!"]
-                  />
-                </b>
-              </Title>
-            </Left>
-            <Right>
-              <Quote>
-                {items[this.state.slide].quote}
-                <QuoteArrow />
-              </Quote>
-            </Right>
-          </Grid>
-          <Grid>
-            <Left />
-            <Right>
-              <Author>
-                <b>{items[this.state.slide].name}</b>,{' '}
-                {items[this.state.slide].job}
-              </Author>
-              <img
-                src={items[this.state.slide].logo.url}
-                alt=""
-                height={items[this.state.slide].logo.dimensions.height}
-                width={items[this.state.slide].logo.dimensions.width}
+        <Wrapper
+          className={css({
+            textAlign: 'center',
+          })}
+        >
+          <Title>
+            <b>{items[0].job}</b> {this.props.slideUseText}{' '}
+            <b>
+              <ReactTypingEffect
+                text={[
+                  'Stay Focus',
+                  'Work faster',
+                  'Incrase Productivity',
+                  'Centralise everything',
+                ]}
+                speed="100"
+                eraseDeay="100" //text=["Hello.", "World!"]
               />
-            </Right>
-          </Grid>
+            </b>
+          </Title>
+          <Quote>
+            {items[this.state.slide].quote}
+            <QuoteArrow />
+          </Quote>
+          <Author>
+            <b>{items[this.state.slide].name}</b>, {items[this.state.slide].job}
+          </Author>
+          <img
+            src={items[this.state.slide].logo.url}
+            alt=""
+            height={items[this.state.slide].logo.dimensions.height}
+            width={items[this.state.slide].logo.dimensions.width}
+          />
         </Wrapper>
       </Section>
     );
