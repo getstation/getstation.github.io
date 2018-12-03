@@ -132,7 +132,7 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
           />
         </div>
         <Illustration>
-          <video width="300" height="200" autoPlay="autoplay" loop>
+          <video autoPlay="autoplay" loop>
             <source src={video} type="video/mp4" />
           </video>
           <img
