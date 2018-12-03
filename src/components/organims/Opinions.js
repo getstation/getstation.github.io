@@ -27,6 +27,9 @@ const Title = styled('div')`
   ${mqMin[1]} {
     font-size: ${rem(28)};
   }
+  div {
+    display: inline-block;
+  }
 `;
 
 const Quote = styled('div')`
