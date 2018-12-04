@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import { Link } from 'gatsby';
 import { rem, rgba } from 'polished';
 import posed from 'react-pose';
-import SectionBase from '../molecules/SectionBase';
 import Button from '../atoms/Button';
 import Wrapper from '../layout/Wrapper';
 import { mqMin, mqMax } from '../../styles/breackpoint';
@@ -173,6 +171,7 @@ class Opinons extends React.Component {
   };
   render() {
     const items = this.props.slideText;
+    const download = this.props.download.data;
     return (
       <Section>
         <Wrapper className={css({})}>
@@ -212,6 +211,18 @@ class Opinons extends React.Component {
               </Author>
             </Right>
           </Grid>
+          {download.button_text && download.button_url.url && (
+            <div
+              className={css({
+                textAlign: 'center',
+                marginTop: rem(30),
+              })}
+            >
+              <Button to={download.button_url.url} size="L">
+                {download.button_text}
+              </Button>
+            </div>
+          )}
         </Wrapper>
       </Section>
     );

@@ -41,6 +41,7 @@ const IndexPage = props => {
         <Opinions
           slideUseText={DATA.opinon___use_station_to}
           slideText={DATA.opinion}
+          download={DOWNLOAD}
         />
       )}
       <SliderMentions

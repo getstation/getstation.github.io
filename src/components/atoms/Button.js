@@ -24,6 +24,7 @@ export const Sizes = {
 export const Themes = {
   primary: {
     background: color.clr1,
+    boxShadow: `0 ${rem(10)} ${rem(40)} ${rem(-10)} ${rgba(color.clr1, 0.8)}`,
     color: color.light,
     '&:hover, &:focus': {
       background: color.clr1Dark,
