@@ -13,9 +13,11 @@ import quoteImg from '../../images/quote.svg';
 const TIMER = 4000;
 
 const Section = styled('div')`
-  padding: ${rem(60)} 0;
+  padding: ${rem(110)} 0;
+  margin-bottom: ${rem(-50)};
+  background-image: linear-gradient(0deg, #f5fbff 1%, #ffffff 100%);
   ${mqMin[1]} {
-    padding: ${rem(100)} 0;
+    padding: ${rem(150)} 0;
   }
 `;
 
