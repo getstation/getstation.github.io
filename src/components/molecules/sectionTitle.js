@@ -8,6 +8,15 @@ import { mqMin } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 
+export const Themes = {
+  dark: {
+    color: color.neutralDark,
+  },
+  light: {
+    color: color.light,
+  },
+};
+
 const Header = styled('div')`
   text-align: center;
   margin-bottom: ${rem(60)};
@@ -24,21 +33,29 @@ const Line = styled('div')`
   background-color: ${color.clr4};
 `;
 
-const SectionTitle = ({ children }) => (
-  <Header>
-    <Title
-      element="h2"
-      className={css({
-        fontSize: font.XXL,
-        [[mqMin[1]]]: {
-          fontSize: rem(34),
-        },
-      })}
-    >
-      {children}
-    </Title>
-    <Line />
+const SectionTitle = ({ children, element, theme, ...rest }) => (
+  <Header {...rest}>
+    <Wrapper>
+      <Title
+        element={element}
+        className={css({
+          fontSize: font.XXL,
+          ...Themes[theme],
+          [[mqMin[1]]]: {
+            fontSize: rem(34),
+          },
+        })}
+      >
+        {children}
+      </Title>
+      <Line />
+    </Wrapper>
   </Header>
 );
+
+SectionTitle.defaultProps = {
+  theme: 'dark',
+  element: 'h2',
+};
 
 export default SectionTitle;
