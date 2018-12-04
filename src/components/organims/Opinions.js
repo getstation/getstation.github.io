@@ -38,9 +38,6 @@ const Quote = styled('div')`
   ${mqMax[1]} {
     margin-top: ${rem(40)};
   }
-  display: flex;
-  align-items: center;
-  height: ${rem(200)};
   position: relative;
   padding: ${rem(50)};
   text-align: center;
