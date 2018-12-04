@@ -3,6 +3,7 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import { Link } from 'gatsby';
 import { rem, rgba } from 'polished';
+import posed from 'react-pose';
 import SectionBase from '../molecules/SectionBase';
 import Button from '../atoms/Button';
 import Wrapper from '../layout/Wrapper';
@@ -10,6 +11,8 @@ import { mqMin, mqMax } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import quoteImg from '../../images/quote.svg';
+
+const TIMER = 2000;
 
 const Section = styled('div')`
   padding: ${rem(60)} 0;
@@ -26,12 +29,16 @@ const Title = styled('div')`
   ${mqMin[1]} {
     font-size: ${rem(28)};
   }
+  div {
+    display: inline-block;
+  }
 `;
 
 const Quote = styled('div')`
   ${mqMax[1]} {
     margin-top: ${rem(40)};
   }
+  min-height: ${rem(200)};
   position: relative;
   padding: ${rem(50)};
   text-align: center;
@@ -60,13 +67,6 @@ const Quote = styled('div')`
     bottom: ${rem(26)};
     right: ${rem(26)};
     transform: rotate(180deg);
-  }
-`;
-
-const Author = styled('div')`
-  margin: ${rem(70)} 0 ${rem(20)};
-  ${mqMin[1]} {
-    margin-top: ${rem(40)};
   }
 `;
 
@@ -103,17 +103,58 @@ const QuoteArrow = styled('div')`
   transform: translateX(-50%);
 `;
 
+const ItemSwitch = posed.div({
+  hidden: { opacity: 0, y: -10, transition: { duration: 700 } },
+  visible: { opacity: 1, y: 10, transition: { duration: 700 } },
+});
+
+const Fade = posed.div({
+  hidden: {
+    opacity: 0,
+  },
+  visible: { opacity: 1 },
+});
+
+const Word = styled(ItemSwitch)`
+  font-weight: ${font.weightBold};
+`;
+
+const QuoteText = styled(Fade)``;
+
+const Author = styled(Fade)`
+  margin: ${rem(70)} 0 0;
+  ${mqMin[1]} {
+    margin-top: ${rem(40)};
+  }
+  img {
+    display: block;
+    margin: ${rem(20)} auto 0 auto;
+  }
+`;
 class Opinons extends React.Component {
   state = {
     slide: 0,
+    isAnimated: false,
   };
   componentDidMount() {
-    this.timerID = setInterval(this.tick, 2000);
+    this.timerID = setInterval(() => {
+      this.tick(),
+        this.setState({
+          isAnimated: !this.state.isAnimated,
+        });
+    }, TIMER);
+    this.timerAlternate = setTimeout(() => {
+      setInterval(() => {
+        this.setState({
+          isAnimated: !this.state.isAnimated,
+        });
+      }, TIMER);
+    }, TIMER - 300);
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
+    clearInterval(this.timerAlternate);
   }
-
   tick = () => {
     if (this.state.slide < this.props.slideText.length - 1) {
       this.setState({ slide: this.state.slide + 1 });
@@ -129,13 +170,17 @@ class Opinons extends React.Component {
           <Grid>
             <Left>
               <Title>
-                <b>{items[this.state.slide].job}</b> {this.props.slideUseText}{' '}
-                <b>{items[this.state.slide].use_for}</b>
+                <b>{items[0].job}</b> {this.props.slideUseText}{' '}
+                <Word pose={this.state.isAnimated ? 'visible' : 'hidden'}>
+                  {items[this.state.slide].use_for}
+                </Word>
               </Title>
             </Left>
             <Right>
               <Quote>
-                {items[this.state.slide].quote}
+                <QuoteText pose={this.state.isAnimated ? 'visible' : 'hidden'}>
+                  {items[this.state.slide].quote}
+                </QuoteText>
                 <QuoteArrow />
               </Quote>
             </Right>
@@ -143,16 +188,16 @@ class Opinons extends React.Component {
           <Grid>
             <Left />
             <Right>
-              <Author>
+              <Author pose={this.state.isAnimated ? 'visible' : 'hidden'}>
                 <b>{items[this.state.slide].name}</b>,{' '}
                 {items[this.state.slide].job}
+                <img
+                  src={items[this.state.slide].logo.url}
+                  alt=""
+                  height={items[this.state.slide].logo.dimensions.height}
+                  width={items[this.state.slide].logo.dimensions.width}
+                />
               </Author>
-              <img
-                src={items[this.state.slide].logo.url}
-                alt=""
-                height={items[this.state.slide].logo.dimensions.height}
-                width={items[this.state.slide].logo.dimensions.width}
-              />
             </Right>
           </Grid>
         </Wrapper>
