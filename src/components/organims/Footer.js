@@ -176,7 +176,7 @@ const Footer = ({ footer, download, ...rest }) => {
               },
             })}
           >
-            {DATA.producthunt_title && DATA.producthunt_subtitle && (
+            {DATA.producthunt_subtitle && (
               <div
                 className={css({
                   display: 'flex',
