@@ -119,6 +119,9 @@ const Fade = posed.div({
 const Word = styled(ItemSwitch)`
   font-weight: ${font.weightBold};
 `;
+const JobWord = styled(Fade)`
+  font-weight: ${font.weightBold};
+`;
 
 const QuoteText = styled(Fade)``;
 
@@ -176,7 +179,10 @@ class Opinons extends React.Component {
           <Grid>
             <Left>
               <Title>
-                <b>{items[0].job}</b> {this.props.slideUseText}{' '}
+                <JobWord pose={this.state.isAnimated ? 'visible' : 'hidden'}>
+                  {items[this.state.slide].job}
+                </JobWord>{' '}
+                {this.props.slideUseText}{' '}
                 <Word pose={this.state.isAnimated ? 'visible' : 'hidden'}>
                   {items[this.state.slide].use_for}
                 </Word>
