@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { css, cx } from 'emotion';
 import styled from 'react-emotion';
 import { rem } from 'polished';
@@ -30,17 +31,25 @@ const Background = styled('div')`
   }
   ${[mqMin[2]]} {
     background-image: url(${blueGradient});
+    background-size: 70%;
+  }
+  ${[mqMin[3]]} {
     background-size: 60%;
+  }
+  ${[mqMin[4]]} {
+    background-size: 50%;
   }
 `;
 
 const Illustration = styled('div')`
   position: relative;
-  img {
-    border: 1px solid blue;
+  > div {
+    position: absolute;
+    top: 0;
+    width: 100% !important;
+    height: auto !important;
   }
   video {
-    border: 1px solid red;
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
@@ -70,7 +79,7 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
         className={css({
           zIndex: 1,
           position: 'relative',
-          padding: `${rem(90 + 88)} 0 ${rem(90)}`,
+          padding: `${rem(160 + 88)} 0 ${rem(160)}`,
           [[mqMax[2]]]: {
             padding: `${rem(188)} 0`,
           },
@@ -136,7 +145,16 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
           />
         </div>
         <Illustration>
-          <video autoPlay="autoplay" loop>
+          <Lottie
+            options={{
+              loop: true,
+              autoplay: true,
+              animationData: require('../../animations/coffee.json'),
+            }}
+            height={357}
+            width={920}
+          />
+          <video autoPlay="autoplay" loop="loop">
             <source src={video} type="video/mp4" />
           </video>
           <img
