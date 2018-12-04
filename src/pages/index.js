@@ -43,7 +43,14 @@ const IndexPage = props => {
           slideText={DATA.opinion}
         />
       )}
-      <SliderMentions title={DATA.mentions_title} data={DATA.tweet} />
+      <SliderMentions
+        title={DATA.mentions_title}
+        data={DATA.tweet}
+        link={{
+          text: DATA.all_tweets_text,
+          url: DATA.all_tweets_url,
+        }}
+      />
       {DATA.seeallapps_title && (
         <SeeAllApps
           title={DATA.seeallapps_title}
@@ -130,6 +137,8 @@ export const pageQuery = graphql`
           }
           date
         }
+        all_tweets_url
+        all_tweets_text
         seeallapps_title
         seeallapps_image {
           url
