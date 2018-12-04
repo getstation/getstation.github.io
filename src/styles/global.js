@@ -1,5 +1,6 @@
 import { injectGlobal, css } from 'emotion';
 import normalize from './normalize';
+import slick from './slick';
 import { rem, rgba } from 'polished';
 import * as font from './fonts';
 import * as color from './colors';
@@ -243,7 +244,7 @@ injectGlobal`
     font-weight: inherit;
     text-align: left;
   }
-  
+  ${slick};
   .headroom {
     top: 0;
     left: 0;

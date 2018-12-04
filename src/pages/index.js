@@ -7,6 +7,7 @@ import Presentation from '../components/organims/Presentation';
 import More from '../components/organims/More';
 import Opinions from '../components/organims/Opinions';
 import SeeAllApps from '../components/organims/SeeAllApps';
+import SliderMentions from '../components/organims/SliderMentions';
 import { URL } from '../const';
 
 const IndexPage = props => {
@@ -42,6 +43,7 @@ const IndexPage = props => {
           slideText={DATA.opinion}
         />
       )}
+      <SliderMentions title="They use Station every day" />
       {DATA.seeallapps_title && (
         <SeeAllApps
           title={DATA.seeallapps_title}
