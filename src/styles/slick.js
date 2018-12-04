@@ -99,19 +99,7 @@ const slick = css`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-  .slick-loading .slick-list {
-    background: url(ajax-loader.gif) center center no-repeat #fff;
-  }
-  @font-face {
-    font-family: slick;
-    font-weight: 400;
-    font-style: normal;
-    src: url(fonts/slick.eot);
-    src: url(fonts/slick.eot?#iefix) format('embedded-opentype'),
-      url(fonts/slick.woff) format('woff'),
-      url(fonts/slick.ttf) format('truetype'),
-      url(fonts/slick.svg#slick) format('svg');
-  }
+
   .slick-next,
   .slick-prev {
     font-size: 0;

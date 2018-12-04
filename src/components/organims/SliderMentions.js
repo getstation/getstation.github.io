@@ -1,10 +1,11 @@
 import React from 'react';
 import Slider from 'react-slick';
-import { TwitterTweetEmbed } from 'react-twitter-embed';
+import Tweet from '../molecules/Tweet';
 import { rem } from 'polished';
 import SectionTitle from '../molecules/sectionTitle';
 import Wrapper from '../layout/Wrapper';
 import styled from 'react-emotion';
+import { mqMin } from '../../styles/breackpoint';
 
 const Section = styled('div')`
   padding: ${rem(100)} 0;
@@ -13,8 +14,10 @@ const Section = styled('div')`
 `;
 
 const Slide = styled('div')`
-  padding: 0 ${rem(20)};
-  width: ${rem(400)} !important;
+  padding: ${rem(20)};
+  ${mqMin[0]} {
+    max-width: ${rem(300)} !important;
+  }
 `;
 
 class SimpleSlider extends React.Component {
@@ -24,40 +27,44 @@ class SimpleSlider extends React.Component {
       autoplay: true,
       infinite: true,
       speed: 200,
-      slidesToShow: 1,
       centerMode: true,
       variableWidth: true,
+      responsive: [
+        {
+          breakpoint: 576,
+          settings: {
+            centerMode: false,
+            variableWidth: false,
+            slidesToShow: 1,
+          },
+        },
+      ],
     };
     return (
       <Slider {...settings}>
-        <Slide>
-          <TwitterTweetEmbed tweetId={'994610198831648768'} />
-        </Slide>
-        <Slide>
-          <TwitterTweetEmbed tweetId={'994489828640280576'} />
-        </Slide>
-        <Slide>
-          <TwitterTweetEmbed tweetId={'1024178183514607617'} />
-        </Slide>
-        <Slide>
-          <TwitterTweetEmbed tweetId={'1024053297529815040'} />
-        </Slide>
-        <Slide>
-          <TwitterTweetEmbed tweetId={'1024279016973459457'} />
-        </Slide>
-        <Slide>
-          <TwitterTweetEmbed tweetId={'1031351767835979777'} />
-        </Slide>
+        {this.props.data.map((item, index) => (
+          <Slide key={`tweet-slide-${index}`}>
+            <Tweet
+              url={item.url}
+              thumb={item.thumb.url}
+              fullName={item.fullname}
+              userName={item.username}
+              content={item.content.html}
+              date={item.date}
+            />
+          </Slide>
+        ))}
       </Slider>
     );
   }
 }
 
 const SliderMention = ({ title, data, ...rest }) => {
+  console.log(data);
   return (
     <Section>
       <Wrapper>{title && <SectionTitle>{title}</SectionTitle>}</Wrapper>
-      <SimpleSlider />
+      <SimpleSlider data={data} />
     </Section>
   );
 };
