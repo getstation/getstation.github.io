@@ -100,7 +100,6 @@ const Grid = styled('div')`
 `;
 
 const FeatureMore = ({ data, ...rest }) => {
-  console.log(data);
   return (
     <Wrapper
       className={css({
