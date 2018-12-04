@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
-import ReactTypingEffect from 'react-typing-effect';
-import { css, keyframes } from 'emotion';
+import { css } from 'emotion';
 import { Link } from 'gatsby';
 import { rem, rgba } from 'polished';
 import SectionBase from '../molecules/SectionBase';
@@ -27,14 +26,12 @@ const Title = styled('div')`
   ${mqMin[1]} {
     font-size: ${rem(28)};
   }
-  div {
-    display: inline-block;
-  }
 `;
 
 const Quote = styled('div')`
-  margin: ${rem(40)} auto;
-  max-width: ${rem(400)};
+  ${mqMax[1]} {
+    margin-top: ${rem(40)};
+  }
   position: relative;
   padding: ${rem(50)};
   text-align: center;
@@ -75,24 +72,22 @@ const Author = styled('div')`
 
 const Grid = styled('div')`
   ${mqMin[1]} {
-    /*display: flex;*/
-    text-align: center;
+    display: flex;
+    align-items: center;
   }
 `;
 
 const Left = styled('div')`
   ${mqMin[1]} {
-    /* flex-grow: 1;
-    padding-right: ${rem(100)}; */
-    padding-top: ${rem(40)};
+    flex-grow: 1;
+    padding-right: ${rem(100)};
   }
 `;
 const Right = styled('div')`
   text-align: center;
   ${mqMin[1]} {
-    /* flex-shrink: 0; */
+    flex-shrink: 0;
     width: ${rem(400)};
-    padding-top: ${rem(40)};
   }
 `;
 
@@ -107,12 +102,13 @@ const QuoteArrow = styled('div')`
   border-right: ${rem(14)} solid transparent;
   transform: translateX(-50%);
 `;
+
 class Opinons extends React.Component {
   state = {
     slide: 0,
   };
   componentDidMount() {
-    this.timerID = setInterval(this.tick, 4000);
+    this.timerID = setInterval(this.tick, 2000);
   }
   componentWillUnmount() {
     clearInterval(this.timerID);
@@ -129,39 +125,36 @@ class Opinons extends React.Component {
     const items = this.props.slideText;
     return (
       <Section>
-        <Wrapper
-          className={css({
-            textAlign: 'center',
-          })}
-        >
-          <Title>
-            <b>{items[0].job}</b> {this.props.slideUseText}{' '}
-            <b>
-              <ReactTypingEffect
-                text={[
-                  'Stay Focus',
-                  'Work faster',
-                  'Incrase Productivity',
-                  'Centralise everything',
-                ]}
-                speed="100"
-                eraseDeay="100" //text=["Hello.", "World!"]
+        <Wrapper className={css({})}>
+          <Grid>
+            <Left>
+              <Title>
+                <b>{items[this.state.slide].job}</b> {this.props.slideUseText}{' '}
+                <b>{items[this.state.slide].use_for}</b>
+              </Title>
+            </Left>
+            <Right>
+              <Quote>
+                {items[this.state.slide].quote}
+                <QuoteArrow />
+              </Quote>
+            </Right>
+          </Grid>
+          <Grid>
+            <Left />
+            <Right>
+              <Author>
+                <b>{items[this.state.slide].name}</b>,{' '}
+                {items[this.state.slide].job}
+              </Author>
+              <img
+                src={items[this.state.slide].logo.url}
+                alt=""
+                height={items[this.state.slide].logo.dimensions.height}
+                width={items[this.state.slide].logo.dimensions.width}
               />
-            </b>
-          </Title>
-          <Quote>
-            {items[this.state.slide].quote}
-            <QuoteArrow />
-          </Quote>
-          <Author>
-            <b>{items[this.state.slide].name}</b>, {items[this.state.slide].job}
-          </Author>
-          <img
-            src={items[this.state.slide].logo.url}
-            alt=""
-            height={items[this.state.slide].logo.dimensions.height}
-            width={items[this.state.slide].logo.dimensions.width}
-          />
+            </Right>
+          </Grid>
         </Wrapper>
       </Section>
     );
