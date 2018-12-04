@@ -12,7 +12,7 @@ import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import quoteImg from '../../images/quote.svg';
 
-const TIMER = 2000;
+const TIMER = 4000;
 
 const Section = styled('div')`
   padding: ${rem(60)} 0;
@@ -28,9 +28,9 @@ const Title = styled('div')`
   }
   ${mqMin[1]} {
     font-size: ${rem(28)};
-  }
-  div {
-    display: inline-block;
+    div {
+      display: inline-block;
+    }
   }
 `;
 
@@ -38,7 +38,9 @@ const Quote = styled('div')`
   ${mqMax[1]} {
     margin-top: ${rem(40)};
   }
-  min-height: ${rem(200)};
+  display: flex;
+  align-items: center;
+  height: ${rem(200)};
   position: relative;
   padding: ${rem(50)};
   text-align: center;
@@ -104,15 +106,17 @@ const QuoteArrow = styled('div')`
 `;
 
 const ItemSwitch = posed.div({
-  hidden: { opacity: 0, y: -10, transition: { duration: 700 } },
-  visible: { opacity: 1, y: 10, transition: { duration: 700 } },
+  hidden: { opacity: 0, x: 10 },
+  visible: { opacity: 1, x: 0 },
 });
 
 const Fade = posed.div({
   hidden: {
     opacity: 0,
   },
-  visible: { opacity: 1 },
+  visible: {
+    opacity: 1,
+  },
 });
 
 const Word = styled(ItemSwitch)`
@@ -134,9 +138,14 @@ const Author = styled(Fade)`
 class Opinons extends React.Component {
   state = {
     slide: 0,
-    isAnimated: false,
+    isAnimated: true,
   };
   componentDidMount() {
+    setTimeout(() => {
+      this.setState({
+        isAnimated: !this.state.isAnimated,
+      });
+    }, TIMER - 300);
     this.timerID = setInterval(() => {
       this.tick(),
         this.setState({

@@ -26,6 +26,7 @@
     "react-helmet": "^5.2.0",
     "react-lottie": "^1.2.3",
     "react-pose": "^4.0.2",
+    "react-pose-text": "^3.1.0",
     "yarn": "^1.12.1"
   },
   "keywords": [
