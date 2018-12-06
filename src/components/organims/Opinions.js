@@ -152,8 +152,8 @@ class Opinons extends React.Component {
           isAnimated: !this.state.isAnimated,
         });
     }, TIMER);
-    this.timerAlternate = setTimeout(() => {
-      setInterval(() => {
+    setTimeout(() => {
+      this.timerAlternate = setInterval(() => {
         this.setState({
           isAnimated: !this.state.isAnimated,
         });
