@@ -11,9 +11,12 @@ const FeaturesPage = props => {
   return (
     <App>
       <Hero
-        title="Features Overview"
-        subtitle="Check what’s under the hood!"
-        gradient={{ top: '#4ED8E4', bottom: '#1410B8' }}
+        title={DATA.hero_title}
+        subtitle={DATA.hero_baseline}
+        gradient={{
+          top: DATA.hero_gradient_top,
+          bottom: DATA.hero_gradient_bottom,
+        }}
       />
       <FeatureCards data={DATA} download={DOWNLOAD.data} />
       <FeatureMore data={DATA.morebox} />
