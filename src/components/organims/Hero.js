@@ -1,13 +1,11 @@
 import React from 'react';
-import styled from 'react-emotion';
 import { css, cx } from 'emotion';
 import { rem } from 'polished';
 import Title from '../atoms/Title';
 import Wrapper from '../layout/Wrapper';
-import { mqMin, mqMax } from '../../styles/breackpoint';
+import { mqMin } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
-import Seprator from '../../images/hero-separator-bottom.svg';
 
 const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
   return (
@@ -56,14 +54,19 @@ const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
           </div>
         )}
       </Wrapper>
-      <img
-        src={Seprator}
-        alt=""
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="1439"
+        height="54"
+        viewBox="0 0 1439 54"
+        preserveAspectRatio="none"
         className={css({
-          width: '100%',
           display: 'block',
+          width: '100%',
         })}
-      />
+      >
+        <path d="M0 0c720 9 720 49.782 1440 54H0V0z" fill={color.light} />
+      </svg>
     </div>
   );
 };
