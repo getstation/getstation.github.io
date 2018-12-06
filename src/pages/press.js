@@ -4,6 +4,7 @@ import { rem } from 'polished';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
+import PressMain from '../components/organims/PressMain';
 import Button from '../components/atoms/Button';
 
 const Presskit = props => {
@@ -47,6 +48,14 @@ const Presskit = props => {
           <span>Download Press Kit</span>
         </Button>
       </div>
+      <PressMain
+        className={css({ margin: `${rem(80)} 0` })}
+        data={{
+          content: {
+            text: DATA.content_text,
+          },
+        }}
+      />
     </App>
   );
 };
@@ -60,6 +69,15 @@ export const pageQuery = graphql`
         hero_baseline
         hero_gradient_top
         hero_gradient_bottom
+        content_text {
+          title
+          short {
+            html
+          }
+          long {
+            html
+          }
+        }
       }
     }
   }
