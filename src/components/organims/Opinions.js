@@ -173,7 +173,7 @@ class Opinons extends React.Component {
   };
   render() {
     const items = this.props.slideText;
-    const download = this.props.download.data;
+    const download = this.props.download;
     return (
       <Section>
         <Wrapper className={css({})}>
@@ -213,15 +213,15 @@ class Opinons extends React.Component {
               </Author>
             </Right>
           </Grid>
-          {download.button_text && download.button_url.url && (
+          {download.text && download.url && (
             <div
               className={css({
                 textAlign: 'center',
                 marginTop: rem(30),
               })}
             >
-              <Button to={download.button_url.url} size="L">
-                {download.button_text}
+              <Button to={download.url} size="L" shadow>
+                {download.text}
               </Button>
             </div>
           )}

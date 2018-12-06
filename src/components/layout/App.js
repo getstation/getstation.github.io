@@ -109,6 +109,7 @@ export default props => (
               url
               type
             }
+            download_text
           }
         }
         footer: prismicFooter {

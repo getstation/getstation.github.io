@@ -143,7 +143,7 @@ const Header = ({
                 {link.text}
               </NavLink>
             ))}
-          {DOWNLOAD.button_text && DOWNLOAD.button_url && (
+          {DATA.download_text && DOWNLOAD.button_url && (
             <Button
               theme={theme === 'dark' ? 'primary' : 'light'}
               to={DOWNLOAD.button_url.url}
@@ -156,7 +156,7 @@ const Header = ({
                 }),
               )}
             >
-              {DOWNLOAD.button_text}
+              {DATA.download_text}
             </Button>
           )}
         </div>

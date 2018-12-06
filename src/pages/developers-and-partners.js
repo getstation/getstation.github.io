@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
-
 const DevsAndPartners = props => {
   const DATA = props.data.devsAndPartners.data;
   return (

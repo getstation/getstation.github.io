@@ -41,7 +41,10 @@ const IndexPage = props => {
         <Opinions
           slideUseText={DATA.opinon___use_station_to}
           slideText={DATA.opinion}
-          download={DOWNLOAD}
+          download={{
+            text: DATA.download_text,
+            url: DOWNLOAD.data.button_url.url,
+          }}
         />
       )}
       <SliderMentions
@@ -125,6 +128,7 @@ export const pageQuery = graphql`
           }
         }
         opinon___use_station_to
+        download_text
         mentions_title
         tweet {
           url

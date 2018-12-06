@@ -3,6 +3,7 @@ import { css, cx } from 'emotion';
 import { rem } from 'polished';
 import Title from '../atoms/Title';
 import Wrapper from '../layout/Wrapper';
+import Button from '../atoms/Button';
 import { mqMin } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';

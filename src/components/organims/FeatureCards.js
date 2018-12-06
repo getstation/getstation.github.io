@@ -52,7 +52,7 @@ const Tags = styled('div')`
 
 const Footer = ({ button, url = '/' }) =>
   button && (
-    <Button to={url} size="L">
+    <Button to={url} size="L" shadow>
       {button}
     </Button>
   );
@@ -78,10 +78,10 @@ class FeatureCards extends React.Component {
       <SectionBase
         title={this.props.data.title}
         footer={
-          this.props.download.button_text &&
+          this.props.data.download_text &&
           this.props.download.button_url.url && (
             <Footer
-              button={this.props.download.button_text}
+              button={this.props.data.download_text}
               url={this.props.download.button_url.url}
             />
           )

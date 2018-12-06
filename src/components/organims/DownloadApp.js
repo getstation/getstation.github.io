@@ -17,7 +17,7 @@ const DownloadApp = ({ data, theme, ...rest }) => {
         })}
       >
         {DATA.button_text && DATA.button_url && (
-          <Button to={DATA.button_url.url} theme={theme} size="L">
+          <Button to={DATA.button_url.url} theme={theme} size="L" shadow>
             {DATA.button_text}
           </Button>
         )}
