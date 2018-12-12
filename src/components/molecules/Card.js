@@ -76,7 +76,11 @@ const Card = ({ title, theme, images, size, ...rest }) => {
           />
         )}
         {size === 'small' && (
-          <div>
+          <div
+            className={css({
+              padding: rem(20),
+            })}
+          >
             <img
               src={images.svg.url || images.png.url || images.jpg.url}
               alt={title || ''}
