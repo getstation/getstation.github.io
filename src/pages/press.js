@@ -6,9 +6,12 @@ import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
 import PressMain from '../components/organims/PressMain';
 import Button from '../components/atoms/Button';
+import Wrapper from '../components/layout/Wrapper';
+import { mqMin } from '../styles/breackpoint';
 
 const Presskit = props => {
   const DATA = props.data.press.data;
+  const DATA_STRING = JSON.parse(props.data.press.dataString);
   return (
     <App>
       <Hero
@@ -48,14 +51,43 @@ const Presskit = props => {
           <span>Download Press Kit</span>
         </Button>
       </div>
-      <PressMain
-        className={css({ margin: `${rem(80)} 0` })}
-        data={{
-          content: {
-            text: DATA.content_text,
-          },
-        }}
-      />
+      <Wrapper>
+        <div
+          className={css({
+            margin: `${rem(80)} 0`,
+            [mqMin[1]]: {
+              display: 'flex',
+            },
+          })}
+        >
+          <div
+            className={css({
+              [mqMin[1]]: {
+                width: rem(200),
+                flexShrink: 0,
+              },
+            })}
+          >
+            <div
+              className={css({
+                position: 'sticky',
+                top: rem(100),
+              })}
+            >
+              Aside
+            </div>
+          </div>
+          <PressMain
+            className={css({})}
+            data={{
+              content: {
+                text: DATA.content_text,
+                cards: DATA_STRING.body,
+              },
+            }}
+          />
+        </div>
+      </Wrapper>
     </App>
   );
 };
@@ -64,6 +96,7 @@ export default Presskit;
 export const pageQuery = graphql`
   query presskitQuery {
     press: prismicPress {
+      dataString
       data {
         hero_title
         hero_baseline

@@ -1,23 +1,11 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import { rem, margin } from 'polished';
+import { rem } from 'polished';
+import PressMainTitle from '../atoms/PressMainTitle';
 import ButtonSmall from '../atoms/ButtonSmall';
 import Content from '../molecules/Content';
-import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
-import { mqMin, mqMax } from '../../styles/breackpoint';
-
-const Title = styled('h3')`
-  font-weight: ${font.weightBold};
-  font-size: ${rem(18)};
-  ${[mqMin[1]]} {
-    font-size: ${rem(20)};
-  }
-  &:not(:last-child) {
-    margin-bottom: ${rem(15)};
-  }
-`;
 
 const Buttons = styled('div')`
   display: flex;
@@ -30,19 +18,25 @@ const Buttons = styled('div')`
 `;
 
 const PressMainContentText = data => {
-  return data.items.map((item, index) => (
-    <ContentTextItem
-      key={`contentText-${index}`}
-      title={item.title}
-      short={item.short.html}
-      long={item.long.html}
+  return (
+    <div
       className={css({
-        '&:not(:first-child)': {
-          marginTop: rem(60),
-        },
+        borderBottom: `1px solid ${color.neutralLighter}`,
       })}
-    />
-  ));
+    >
+      {data.items.map((item, index) => (
+        <ContentTextItem
+          key={`contentText-${index}`}
+          title={item.title}
+          short={item.short.html}
+          long={item.long.html}
+          className={css({
+            marginBottom: rem(60),
+          })}
+        />
+      ))}
+    </div>
+  );
 };
 
 class ContentTextItem extends React.Component {
@@ -68,7 +62,7 @@ class ContentTextItem extends React.Component {
       <React.Fragment>
         {item.short && (
           <div className={this.props.className}>
-            <Title>{item.title}</Title>
+            {item.title && <PressMainTitle>{item.title}</PressMainTitle>}
             <Buttons>
               <ButtonSmall
                 onClick={() => this.getShortContent()}
