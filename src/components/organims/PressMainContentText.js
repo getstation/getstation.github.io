@@ -17,21 +17,23 @@ const Buttons = styled('div')`
   }
 `;
 
-const PressMainContentText = data => {
+const PressMainContentText = ({ items, ...rest }) => {
   return (
     <div
       className={css({
+        paddingTop: rem(88),
         borderBottom: `1px solid ${color.neutralLighter}`,
       })}
+      {...rest}
     >
-      {data.items.map((item, index) => (
+      {items.map((item, index) => (
         <ContentTextItem
           key={`contentText-${index}`}
           title={item.title}
           short={item.short.html}
           long={item.long.html}
           className={css({
-            marginBottom: rem(60),
+            paddingBottom: rem(60),
           })}
         />
       ))}

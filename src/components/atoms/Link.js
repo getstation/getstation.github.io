@@ -11,6 +11,8 @@ const Link = ({ element, disabled, ...props }) => {
       props.className,
       link.styleBase,
       css({
+        display: 'inline-flex',
+        alignItems: 'center',
         opacity: disabled ? 0.5 : 1,
         pointerEvents: disabled ? 'none' : 'auto',
       }),
