@@ -47,9 +47,8 @@ const Card = ({ data, ...rest }) => {
       {data && (
         <Grid>
           {data.map((item, index) => (
-            <div>
+            <div key={`${index}-${slugify(item.text, { lower: true })}`}>
               <Button
-                key={`${index}-${slugify(item.text, { lower: true })}`}
                 to={item.url}
                 theme={item.theme}
                 size="L"
