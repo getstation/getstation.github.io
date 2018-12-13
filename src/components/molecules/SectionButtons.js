@@ -8,6 +8,8 @@ import { mqMin, mqMax } from '../../styles/breackpoint';
 
 const Box = styled('div')`
   text-align: center;
+  margin-top: ${rem(60)};
+  overflow: hidden;
 `;
 
 const Grid = styled('div')`
@@ -25,23 +27,18 @@ const Grid = styled('div')`
     justify-content: center;
     margin: ${rem(-20)};
     > * {
-      &:not(:first-child) {
-        margin: ${rem(40)};
-      }
+      margin: ${rem(40)};
     }
   }
   ${mqMin[1]} {
     margin: ${rem(-40)};
     > * {
-      &:not(:first-child) {
-        margin-left: ${rem(80)};
-      }
+      margin: ${rem(80)};
     }
   }
 `;
 
 const Card = ({ data, ...rest }) => {
-  console.log(data);
   return (
     <Box {...rest}>
       {data && (

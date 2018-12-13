@@ -55,7 +55,7 @@ export const Themes = {
   },
   ghost: {
     button: {
-      background: color.light,
+      background: 'transparent',
       color: color.clr1,
       boxShadow: `inset 0 0 0 2px ${color.clr1Light}`,
       '&:hover, &:focus': {
