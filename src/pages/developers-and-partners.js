@@ -17,7 +17,11 @@ const DevsAndPartners = props => {
           bottom: DATA.hero_gradient_bottom,
         }}
       />
-      <DevelopersAndPartnersSection1 title={DATA.section_1_title} />
+      <DevelopersAndPartnersSection1
+        title={DATA.section_1_title}
+        items={DATA.card}
+        buttons={DATA.section_1_button}
+      />
     </App>
   );
 };
@@ -33,6 +37,31 @@ export const pageQuery = graphql`
         hero_gradient_bottom
         hero_status
         section_1_title
+        section_1_button {
+          text
+          url
+          type
+          theme
+        }
+        card {
+          title
+          subtitle
+          tag
+          image {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+          shape {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+        }
       }
     }
   }

@@ -7,8 +7,8 @@ import * as color from '../../styles/colors';
 
 export const Sizes = {
   M: {
-    padding: `${rem(10)} ${rem(27)}`,
-    fontSize: rem(14),
+    padding: `${rem(8)} ${rem(10)}`,
+    fontSize: rem(13),
     fontWeight: font.weightMedium,
   },
   L: {
@@ -20,7 +20,7 @@ export const Sizes = {
 
 export const Themes = {
   primary: {
-    background: color.clr1,
+    background: '#ffd429',
     color: color.light,
   },
   light: {
