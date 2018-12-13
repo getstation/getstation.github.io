@@ -2,13 +2,13 @@ import React from 'react';
 import { css, cx } from 'emotion';
 import { rem } from 'polished';
 import Title from '../atoms/Title';
+import Status from '../atoms/Status';
 import Wrapper from '../layout/Wrapper';
-import Button from '../atoms/Button';
 import { mqMin } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 
-const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
+const Hero = ({ title, subtitle, status, gradient, className, ...rest }) => {
   return (
     <div
       className={cx(
@@ -52,6 +52,24 @@ const Hero = ({ title, subtitle, gradient, className, ...rest }) => {
             })}
           >
             {subtitle}
+          </div>
+        )}
+        {status && (
+          <div
+            className={css({
+              marginTop: rem(20),
+              marginBottom: rem(-47),
+            })}
+          >
+            <Status
+              size="L"
+              theme="light"
+              className={css({
+                color: gradient.bottom,
+              })}
+            >
+              {status}
+            </Status>
           </div>
         )}
       </Wrapper>

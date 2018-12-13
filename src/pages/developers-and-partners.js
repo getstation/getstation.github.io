@@ -9,6 +9,7 @@ const DevsAndPartners = props => {
       <Hero
         title={DATA.hero_title}
         subtitle={DATA.hero_baseline}
+        status={DATA.hero_status}
         gradient={{
           top: DATA.hero_gradient_top,
           bottom: DATA.hero_gradient_bottom,
@@ -27,6 +28,7 @@ export const pageQuery = graphql`
         hero_baseline
         hero_gradient_top
         hero_gradient_bottom
+        hero_status
       }
     }
   }
