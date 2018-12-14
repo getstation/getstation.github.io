@@ -60,6 +60,10 @@ const SubTitle = styled('div')`
 const Content = styled('div')`
   color: ${color.neutralLight};
   font-weight: ${font.weightMedium};
+  max-width: ${rem(480)};
+  ${mqMin[1]} {
+    font-size: ${rem(20)};
+  }
   * + * {
     margin-top: ${rem(20)};
   }

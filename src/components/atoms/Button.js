@@ -23,6 +23,7 @@ export const Sizes = {
     padding: `${rem(18)} ${rem(40)}`,
     minHeight: rem(54),
     fontSize: rem(18),
+    minWidth: rem(210),
   },
 };
 
@@ -94,6 +95,7 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
           fontFamily: 'inherit',
           fontWeight: font.weightMedium,
           lineHeight: 1,
+          background: 'transparent',
           opacity: disabled ? state.disabledOpacity : 1,
           pointerEvents: disabled ? 'none' : 'auto',
           '&:active': {

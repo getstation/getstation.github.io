@@ -72,7 +72,7 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
         </Grid>
       )}
       {button.url && button.text && (
-        <div className={css({ textAlign: 'center', margin: `${rem(100)} 0` })}>
+        <div className={css({ textAlign: 'center', margin: `${rem(70)} 0` })}>
           <Button
             to={button.url}
             theme={button.theme}

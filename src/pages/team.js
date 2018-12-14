@@ -41,12 +41,7 @@ const Presskit = props => {
         title={DATA.timeline_title}
         text={DATA.timeline_text}
         timeline={DATA.timeline_event}
-        button={{
-          url: DATA.section_1_button_url,
-          text: DATA.section_1_button_text,
-          type: DATA.section_1_button_type,
-          theme: DATA.section_1_button_theme,
-        }}
+        button={DATA.button_load_more_text}
       />
     </App>
   );
@@ -106,6 +101,7 @@ export const pageQuery = graphql`
             }
           }
         }
+        button_load_more_text
       }
     }
   }
