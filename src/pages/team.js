@@ -2,18 +2,29 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
+import TeamSection1 from '../components/organims/TeamSection1';
 
 const Presskit = props => {
-  const DATA_STRING = JSON.parse(props.data.team.dataString);
+  const DATA = props.data.team.data;
   return (
     <App>
       <Hero
-        title={DATA_STRING.hero_title}
-        subtitle={DATA_STRING.hero_baseline}
+        title={DATA.hero_title}
+        subtitle={DATA.hero_baseline}
         gradient={{
-          top: DATA_STRING.hero_gradient_top,
-          bottom: DATA_STRING.hero_gradient_bottom,
+          top: DATA.hero_gradient_top,
+          bottom: DATA.hero_gradient_bottom,
         }}
+      />
+      <TeamSection1
+        text={DATA.section_1_text.html}
+        button={{
+          url: DATA.section_1_button_url,
+          text: DATA.section_1_button_text,
+          type: DATA.section_1_button_type,
+          theme: DATA.section_1_button_theme,
+        }}
+        members={DATA.member}
       />
     </App>
   );
@@ -23,7 +34,57 @@ export default Presskit;
 export const pageQuery = graphql`
   query teamQuery {
     team: prismicTeam {
-      dataString
+      data {
+        hero_title
+        hero_baseline
+        hero_gradient_top
+        hero_gradient_bottom
+        section_1_text {
+          html
+        }
+        section_1_button_url
+        section_1_button_text
+        section_1_button_type
+        section_1_button_theme
+        member {
+          thumb {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+          name
+          job
+          twitter
+          instagram
+          personal_link
+          github
+        }
+        manifesto {
+          title
+          title_color
+          subtitle
+          content {
+            html
+          }
+        }
+        timeline_title
+        timeline_text
+        timeline_event {
+          date
+          title
+          url
+          text
+          thumb {
+            url
+            dimensions {
+              width
+              height
+            }
+          }
+        }
+      }
     }
   }
 `;
