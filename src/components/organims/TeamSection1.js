@@ -10,7 +10,7 @@ import Member from '../molecules/Member';
 import Wrapper from '../layout/Wrapper';
 
 const Grid = styled('div')`
-  padding-top: ${rem(60)};
+  padding-top: ${rem(100)};
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: ${rem(60)};
@@ -70,6 +70,18 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
             />
           ))}
         </Grid>
+      )}
+      {button.url && button.text && (
+        <div className={css({ textAlign: 'center', margin: `${rem(100)} 0` })}>
+          <Button
+            to={button.url}
+            theme={button.theme}
+            type={button.type}
+            size="L"
+          >
+            {button.text}
+          </Button>
+        </div>
       )}
     </Wrapper>
   </div>

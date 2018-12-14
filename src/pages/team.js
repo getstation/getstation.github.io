@@ -3,6 +3,7 @@ import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
 import TeamSection1 from '../components/organims/TeamSection1';
+import TeamManifesto from '../components/organims/TeamManifesto';
 
 const Presskit = props => {
   const DATA = props.data.team.data;
@@ -25,6 +26,15 @@ const Presskit = props => {
           theme: DATA.section_1_button_theme,
         }}
         members={DATA.member}
+      />
+      <TeamManifesto
+        data={DATA.manifesto}
+        button={{
+          url: DATA.section_1_button_url,
+          text: DATA.section_1_button_text,
+          type: DATA.section_1_button_type,
+          theme: DATA.section_1_button_theme,
+        }}
       />
     </App>
   );
