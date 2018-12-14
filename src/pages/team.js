@@ -4,6 +4,7 @@ import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
 import TeamSection1 from '../components/organims/TeamSection1';
 import TeamManifesto from '../components/organims/TeamManifesto';
+import TeamTimeline from '../components/organims/TeamTimeline';
 
 const Presskit = props => {
   const DATA = props.data.team.data;
@@ -29,6 +30,17 @@ const Presskit = props => {
       />
       <TeamManifesto
         data={DATA.manifesto}
+        button={{
+          url: DATA.section_1_button_url,
+          text: DATA.section_1_button_text,
+          type: DATA.section_1_button_type,
+          theme: DATA.section_1_button_theme,
+        }}
+      />
+      <TeamTimeline
+        title={DATA.timeline_title}
+        text={DATA.timeline_text}
+        timeline={DATA.timeline_event}
         button={{
           url: DATA.section_1_button_url,
           text: DATA.section_1_button_text,
