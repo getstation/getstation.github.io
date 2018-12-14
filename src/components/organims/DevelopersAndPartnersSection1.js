@@ -2,8 +2,9 @@ import React from 'react';
 import styled from 'react-emotion';
 import slugify from 'slugify';
 import { rem } from 'polished';
-import Wrapper from '../layout/Wrapper';
 import Status from '../atoms/Status';
+import TextBigger from '../atoms/TextBigger';
+import Wrapper from '../layout/Wrapper';
 import SectionButtons from '../molecules/SectionButtons';
 import { mqMin } from '../../styles/breackpoint';
 import * as color from '../../styles/colors';
@@ -12,20 +13,6 @@ const Box = styled('div')`
   padding: ${rem(60)} 0;
   ${mqMin[1]} {
     padding: ${rem(100)} 0;
-  }
-`;
-
-const Title = styled('div')`
-  text-align: center;
-  max-width: ${rem(670)};
-  margin: 0 auto;
-  color: ${color.neutralLight};
-  font-size: ${rem(16)};
-  ${mqMin[0]} {
-    font-size: ${rem(18)};
-  }
-  ${mqMin[1]} {
-    font-size: ${rem(20)};
   }
 `;
 
@@ -113,7 +100,7 @@ const DevelopersAndPartnersSection1 = ({ title, items, buttons, ...rest }) => {
   return (
     <Box {...rest}>
       <Wrapper>
-        {title && <Title>{title}</Title>}
+        {title && <TextBigger>{title}</TextBigger>}
         {items && (
           <Grid>
             {items.map((item, index) => (

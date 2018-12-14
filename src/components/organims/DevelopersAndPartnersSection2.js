@@ -4,6 +4,7 @@ import { css } from 'emotion';
 import slugify from 'slugify';
 import { rem } from 'polished';
 import Title from '../atoms/Title';
+import TextBigger from '../atoms/TextBigger';
 import Wrapper from '../layout/Wrapper';
 import SectionButtons from '../molecules/SectionButtons';
 import { mqMin } from '../../styles/breackpoint';
@@ -98,20 +99,6 @@ const CardTitle = styled('div')`
   }
 `;
 
-const Text = styled('div')`
-  text-align: center;
-  max-width: ${rem(670)};
-  margin: 0 auto;
-  color: ${color.neutralLight};
-  font-size: ${rem(16)};
-  ${mqMin[0]} {
-    font-size: ${rem(18)};
-  }
-  ${mqMin[1]} {
-    font-size: ${rem(20)};
-  }
-`;
-
 const DevelopersAndPartnersSection2 = ({
   title,
   items,
@@ -159,7 +146,7 @@ const DevelopersAndPartnersSection2 = ({
             ))}
           </Grid>
         )}
-        {text && <Text>{text}</Text>}
+        {text && <TextBigger>{text}</TextBigger>}
         {buttons && <SectionButtons data={buttons} />}
       </Wrapper>
     </Box>
