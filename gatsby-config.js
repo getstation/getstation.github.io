@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
   siteMetadata: {
-    siteUrl: `https://hello-gatsby-js.netlify.com/`,
+    siteUrl: `https://getstation.com/`,
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -12,11 +12,11 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: 'Hello Gatsby',
-        short_name: 'Hello',
+        name: 'Get Station',
+        short_name: 'Station',
         start_url: '/',
-        background_color: '#663399',
-        theme_color: '#663399',
+        background_color: '#2F70CC',
+        theme_color: '#2F70CC',
         display: 'minimal-ui',
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
