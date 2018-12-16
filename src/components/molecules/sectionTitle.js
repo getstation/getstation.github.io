@@ -48,7 +48,11 @@ const SectionTitle = ({ children, element, theme, ...rest }) => (
       >
         {children}
       </Title>
-      <Line />
+      <Line
+        data-aos="flip-right"
+        data-aos-offset="300"
+        data-aos-easing="ease-in-sine"
+      />
     </Wrapper>
   </Header>
 );

@@ -75,6 +75,7 @@ const Comet = styled('div')`
   width: ${rem(500)};
   border-radius: ${rem(666)};
   margin-top: ${rem(-60)};
+  bottom: ${rem(60)};
   &:before {
     content: '';
     display: block;
@@ -116,8 +117,7 @@ const Section = styled('div')`
       }
     }
     ${Comet} {
-      right: 0;
-      transform: translateX(10vw) translateY(${rem(160)});
+      right: -10vw;
       &:after {
         left: 0;
       }
@@ -142,7 +142,7 @@ const Section = styled('div')`
       }
     }
     ${Comet} {
-      transform: translateX(-10vw) translateY(${rem(160)});
+      left: -10vw;
       &:after {
         right: 0;
       }
@@ -205,7 +205,7 @@ const Section = styled('div')`
   }
 `;
 
-const Presentation = ({ data, ...rest }) => {
+const Presentation = ({ data, componentStyle, ...rest }) => {
   return (
     <div {...rest}>
       {data &&
@@ -236,13 +236,20 @@ const Presentation = ({ data, ...rest }) => {
                     `}
                   />
                 )}
-                <Comet />
+                <Comet
+                  data-aos={index % 2 ? 'fade-right' : 'fade-left'}
+                  data-aos-offset="300"
+                />
               </ColText>
               <ColImage>
                 {item.image.url && (
                   <img
                     src={item.image.url}
                     alt=""
+                    data-aos="fade"
+                    data-aos-duration="2000"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine"
                     width={item.image.dimensions.width}
                     height={item.image.dimensions.height}
                   />

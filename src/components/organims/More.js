@@ -60,7 +60,7 @@ const Grid = styled('div')`
 
 const Footer = ({ button, url = '/' }) =>
   button && (
-    <Button to={url} size="L" theme="ghost" element={Link}>
+    <Button to={url} size="L" theme="ghost" element={Link} data-aos="zoom-in">
       {button}
     </Button>
   );
@@ -78,7 +78,11 @@ const More = ({ title, data, button, buttonUrl, ...rest }) => {
             {data.map(
               (item, index) =>
                 item.image.url && (
-                  <Box key={`${index}-more-data`}>
+                  <Box
+                    key={`${index}-more-data`}
+                    data-aos="fade"
+                    data-aos-delay={index * 200}
+                  >
                     {item.image.url && (
                       <img
                         src={item.image.url}

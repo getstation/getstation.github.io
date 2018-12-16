@@ -113,7 +113,11 @@ const FeatureMore = ({ data, ...rest }) => {
       {data && (
         <Grid>
           {data.map((item, index) => (
-            <Box key={`feature-more-${index}`}>
+            <Box
+              key={`feature-more-${index}`}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               {item.icon && <Icon>{iconSwitcher(item.icon)}</Icon>}
               <BoxBody>
                 {item.title1 && (
@@ -139,6 +143,7 @@ const FeatureMore = ({ data, ...rest }) => {
                   to={item.button_url}
                   theme="ghost"
                   element={item.button_type === 'internal' ? Link : 'a'}
+                  data-aos="zoom-in"
                 >
                   {item.button_text}
                 </Button>

@@ -187,6 +187,10 @@ class Timeline extends React.Component {
             .map((item, index) => (
               <Event
                 key={`${index}-${slugify(item.title, { lower: true })}`}
+                data-aos="fade"
+                data-aos-duration="700"
+                data-aos-easing="ease-in-sine"
+                data-aos-delay={index * 200}
                 {...item}
               />
             ))}

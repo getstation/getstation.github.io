@@ -30,7 +30,11 @@ const PressMainCards = ({ title, size, data, ...rest }) => {
         })}
       >
         {data.map((item, index) => (
-          <div key={`card-${title}-${index}`} className={css({})}>
+          <div
+            key={`card-${title}-${index}`}
+            data-aos="fade-up"
+            data-aos-delay={index * 100}
+          >
             <Card
               title={item.title}
               theme={item.theme}

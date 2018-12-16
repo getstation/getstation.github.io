@@ -52,7 +52,7 @@ const Tags = styled('div')`
 
 const Footer = ({ button, url = '/' }) =>
   button && (
-    <Button to={url} size="L" shadow>
+    <Button to={url} size="L" shadow data-aos="zoom-in">
       {button}
     </Button>
   );
@@ -96,6 +96,8 @@ class FeatureCards extends React.Component {
               active={this.state.activeFilter ? false : true}
               size="L"
               element="button"
+              data-aos="fade"
+              data-aos-duration="700"
             />
             {getCurrentTags.map((item, index) => (
               <Tag
@@ -105,6 +107,9 @@ class FeatureCards extends React.Component {
                 active={this.state.activeFilter === item ? true : false}
                 size="L"
                 element="button"
+                data-aos="fade"
+                data-aos-duration="700"
+                data-aos-delay={100 + index * 100}
               />
             ))}
           </Tags>
@@ -113,7 +118,11 @@ class FeatureCards extends React.Component {
               (item, index) => {
                 if (item.slice_type === 'featurecard') {
                   return (
-                    <GridItem key={`${index}-grid-item`}>
+                    <GridItem
+                      key={`${index}-grid-item`}
+                      data-aos="fade"
+                      data-aos-delay={index * 100}
+                    >
                       <FeatureCardBase data={item.primary} />
                     </GridItem>
                   );
@@ -121,6 +130,8 @@ class FeatureCards extends React.Component {
                   return (
                     <GridItem
                       key={`${index}-grid-item`}
+                      data-aos="fade"
+                      data-aos-delay={index * 100}
                       css={`
                         ${mqMin[0]} {
                           grid-column: 1 / 3;

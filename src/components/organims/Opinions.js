@@ -192,7 +192,7 @@ class Opinons extends React.Component {
               </Title>
             </Left>
             <Right>
-              <Quote>
+              <Quote data-aos="fade-up">
                 <QuoteText pose={this.state.isAnimated ? 'visible' : 'hidden'}>
                   {items[this.state.slide].quote}
                 </QuoteText>
@@ -222,7 +222,7 @@ class Opinons extends React.Component {
                 marginTop: rem(30),
               })}
             >
-              <Button to={download.url} size="L" shadow>
+              <Button to={download.url} size="L" shadow data-aos="zoom-in">
                 {download.text}
               </Button>
             </div>

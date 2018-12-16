@@ -79,6 +79,9 @@ const Card = ({ title, subtitle, tag, image, shape, ...rest }) => (
           alt=""
           width={shape.dimensions.width}
           height={shape.dimensions.height}
+          data-aos="fade"
+          data-aos-duration="600"
+          data-aos-easing="ease-in-sine"
         />
       )}
       {image && (
@@ -87,6 +90,9 @@ const Card = ({ title, subtitle, tag, image, shape, ...rest }) => (
           alt=""
           width={image.dimensions.width}
           height={image.dimensions.height}
+          data-aos="zoom-in"
+          data-aos-duration="400"
+          data-aos-delay="300"
         />
       )}
     </CardThumb>
@@ -111,6 +117,8 @@ const DevelopersAndPartnersSection1 = ({ title, items, buttons, ...rest }) => {
                 tag={item.tag}
                 shape={item.shape}
                 image={item.image}
+                data-aos="fade-up"
+                data-aos-delay={index * 100}
               />
             ))}
           </Grid>

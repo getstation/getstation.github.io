@@ -49,6 +49,8 @@ const Card = ({ data, ...rest }) => {
                 to={item.url}
                 theme={item.theme}
                 size="L"
+                data-aos-delay={index * 100}
+                data-aos="zoom-in"
                 element={item.type === 'internal' ? Link : 'a'}
                 shadow={item.theme === 'primary' ? true : false}
               >
