@@ -13,6 +13,8 @@ import * as colors from '../../styles/colors';
 import '../../styles/global';
 
 const Main = styled('main')`
+  display: flex;
+  flex-direction: column;
   margin-top: ${rem(-88)};
   flex-grow: 1;
 `;
