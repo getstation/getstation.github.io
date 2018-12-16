@@ -116,7 +116,9 @@ export default props => (
         }
         footer: prismicFooter {
           data {
-            producthunt_subtitle
+            reward_title
+            reward_subtitle
+            reward_url
             column_1_title
             column_2_title
             column_3_title
