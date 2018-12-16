@@ -1,9 +1,10 @@
 import React from 'react';
 import { rem, rgba } from 'polished';
 import { css } from 'emotion';
+import slugify from 'slugify';
 import styled from 'react-emotion';
-import Title from '../atoms/Title';
 import Content from '../molecules/Content';
+import Title from '../atoms/Title';
 import Wrapper from '../layout/Wrapper';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
@@ -209,7 +210,7 @@ const Presentation = ({ data, ...rest }) => {
     <div {...rest}>
       {data &&
         data.map((item, index) => (
-          <Section key={item.title}>
+          <Section key={`${index}-${slugify(item.subtitle, { lower: true })}`}>
             <Wrapper
               className={css({
                 display: 'flex',

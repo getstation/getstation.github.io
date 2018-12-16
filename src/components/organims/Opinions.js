@@ -141,7 +141,7 @@ class Opinons extends React.Component {
     isAnimated: true,
   };
   componentDidMount() {
-    setTimeout(() => {
+    this.timerLaunch = setTimeout(() => {
       this.setState({
         isAnimated: !this.state.isAnimated,
       });
@@ -152,7 +152,7 @@ class Opinons extends React.Component {
           isAnimated: !this.state.isAnimated,
         });
     }, TIMER);
-    setTimeout(() => {
+    this.timerLaunchAlternate = setTimeout(() => {
       this.timerAlternate = setInterval(() => {
         this.setState({
           isAnimated: !this.state.isAnimated,
@@ -163,6 +163,8 @@ class Opinons extends React.Component {
   componentWillUnmount() {
     clearInterval(this.timerID);
     clearInterval(this.timerAlternate);
+    clearTimeout(this.timerLaunch);
+    clearTimeout(this.timerLaunchAlternate);
   }
   tick = () => {
     if (this.state.slide < this.props.slideText.length - 1) {

@@ -21,7 +21,7 @@ const Title = ({ element, ...props }) => {
 
 Title.propTypes = {
   element: PropTypes.oneOf(elements),
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
 };
 
 Title.defaultProps = {
