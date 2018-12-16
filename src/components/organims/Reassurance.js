@@ -24,7 +24,7 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
           boxShadow: '0 4px 10px 0 rgba(0, 0, 0, 0.15)',
           margin: `0 auto`,
           maxWidth: rem(1040),
-          padding: rem(40),
+          padding: rem(30),
         })}
         {...rest}
       >
@@ -34,7 +34,7 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
               color: color.clr1,
               fontSize: font.XXL,
               '&:not(:last-child)': {
-                marginBottom: rem(10),
+                marginBottom: rem(5),
               },
               [[mqMin[2]]]: {
                 fontSize: font.XXXL,
@@ -49,7 +49,7 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
             className={css({
               color: color.neutralLight,
               '&:not(:last-child)': {
-                marginBottom: rem(30),
+                marginBottom: rem(15),
               },
               [[mqMin[2]]]: {
                 fontSize: font.M,
