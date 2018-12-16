@@ -43,21 +43,34 @@ const Background = styled('div')`
 
 const Illustration = styled('div')`
   position: relative;
+  border: 1px solid transparent;
+  ${[mqMin[2]]} {
+    margin-right: -20%;
+    width: 120%;
+  }
   > div {
     position: absolute;
     top: 0;
     width: 100% !important;
     height: auto !important;
   }
+    img {
+      width: 100%;
+      display: block;
+    }
+  }
   video {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     width: 28%;
-    top: 1.5vw;
+    top: 47px;
+    ${[mqMin[0]]} {
+      top: 50px;
+    }
     ${[mqMin[2]]} {
       width: 35%;
-      top: 12px;
+      top: 17px;
     }
   }
 `;
@@ -79,14 +92,12 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
         className={css({
           zIndex: 1,
           position: 'relative',
-          padding: `${rem(160 + 88)} 0 ${rem(160)}`,
+          padding: `${rem(130 + 88)} 0 ${rem(130)}`,
           [[mqMax[2]]]: {
-            padding: `${rem(188)} 0`,
+            padding: `${rem(140)} 0`,
           },
           [[mqMin[2]]]: {
-            minHeight: '50vh',
             display: 'flex',
-            alignItems: 'center',
           },
         })}
       >
@@ -110,8 +121,11 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
                 '&:not(:last-child)': {
                   marginBottom: rem(20),
                 },
-                [[mqMin[2]]]: {
+                [[mqMin[1]]]: {
                   fontSize: font.XXXL,
+                },
+                [[mqMin[2]]]: {
+                  fontSize: font.XXXXL,
                 },
               })}
             >
