@@ -16,6 +16,26 @@ const linkStyles = css`
   &:hover,
   &:focus {
     color: ${color.light};
+    span::after {
+      transform: translateX(0%);
+    }
+  }
+  span {
+    overflow: hidden;
+    display: inline-block;
+    position: relative;
+    &::after {
+      content: '';
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 1px;
+      background: ${color.light};
+      transform: translateX(-110%);
+      transition: transform 0.2s ${transition.base};
+    }
   }
 `;
 
@@ -48,7 +68,7 @@ const FooterLink = ({ url, text, type }) => (
     )}
     {type === 'internal' && (
       <Link className={linkStyles} to={url}>
-        {text}
+        <span>{text}</span>
       </Link>
     )}
   </React.Fragment>

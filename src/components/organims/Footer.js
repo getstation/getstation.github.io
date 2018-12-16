@@ -30,8 +30,7 @@ const Item = ({ type, text, url, tooltip, className, ...rest }) => (
         position="left"
         className={css({
           marginLeft: rem(15),
-          marginTop: rem(-4),
-          marginBottom: rem(-4),
+          transform: `translateY(${rem(-5)})`,
         })}
       >
         {tooltip}
