@@ -42,30 +42,25 @@ const Subtitle = styled('div')`
 `;
 
 const SectionTitle = styled(Title)`
-  display: inline-block;
-  position: relative;
   font-size: ${font.XXL};
   ${[mqMin[2]]} {
     font-size: ${font.XXXL};
   }
-  &:after {
-    content: '';
-    display: block;
-    width: ${rem(170)};
-    height: ${rem(26)};
-    position: absolute;
-    opacity: 0.28;
-    top: ${rem(18)};
-    right: ${rem(-30)};
-    border-radius: ${rem(2)};
-    ${[mqMin[1]]} {
-      top: ${rem(18)};
-      right: ${rem(33)};
-      height: ${rem(28)};
-    }
-    ${[mqMin[2]]} {
-      top: ${rem(22)};
-      height: ${rem(30)};
+  strong {
+    display: inline-block;
+    position: relative;
+    &:after {
+      content: '';
+      display: block;
+      z-index: 1;
+      width: 100%;
+      height: 0.75em;
+      position: absolute;
+      opacity: 0.28;
+      top: 0.75em;
+      left: 0.5em;
+      border-radius: ${rem(2)};
+      mix-blend-mode: multiply;
     }
   }
 `;
@@ -164,7 +159,7 @@ const Section = styled('div')`
       color: ${color.clr2};
     }
     ${SectionTitle} {
-      &:after {
+      strong:after {
         background: ${color.clr2};
       }
     }
@@ -180,9 +175,8 @@ const Section = styled('div')`
       color: ${color.clr3};
     }
     ${SectionTitle} {
-      &:after {
+      strong:after {
         background: ${color.clr3};
-        left: 0;
       }
     }
     ${Comet} {
@@ -197,7 +191,7 @@ const Section = styled('div')`
       color: ${color.clr4};
     }
     ${SectionTitle} {
-      &:after {
+      strong:after {
         background: ${color.clr4};
       }
     }
@@ -228,17 +222,10 @@ const Presentation = ({ data, ...rest }) => {
             >
               <ColText>
                 {item.subtitle && <Subtitle>{item.subtitle}</Subtitle>}
-                {item.title && (
-                  <SectionTitle>
-                    <div
-                      className={css({
-                        position: 'relative',
-                        zIndex: 1,
-                      })}
-                    >
-                      {item.title}
-                    </div>
-                  </SectionTitle>
+                {item.title.html && (
+                  <SectionTitle
+                    dangerouslySetInnerHTML={{ __html: item.title.html }}
+                  />
                 )}
                 {item.content && (
                   <Content

@@ -89,7 +89,9 @@ export const pageQuery = graphql`
         }
         presentation_list {
           subtitle
-          title
+          title {
+            html
+          }
           content {
             html
           }
