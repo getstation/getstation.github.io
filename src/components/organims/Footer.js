@@ -8,6 +8,7 @@ import Wrapper from '../layout/Wrapper';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
+import * as transition from '../../styles/transitions';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import ProductHunt from '../../images/product-hunt-logo.svg';
 
@@ -243,6 +244,10 @@ const Footer = ({ footer, download, ...rest }) => {
                       title={item.type}
                       className={css({
                         display: 'block',
+                        transition: `transform .2s ${transition.base}`,
+                        '&:hover': {
+                          transform: `translateY(${rem(-2)})`,
+                        },
                       })}
                     >
                       <Icon type={item.type} color="light" size={30} />
