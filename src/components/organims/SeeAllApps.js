@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'gatsby';
 import { rem } from 'polished';
 import { keyframes } from 'react-emotion';
 import { css } from 'emotion';
@@ -10,18 +11,23 @@ const slide = keyframes`
   to { background-position: -1520px 0 }
 `;
 
-const Footer = ({ button, url = '/' }) =>
-  button && (
-    <Button to={url} size="L" theme="ghost">
-      {button}
-    </Button>
-  );
-
 const More = ({ title, data, button, buttonUrl, ...rest }) => {
   return (
     <SectionBase
       title={title}
-      footer={button && buttonUrl && <Footer button={button} url={buttonUrl} />}
+      footer={
+        button && (
+          <Button
+            to={button.url}
+            size="L"
+            theme="ghost"
+            element={button.type === 'internal' ? Link : 'a'}
+            data-aos="zoom-in"
+          >
+            {button.text}
+          </Button>
+        )
+      }
       {...rest}
     >
       {data && (

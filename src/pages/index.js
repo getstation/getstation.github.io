@@ -58,8 +58,11 @@ const IndexPage = props => {
       {DATA.seeallapps_title && (
         <SeeAllApps
           title={DATA.seeallapps_title}
-          button={DATA.seeallapps_button_text}
-          buttonUrl="/"
+          button={{
+            text: DATA.seeallapps_button_text,
+            url: DATA.seeallapps_button_url,
+            type: DATA.seeallapps_button_type,
+          }}
           data={DATA.seeallapps_image}
         />
       )}
@@ -154,7 +157,9 @@ export const pageQuery = graphql`
             height
           }
         }
+        seeallapps_button_url
         seeallapps_button_text
+        seeallapps_button_type
       }
     }
     download: prismicDownloadapp {
