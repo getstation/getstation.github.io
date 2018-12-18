@@ -33,8 +33,9 @@ class Video extends React.Component {
       <video
         src={src}
         autoPlay
-        playsInLine
+        playsInline
         muted
+        loop
         onEnded={onEnded}
         ref="video"
       />
