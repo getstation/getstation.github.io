@@ -12,7 +12,7 @@ const DevsAndPartners = props => {
     <App>
       <Seo
         title={DATA.seo_title}
-        title={DATA.seo_description}
+        description={DATA.seo_description}
         image={DATA.seo_image.url}
       />
       <Hero

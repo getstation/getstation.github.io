@@ -27,7 +27,7 @@ const NotFoundPage = props => {
     <App headerTheme="dark">
       <Seo
         title={DATA.seo_title}
-        title={DATA.seo_description}
+        description={DATA.seo_description}
         image={DATA.seo_image.url}
       />
       <Box>
