@@ -20,6 +20,8 @@ const IndexPage = props => {
         title={DATA.hero_title}
         content={DATA.hero_content}
         legend={DATA.hero_legend}
+        video={DATA.hero_video_url}
+        image={DATA.hero_image}
         download={DOWNLOAD}
       />
       <Reassurance
@@ -78,6 +80,14 @@ export const pageQuery = graphql`
         hero_title
         hero_content
         hero_legend
+        hero_video_url
+        hero_image {
+          url
+          dimensions {
+            width
+            height
+          }
+        }
         reassurance_title
         reassurance_content
         reassurance_logos {

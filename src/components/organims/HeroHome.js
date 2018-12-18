@@ -13,8 +13,6 @@ import * as color from '../../styles/colors';
 import blueGradient from '../../images/hero-home-gradient.png';
 import blueGradientS from '../../images/hero-home-gradient-s.png';
 import blueGradientM from '../../images/hero-home-gradient-m.png';
-import heroHomeImg from '../../images/hero-home-illustration.svg';
-import video from '../../images/station-video-LP.mp4';
 
 const Background = styled('div')`
   z-index: 0;
@@ -75,7 +73,16 @@ const Illustration = styled('div')`
   }
 `;
 
-const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
+const HeroHome = ({
+  title,
+  content,
+  download,
+  legend,
+  image,
+  video,
+  className,
+  ...rest
+}) => {
   return (
     <div
       className={cx(
@@ -158,49 +165,53 @@ const HeroHome = ({ title, content, download, legend, className, ...rest }) => {
             className={css({ [[mqMin[2]]]: { display: 'inline-block' } })}
           />
         </div>
-        <Illustration>
-          <Lottie
-            options={{
-              loop: true,
-              autoplay: true,
-              animationData: require('../../animations/coffee.json'),
-            }}
-            height={357}
-            width={920}
-          />
-          <video autoPlay="autoplay" loop="loop">
-            <source src={video} type="video/mp4" />
-          </video>
-          <img
-            src={heroHomeImg}
-            alt=""
-            className={css({
-              [[mqMax[2]]]: {
-                maxWidth: '80%',
-                display: 'block',
-                margin: `${rem(40)} auto 0`,
-              },
-            })}
-            width="794px"
-            height="357"
-          />
-          {legend && (
-            <p
+        {image.url && (
+          <Illustration>
+            <Lottie
+              options={{
+                loop: true,
+                autoplay: true,
+                animationData: require('../../animations/coffee.json'),
+              }}
+              height={357}
+              width={920}
+            />
+            {video && (
+              <video autoPlay="autoplay" loop="loop">
+                <source src={video} type="video/mp4" />
+              </video>
+            )}
+            <img
+              src={image.url}
+              alt=""
               className={css({
-                textAlign: 'center',
-                color: color.light,
-                fontWeight: font.weightBold,
-                opacity: 0.6,
-                marginTop: rem(20),
-                [[mqMin[2]]]: {
-                  fontSize: font.M,
+                [[mqMax[2]]]: {
+                  maxWidth: '80%',
+                  display: 'block',
+                  margin: `${rem(40)} auto 0`,
                 },
               })}
-            >
-              {legend}
-            </p>
-          )}
-        </Illustration>
+              width={image.dimensions.width}
+              height={image.dimensions.height}
+            />
+            {legend && (
+              <p
+                className={css({
+                  textAlign: 'center',
+                  color: color.light,
+                  fontWeight: font.weightBold,
+                  opacity: 0.6,
+                  marginTop: rem(20),
+                  [[mqMin[2]]]: {
+                    fontSize: font.M,
+                  },
+                })}
+              >
+                {legend}
+              </p>
+            )}
+          </Illustration>
+        )}
       </Wrapper>
       <Background />
     </div>
