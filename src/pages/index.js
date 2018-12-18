@@ -49,14 +49,20 @@ const IndexPage = props => {
           }}
         />
       )}
-      <SliderMentions
-        title={DATA.mentions_title}
-        data={DATA.tweet}
-        link={{
-          text: DATA.all_tweets_text,
-          url: DATA.all_tweets_url,
-        }}
-      />
+      {DATA.mentions_title && DATA.tweet && (
+        <SliderMentions
+          title={DATA.mentions_title}
+          background={{
+            top: DATA.mentions_gradient_top,
+            bottom: DATA.mentions_gradient_bottom,
+          }}
+          data={DATA.tweet}
+          link={{
+            text: DATA.all_tweets_text,
+            url: DATA.all_tweets_url,
+          }}
+        />
+      )}
       {DATA.seeallapps_title && (
         <SeeAllApps
           title={DATA.seeallapps_title}
@@ -145,6 +151,8 @@ export const pageQuery = graphql`
         opinon___use_station_to
         download_text
         mentions_title
+        mentions_gradient_top
+        mentions_gradient_bottom
         tweet {
           url
           thumb {

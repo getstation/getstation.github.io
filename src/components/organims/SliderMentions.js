@@ -11,12 +11,9 @@ import * as color from '../../styles/colors';
 import * as font from '../../styles/fonts';
 import * as transition from '../../styles/transitions';
 
-const bgColor = '#3ca9cd';
-
 const Section = styled('div')`
-  background: ${bgColor};
   overflow: hidden;
-  padding: ${rem(80)} 0;
+  padding: ${rem(130)} 0;
 `;
 
 const Slide = styled('div')`
@@ -77,9 +74,9 @@ const TweetsLink = styled('a')`
   }
 `;
 
-const SliderMention = ({ title, data, link }) => {
+const SliderMention = ({ title, data, background, link }) => {
   return (
-    <React.Fragment>
+    <div className={css({ position: 'relative' })}>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         width="1440"
@@ -89,14 +86,22 @@ const SliderMention = ({ title, data, link }) => {
         className={css({
           display: 'block',
           width: '100%',
+          position: 'absolute',
+          top: '0',
+          left: '0',
         })}
       >
         <path
-          d="M1440 50V36.7c-74.21 3.35-160.32 5.02-258.37 5.02C823.32 41.72 579.9 0 251.7 0 163.78 0 79.88 2.79 0 8.35V50h1440z"
-          fill={bgColor}
+          d="M0 0v12.35C79.88 6.79 163.78 4 251.7 4c328.2 0 571.62 41.72 929.93 41.72 98.04 0 184.16-1.67 258.37-5.02V0H0z"
+          fill="#F5FBFF"
         />
       </svg>
-      <Section>
+      <Section
+        className={css({
+          background: `linear-gradient(to top, ${background.bottom ||
+            color.clr1},  ${background.top || color.clr1Light})`,
+        })}
+      >
         <Wrapper>
           {title && (
             <SectionTitle
@@ -135,14 +140,17 @@ const SliderMention = ({ title, data, link }) => {
         className={css({
           display: 'block',
           width: '100%',
+          position: 'absolute',
+          bottom: '0',
+          left: '0',
         })}
       >
         <path
-          d="M0 0v12.35C79.88 6.79 163.78 4 251.7 4c328.2 0 571.62 41.72 929.93 41.72 98.04 0 184.16-1.67 258.37-5.02V0H0z"
-          fill={bgColor}
+          d="M1440 50V36.7c-74.21 3.35-160.32 5.02-258.37 5.02C823.32 41.72 579.9 0 251.7 0 163.78 0 79.88 2.79 0 8.35V50h1440z"
+          fill="#fff"
         />
       </svg>
-    </React.Fragment>
+    </div>
   );
 };
 
