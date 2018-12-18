@@ -86,7 +86,8 @@ const Footer = ({ footer, download, ...rest }) => {
     <footer
       className={css({
         padding: `${rem(40)} 0 ${rem(40)}`,
-        background: 'linear-gradient(to top, #130cb7, #52e5e7)',
+        background: `linear-gradient(to top, ${DATA.gradient_bottom ||
+          '#130cb7'},  ${DATA.gradient_top || '#52e5e7'})`,
         [mqMin[0]]: {
           padding: `${rem(100)} 0 ${rem(40)}`,
         },

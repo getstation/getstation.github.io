@@ -116,6 +116,8 @@ export default props => (
         }
         footer: prismicFooter {
           data {
+            gradient_top
+            gradient_bottom
             reward_title
             reward_subtitle
             reward_url
