@@ -5,6 +5,7 @@ import { graphql } from 'gatsby';
 import slugify from 'slugify';
 import Icon from '../components/atoms/Icon';
 import App from '../components/layout/App';
+import Seo from '../components/molecules/Seo';
 import Hero from '../components/organims/Hero';
 import PressMain from '../components/organims/PressMain';
 import PressAside from '../components/organims/PressAside';
@@ -16,6 +17,11 @@ const Presskit = props => {
   const DATA_STRING = JSON.parse(props.data.press.dataString);
   return (
     <App>
+      <Seo
+        title={DATA.seo_title}
+        title={DATA.seo_description}
+        image={DATA.seo_image.url}
+      />
       <Hero
         title={DATA_STRING.hero_title}
         subtitle={DATA_STRING.hero_baseline}
@@ -86,6 +92,11 @@ export const pageQuery = graphql`
     press: prismicPress {
       dataString
       data {
+        seo_title
+        seo_description
+        seo_image {
+          url
+        }
         content_text {
           title
           short {

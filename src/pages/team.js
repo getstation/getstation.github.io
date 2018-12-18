@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
+import Seo from '../components/molecules/Seo';
 import TeamSection1 from '../components/organims/TeamSection1';
 import TeamManifesto from '../components/organims/TeamManifesto';
 import TeamTimeline from '../components/organims/TeamTimeline';
@@ -10,6 +11,11 @@ const Presskit = props => {
   const DATA = props.data.team.data;
   return (
     <App>
+      <Seo
+        title={DATA.seo_title}
+        title={DATA.seo_description}
+        image={DATA.seo_image.url}
+      />
       <Hero
         title={DATA.hero_title}
         subtitle={DATA.hero_baseline}
@@ -52,6 +58,11 @@ export const pageQuery = graphql`
   query teamQuery {
     team: prismicTeam {
       data {
+        seo_title
+        seo_description
+        seo_image {
+          url
+        }
         hero_title
         hero_baseline
         hero_gradient_top

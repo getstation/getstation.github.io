@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
+import Seo from '../components/molecules/Seo';
 import DevelopersAndPartnersSection1 from '../components/organims/DevelopersAndPartnersSection1';
 import DevelopersAndPartnersSection2 from '../components/organims/DevelopersAndPartnersSection2';
 
@@ -9,6 +10,11 @@ const DevsAndPartners = props => {
   const DATA = props.data.devsAndPartners.data;
   return (
     <App>
+      <Seo
+        title={DATA.seo_title}
+        title={DATA.seo_description}
+        image={DATA.seo_image.url}
+      />
       <Hero
         title={DATA.hero_title}
         subtitle={DATA.hero_baseline}
@@ -42,6 +48,11 @@ export const pageQuery = graphql`
   query devsAndPartnersQuery {
     devsAndPartners: prismicDevsandpartners {
       data {
+        seo_title
+        seo_description
+        seo_image {
+          url
+        }
         hero_title
         hero_baseline
         hero_gradient_top

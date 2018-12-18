@@ -43,16 +43,7 @@ class App extends React.Component {
           },
         })}
       >
-        <Helmet
-          title="Station"
-          meta={[
-            {
-              name: 'description',
-              content:
-                'Station unifies all your work tools in one neat & productive interface. … Station is the first smart workstation for busy people. … Station is where work gets done.',
-            },
-          ]}
-        >
+        <Helmet>
           <html lang="en" />
         </Helmet>
         <Headroom>

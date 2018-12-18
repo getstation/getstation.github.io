@@ -5,6 +5,7 @@ import { rem } from 'polished';
 import { Link } from 'gatsby';
 import styled from 'react-emotion';
 import App from '../components/layout/App';
+import Seo from '../components/molecules/Seo';
 import Button from '../components/atoms/Button';
 import Title from '../components/atoms/Title';
 import TextBigger from '../components/atoms/TextBigger';
@@ -24,6 +25,11 @@ const NotFoundPage = props => {
   const DATA = props.data.content.data;
   return (
     <App headerTheme="dark">
+      <Seo
+        title={DATA.seo_title}
+        title={DATA.seo_description}
+        image={DATA.seo_image.url}
+      />
       <Box>
         <Wrapper>
           {DATA.image.url && (
@@ -80,6 +86,11 @@ export const pageQuery = graphql`
             width
             height
           }
+        }
+        seo_title
+        seo_description
+        seo_image {
+          url
         }
       }
     }

@@ -2,6 +2,7 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
+import Seo from '../components/molecules/Seo';
 import FeatureCards from '../components/organims/FeatureCards';
 import FeatureMore from '../components/molecules/FeatureMore';
 
@@ -10,6 +11,11 @@ const FeaturesPage = props => {
   const DOWNLOAD = props.data.download;
   return (
     <App>
+      <Seo
+        title={DATA.seo_title}
+        title={DATA.seo_description}
+        image={DATA.seo_image.url}
+      />
       <Hero
         title={DATA.hero_title}
         subtitle={DATA.hero_baseline}

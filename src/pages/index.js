@@ -5,6 +5,7 @@ import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
 import Presentation from '../components/organims/Presentation';
 import More from '../components/organims/More';
+import Seo from '../components/molecules/Seo';
 import Opinions from '../components/organims/Opinions';
 import SeeAllApps from '../components/organims/SeeAllApps';
 import SliderMentions from '../components/organims/SliderMentions';
@@ -16,6 +17,11 @@ const IndexPage = props => {
 
   return (
     <App headerTheme="dark">
+      <Seo
+        title={DATA.seo_title}
+        title={DATA.seo_description}
+        image={DATA.seo_image.url}
+      />
       <HeroHome
         title={DATA.hero_title}
         content={DATA.hero_content}
@@ -83,6 +89,11 @@ export const pageQuery = graphql`
   query IndexQuery {
     content: prismicHomepage {
       data {
+        seo_title
+        seo_description
+        seo_image {
+          url
+        }
         hero_title
         hero_content
         hero_legend
