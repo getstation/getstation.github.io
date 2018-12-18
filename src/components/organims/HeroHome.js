@@ -14,6 +14,32 @@ import blueGradient from '../../images/hero-home-gradient.png';
 import blueGradientS from '../../images/hero-home-gradient-s.png';
 import blueGradientM from '../../images/hero-home-gradient-m.png';
 
+class AppNumber extends React.Component {
+  state = {
+    number: '600+',
+  };
+  componentDidMount() {
+    fetch('https://api.getstation.com/graphql', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ query: '{ servicesConnection { totalCount } }' }),
+    })
+      .then(res => res.json())
+      .then(res =>
+        this.setState({ number: res.data.servicesConnection.totalCount }),
+      );
+  }
+  render() {
+    return (
+      <span>
+        {this.state.number} {this.props.legend && this.props.legend}
+      </span>
+    );
+  }
+}
+
+let AppTotalCount = 600;
+
 const Background = styled('div')`
   z-index: 0;
   position: absolute;
@@ -207,7 +233,7 @@ const HeroHome = ({
                   },
                 })}
               >
-                {legend}
+                <AppNumber legend={legend} />
               </p>
             )}
           </Illustration>
