@@ -14,6 +14,34 @@ import blueGradient from '../../images/hero-home-gradient.png';
 import blueGradientS from '../../images/hero-home-gradient-s.png';
 import blueGradientM from '../../images/hero-home-gradient-m.png';
 
+class Video extends React.Component {
+  componentDidMount() {
+    this.update();
+  }
+  componentDidUpdate() {
+    this.update();
+  }
+  update() {
+    this.refs.video.setAttribute('muted', '1');
+    this.refs.video.setAttribute('playsInline', '1');
+    this.refs.video.setAttribute('autoplay', '1');
+    this.refs.video.setAttribute('loop', '1');
+  }
+  render() {
+    const { src, onEnded } = this.props;
+    return (
+      <video
+        src={src}
+        autoPlay
+        playsInLine
+        muted
+        onEnded={onEnded}
+        ref="video"
+      />
+    );
+  }
+}
+
 class AppNumber extends React.Component {
   state = {
     number: '600+',
@@ -37,8 +65,6 @@ class AppNumber extends React.Component {
     );
   }
 }
-
-let AppTotalCount = 600;
 
 const Background = styled('div')`
   z-index: 0;
@@ -202,11 +228,7 @@ const HeroHome = ({
               height={357}
               width={920}
             />
-            {video && (
-              <video autoPlay="autoplay" loop="loop">
-                <source src={video} type="video/mp4" />
-              </video>
-            )}
+            {video && <Video src={video} type="video/mp4" />}
             <img
               src={image.url}
               alt=""
