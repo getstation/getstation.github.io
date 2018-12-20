@@ -29,6 +29,7 @@ const IndexPage = props => {
         video={DATA.hero_video_url}
         image={DATA.hero_image}
         download={DOWNLOAD}
+        downloadTracking={DATA.hero_download_tracking_class}
       />
       <Reassurance
         title={DATA.reassurance_title}
@@ -41,8 +42,12 @@ const IndexPage = props => {
         <More
           title={DATA.more_title}
           data={DATA.more_list}
-          button={DATA.more_button_text}
-          buttonUrl={URL.features}
+          button={{
+            text: DATA.more_button_text,
+            url: DATA.more_button_url,
+            type: DATA.more_button_type,
+            tracking: DATA.more_button_tracking_class,
+          }}
         />
       )}
       {DATA.opinion && DATA.opinon___use_station_to && (
@@ -52,6 +57,7 @@ const IndexPage = props => {
           download={{
             text: DATA.download_text,
             url: DOWNLOAD.data.button_url.url,
+            tracking: DATA.opinion_download_tracking_class,
           }}
         />
       )}
@@ -76,6 +82,7 @@ const IndexPage = props => {
             text: DATA.seeallapps_button_text,
             url: DATA.seeallapps_button_url,
             type: DATA.seeallapps_button_type,
+            tracking: DATA.seeallapps_tracking_class,
           }}
           data={DATA.seeallapps_image}
         />
@@ -97,6 +104,7 @@ export const pageQuery = graphql`
         hero_title
         hero_content
         hero_legend
+        hero_download_tracking_class
         hero_video_url
         hero_image {
           url
@@ -146,6 +154,9 @@ export const pageQuery = graphql`
           }
         }
         more_button_text
+        more_button_url
+        more_button_type
+        more_button_tracking_class
         opinion {
           name
           job
@@ -161,6 +172,7 @@ export const pageQuery = graphql`
         }
         opinon___use_station_to
         download_text
+        opinion_download_tracking_class
         mentions_title
         mentions_gradient_top
         mentions_gradient_bottom
@@ -189,6 +201,7 @@ export const pageQuery = graphql`
         seeallapps_button_url
         seeallapps_button_text
         seeallapps_button_type
+        seeallapps_tracking_class
       }
     }
     download: prismicDownloadapp {

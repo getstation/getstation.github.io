@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
 import { css } from 'emotion';
-import slugify from 'slugify';
 import { rem } from 'polished';
 import Title from '../atoms/Title';
 import TextBigger from '../atoms/TextBigger';

@@ -142,7 +142,7 @@ class FeatureCardSlider extends React.Component {
           {this.props.items.map((item, index) => {
             return (
               <Button
-                key={item.icon.url}
+                key={`${index}-FeatureCardSlider-slide-item`}
                 onClick={() => this.slideChange(index)}
                 className={this.state.slide === index ? 'active' : null}
               >

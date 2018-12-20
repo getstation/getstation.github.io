@@ -149,6 +149,7 @@ const Header = ({
               to={DOWNLOAD.button_url.url}
               className={cx(
                 'header-nav-button',
+                DATA.download_tracking_class,
                 css({
                   [mqNavMobile]: {
                     marginTop: rem(20),

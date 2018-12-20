@@ -230,7 +230,13 @@ class Opinons extends React.Component {
                 marginTop: rem(30),
               })}
             >
-              <Button to={download.url} size="L" shadow data-aos="zoom-in">
+              <Button
+                to={download.url}
+                size="L"
+                shadow
+                data-aos="zoom-in"
+                className={download.tracking}
+              >
                 {download.text}
               </Button>
             </div>

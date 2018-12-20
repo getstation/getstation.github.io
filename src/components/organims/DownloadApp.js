@@ -1,12 +1,11 @@
 import React from 'react';
-import { css } from 'emotion';
+import { css, cx } from 'emotion';
 import Icon from '../../components/atoms/Icon';
 import { rem } from 'polished';
 import Button from '../atoms/Button';
 import * as transition from '../../styles/transitions';
-import * as color from '../../styles/colors';
 
-const DownloadApp = ({ data, theme, ...rest }) => {
+const DownloadApp = ({ data, theme, className, ...rest }) => {
   const DATA = data.data;
   return (
     <div {...rest}>
@@ -17,7 +16,13 @@ const DownloadApp = ({ data, theme, ...rest }) => {
         })}
       >
         {DATA.button_text && DATA.button_url && (
-          <Button to={DATA.button_url.url} theme={theme} size="L" shadow>
+          <Button
+            to={DATA.button_url.url}
+            theme={theme}
+            size="L"
+            shadow
+            className={className}
+          >
             {DATA.button_text}
           </Button>
         )}

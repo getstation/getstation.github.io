@@ -12,7 +12,7 @@ const slide = keyframes`
   to { background-position: -1520px 0 }
 `;
 
-const SeeAllApps = ({ title, data, button, buttonUrl, ...rest }) => {
+const SeeAllApps = ({ title, data, button, ...rest }) => {
   return (
     <SectionBase
       title={
@@ -28,6 +28,7 @@ const SeeAllApps = ({ title, data, button, buttonUrl, ...rest }) => {
             theme="ghost"
             element={button.type === 'internal' ? Link : 'a'}
             data-aos="zoom-in"
+            className={button.tracking}
           >
             {button.text}
           </Button>

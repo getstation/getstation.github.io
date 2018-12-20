@@ -103,10 +103,12 @@ export default props => (
               type
             }
             download_text
+            download_tracking_class
           }
         }
         footer: prismicFooter {
           data {
+            download_tracking_class
             gradient_top
             gradient_bottom
             reward_title

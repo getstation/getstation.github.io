@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { css, cx } from 'emotion';
 import styled from 'react-emotion';
 import { rem } from 'polished';
@@ -107,6 +106,7 @@ const HeroHome = ({
   title,
   content,
   download,
+  downloadTracking,
   legend,
   image,
   video,
@@ -192,7 +192,10 @@ const HeroHome = ({
           )}
           <DownloadApp
             data={download}
-            className={css({ [[mqMin[2]]]: { display: 'inline-block' } })}
+            className={cx(
+              css({ [[mqMin[2]]]: { display: 'inline-block' } }),
+              downloadTracking,
+            )}
           />
         </div>
         {image.url && (

@@ -138,7 +138,11 @@ const Footer = ({ footer, download, ...rest }) => {
               },
             })}
           >
-            <DownloadApp data={download} theme="light" />
+            <DownloadApp
+              data={download}
+              theme="light"
+              className={DATA.download_tracking_class}
+            />
           </div>
         </div>
         <div

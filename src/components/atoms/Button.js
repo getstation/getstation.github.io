@@ -80,7 +80,6 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
     {
       ...props,
       className: cx(
-        props.className,
         css({
           position: 'relative',
           display: 'inline-flex',
@@ -127,6 +126,7 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
             background: 'linear-gradient(180deg, #96aaff, #123597)',
           },
         }),
+        props.className,
       ),
     },
     React.createElement(

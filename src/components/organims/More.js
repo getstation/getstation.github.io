@@ -58,18 +58,25 @@ const Grid = styled('div')`
   }
 `;
 
-const Footer = ({ button, url = '/' }) =>
-  button && (
-    <Button to={url} size="L" theme="ghost" element={Link} data-aos="zoom-in">
-      {button}
-    </Button>
-  );
-
-const More = ({ title, data, button, buttonUrl, ...rest }) => {
+const More = ({ title, data, button, ...rest }) => {
   return (
     <SectionBase
       title={title}
-      footer={button && buttonUrl && <Footer button={button} url={buttonUrl} />}
+      footer={
+        button.text &&
+        button.url && (
+          <Button
+            to={button.url}
+            size="L"
+            theme="ghost"
+            className={button.tracking}
+            element={button.type === 'internal' ? Link : 'a'}
+            data-aos="zoom-in"
+          >
+            {button.text}
+          </Button>
+        )
+      }
       {...rest}
     >
       {data && (

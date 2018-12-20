@@ -49,14 +49,6 @@ const Tags = styled('div')`
     }
   }
 `;
-
-const Footer = ({ button, url = '/' }) =>
-  button && (
-    <Button to={url} size="L" shadow data-aos="zoom-in">
-      {button}
-    </Button>
-  );
-
 class FeatureCards extends React.Component {
   state = {};
   resetTagFilter = () => {
@@ -80,10 +72,15 @@ class FeatureCards extends React.Component {
         footer={
           this.props.data.download_text &&
           this.props.download.button_url.url && (
-            <Footer
-              button={this.props.data.download_text}
-              url={this.props.download.button_url.url}
-            />
+            <Button
+              to={this.props.download.button_url.url}
+              size="L"
+              shadow
+              data-aos="zoom-in"
+              className={this.props.data.download_tracking_class}
+            >
+              {this.props.data.download_text}
+            </Button>
           )
         }
       >
@@ -124,7 +121,7 @@ class FeatureCards extends React.Component {
                 } else if (item.slice_type === 'featureslider') {
                   return (
                     <GridItem
-                      key={`${index}-grid-item`}
+                      key={`${index}-grid-item-slider`}
                       data-aos="fade"
                       data-aos-delay={index * 100}
                       css={`
