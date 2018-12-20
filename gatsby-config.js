@@ -2,11 +2,15 @@ require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`,
 });
 
+const path = require(`path`);
+
 module.exports = {
   siteMetadata: {
     siteUrl: `https://getstation.com/`,
   },
   plugins: [
+    'gatsby-plugin-sharp',
+    'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sharp',
     {
