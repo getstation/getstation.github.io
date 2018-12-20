@@ -96,8 +96,6 @@ class FeatureCards extends React.Component {
               active={this.state.activeFilter ? false : true}
               size="L"
               element="button"
-              data-aos="fade"
-              data-aos-duration="700"
             />
             {getCurrentTags.map((item, index) => (
               <Tag
@@ -107,9 +105,6 @@ class FeatureCards extends React.Component {
                 active={this.state.activeFilter === item ? true : false}
                 size="L"
                 element="button"
-                data-aos="fade"
-                data-aos-duration="700"
-                data-aos-delay={100 + index * 100}
               />
             ))}
           </Tags>
