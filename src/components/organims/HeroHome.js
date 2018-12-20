@@ -6,6 +6,7 @@ import { rem } from 'polished';
 import Lottie from 'react-lottie';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import Wrapper from '../layout/Wrapper';
+import AppNumber from '../atoms/AppsNumber';
 import Title from '../atoms/Title';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
@@ -39,30 +40,6 @@ class Video extends React.Component {
         onEnded={onEnded}
         ref="video"
       />
-    );
-  }
-}
-
-class AppNumber extends React.Component {
-  state = {
-    number: '600+',
-  };
-  componentDidMount() {
-    fetch('https://api.getstation.com/graphql', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: '{ servicesConnection { totalCount } }' }),
-    })
-      .then(res => res.json())
-      .then(res =>
-        this.setState({ number: res.data.servicesConnection.totalCount }),
-      );
-  }
-  render() {
-    return (
-      <span>
-        {this.state.number} {this.props.legend && this.props.legend}
-      </span>
     );
   }
 }
@@ -258,7 +235,7 @@ const HeroHome = ({
                   },
                 })}
               >
-                <AppNumber legend={legend} />
+                <AppNumber /> {legend}
               </p>
             )}
           </Illustration>
