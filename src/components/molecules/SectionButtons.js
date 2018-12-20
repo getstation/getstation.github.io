@@ -46,7 +46,7 @@ const Card = ({ data, ...rest }) => {
           {data.map((item, index) => (
             <div key={`${index}-${slugify(item.text, { lower: true })}`}>
               <Button
-                to={item.url}
+                to={item.url || '/'}
                 theme={item.theme}
                 size="L"
                 data-aos-delay={index * 100}

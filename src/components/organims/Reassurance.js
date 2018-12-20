@@ -81,8 +81,8 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
                       <img
                         src={item.image.url}
                         alt={item.title}
-                        width={item.image.dimensions.width}
-                        height={item.image.dimensions.height}
+                        width={item.image.dimensions.width || null}
+                        height={item.image.dimensions.height || null}
                       />
                     )}
                   </li>

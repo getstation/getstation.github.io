@@ -73,23 +73,23 @@ const CardSubtitle = styled('p')`
 const Card = ({ title, subtitle, tag, image, shape, ...rest }) => (
   <CardBox {...rest}>
     <CardThumb>
-      {shape && (
+      {shape.url && (
         <Shape
           src={shape.url}
           alt=""
-          width={shape.dimensions.width}
-          height={shape.dimensions.height}
+          width={shape.dimensions.width || null}
+          height={shape.dimensions.height || null}
           data-aos="fade"
           data-aos-duration="600"
           data-aos-easing="ease-in-sine"
         />
       )}
-      {image && (
+      {image.url && (
         <Img
           src={image.url}
           alt=""
-          width={image.dimensions.width}
-          height={image.dimensions.height}
+          width={image.dimensions.width || null}
+          height={image.dimensions.height || null}
           data-aos="zoom-in"
           data-aos-duration="400"
           data-aos-delay="300"

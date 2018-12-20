@@ -36,8 +36,8 @@ const NotFoundPage = props => {
             <img
               src={DATA.image.url}
               alt="404"
-              width={DATA.image.dimensions.width}
-              height={DATA.image.dimensions.height}
+              width={DATA.image.dimensions.width || null}
+              height={DATA.image.dimensions.height || null}
             />
           )}
 

@@ -96,8 +96,8 @@ const Header = ({
               <img
                 src={DATA.logo.url}
                 alt={DATA.logo_alt_text}
-                width={DATA.logo.dimensions.width}
-                height={DATA.logo.dimensions.height}
+                width={DATA.logo.dimensions.width || null}
+                height={DATA.logo.dimensions.height || null}
                 className={cx(
                   'header-logo',
                   css({

@@ -146,8 +146,8 @@ const Event = ({ date, title, url, text, thumb, ...rest }) => (
         {thumb && (
           <img
             src={thumb.url}
-            width={thumb.dimensions.width}
-            height={thumb.dimensions.height}
+            width={thumb.dimensions.width || null}
+            height={thumb.dimensions.height || null}
             alt=""
           />
         )}

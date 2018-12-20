@@ -134,7 +134,9 @@ class FeatureCardSlider extends React.Component {
       <Box className={this.props.className}>
         {this.props.data.ribbon && <Ribbon>{this.props.data.ribbon}</Ribbon>}
         <Thumb>
-          <img src={this.props.items[this.state.slide].image.url} alt="" />
+          {this.props.items[this.state.slide].image.url && (
+            <img src={this.props.items[this.state.slide].image.url} alt="" />
+          )}
         </Thumb>
         <GridButton>
           {this.props.items.map((item, index) => {

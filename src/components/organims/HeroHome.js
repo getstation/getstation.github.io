@@ -230,19 +230,21 @@ const HeroHome = ({
               width={920}
             />
             {video && <Video src={video} type="video/mp4" />}
-            <img
-              src={image.url}
-              alt=""
-              className={css({
-                [[mqMax[2]]]: {
-                  maxWidth: '80%',
-                  display: 'block',
-                  margin: `${rem(40)} auto 0`,
-                },
-              })}
-              width={image.dimensions.width}
-              height={image.dimensions.height}
-            />
+            {image.url && (
+              <img
+                src={image.url}
+                alt=""
+                className={css({
+                  [[mqMax[2]]]: {
+                    maxWidth: '80%',
+                    display: 'block',
+                    margin: `${rem(40)} auto 0`,
+                  },
+                })}
+                width={image.dimensions.width || null}
+                height={image.dimensions.height || null}
+              />
+            )}
             {legend && (
               <p
                 className={css({

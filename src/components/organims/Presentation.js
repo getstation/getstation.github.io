@@ -250,8 +250,8 @@ const Presentation = ({ data, componentStyle, ...rest }) => {
                     data-aos-duration="2000"
                     data-aos-offset="300"
                     data-aos-easing="ease-in-sine"
-                    width={item.image.dimensions.width}
-                    height={item.image.dimensions.height}
+                    width={item.image.dimensions.width || null}
+                    height={item.image.dimensions.height || null}
                   />
                 )}
               </ColImage>

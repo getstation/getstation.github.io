@@ -133,19 +133,21 @@ const DevelopersAndPartnersSection2 = ({
           <Grid>
             {items.map((item, index) => (
               <Card
-                key={`${index}-${slugify(item.title, { lower: true })}`}
+                key={`${index}-card-dev-section-2`}
                 data-aos="fade"
                 data-aos-duration="700"
                 data-aos-easing="ease-in-sine"
                 data-aos-delay={index * 100}
               >
                 <CardImg>
-                  <img
-                    src={item.image.url}
-                    width={item.image.dimensions.width}
-                    height={item.image.dimensions.height}
-                    alt=""
-                  />
+                  {item.image.url && (
+                    <img
+                      src={item.image.url}
+                      width={item.image.dimensions.width || null}
+                      height={item.image.dimensions.height || null}
+                      alt=""
+                    />
+                  )}
                 </CardImg>
                 <CardTitle>{item.title}</CardTitle>
               </Card>
