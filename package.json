@@ -10,6 +10,7 @@
     "gatsby": "^2.0.73",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-emotion": "^2.0.5",
+    "gatsby-plugin-google-tagmanager": "^2.0.7",
     "gatsby-plugin-manifest": "^2.0.12",
     "gatsby-plugin-offline": "^2.0.20",
     "gatsby-plugin-polyfill-io": "^1.0.5",

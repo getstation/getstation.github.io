@@ -5653,6 +5653,13 @@ gatsby-plugin-emotion@^2.0.5:
   dependencies:
     "@babel/runtime" "^7.0.0"
 
+gatsby-plugin-google-tagmanager@^2.0.7:
+  version "2.0.7"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-2.0.7.tgz#140c368e555b35e22d2b07fd0a1ccc28990ae447"
+  integrity sha512-fNK7cNCogUn0TYom9bvFuBSnbb97RS3YZmqzjhlo0LYhiyCV6EhYMOg7NgMZUmLM7y/vJ+isN/mJKtM3+1Ft1w==
+  dependencies:
+    "@babel/runtime" "^7.0.0"
+
 gatsby-plugin-manifest@^2.0.12:
   version "2.0.12"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.0.12.tgz#7e25f8997ea690969eeaa010a2d111209282f2ce"

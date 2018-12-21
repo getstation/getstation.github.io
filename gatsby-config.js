@@ -66,5 +66,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-polyfill-io`,
     },
+    {
+      resolve: `gatsby-plugin-google-tagmanager`,
+      options: {
+        id: `${process.env.GTM_ID}`,
+        includeInDevelopment: false,
+        gtmAuth: `${process.env.GTM_AUTH}`,
+        gtmPreview: `${process.env.GTM_PREVIEW}`,
+      },
+    },
   ],
 };
