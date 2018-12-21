@@ -46,12 +46,6 @@ export const Themes = {
     button: {
       background: color.light,
       color: color.clr1,
-      '&:hover, &:focus': {
-        color: rgba(color.clr1, 0.7),
-      },
-      '&:active': {
-        color: rgba(color.clr1, 0.7),
-      },
     },
   },
   ghost: {

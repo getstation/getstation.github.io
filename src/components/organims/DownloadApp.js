@@ -1,9 +1,10 @@
 import React from 'react';
 import { css, cx } from 'emotion';
 import Icon from '../../components/atoms/Icon';
-import { rem } from 'polished';
+import { rem, rgba } from 'polished';
 import Button from '../atoms/Button';
 import * as transition from '../../styles/transitions';
+import * as color from '../../styles/colors';
 
 const DownloadApp = ({ data, theme, className, ...rest }) => {
   const DATA = data.data;
@@ -21,7 +22,18 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
             theme={theme}
             size="L"
             shadow
-            className={className}
+            className={cx(
+              css`
+                > div {
+                  transition: all 0.2s ${transition.base};
+                  &:hover {
+                    transform: translateY(${rem(-2)});
+                    box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
+                  }
+                }
+              `,
+              className,
+            )}
           >
             {DATA.button_text}
           </Button>
