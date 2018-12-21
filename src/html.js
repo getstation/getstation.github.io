@@ -20,7 +20,7 @@ export default class HTML extends React.Component {
         </head>
         <body
           data-aos-easing="ease-out-back"
-          data-aos-duration="1000"
+          data-aos-duration="600"
           {...this.props.bodyAttributes}
         >
           {this.props.preBodyComponents}

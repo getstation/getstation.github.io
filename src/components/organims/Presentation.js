@@ -248,10 +248,7 @@ const Presentation = ({ data, componentStyle, ...rest }) => {
                   <img
                     src={item.image.url}
                     alt=""
-                    data-aos="fade"
-                    data-aos-duration="2000"
-                    data-aos-offset="300"
-                    data-aos-easing="ease-in-sine"
+                    data-aos="fade-up"
                     width={item.image.dimensions.width || null}
                     height={item.image.dimensions.height || null}
                   />

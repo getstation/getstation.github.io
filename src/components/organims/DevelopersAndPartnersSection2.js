@@ -131,16 +131,12 @@ const DevelopersAndPartnersSection2 = ({
         {items && (
           <Grid>
             {items.map((item, index) => (
-              <Card
-                key={`${index}-card-dev-section-2`}
-                data-aos="fade"
-                data-aos-duration="700"
-                data-aos-easing="ease-in-sine"
-                data-aos-delay={index * 100}
-              >
+              <Card key={`${index}-card-dev-section-2`}>
                 <CardImg>
                   {item.image.url && (
                     <img
+                      data-aos="zoom-in"
+                      data-aos-delay={index * 50}
                       src={item.image.url}
                       width={item.image.dimensions.width || null}
                       height={item.image.dimensions.height || null}
@@ -148,7 +144,13 @@ const DevelopersAndPartnersSection2 = ({
                     />
                   )}
                 </CardImg>
-                <CardTitle>{item.title}</CardTitle>
+                <CardTitle
+                  data-aos="fade"
+                  data-aos-delay={index * 50}
+                  data-aos-duration="700"
+                >
+                  {item.title}
+                </CardTitle>
               </Card>
             ))}
           </Grid>

@@ -50,7 +50,7 @@ const Card = ({ data, ...rest }) => {
                 theme={item.theme}
                 size="L"
                 data-aos-delay={index * 100}
-                data-aos="zoom-in"
+                data-aos="fade-up"
                 element={item.type === 'internal' ? Link : 'a'}
                 shadow={item.theme === 'primary' ? true : false}
                 className={item.tracking_class}
