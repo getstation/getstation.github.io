@@ -10,9 +10,7 @@ import Title from '../atoms/Title';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
-import blueGradient from '../../images/hero-home-gradient.png';
-import blueGradientS from '../../images/hero-home-gradient-s.png';
-import blueGradientM from '../../images/hero-home-gradient-m.png';
+import bkgGradient from '../../images/hero-gradient.svg';
 
 class Video extends React.Component {
   componentDidMount() {
@@ -50,22 +48,8 @@ const Background = styled('div')`
   left: 0;
   right: 0;
   bottom: 0;
-  background: url(${blueGradientS}) right bottom no-repeat;
-  background-size: 100%;
-  ${[mqMin[1]]} {
-    background-image: url(${blueGradientM});
-    background-size: 80%;
-  }
-  ${[mqMin[2]]} {
-    background-image: url(${blueGradient});
-    background-size: 70%;
-  }
-  ${[mqMin[3]]} {
-    background-size: 60%;
-  }
-  ${[mqMin[4]]} {
-    background-size: 50%;
-  }
+  background: url(${bkgGradient}) center no-repeat;
+  background-size: cover;
 `;
 
 const Illustration = styled('div')`
@@ -190,13 +174,9 @@ const HeroHome = ({
               {content}
             </p>
           )}
-          <DownloadApp
-            data={download}
-            className={cx(
-              css({ [[mqMin[2]]]: { display: 'inline-block' } }),
-              downloadTracking,
-            )}
-          />
+          <div style={{ display: 'inline-block' }}>
+            <DownloadApp data={download} className={downloadTracking} />
+          </div>
         </div>
         {image.url && (
           <Illustration>
