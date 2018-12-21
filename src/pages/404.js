@@ -19,6 +19,7 @@ const Box = styled('div')`
   flex-grow: 1;
   display: flex;
   align-items: center;
+  min-height: 100vh;
 `;
 
 const NotFoundPage = props => {
