@@ -50,6 +50,7 @@ const Tooltip = ({ className, children, position, ...rest }) => (
       css({
         position: 'relative',
         display: 'inline-block',
+        verticalAlign: 'top',
         padding: `${rem(2)} ${rem(10)}`,
         background: color.light,
         color: color.neutralDark,

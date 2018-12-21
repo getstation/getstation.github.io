@@ -23,6 +23,7 @@ const linkStyles = css`
   span {
     overflow: hidden;
     display: inline-block;
+    padding: 2px 0;
     position: relative;
     &::after {
       content: '';
@@ -31,7 +32,7 @@ const linkStyles = css`
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 1px;
+      height: 2px;
       background: ${color.light};
       transform: translateX(-110%);
       transition: transform 0.2s ${transition.base};
@@ -47,6 +48,7 @@ const FooterLink = ({ url, text, type }) => (
           linkStyles,
           css({
             display: 'flex',
+            minHeight: '32px',
             alignItems: 'center',
           }),
         )}
