@@ -3,7 +3,6 @@ import styled from 'react-emotion';
 import { Link } from 'gatsby';
 import { css } from 'emotion';
 import { rem } from 'polished';
-import Lottie from 'react-lottie';
 import Title from '../atoms/Title';
 import Button from '../atoms/Button';
 import Wrapper from '../layout/Wrapper';
@@ -53,35 +52,6 @@ const Content = styled('p')`
   line-height: ${font.lineHeightXL};
 `;
 
-const iconSwitcher = type => {
-  switch (type) {
-    case 'star':
-      return (
-        <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: require('../../animations/star.json'),
-          }}
-          height={45}
-          width={45}
-        />
-      );
-    case 'lego':
-      return (
-        <Lottie
-          options={{
-            loop: true,
-            autoplay: true,
-            animationData: require('../../animations/lego-build.json'),
-          }}
-          height={80}
-          width={80}
-        />
-      );
-  }
-};
-
 const Icon = styled('div')`
   display: flex;
   justify-content: center;
@@ -118,7 +88,17 @@ const FeatureMore = ({ data, ...rest }) => {
               data-aos="fade-up"
               data-aos-delay={index * 100}
             >
-              {item.icon && <Icon>{iconSwitcher(item.icon)}</Icon>}
+              {item.image.url && (
+                <img
+                  className={css`
+                    display: block;
+                    margin: 0 auto 20px;
+                  `}
+                  src={item.image.url}
+                  width={item.image.dimensions.width || null}
+                  height={item.image.dimensions.height || null}
+                />
+              )}
               <BoxBody>
                 {item.title1 && (
                   <Title
@@ -143,7 +123,6 @@ const FeatureMore = ({ data, ...rest }) => {
                   to={item.button_url}
                   theme="ghost"
                   element={item.button_type === 'internal' ? Link : 'a'}
-                  data-aos="zoom-in"
                   className={item.button_tracking_class}
                 >
                   {item.button_text}
