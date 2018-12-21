@@ -43,15 +43,16 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
           <TextBigger dangerouslySetInnerHTML={{ __html: text }} />
         </div>
       )}
-      {button.url && button.text && (
+      {button.top.url && button.top.text && (
         <div className={css({ textAlign: 'center' })}>
           <Button
-            to={button.url}
-            theme={button.theme}
-            type={button.type}
+            to={button.top.url}
+            theme={button.top.theme}
+            type={button.top.type}
             size="L"
+            className={button.top.tracking}
           >
-            {button.text}
+            {button.top.text}
           </Button>
         </div>
       )}
@@ -75,15 +76,16 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
           ))}
         </Grid>
       )}
-      {button.url && button.text && (
-        <div className={css({ textAlign: 'center', margin: `${rem(70)} 0` })}>
+      {button.bottom.url && button.bottom.text && (
+        <div className={css({ textAlign: 'center' })}>
           <Button
-            to={button.url}
-            theme={button.theme}
-            type={button.type}
+            to={button.bottom.url}
+            theme={button.bottom.theme}
+            type={button.bottom.type}
             size="L"
+            className={button.bottom.tracking}
           >
-            {button.text}
+            {button.bottom.text}
           </Button>
         </div>
       )}

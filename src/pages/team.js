@@ -27,20 +27,31 @@ const Presskit = props => {
       <TeamSection1
         text={DATA.section_1_text.html}
         button={{
-          url: DATA.section_1_button_url,
-          text: DATA.section_1_button_text,
-          type: DATA.section_1_button_type,
-          theme: DATA.section_1_button_theme,
+          top: {
+            url: DATA.section_1_button_url,
+            text: DATA.section_1_button_text,
+            type: DATA.section_1_button_type,
+            theme: DATA.section_1_button_theme,
+            tracking: DATA.section_1_button_tracking_class,
+          },
+          bottom: {
+            url: DATA.section_2_button_url,
+            text: DATA.section_2_button_text,
+            type: DATA.section_2_button_type,
+            theme: DATA.section_2_button_theme,
+            tracking: DATA.section_3_button_tracking_class,
+          },
         }}
         members={DATA.member}
       />
       <TeamManifesto
         data={DATA.manifesto}
         button={{
-          url: DATA.section_1_button_url,
-          text: DATA.section_1_button_text,
-          type: DATA.section_1_button_type,
-          theme: DATA.section_1_button_theme,
+          url: DATA.section_3_button_url,
+          text: DATA.section_3_button_text,
+          type: DATA.section_3_button_type,
+          theme: DATA.section_3_button_theme,
+          tracking: DATA.section_3_button_tracking_class,
         }}
       />
       <TeamTimeline
@@ -74,6 +85,17 @@ export const pageQuery = graphql`
         section_1_button_text
         section_1_button_type
         section_1_button_theme
+        section_1_button_tracking_class
+        section_2_button_url
+        section_2_button_text
+        section_2_button_type
+        section_2_button_theme
+        section_2_button_tracking_class
+        section_3_button_url
+        section_3_button_text
+        section_3_button_type
+        section_3_button_theme
+        section_3_button_tracking_class
         member {
           thumb {
             url

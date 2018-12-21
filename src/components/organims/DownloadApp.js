@@ -39,17 +39,20 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
             <a
               key={`${index}-plateform-list`}
               href={item.url.url}
-              className={css({
-                padding: rem(5),
-                display: 'block',
-                margin: `0 ${rem(5)}`,
-                cursor: 'pointer',
-                opacity: 0.666,
-                transition: `opacity 0.3s ${transition.base}`,
-                '&:hover, &:focus, &:active': {
-                  opacity: 1,
-                },
-              })}
+              className={cx(
+                `${className}-${item.type}`,
+                css({
+                  padding: rem(5),
+                  display: 'block',
+                  margin: `0 ${rem(5)}`,
+                  cursor: 'pointer',
+                  opacity: 0.666,
+                  transition: `opacity 0.3s ${transition.base}`,
+                  '&:hover, &:focus, &:active': {
+                    opacity: 1,
+                  },
+                }),
+              )}
             >
               <Icon
                 type={item.type}

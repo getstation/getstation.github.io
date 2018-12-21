@@ -144,6 +144,7 @@ const FeatureMore = ({ data, ...rest }) => {
                   theme="ghost"
                   element={item.button_type === 'internal' ? Link : 'a'}
                   data-aos="zoom-in"
+                  className={item.button_tracking_class}
                 >
                   {item.button_text}
                 </Button>

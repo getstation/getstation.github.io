@@ -64,6 +64,7 @@ export const pageQuery = graphql`
           url
           type
           theme
+          tracking_class
         }
         card {
           title
@@ -90,6 +91,7 @@ export const pageQuery = graphql`
           url
           type
           theme
+          tracking_class
         }
         section_2_quote
         section_2_quote_author

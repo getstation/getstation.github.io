@@ -53,6 +53,7 @@ const Card = ({ data, ...rest }) => {
                 data-aos="zoom-in"
                 element={item.type === 'internal' ? Link : 'a'}
                 shadow={item.theme === 'primary' ? true : false}
+                className={item.tracking_class}
               >
                 {item.text}
               </Button>
