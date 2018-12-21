@@ -19,7 +19,7 @@ const PressMain = ({ data, ...rest }) => {
           title={item.primary.title}
           size={item.primary.size}
           data={item.items}
-          className={css({ marginTop: rem(100) })}
+          className={css({ paddingTop: rem(92) })}
         />
       ))}
     </div>

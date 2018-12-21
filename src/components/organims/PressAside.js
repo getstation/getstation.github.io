@@ -14,12 +14,13 @@ const LinkBig = ({ text, ...rest }) => (
     <a
       className={css({
         color: color.neutralLight,
+        fontFamily: font.secondary,
         transition: `color 0.3s ${transition.base}`,
         '&:hover, &:focus': {
           color: color.neutral,
         },
         [mqMin[2]]: {
-          fontSize: rem(18),
+          fontSize: rem(24),
         },
       })}
       href={`#${slugify(text, {
