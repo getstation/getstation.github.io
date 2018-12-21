@@ -42,12 +42,14 @@ const Subtitle = styled('div')`
   font-size: ${rem(20)};
 `;
 
-const SectionTitle = styled(Title)`
+const SectionTitle = styled('div')`
   font-size: ${font.XXL};
+  font-weight: 500;
   ${[mqMin[2]]} {
     font-size: ${font.XXXL};
   }
   strong {
+    font-weight: ${font.weightBold};
     display: inline-block;
     position: relative;
     &:after {

@@ -33,6 +33,7 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
             className={css({
               color: color.clr1,
               fontSize: font.XXL,
+              fontFamily: font.secondary,
               '&:not(:last-child)': {
                 marginBottom: rem(5),
               },
