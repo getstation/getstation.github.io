@@ -9,7 +9,6 @@ import Seo from '../components/molecules/Seo';
 import Opinions from '../components/organims/Opinions';
 import SeeAllApps from '../components/organims/SeeAllApps';
 import SliderMentions from '../components/organims/SliderMentions';
-import { URL } from '../const';
 
 const IndexPage = props => {
   const DATA = props.data.content.data;
@@ -26,7 +25,8 @@ const IndexPage = props => {
         title={DATA.hero_title}
         content={DATA.hero_content}
         legend={DATA.hero_legend}
-        video={DATA.hero_video_url}
+        video={DATA.hero_video.url}
+        videoPoster={DATA.hero_video_poster.url}
         image={DATA.hero_image}
         download={DOWNLOAD}
         downloadTracking={DATA.hero_download_tracking_class}
@@ -105,7 +105,12 @@ export const pageQuery = graphql`
         hero_content
         hero_legend
         hero_download_tracking_class
-        hero_video_url
+        hero_video {
+          url
+        }
+        hero_video_poster {
+          url
+        }
         hero_image {
           url
           dimensions {

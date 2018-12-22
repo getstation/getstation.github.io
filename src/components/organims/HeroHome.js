@@ -26,10 +26,11 @@ class Video extends React.Component {
     this.refs.video.setAttribute('loop', '1');
   }
   render() {
-    const { src, onEnded } = this.props;
+    const { src, onEnded, poster } = this.props;
     return (
       <video
         src={src}
+        poster={poster}
         autoPlay
         playsInline
         muted
@@ -94,6 +95,7 @@ const HeroHome = ({
   legend,
   image,
   video,
+  videoPoster,
   className,
   ...rest
 }) => {
@@ -189,7 +191,9 @@ const HeroHome = ({
               height={357}
               width={920}
             />
-            {video && <Video src={video} type="video/mp4" />}
+            {video && (
+              <Video src={video} poster={videoPoster} type="video/mp4" />
+            )}
             {image.url && (
               <img
                 src={image.url}
