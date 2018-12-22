@@ -1,7 +1,6 @@
 import React from 'react';
 import { rem } from 'polished';
 import PropTypes from 'prop-types';
-import Headroom from 'react-headroom';
 import { StaticQuery, graphql } from 'gatsby';
 import Helmet from 'react-helmet';
 import { css } from 'emotion';
@@ -23,6 +22,21 @@ class App extends React.Component {
   state = {
     navMobileOpen: false,
   };
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
+  }
+  handleScroll(event) {
+    let scrollTop = event.srcElement.body.scrollTop;
+    let itemTranslate = Math.min(0, scrollTop / 3 - 60);
+
+    this.setState({
+      transform: itemTranslate,
+    });
+  }
 
   toggleNavMobile = () => {
     this.setState(prevState => ({
@@ -46,15 +60,13 @@ class App extends React.Component {
         <Helmet>
           <html lang="en" />
         </Helmet>
-        <Headroom>
-          <Header
-            theme={this.props.headerTheme}
-            navMobileOpen={this.state.navMobileOpen}
-            header={this.props.data.header}
-            download={this.props.data.download}
-            toggleNavMobile={this.toggleNavMobile}
-          />
-        </Headroom>
+        <Header
+          theme={this.props.headerTheme}
+          navMobileOpen={this.state.navMobileOpen}
+          header={this.props.data.header}
+          download={this.props.data.download}
+          toggleNavMobile={this.toggleNavMobile}
+        />
 
         <Main>{this.props.children}</Main>
         <Footer

@@ -245,35 +245,6 @@ injectGlobal`
     text-align: left;
   }
   ${slick};
-  .headroom {
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 666 !important;
-    transition: background .3s ease-in-out;
-  }
-
-  .headroom--unfixed {
-    position: fixed;
-    transform: translateY(0);
-  }
-
-  .headroom--scrolled {
-    transition: transform 200ms ease-in-out;
-  }
-
-  .headroom--unpinned {
-    transform: translateY(-100%);
-    transition: none !important; /* Temporary fix : https://github.com/KyleAMathews/react-headroom/issues/154 */
-  }
-
-  .headroom--pinned {
-    position: fixed;
-    background: ${rgba(color.light, 0.9)};
-    backdrop-filter: blur(10px);
-    transform: translateY(0%);
-    ${navItems};
-  }
   .navMobile-open {
     ${mqNavMobile} {
     ${navItems};

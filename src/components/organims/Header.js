@@ -6,16 +6,23 @@ import Button from '../atoms/Button';
 import NavButton from '../atoms/NavButton';
 import Wrapper from '../layout/Wrapper';
 import * as color from '../../styles/colors';
-import { URL } from '../../const';
 import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as transition from '../../styles/transitions';
+import styled from 'react-emotion';
+
+const Section = styled('header')`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 666;
+`;
 
 const linkType = type => {
   switch (type) {
     case 'external':
       return 'a';
-      break;
     default:
       return Link;
   }
@@ -53,7 +60,7 @@ const Header = ({
   const DATA = header.data;
   const DOWNLOAD = download.data;
   return (
-    <header
+    <Section
       {...rest}
       className={cx(
         'header',
@@ -62,9 +69,6 @@ const Header = ({
           [mqNavMobile]: {
             height: navMobileOpen ? '100vh' : 'auto',
             background: navMobileOpen ? color.light : 'transparent',
-            boxShadow: navMobileOpen
-              ? `0 0 30px ${rgba(color.clr1, 0.7)}`
-              : 'none',
           },
         }),
       )}
@@ -162,7 +166,7 @@ const Header = ({
           )}
         </div>
       </Wrapper>
-    </header>
+    </Section>
   );
 };
 
