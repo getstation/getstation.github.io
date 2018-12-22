@@ -70,8 +70,9 @@ const SectionFullPage = ({
           <Button
             to={cta.url}
             element={cta.type === 'internal' ? Link : 'a'}
-            size="L"
-            shadow
+            size={cta.size}
+            shadow={cta.shadow}
+            theme={cta.theme}
           >
             {cta.text}
           </Button>

@@ -48,6 +48,12 @@ export const Themes = {
       color: color.clr1,
     },
   },
+  dark: {
+    button: {
+      background: color.neutralDarker,
+      color: color.light,
+    },
+  },
   ghost: {
     button: {
       background: 'transparent',

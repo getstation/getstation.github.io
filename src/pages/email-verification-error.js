@@ -1,13 +1,13 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import App from '../components/layout/App';
+import AppMinimal from '../components/layout/AppMinimal';
 import Seo from '../components/molecules/Seo';
 import SectionFullPage from '../components/molecules/SectionFullPage';
 
 const NotFoundPage = props => {
-  const DATA = props.data.content.data;
+  const DATA = JSON.parse(props.data.content.dataString);
   return (
-    <App headerTheme="dark">
+    <AppMinimal>
       <Seo
         title={DATA.seo_title}
         description={DATA.seo_description}
@@ -17,12 +17,12 @@ const NotFoundPage = props => {
         title={DATA.title}
         subtitle={DATA.subtitle}
         cta={{
-          url: '/',
+          url: DATA.button_url,
           text: DATA.button_text,
-          type: 'internal',
-          theme: 'primary',
-          shadow: true,
-          size: 'L',
+          type: DATA.button_type,
+          theme: 'dark',
+          shadow: false,
+          size: 'M',
         }}
         background={DATA.bkg_image.url}
         image={{
@@ -31,33 +31,14 @@ const NotFoundPage = props => {
           height: DATA.image.dimensions.height,
         }}
       />
-    </App>
+    </AppMinimal>
   );
 };
 export default NotFoundPage;
 export const pageQuery = graphql`
-  query notFoundQuery {
-    content: prismic404 {
-      data {
-        title
-        subtitle
-        button_text
-        image {
-          url
-          dimensions {
-            width
-            height
-          }
-        }
-        bkg_image {
-          url
-        }
-        seo_title
-        seo_description
-        seo_image {
-          url
-        }
-      }
+  query emailErrorQuery {
+    content: prismicEmailVerificationError {
+      dataString
     }
   }
 `;
