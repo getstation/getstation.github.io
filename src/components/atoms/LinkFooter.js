@@ -8,6 +8,8 @@ import * as transition from '../../styles/transitions';
 import Icon from '../atoms/Icon';
 
 const linkStyles = css`
+  display: inline-flex;
+  align-items: center;
   color: ${color.light};
   font-size: ${rem(15)};
   font-weight: ${font.weightMedium};
@@ -23,7 +25,7 @@ const linkStyles = css`
   span {
     overflow: hidden;
     display: inline-block;
-    padding: 2px 0;
+    padding: 0 0 2px 0;
     position: relative;
     &::after {
       content: '';
@@ -43,18 +45,7 @@ const linkStyles = css`
 const FooterLink = ({ url, text, type }) => (
   <React.Fragment>
     {type === 'external' && (
-      <a
-        className={cx(
-          linkStyles,
-          css({
-            display: 'flex',
-            minHeight: '32px',
-            alignItems: 'center',
-          }),
-        )}
-        href={url}
-        target="_blank"
-      >
+      <a className={linkStyles} href={url} target="_blank">
         <span>{text}</span>
         <Icon
           type="externalLink"
