@@ -1,26 +1,8 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import { css } from 'emotion';
-import { rem } from 'polished';
-import { Link } from 'gatsby';
-import styled from 'react-emotion';
 import App from '../components/layout/App';
 import Seo from '../components/molecules/Seo';
-import Button from '../components/atoms/Button';
-import Title from '../components/atoms/Title';
-import TextBigger from '../components/atoms/TextBigger';
-import Wrapper from '../components/layout/Wrapper';
-import * as font from '../styles/fonts';
-import { mqMin } from '../styles/breackpoint';
-
-const Box = styled('div')`
-  padding: ${rem(160)} 0 ${rem(100)};
-  text-align: center;
-  flex-grow: 1;
-  display: flex;
-  align-items: center;
-  min-height: 100vh;
-`;
+import SectionFullPage from '../components/molecules/SectionFullPage';
 
 const NotFoundPage = props => {
   const DATA = props.data.content.data;
@@ -31,45 +13,21 @@ const NotFoundPage = props => {
         description={DATA.seo_description}
         image={DATA.seo_image.url}
       />
-      <Box>
-        <Wrapper>
-          {DATA.image.url && (
-            <img
-              src={DATA.image.url}
-              alt="404"
-              width={DATA.image.dimensions.width || null}
-              height={DATA.image.dimensions.height || null}
-            />
-          )}
-
-          {DATA.title && (
-            <Title
-              element="h1"
-              className={css({
-                margin: `${rem(40)} 0 ${rem(10)}`,
-                fontSize: font.XXL,
-                [[mqMin[2]]]: {
-                  fontSize: font.XXXL,
-                },
-              })}
-            >
-              {DATA.title}
-            </Title>
-          )}
-          {DATA.subtitle && <TextBigger>{DATA.subtitle}</TextBigger>}
-          {DATA.button_text && (
-            <div
-              className={css({
-                marginTop: rem(40),
-              })}
-            >
-              <Button to="/" element={Link} size="L" shadow>
-                {DATA.button_text}
-              </Button>
-            </div>
-          )}
-        </Wrapper>
-      </Box>
+      <SectionFullPage
+        title={DATA.title}
+        subtitle={DATA.subtitle}
+        cta={{
+          url: '/',
+          text: DATA.button_text,
+          type: 'internal',
+        }}
+        background={DATA.bkg_image.url}
+        image={{
+          url: DATA.image.url,
+          width: DATA.image.dimensions.width,
+          height: DATA.image.dimensions.height,
+        }}
+      />
     </App>
   );
 };
@@ -87,6 +45,9 @@ export const pageQuery = graphql`
             width
             height
           }
+        }
+        bkg_image {
+          url
         }
         seo_title
         seo_description
