@@ -21,23 +21,18 @@ const Main = styled('main')`
 class App extends React.Component {
   state = {
     navMobileOpen: false,
+    scrollY: null,
   };
-
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
-  handleScroll(event) {
-    let scrollTop = event.srcElement.body.scrollTop;
-    let itemTranslate = Math.min(0, scrollTop / 3 - 60);
-
-    this.setState({
-      transform: itemTranslate,
-    });
-  }
-
+  componentDidMount = () => {
+    window.addEventListener('scroll', this.handleOnScroll, true);
+  };
+  componentWillUnmount = () => {
+    window.removeEventListener('scroll', this.handleOnScroll, true);
+  };
+  handleOnScroll = () => {
+    const scroll = window.scrollY;
+    this.setState({ scrollY: scroll || 0 });
+  };
   toggleNavMobile = () => {
     this.setState(prevState => ({
       navMobileOpen: !prevState.navMobileOpen,
@@ -66,6 +61,7 @@ class App extends React.Component {
           header={this.props.data.header}
           download={this.props.data.download}
           toggleNavMobile={this.toggleNavMobile}
+          isFloatted={this.state.scrollY > 1 ? true : false}
         />
 
         <Main>{this.props.children}</Main>

@@ -17,6 +17,7 @@ const Section = styled('header')`
   left: 0;
   right: 0;
   z-index: 666;
+  transition: background-color 0.2s ${transition.base};
 `;
 
 const linkType = type => {
@@ -28,14 +29,14 @@ const linkType = type => {
   }
 };
 
-const NavLink = ({ element, theme, ...props }) => {
+const NavLink = ({ element, theme, isFloatted, ...props }) => {
   props.href = props.to;
   return React.createElement(element, {
     ...props,
     className: css({
       display: 'block',
       fontWeight: font.weightMedium,
-      color: theme === 'dark' ? color.neutral : color.light,
+      color: theme === 'dark' || isFloatted ? color.neutral : color.light,
       transition: `opacity 0.3s ${transition.base}`,
       padding: `${rem(15)} ${rem(20)}`,
       [mqNavDesktop]: {
@@ -43,7 +44,7 @@ const NavLink = ({ element, theme, ...props }) => {
       },
       '&:active, &:hover, &:focus': {
         opacity: 0.4,
-        color: theme === 'dark' ? color.neutral : color.light,
+        color: theme === 'dark' || isFloatted ? color.neutral : color.light,
       },
     }),
   });
@@ -55,23 +56,29 @@ const Header = ({
   download,
   toggleNavMobile,
   navMobileOpen,
+  isFloatted,
   ...rest
 }) => {
   const DATA = header.data;
   const DOWNLOAD = download.data;
   return (
     <Section
-      {...rest}
+      id="header"
       className={cx(
         'header',
         navMobileOpen ? 'navMobile-open' : 'navMobile-close',
         css({
+          backgroundColor: isFloatted
+            ? 'rgba(255, 255, 255, 0.88)'
+            : 'transparent',
+          backdropFilter: 'blur(10px)',
           [mqNavMobile]: {
             height: navMobileOpen ? '100vh' : 'auto',
             background: navMobileOpen ? color.light : 'transparent',
           },
         }),
       )}
+      {...rest}
     >
       <Wrapper
         className={css({
@@ -105,7 +112,10 @@ const Header = ({
                 className={cx(
                   'header-logo',
                   css({
-                    filter: theme === 'dark' ? 'none' : 'brightness(100)',
+                    filter:
+                      theme === 'dark' || isFloatted
+                        ? 'none'
+                        : 'brightness(100)',
                   }),
                 )}
               />
@@ -143,13 +153,14 @@ const Header = ({
                 theme={theme}
                 element={linkType(link.type)}
                 to={link.url}
+                isFloatted={isFloatted}
               >
                 {link.text}
               </NavLink>
             ))}
           {DATA.download_text && DOWNLOAD.button_url && (
             <Button
-              theme={theme === 'dark' ? 'primary' : 'light'}
+              theme={theme === 'dark' || isFloatted ? 'primary' : 'light'}
               to={DOWNLOAD.button_url.url}
               className={cx(
                 'header-nav-button',
