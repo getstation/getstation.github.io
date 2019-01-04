@@ -75,14 +75,14 @@ const Illustration = styled('div')`
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    width: 28%;
+    width: 31%;
     top: 47px;
     ${[mqMin[0]]} {
       top: 50px;
     }
     ${[mqMin[2]]} {
-      width: 35%;
-      top: 17px;
+      width: 39%;
+      top: 13px;
     }
   }
 `;
