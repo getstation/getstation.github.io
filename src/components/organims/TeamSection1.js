@@ -64,10 +64,6 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
           {members.map((item, index) => (
             <Member
               key={`${index}-${slugify(item.name, { lower: true })}`}
-              data-aos="fade"
-              data-aos-duration="700"
-              data-aos-easing="ease-in-sine"
-              data-aos-delay={index * 200}
               thumb={item.thumb.url}
               name={item.name}
               job={item.job}
