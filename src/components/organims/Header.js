@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, cx } from 'emotion';
 import { Link } from 'gatsby';
-import { rem } from 'polished';
+import { rem, rgba } from 'polished';
 import Button from '../atoms/Button';
 import NavButton from '../atoms/NavButton';
 import Wrapper from '../layout/Wrapper';
@@ -91,6 +91,11 @@ const Header = ({
           [mqNavMobile]: {
             height: navMobileOpen ? '100vh' : 'auto',
             background: navMobileOpen ? color.light : 'transparent',
+          },
+          [mqNavDesktop]: {
+            borderBottom: `1px solid ${
+              isFloatted ? rgba(color.clr1, 0.64) : 'transparent'
+            }`,
           },
         }),
       )}
