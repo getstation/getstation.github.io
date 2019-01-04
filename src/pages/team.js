@@ -9,6 +9,7 @@ import TeamTimeline from '../components/organims/TeamTimeline';
 
 const Presskit = props => {
   const DATA = JSON.parse(props.data.team.dataString);
+  console.log(DATA.manifesto);
   return (
     <App>
       <Seo
@@ -45,7 +46,7 @@ const Presskit = props => {
         members={DATA.member}
       />
       <TeamManifesto
-        data={DATA.manifesto}
+        data={props.data.team.data.manifesto}
         button={{
           url: DATA.section_3_button_url,
           text: DATA.section_3_button_text,
@@ -69,6 +70,17 @@ export const pageQuery = graphql`
   query teamQuery {
     team: prismicTeam {
       dataString
+      data {
+        manifesto {
+          title
+          title_color
+          subtitle
+          content {
+            html
+          }
+        }
+
+      }
     }
   }
 `;
