@@ -207,7 +207,7 @@ class Opinons extends React.Component {
                 {items[this.state.slide].name && (
                   <b>{items[this.state.slide].name}</b>
                 )}
-                , {items[this.state.slide].job}
+                , {items[this.state.slide].jobs}
                 {items[this.state.slide].logo.url && (
                   <img
                     src={items[this.state.slide].logo.url}

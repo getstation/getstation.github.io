@@ -165,6 +165,7 @@ export const pageQuery = graphql`
         opinion {
           name
           job
+          jobs
           use_for
           quote
           logo {
