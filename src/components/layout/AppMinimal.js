@@ -38,7 +38,7 @@ class App extends React.Component {
             position: fixed;
             left: 0;
             right: 0;
-            top: 30px;
+            top: 24px;
           `}
         >
           <Wrapper>

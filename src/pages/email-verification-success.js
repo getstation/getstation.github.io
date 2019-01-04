@@ -15,7 +15,7 @@ const NotFoundPage = props => {
       />
       <SectionFullPage
         title={DATA.title}
-        subtitle={DATA.subtitle}
+        subtitle={props.data.content.data.subtitle.html}
         cta={{
           url: DATA.button_url,
           text: DATA.button_text,
@@ -39,6 +39,11 @@ export const pageQuery = graphql`
   query emailSuccessQuery {
     content: prismicEmailVerificationSuccess {
       dataString
+       data {
+        subtitle {
+          html
+        }
+      }
     }
   }
 `;

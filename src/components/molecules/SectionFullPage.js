@@ -60,7 +60,7 @@ const SectionFullPage = ({
           {title}
         </Title>
       )}
-      {subtitle && <TextBigger>{subtitle}</TextBigger>}
+      {subtitle && <TextBigger  dangerouslySetInnerHTML={{ __html: subtitle}}/>}
       {cta.text && (
         <div
           className={css({
