@@ -85,13 +85,13 @@ const ActiveLine = styled('div')`
 
 const Ribbon = styled('div')`
   position: absolute;
-  left: -62px;
-  top: 25px;
+  left: -56px;
+  top: 30px;
   display: block;
   height: ${rem(24)};
   width: ${rem(200)};
   text-align: center;
-  font-size: ${rem(14)};
+  font-size: ${rem(13)};
   line-height: ${rem(24)};
   white-space: nowrap;
   font-family: ${font.secondary};
