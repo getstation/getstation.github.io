@@ -52,16 +52,6 @@ const Content = styled('p')`
   line-height: ${font.lineHeightXL};
 `;
 
-const Icon = styled('div')`
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-  height: ${rem(80)};
-  &:not(:last-child) {
-    margin-bottom: ${rem(20)};
-  }
-`;
-
 const Grid = styled('div')`
   ${mqMin[1]} {
     display: flex;
@@ -92,7 +82,7 @@ const FeatureMore = ({ data, ...rest }) => {
                 <img
                   className={css`
                     display: block;
-                    margin: 0 auto 20px;
+                    margin: 0 auto ${rem(20)};
                   `}
                   src={item.image.url}
                   width={item.image.dimensions.width || null}

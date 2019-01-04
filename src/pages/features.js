@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { css } from 'emotion';
 import App from '../components/layout/App';
 import Hero from '../components/organims/Hero';
 import Seo from '../components/molecules/Seo';
@@ -24,8 +25,15 @@ const FeaturesPage = props => {
           bottom: DATA.hero_gradient_bottom,
         }}
       />
-      <FeatureCards data={DATA} download={DOWNLOAD.data} />
-      <FeatureMore data={DATA.morebox} />
+      <div
+        className={css({
+          backgroundImage: `linear-gradient(to top, ${DATA.main_gradient_bottom ||
+            'transparent'}, ${DATA.main_gradient_top || 'transparent'})`,
+        })}
+      >
+        <FeatureCards data={DATA} download={DOWNLOAD.data} />
+        <FeatureMore data={DATA.morebox} />
+      </div>
     </App>
   );
 };
