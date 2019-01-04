@@ -37,7 +37,7 @@ export const Themes = {
   clr6: {
     borderColor: rgba(color.clr6, 0.7),
     color: color.clr6,
-    '&.is-active': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr6,
       borderColor: color.clr6,
       color: color.light,
@@ -46,7 +46,7 @@ export const Themes = {
   clr5: {
     borderColor: rgba(color.clr5, 0.7),
     color: color.clr5,
-    '&.is-active': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr5,
       borderColor: color.clr5,
       color: color.light,
@@ -55,7 +55,7 @@ export const Themes = {
   clr4: {
     borderColor: rgba(color.clr4, 0.7),
     color: color.clr4,
-    '&.is-active': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr4,
       borderColor: color.clr4,
       color: color.light,
@@ -64,7 +64,7 @@ export const Themes = {
   clr3: {
     borderColor: rgba(color.clr3, 0.7),
     color: color.clr3,
-    '&.is-active': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr3,
       borderColor: color.clr3,
       color: color.light,
@@ -73,7 +73,7 @@ export const Themes = {
   clr2: {
     borderColor: rgba(color.clr2, 0.7),
     color: color.clr2,
-    '&.is-active': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr2,
       borderColor: color.clr2,
       color: color.light,
@@ -82,7 +82,7 @@ export const Themes = {
   clr1: {
     borderColor: rgba(color.clr1, 0.7),
     color: color.clr1,
-    '&.is-active': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr1,
       borderColor: color.clr1,
       color: color.light,
@@ -99,12 +99,16 @@ const Tag = ({ element, text, className, active, size, ...props }) => {
         css({
           display: 'inline-block',
           lineHeight: 1,
+          background: 'transparent',
           borderStyle: 'solid',
           borderWidth: 1,
           fontWeight: font.weightBold,
           borderRadius: rem(666),
           transition: `all .2s ${transition.base}`,
           cursor: element === 'button' ? 'pointer' : 'auto',
+          '&:active': {
+            transform: 'translateY(2px)',
+          },
           ...themeSwitcher(text),
           ...Sizes[size],
         }),
