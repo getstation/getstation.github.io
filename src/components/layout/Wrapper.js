@@ -34,6 +34,7 @@ const Wrapper = ({ element, size, ...props }) => {
         marginLeft: 'auto',
         marginRight: 'auto',
         maxWidth: sizes[size],
+        width: '100%',
       }),
     ),
   });
