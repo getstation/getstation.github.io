@@ -1,7 +1,7 @@
 import React from 'react';
 import { css, cx } from 'emotion';
 import { Link } from 'gatsby';
-import { rem, rgba } from 'polished';
+import { rem } from 'polished';
 import Button from '../atoms/Button';
 import NavButton from '../atoms/NavButton';
 import Wrapper from '../layout/Wrapper';
@@ -34,6 +34,8 @@ const NavLink = ({ element, theme, isFloatted, ...props }) => {
   return React.createElement(element, {
     ...props,
     className: css({
+      position: 'relative',
+      overflow: 'hidden',
       display: 'block',
       fontWeight: font.weightMedium,
       color: theme === 'dark' || isFloatted ? color.neutral : color.light,
@@ -42,9 +44,23 @@ const NavLink = ({ element, theme, isFloatted, ...props }) => {
       [mqNavDesktop]: {
         padding: rem(10),
       },
+      '&:after': {
+        content: '""',
+        display: 'block',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        width: '100%',
+        height: '2px',
+        background: color.clr4,
+        transform: 'translateX(-110%)',
+        transition: `transform 0.2s ${transition.base}`,
+      },
       '&:active, &:hover, &:focus': {
-        opacity: 0.4,
         color: theme === 'dark' || isFloatted ? color.neutral : color.light,
+        '&:after': {
+          transform: 'translateX(0%)',
+        },
       },
     }),
   });
@@ -71,7 +87,7 @@ const Header = ({
           backgroundColor: isFloatted
             ? 'rgba(255, 255, 255, 0.88)'
             : 'transparent',
-          backdropFilter: 'blur(10px)',
+          backdropFilter: isFloatted ? 'blur(10px)' : 'none',
           [mqNavMobile]: {
             height: navMobileOpen ? '100vh' : 'auto',
             background: navMobileOpen ? color.light : 'transparent',
@@ -89,6 +105,7 @@ const Header = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
+            height: rem(75),
           },
         })}
       >
@@ -96,9 +113,6 @@ const Header = ({
           className={css({
             [mqNavMobile]: {
               padding: `${rem(30)} 0 ${rem(10)}`,
-            },
-            [mqNavDesktop]: {
-              padding: `${rem(30)} 0`,
             },
           })}
         >
