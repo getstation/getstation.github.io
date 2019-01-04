@@ -15,7 +15,7 @@ const NotFoundPage = props => {
       />
       <SectionFullPage
         title={DATA.title}
-        subtitle={DATA.subtitle}
+        subtitle={DATA.subtitle.html}
         cta={{
           url: '/',
           text: DATA.button_text,
@@ -40,7 +40,9 @@ export const pageQuery = graphql`
     content: prismic404 {
       data {
         title
-        subtitle
+        subtitle {
+          html
+        }
         button_text
         image {
           url
