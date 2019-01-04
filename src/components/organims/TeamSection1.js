@@ -11,9 +11,12 @@ import Wrapper from '../layout/Wrapper';
 
 const Grid = styled('div')`
   padding-top: ${rem(100)};
+  margin-left: auto;
+  margin-right: auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   grid-gap: ${rem(60)};
+  max-width: ${rem(980)};
   ${mqMin[0]} {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -31,7 +34,7 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
   <div
     className={cx(
       css({
-        padding: `${rem(70)} 0`,
+        padding: `${rem(70)} 0 ${rem(140)}`,
       }),
       className,
     )}
@@ -71,13 +74,15 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
               twitter={item.twitter}
               instagram={item.instagram}
               github={item.github}
+              linkedin={item.linkedin}
+              facebook={item.facebook}
               personalLink={item.personal_link}
             />
           ))}
         </Grid>
       )}
       {button.bottom.url && button.bottom.text && (
-        <div className={css({ textAlign: 'center' })}>
+        <div className={css({ textAlign: 'center', marginTop: rem(100) })}>
           <Button
             to={button.bottom.url}
             theme={button.bottom.theme}

@@ -63,12 +63,12 @@ const Links = styled('div')`
 
 const Link = styled('a')`
   display: block;
-  transition: opacity 0.2s ${transition.base};
+  transition: transform 0.2s ${transition.base};
   &:not(:first-child) {
     margin-left: ${rem(10)};
   }
   &:hover {
-    opacity: 0.6;
+    transform: translateY(${rem(-2)});
   }
 `;
 
@@ -79,6 +79,8 @@ const Member = ({
   twitter,
   instagram,
   personalLink,
+  linkedin,
+  facebook,
   github,
   ...rest
 }) => (
@@ -96,6 +98,16 @@ const Member = ({
       {instagram && (
         <Link href={instagram}>
           <Icon type="instagram" color="clr1" size={30} />
+        </Link>
+      )}
+      {facebook && (
+        <Link href={facebook}>
+          <Icon type="facebook" color="clr1" size={30} />
+        </Link>
+      )}
+      {linkedin && (
+        <Link href={linkedin}>
+          <Icon type="linkedin" color="clr1" size={30} />
         </Link>
       )}
       {personalLink && (

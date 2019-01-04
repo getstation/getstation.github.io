@@ -10,7 +10,9 @@ import * as font from '../../styles/fonts.js';
 import * as color from '../../styles/colors';
 
 const Box = styled('div')`
-  padding: ${rem(50)} 0;
+  padding: ${rem(120)} 0 ${rem(50)};
+  border-top: 1px solid #a1d3ff;
+  border-bottom: 1px solid #a1d3ff;
   background-image: linear-gradient(to top, #e9f3fd, #ffffff);
 `;
 
@@ -37,7 +39,7 @@ const Grid = styled('div')`
 
 const Title = styled('h2')`
   text-transform: uppercase;
-  font-weight: ${font.weightBold};
+  font-weight: ${font.weightMedium};
   ${mqMin[1]} {
     font-size: ${rem(18)};
   }

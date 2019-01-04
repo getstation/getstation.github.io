@@ -8,7 +8,7 @@ import TeamManifesto from '../components/organims/TeamManifesto';
 import TeamTimeline from '../components/organims/TeamTimeline';
 
 const Presskit = props => {
-  const DATA = props.data.team.data;
+  const DATA = JSON.parse(props.data.team.dataString);
   return (
     <App>
       <Seo
@@ -68,74 +68,7 @@ export default Presskit;
 export const pageQuery = graphql`
   query teamQuery {
     team: prismicTeam {
-      data {
-        seo_title
-        seo_description
-        seo_image {
-          url
-        }
-        hero_title
-        hero_baseline
-        hero_gradient_top
-        hero_gradient_bottom
-        section_1_text {
-          html
-        }
-        section_1_button_url
-        section_1_button_text
-        section_1_button_type
-        section_1_button_theme
-        section_1_button_tracking_class
-        section_2_button_url
-        section_2_button_text
-        section_2_button_type
-        section_2_button_theme
-        section_2_button_tracking_class
-        section_3_button_url
-        section_3_button_text
-        section_3_button_type
-        section_3_button_theme
-        section_3_button_tracking_class
-        member {
-          thumb {
-            url
-            dimensions {
-              width
-              height
-            }
-          }
-          name
-          job
-          twitter
-          instagram
-          personal_link
-          github
-        }
-        manifesto {
-          title
-          title_color
-          subtitle
-          content {
-            html
-          }
-        }
-        timeline_title
-        timeline_text
-        timeline_event {
-          date
-          title
-          url
-          text
-          thumb {
-            url
-            dimensions {
-              width
-              height
-            }
-          }
-        }
-        button_load_more_text
-      }
+      dataString
     }
   }
 `;
