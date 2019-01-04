@@ -17,7 +17,8 @@ const Section = styled('header')`
   left: 0;
   right: 0;
   z-index: 666;
-  transition: background-color 0.2s ${transition.base};
+  transition: background-color 0.2s ${transition.base},
+    border-color 0.2s ${transition.base};
 `;
 
 const linkType = type => {
