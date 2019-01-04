@@ -5,6 +5,7 @@ import { rem } from 'polished';
 import Title from '../atoms/Title';
 import TextBigger from '../atoms/TextBigger';
 import Wrapper from '../layout/Wrapper';
+import SectionTitle from '../molecules/sectionTitle';
 import SectionButtons from '../molecules/SectionButtons';
 import { mqMin } from '../../styles/breackpoint';
 import * as color from '../../styles/colors';
@@ -14,7 +15,7 @@ import quoteImg from '../../images/quote.svg';
 const Box = styled('div')`
   text-align: center;
   padding: ${rem(60)} 0;
-  background-image: linear-gradient(0deg, #f5fbff 1%, #ffffff 100%);
+  border-top: 1px solid #a1d3ff;
   ${mqMin[1]} {
     padding: ${rem(100)} 0;
   }
@@ -99,6 +100,7 @@ const CardTitle = styled('div')`
 `;
 
 const DevelopersAndPartnersSection2 = ({
+  gradient,
   title,
   items,
   quote,
@@ -107,21 +109,19 @@ const DevelopersAndPartnersSection2 = ({
   ...rest
 }) => {
   return (
-    <Box {...rest}>
+    <Box
+      {...rest}
+      className={css({
+        backgroundImage: `linear-gradient(0deg, ${gradient.bottom ||
+          transparent} 0%, ${gradient.top || transparent}
+         100%)`,
+      })}
+    >
       <Wrapper>
         {title && (
-          <Title
-            element={'h2'}
-            className={css({
-              fontSize: font.XXL,
-              textAlign: 'center',
-              [[mqMin[1]]]: {
-                fontSize: rem(34),
-              },
-            })}
-          >
+          <SectionTitle className={css({ marginBottom: '0 !important' })}>
             {title}
-          </Title>
+          </SectionTitle>
         )}
         {quote.text && quote.author && (
           <Quote>

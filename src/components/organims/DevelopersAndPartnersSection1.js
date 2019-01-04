@@ -8,6 +8,7 @@ import Wrapper from '../layout/Wrapper';
 import SectionButtons from '../molecules/SectionButtons';
 import { mqMin } from '../../styles/breackpoint';
 import * as color from '../../styles/colors';
+import * as font from '../../styles/fonts';
 
 const Box = styled('div')`
   padding: ${rem(60)} 0;
@@ -60,6 +61,7 @@ const Shape = styled('img')`
 `;
 
 const CardTitle = styled('p')`
+  font-weight: ${font.weightBold};
   &:not(:last-child) {
     margin-bottom: ${rem(20)};
   }

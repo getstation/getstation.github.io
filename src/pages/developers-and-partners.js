@@ -30,6 +30,10 @@ const DevsAndPartners = props => {
         buttons={DATA.section_1_button}
       />
       <DevelopersAndPartnersSection2
+        gradient={{
+          top: DATA.section_2_gradient_top,
+          bottom: DATA.section_2_gradient_bottom,
+        }}
         title={DATA.section_2_title}
         quote={{
           text: DATA.section_2_quote,
@@ -85,6 +89,8 @@ export const pageQuery = graphql`
             }
           }
         }
+        section_2_gradient_top
+        section_2_gradient_bottom
         section_2_title
         section_2_button {
           text
