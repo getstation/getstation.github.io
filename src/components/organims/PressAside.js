@@ -2,6 +2,7 @@ import React from 'react';
 import { css } from 'emotion';
 import { rem } from 'polished';
 import slugify from 'slugify';
+import AnchorLink from 'react-anchor-link-smooth-scroll';
 import Link from '../../components/atoms/Link';
 import Icon from '../../components/atoms/Icon';
 import { mqMin } from '../../styles/breackpoint';
@@ -11,7 +12,7 @@ import * as transition from '../../styles/transitions';
 
 const LinkBig = ({ text, ...rest }) => (
   <li {...rest}>
-    <a
+    <AnchorLink
       className={css({
         color: color.neutralLight,
         fontFamily: font.secondary,
@@ -28,7 +29,7 @@ const LinkBig = ({ text, ...rest }) => (
       })}`}
     >
       {text}
-    </a>
+    </AnchorLink>
   </li>
 );
 
