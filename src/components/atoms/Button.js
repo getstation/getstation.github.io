@@ -35,7 +35,9 @@ export const Themes = {
       '&:hover, &:focus': {
         background: color.clr1Dark,
         color: color.light,
+        transform: `translateY(${rem(-2)})`,
       },
+
       '&:active': {
         background: color.clr1Dark,
         color: rgba(color.light, 0.7),
@@ -139,9 +141,7 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
           alignItems: 'center',
           zIndex: 1,
           borderRadius: rem(666),
-          transition: `color 0.2s ${transition.base}, background 0.2s ${
-            transition.base
-          }, boxShadow 0.2s ${transition.base}`,
+          transition: `all 0.2s ${transition.base}`,
           ...Themes[theme].button,
           ...Sizes[size],
           '* + *': {
