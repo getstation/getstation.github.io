@@ -27,7 +27,7 @@ const SeeAllApps = ({ title, data, button, ...rest }) => {
             size="L"
             theme="ghost"
             element={button.type === 'internal' ? Link : 'a'}
-            data-aos="fade-up"
+            data-aos="fade"
             className={button.tracking}
           >
             {button.text}

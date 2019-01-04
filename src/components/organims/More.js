@@ -71,7 +71,7 @@ const More = ({ title, data, button, ...rest }) => {
             theme="ghost"
             className={button.tracking}
             element={button.type === 'internal' ? Link : 'a'}
-            data-aos="fade-up"
+            data-aos="fade"
           >
             {button.text}
           </Button>

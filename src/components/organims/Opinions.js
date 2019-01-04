@@ -234,7 +234,7 @@ class Opinons extends React.Component {
                 to={download.url}
                 size="L"
                 shadow
-                data-aos="fade-up"
+                data-aos="fade"
                 className={download.tracking}
               >
                 {download.text}

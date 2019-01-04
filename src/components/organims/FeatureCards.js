@@ -76,7 +76,7 @@ class FeatureCards extends React.Component {
               to={this.props.download.button_url.url}
               size="L"
               shadow
-              data-aos="fade-up"
+              data-aos="fade"
               className={this.props.data.download_tracking_class}
             >
               {this.props.data.download_text}
