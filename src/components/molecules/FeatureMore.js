@@ -73,7 +73,11 @@ const FeatureMore = ({ data, ...rest }) => {
       {data && (
         <Grid>
           {data.map((item, index) => (
-            <Box key={`feature-more-${index}`}>
+            <Box
+              key={`feature-more-${index}`}
+              data-aos="fade-up"
+              data-aos-delay={index * 100}
+            >
               {item.image.url && (
                 <img
                   className={css`

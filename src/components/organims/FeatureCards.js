@@ -110,7 +110,11 @@ class FeatureCards extends React.Component {
               (item, index) => {
                 if (item.slice_type === 'featurecard') {
                   return (
-                    <GridItem key={`${index}-grid-item`}>
+                    <GridItem
+                      key={`${index}-grid-item`}
+                      data-aos="fade"
+                      data-aos-delay={index * 100}
+                    >
                       <FeatureCardBase data={item.primary} />
                     </GridItem>
                   );
@@ -118,6 +122,8 @@ class FeatureCards extends React.Component {
                   return (
                     <GridItem
                       key={`${index}-grid-item-slider`}
+                      data-aos="fade"
+                      data-aos-delay={index * 100}
                       css={`
                         ${mqMin[0]} {
                           grid-column: 1 / 3;
