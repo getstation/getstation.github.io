@@ -75,15 +75,7 @@ export const Themes = {
   },
 };
 
-const Button = ({
-  element,
-  disabled,
-  size,
-  theme,
-  shadow,
-  className,
-  ...props
-}) => {
+const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
   props.href = props.to;
   return React.createElement(
     element,
@@ -142,23 +134,20 @@ const Button = ({
     React.createElement(
       'div',
       {
-        className: cx(
-          css({
-            position: 'relative',
-            display: 'inline-flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 1,
-            borderRadius: rem(666),
-            transition: `all 0.2s ${transition.base}`,
-            ...Themes[theme].button,
-            ...Sizes[size],
-            '* + *': {
-              marginLeft: rem(15),
-            },
-          }),
-          className,
-        ),
+        className: css({
+          position: 'relative',
+          display: 'inline-flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          zIndex: 1,
+          borderRadius: rem(666),
+          transition: `all 0.2s ${transition.base}`,
+          ...Themes[theme].button,
+          ...Sizes[size],
+          '* + *': {
+            marginLeft: rem(15),
+          },
+        }),
       },
       props.children,
     ),
