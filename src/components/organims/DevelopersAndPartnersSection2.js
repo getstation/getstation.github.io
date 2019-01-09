@@ -15,7 +15,7 @@ import quoteImg from '../../images/quote.svg';
 const Box = styled('div')`
   text-align: center;
   padding: ${rem(60)} 0;
-  border-top: 1px solid #a1d3ff;
+  border-top: 1px solid ${color.divider};
   ${mqMin[1]} {
     padding: ${rem(100)} 0;
   }

@@ -24,7 +24,7 @@ const Grid = styled('div')`
     grid-auto-flow: row dense;
   }
   ${mqMin[1]} {
-    padding-top: ${rem(100)};
+    padding-top: ${rem(60)};
   }
   ${mqMin[2]} {
     grid-template-columns: repeat(3, 1fr);

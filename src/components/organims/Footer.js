@@ -147,7 +147,7 @@ const Footer = ({ footer, download, ...rest }) => {
         </div>
         <div
           className={css({
-            paddingTop: rem(60),
+            paddingTop: rem(100),
             display: 'flex',
             [mqMax[0]]: {
               flexDirection: 'column',

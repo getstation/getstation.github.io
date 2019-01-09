@@ -15,9 +15,10 @@ const TIMER = 4000;
 const Section = styled('div')`
   padding: ${rem(110)} 0;
   margin-bottom: ${rem(-50)};
+  border-top: 1px solid ${color.clr4};
   background-image: linear-gradient(0deg, #f5fbff 1%, #ffffff 100%);
   ${mqMin[1]} {
-    padding: ${rem(150)} 0;
+    padding: ${rem(200)} 0 ${rem(150)};
   }
 `;
 

@@ -26,7 +26,7 @@ const Hero = ({ title, subtitle, status, gradient, className, ...rest }) => {
     >
       <Wrapper
         className={css({
-          padding: `${rem(160)} 0 ${rem(100)}`,
+          padding: `${rem(240)} 0 ${rem(80)}`,
         })}
       >
         {title && (

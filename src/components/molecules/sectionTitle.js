@@ -21,7 +21,7 @@ const Header = styled('div')`
   text-align: center;
   margin-bottom: ${rem(60)};
   ${mqMin[1]} {
-    margin-bottom: ${rem(100)};
+    margin-bottom: ${rem(80)};
   }
 `;
 

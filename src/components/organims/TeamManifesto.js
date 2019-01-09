@@ -11,8 +11,8 @@ import * as color from '../../styles/colors';
 
 const Box = styled('div')`
   padding: ${rem(120)} 0 ${rem(50)};
-  border-top: 1px solid #a1d3ff;
-  border-bottom: 1px solid #a1d3ff;
+  border-top: 1px solid ${color.divider};
+  border-bottom: 1px solid ${color.divider};
   background-image: linear-gradient(to top, #e9f3fd, #ffffff);
 `;
 

@@ -1,5 +1,6 @@
 import React from 'react';
 import { graphql } from 'gatsby';
+import { css } from 'emotion';
 import App from '../components/layout/App';
 import HeroHome from '../components/organims/HeroHome';
 import Reassurance from '../components/organims/Reassurance';
@@ -37,7 +38,14 @@ const IndexPage = props => {
         logos={DATA.reassurance_logos}
       />
 
-      {DATA.presentation_list && <Presentation data={DATA.presentation_list} />}
+      {DATA.presentation_list && (
+        <Presentation
+          data={DATA.presentation_list}
+          className={css({
+            marginTop: 100,
+          })}
+        />
+      )}
       {DATA.more_title && (
         <More
           title={DATA.more_title}

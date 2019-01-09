@@ -104,7 +104,7 @@ const EventItem = styled('li')`
 const EventDate = styled('div')`
   text-transform: uppercase;
   font-weight: ${font.weightBold};
-  color: #a1d3ff;
+  color: ${color.divider};
   font-size: ${rem(12)};
   ${[mqMin[1]]} {
     font-size: ${rem(14)};

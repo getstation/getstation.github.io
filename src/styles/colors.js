@@ -19,4 +19,6 @@ export const clr5 = '#7985ff';
 
 export const clr6 = '#f2827d';
 
+export const divider = '#a1d3ff';
+
 export const border = '#979797';
