@@ -91,7 +91,9 @@ const Header = ({
           backdropFilter: isFloatted ? 'blur(10px)' : 'none',
           [mqNavMobile]: {
             height: navMobileOpen ? '100vh' : 'auto',
-            background: navMobileOpen ? color.light : 'transparent',
+            background: navMobileOpen
+              ? color.light
+              : 'rgba(255, 255, 255, 0.88)',
           },
           [mqNavDesktop]: {
             borderBottom: `1px solid ${

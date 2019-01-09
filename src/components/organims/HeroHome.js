@@ -117,7 +117,7 @@ const HeroHome = ({
           position: 'relative',
           padding: `${rem(300)} 0 ${rem(120)}`,
           [[mqMax[2]]]: {
-            padding: `${rem(140)} 0`,
+            padding: `${rem(260)} 0 ${rem(140)}`,
           },
           [[mqMin[2]]]: {
             display: 'flex',
