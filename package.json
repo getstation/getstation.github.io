@@ -18,7 +18,7 @@
     "gatsby-plugin-resolve-src": "^1.1.4",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-sitemap": "^2.0.4",
-    "gatsby-source-filesystem": "^2.0.12",
+    "gatsby-source-filesystem": "^2.0.13",
     "gatsby-source-prismic": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.10",
     "polished": "^2.3.1",

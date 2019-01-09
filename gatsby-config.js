@@ -5,14 +5,12 @@ require('dotenv').config({
 const path = require(`path`);
 
 module.exports = {
+  pathPrefix: `/`,
   siteMetadata: {
     siteUrl: `https://getstation.com/`,
   },
   plugins: [
-    'gatsby-plugin-sharp',
-    'gatsby-transformer-sharp',
     'gatsby-plugin-react-helmet',
-    'gatsby-plugin-sharp',
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -26,12 +24,21 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-prismic',
       options: {
         repositoryName: 'station-website',
         accessToken: `${process.env.API_KEY}`,
-        lang: '*',
+        shouldNormalizeImage: () => true,
+      },
+    },
+    'gatsby-transformer-sharp',
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: 'img',
+        path: `${__dirname}/src/images`,
       },
     },
     {

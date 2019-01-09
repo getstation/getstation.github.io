@@ -5528,10 +5528,10 @@ gatsby-source-filesystem@^2.0.1:
     valid-url "^1.0.9"
     xstate "^3.1.0"
 
-gatsby-source-filesystem@^2.0.12:
-  version "2.0.12"
-  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.12.tgz#2d447f547a575fd6b867bce4381b2d1abbee61d1"
-  integrity sha512-IRqGdOXZMkpQASR653WgdCyfOnRutS+3/VXm35ULyG+6p/AZDHR79K2beHH3wHeQkypnsjwMHTi3cnxyaij+ug==
+gatsby-source-filesystem@^2.0.13:
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-2.0.13.tgz#c0c814c79065f63dc28b0d96fffcebba59c6aa2d"
+  integrity sha512-aAzwvVjhrrZ1IFyNgLBTdzPHxjQdy1zRhmUizdzt7VCqTPiMD3vtLtVGqe9fFRNzZ+2kUMJOd2cGwjMHoTtLmA==
   dependencies:
     "@babel/runtime" "^7.0.0"
     better-queue "^3.8.7"
