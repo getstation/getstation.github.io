@@ -114,7 +114,12 @@ const FeatureCardBase = ({ data, ...rest }) => {
           {data.title && <Title>{data.title}</Title>}
           {data.content && <Content>{data.content}</Content>}
           {data.tag && (
-            <Tag text={data.tag} className={css({ marginTop: rem(20) })} />
+            <Tag
+              text={data.tag}
+              className={css({
+                marginTop: rem(20),
+              })}
+            />
           )}
         </Body>
       )}
