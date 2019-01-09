@@ -5,14 +5,14 @@ import Seo from '../components/molecules/Seo';
 import SectionFullPage from '../components/molecules/SectionFullPage';
 
 const EmailVerification = props => {
-  const url_string = window.location.href;
+  let url_string = 'http://getstation.com';
+  if (typeof window !== `undefined`) {
+    url_string = window.location.href;
+  }
   const url = new URL(url_string);
   const success = url.searchParams.get('success');
-  console.log(success);
-
   const DATA_ERROR = JSON.parse(props.data.error.dataString);
   const DATA_SUCCESS = JSON.parse(props.data.success.dataString);
-  console.log(DATA_SUCCESS.button_text);
   return (
     <AppMinimal>
       <Seo
