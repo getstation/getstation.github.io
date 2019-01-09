@@ -85,7 +85,7 @@ const ManifestoItem = ({ title, titleColor, subtitle, content, ...rest }) => (
 
 const TeamManifesto = ({ data, button, ...rest }) => (
   <Box {...rest}>
-    <Wrapper>
+    <Wrapper className={css({ maxWidth: rem(1120) })}>
       {data.map((item, index) => (
         <ManifestoItem
           key={`${index}-${slugify(item.title, { lower: true })}`}

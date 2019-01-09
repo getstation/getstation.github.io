@@ -27,7 +27,6 @@ const Wrapper = ({ element, size, ...props }) => {
   return React.createElement(element, {
     ...props,
     className: cx(
-      props.className,
       css({
         paddingLeft: rem(20),
         paddingRight: rem(20),
@@ -36,6 +35,7 @@ const Wrapper = ({ element, size, ...props }) => {
         maxWidth: sizes[size],
         width: '100%',
       }),
+      props.className,
     ),
   });
 };
