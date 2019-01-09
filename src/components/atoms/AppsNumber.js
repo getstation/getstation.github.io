@@ -2,7 +2,7 @@ import React from 'react';
 
 class AppNumber extends React.Component {
   state = {
-    number: '600+',
+    number: 600,
   };
   componentDidMount() {
     fetch('https://api.getstation.com/graphql', {
@@ -16,7 +16,7 @@ class AppNumber extends React.Component {
       );
   }
   render() {
-    return <span>{Math.ceil(this.state.number / 10) * 10 - 10}+</span>;
+    return <span>{Math.ceil(this.state.number / 10) * 10}+</span>;
   }
 }
 
