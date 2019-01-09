@@ -29,57 +29,61 @@ const SectionFullPage = ({
   image,
   background,
   ...rest
-}) => (
-  <Section
-    className={css`
-      background-image: url(${background});
-    `}
-    {...rest}
-  >
-    <Wrapper>
-      {image.url && (
-        <img
-          src={image.url}
-          alt="404"
-          width={image.width || null}
-          height={image.height || null}
-        />
-      )}
+}) => {
+  return (
+    <Section
+      className={css`
+        background-image: url(${background || ''});
+      `}
+      {...rest}
+    >
+      <Wrapper>
+        {image && image.url && (
+          <img
+            src={image.url}
+            alt="404"
+            width={image.width || null}
+            height={image.height || null}
+          />
+        )}
 
-      {title && (
-        <Title
-          element="h1"
-          className={css({
-            margin: `${rem(40)} 0 ${rem(10)}`,
-            fontSize: font.XXL,
-            [[mqMin[2]]]: {
-              fontSize: font.XXXL,
-            },
-          })}
-        >
-          {title}
-        </Title>
-      )}
-      {subtitle && <TextBigger  dangerouslySetInnerHTML={{ __html: subtitle}}/>}
-      {cta.text && (
-        <div
-          className={css({
-            marginTop: rem(40),
-          })}
-        >
-          <Button
-            to={cta.url}
-            element={cta.type === 'internal' ? Link : 'a'}
-            size={cta.size}
-            shadow={cta.shadow}
-            theme={cta.theme}
+        {title && (
+          <Title
+            element="h1"
+            className={css({
+              margin: `${rem(40)} 0 ${rem(10)}`,
+              fontSize: font.XXL,
+              [[mqMin[2]]]: {
+                fontSize: font.XXXL,
+              },
+            })}
           >
-            {cta.text}
-          </Button>
-        </div>
-      )}
-    </Wrapper>
-  </Section>
-);
+            {title}
+          </Title>
+        )}
+        {subtitle && (
+          <TextBigger dangerouslySetInnerHTML={{ __html: subtitle }} />
+        )}
+        {cta.text && (
+          <div
+            className={css({
+              marginTop: rem(40),
+            })}
+          >
+            <Button
+              to={cta.url}
+              element={cta.type === 'internal' ? Link : 'a'}
+              size={cta.size}
+              shadow={cta.shadow}
+              theme={cta.theme}
+            >
+              {cta.text}
+            </Button>
+          </div>
+        )}
+      </Wrapper>
+    </Section>
+  );
+};
 
 export default SectionFullPage;
