@@ -1,5 +1,6 @@
 import React from 'react';
 import { css, cx } from 'emotion';
+import { isMobile } from 'react-device-detect';
 import Icon from '../../components/atoms/Icon';
 import { rem, rgba } from 'polished';
 import Button from '../atoms/Button';
@@ -8,17 +9,13 @@ import * as color from '../../styles/colors';
 
 const DownloadApp = ({ data, theme, className, ...rest }) => {
   const DATA = data.data;
+  console.log(DATA.button_url_mobile);
   return (
     <div {...rest}>
-      <div
-        className={css({
-          marginBottom: rem(15),
-          textAlign: 'center',
-        })}
-      >
+      <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>
         {DATA.button_text && DATA.button_url && (
           <Button
-            to={DATA.button_url.url}
+            to={!isMobile ? DATA.button_url.url : DATA.button_url_mobile.url}
             theme={theme}
             size="L"
             shadow

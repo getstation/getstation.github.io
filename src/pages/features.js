@@ -50,6 +50,9 @@ export const pageQuery = graphql`
         button_url {
           url
         }
+        button_url_mobile {
+          url
+        }
       }
     }
   }

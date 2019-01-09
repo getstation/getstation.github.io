@@ -87,6 +87,9 @@ export default props => (
             button_url {
               url
             }
+            button_url_mobile {
+              url
+            }
             plateform_list {
               type
               url {

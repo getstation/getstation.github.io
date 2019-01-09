@@ -25,6 +25,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.7.0",
     "react-anchor-link-smooth-scroll": "^1.0.11",
+    "react-device-detect": "^1.6.1",
     "react-dom": "^16.7.0",
     "react-emotion": "^9.2.12",
     "react-headroom": "^2.2.4",
