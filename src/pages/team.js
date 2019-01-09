@@ -9,7 +9,6 @@ import TeamTimeline from '../components/organims/TeamTimeline';
 
 const Presskit = props => {
   const DATA = JSON.parse(props.data.team.dataString);
-  console.log(DATA.manifesto);
   return (
     <App>
       <Seo
