@@ -15,6 +15,7 @@ import { mqMin } from '../styles/breackpoint';
 const Presskit = props => {
   const DATA = props.data.press.data;
   const DATA_STRING = JSON.parse(props.data.press.dataString);
+  console.log(DATA_STRING.download_tracking_class_hero);
   return (
     <App>
       <Seo
@@ -40,7 +41,13 @@ const Presskit = props => {
             marginTop: rem(-60),
           })}
         >
-          <Button to={DATA_STRING.download_url} size="L" theme="light" shadow>
+          <Button
+            to={DATA_STRING.download_url}
+            size="L"
+            theme="light"
+            shadow
+            className={DATA_STRING.download_tracking_class_hero}
+          >
             <Icon type="download" color="clr1" size={22} />
             <span>{DATA_STRING.download_text}</span>
           </Button>

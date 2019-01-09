@@ -1,5 +1,5 @@
 import React from 'react';
-import { css } from 'emotion';
+import { css, cx } from 'emotion';
 import { rem } from 'polished';
 import slugify from 'slugify';
 import AnchorLink from 'react-anchor-link-smooth-scroll';
@@ -34,7 +34,13 @@ const LinkBig = ({ text, ...rest }) => (
 );
 
 const PressAside = ({ data }) => {
-  const { aside_anchor_text, body, download_url, download_text } = data;
+  const {
+    aside_anchor_text,
+    body,
+    download_url,
+    download_text,
+    download_tracking_class_aside,
+  } = data;
   return (
     <ul
       className={css({
@@ -65,16 +71,21 @@ const PressAside = ({ data }) => {
         <li>
           <Link
             to={download_url}
-            className={css({
-              fontSize: rem(14),
-              fontWeight: font.weightBold,
-            })}
+            className={cx(
+              css({
+                fontSize: rem(14),
+                fontWeight: font.weightBold,
+              }),
+              download_tracking_class_aside,
+            )}
           >
             <Icon
               type="download"
               color="clr1"
               size={15}
-              className={css({ marginRight: rem(10) })}
+              className={css({
+                marginRight: rem(10),
+              })}
             />
             <span>{download_text}</span>
           </Link>
