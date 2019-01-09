@@ -17,9 +17,9 @@ const NotFoundPage = props => {
         title={DATA.title}
         subtitle={DATA.subtitle.html}
         cta={{
-          url: '/',
+          url: DATA.button_url,
           text: DATA.button_text,
-          type: 'internal',
+          type: DATA.button_type,
           theme: 'primary',
           shadow: true,
           size: 'L',
@@ -44,6 +44,8 @@ export const pageQuery = graphql`
           html
         }
         button_text
+        button_url
+        button_type
         image {
           url
           dimensions {
