@@ -40,7 +40,7 @@ const Presskit = props => {
             text: DATA.section_2_button_text,
             type: DATA.section_2_button_type,
             theme: DATA.section_2_button_theme,
-            tracking: DATA.section_3_button_tracking_class,
+            tracking: DATA.section_2_button_tracking_class,
           },
         }}
         members={DATA.member}
@@ -79,7 +79,6 @@ export const pageQuery = graphql`
             html
           }
         }
-
       }
     }
   }

@@ -107,6 +107,7 @@ const TeamManifesto = ({ data, button, ...rest }) => (
             theme={button.theme}
             type={button.type}
             size="L"
+            className={button.tracking}
           >
             {button.text}
           </Button>
