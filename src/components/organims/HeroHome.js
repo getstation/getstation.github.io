@@ -115,7 +115,8 @@ const HeroHome = ({
         className={css({
           zIndex: 1,
           position: 'relative',
-          padding: `${rem(300)} 0 ${rem(120)}`,
+          paddingTop: rem(300),
+          paddingBottom: rem(120),
           [[mqMax[2]]]: {
             padding: `${rem(260)} 0 ${rem(140)}`,
           },
