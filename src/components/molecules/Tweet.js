@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'react-emotion';
 import { rem } from 'polished';
 import truncate from 'truncate';
+import { mqMin } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import bird from '../../images/twitter.svg';
@@ -11,8 +12,12 @@ const Box = styled('a')`
   border-radius: 11px;
   box-shadow: 0 0 1px 0 rgba(21, 76, 94, 0.2),
     0 7px 25px 0 rgba(32, 106, 130, 0.43), 0 4px 12px 0 rgba(30, 95, 116, 0.09);
-  background: ${color.light} url(${bird}) right ${rem(20)} top ${rem(20)}
+  background: ${color.light} url(${bird}) right ${rem(20)} bottom ${rem(20)}
     no-repeat;
+  ${[mqMin[1]]} {
+    background: ${color.light} url(${bird}) right ${rem(20)} top ${rem(20)}
+      no-repeat;
+  }
 `;
 
 const BoxBody = styled('div')`

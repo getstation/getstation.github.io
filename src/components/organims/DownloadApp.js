@@ -9,7 +9,6 @@ import * as color from '../../styles/colors';
 
 const DownloadApp = ({ data, theme, className, ...rest }) => {
   const DATA = data.data;
-  console.log(DATA.button_url_mobile);
   return (
     <div {...rest}>
       <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>

@@ -28,7 +28,7 @@ class SimpleSlider extends React.Component {
     var settings = {
       arrows: false,
       dots: false,
-      autoplay: true,
+      autoplay: false,
       infinite: true,
       speed: 700,
       centerMode: true,
