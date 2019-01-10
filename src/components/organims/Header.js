@@ -93,7 +93,9 @@ const Header = ({
             height: navMobileOpen ? '100vh' : 'auto',
             background: navMobileOpen
               ? color.light
-              : 'rgba(255, 255, 255, 0.88)',
+              : isFloatted
+              ? 'rgba(255, 255, 255, 0.88)'
+              : 'transparent',
           },
           [mqNavDesktop]: {
             borderBottom: `1px solid ${
