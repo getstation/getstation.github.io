@@ -4,6 +4,7 @@ import slick from './slick';
 import { rem, rgba } from 'polished';
 import * as font from './fonts';
 import * as color from './colors';
+import * as transition from './transitions';
 import { mqNavMobile } from './breackpoint';
 
 const navItems = css`
@@ -109,11 +110,12 @@ injectGlobal`
   /* Links */
   a {
     text-decoration: none;
-    color: inherit;
+    color: ${color.clr1};
+    transition: color 0.3s ${transition.base};
     &:active,
     &:hover,
     &:focus {
-      color: inherit;
+      color: ${color.clr1Dark};
     }
   }
   /* List */
