@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'react-emotion';
+import { css } from 'emotion';
 import * as color from '../../styles/colors';
 import * as transition from '../../styles/transitions';
 import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
@@ -55,6 +56,20 @@ const NavButton = ({ onClick, open }) => {
       <span />
       <span />
       <span />
+      <span
+        className={css({
+          position: 'absolute !important',
+          overflow: 'hidden !important',
+          clip: 'rect(0, 0, 0, 0)!important',
+          width: '1px !important',
+          height: '1px !important',
+          margin: '-1px',
+          padding: '0 !important',
+          border: '0 !important',
+        })}
+      >
+        Menu
+      </span>
     </Box>
   );
 };
