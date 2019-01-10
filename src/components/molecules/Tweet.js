@@ -74,7 +74,7 @@ const Date = styled('div')`
 `;
 
 const Tweet = ({ url, thumb, fullName, userName, content, date, ...rest }) => (
-  <Box href={url} target="_blank" {...rest}>
+  <Box href={url} target="_blank" rel="noreferrer" {...rest}>
     <BoxHead>
       {thumb && (
         <Thumb>

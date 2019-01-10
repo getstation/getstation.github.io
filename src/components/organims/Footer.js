@@ -95,13 +95,7 @@ const Footer = ({ footer, download, ...rest }) => {
       {...rest}
     >
       <Wrapper>
-        <div
-          className={css({
-            [mqMin[1]]: {
-              display: 'flex',
-            },
-          })}
-        >
+        <div className={css({ [mqMin[1]]: { display: 'flex' } })}>
           <div
             className={css({
               [mqMin[0]]: {
@@ -184,6 +178,7 @@ const Footer = ({ footer, download, ...rest }) => {
               <a
                 href={DATA.reward_url}
                 target="_blank"
+                rel="noreferrer"
                 className={css({
                   display: 'flex',
                   alignItems: 'center',
@@ -199,17 +194,14 @@ const Footer = ({ footer, download, ...rest }) => {
                   },
                 })}
               >
-                <div
-                  className={css({
-                    paddingRight: rem(12),
-                    flexGrow: 0,
-                  })}
-                >
+                <div className={css({ paddingRight: rem(12), flexGrow: 0 })}>
                   <Icon
                     type="cup"
                     color="light"
                     size={23}
-                    className={css({ display: 'block' })}
+                    className={css({
+                      display: 'block',
+                    })}
                   />
                 </div>
                 <div>
@@ -261,6 +253,7 @@ const Footer = ({ footer, download, ...rest }) => {
                   >
                     <a
                       target="_blank"
+                      rel="noreferrer"
                       href={item.url}
                       title={item.type}
                       className={css({

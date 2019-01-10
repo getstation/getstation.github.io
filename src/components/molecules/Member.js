@@ -91,32 +91,32 @@ const Member = ({
     <Divider />
     <Links>
       {twitter && (
-        <Link href={twitter} target="_blank">
+        <Link href={twitter} target="_blank" rel="noreferrer">
           <Icon type="twitter" color="clr1" size={30} />
         </Link>
       )}
       {instagram && (
-        <Link href={instagram} target="_blank">
+        <Link href={instagram} target="_blank" rel="noreferrer">
           <Icon type="instagram" color="clr1" size={30} />
         </Link>
       )}
       {facebook && (
-        <Link href={facebook} target="_blank">
+        <Link href={facebook} target="_blank" rel="noreferrer">
           <Icon type="facebook" color="clr1" size={30} />
         </Link>
       )}
       {linkedin && (
-        <Link href={linkedin} target="_blank">
+        <Link href={linkedin} target="_blank" rel="noreferrer">
           <Icon type="linkedin" color="clr1" size={30} />
         </Link>
       )}
       {personalLink && (
-        <Link href={personalLink} target="_blank">
+        <Link href={personalLink} target="_blank" rel="noreferrer">
           <Icon type="link" color="clr1" size={30} />
         </Link>
       )}
       {github && (
-        <Link href={github} target="_blank">
+        <Link href={github} target="_blank" rel="noreferrer">
           <Icon type="github" color="clr1" size={30} />
         </Link>
       )}

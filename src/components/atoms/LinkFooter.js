@@ -45,7 +45,7 @@ const linkStyles = css`
 const FooterLink = ({ url, text, type }) => (
   <React.Fragment>
     {type === 'external' && (
-      <a className={linkStyles} href={url} target="_blank">
+      <a className={linkStyles} href={url} target="_blank" rel="noreferrer">
         <span>{text}</span>
         <Icon
           type="externalLink"

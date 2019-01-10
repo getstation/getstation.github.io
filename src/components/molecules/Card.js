@@ -76,11 +76,7 @@ const Card = ({ title, theme, images, size, ...rest }) => {
           />
         )}
         {size === 'small' && (
-          <div
-            className={css({
-              padding: rem(20),
-            })}
-          >
+          <div className={css({ padding: rem(20) })}>
             <img
               src={images.svg.url || images.png.url || images.jpg.url}
               alt={title || ''}
@@ -90,26 +86,19 @@ const Card = ({ title, theme, images, size, ...rest }) => {
       </div>
       <BoxBody>
         {title && <Title>{title}</Title>}
-        <div
-          className={css({
-            margin: rem(-5),
-            '> *': {
-              margin: rem(5),
-            },
-          })}
-        >
+        <div className={css({ margin: rem(-5), '> *': { margin: rem(5) } })}>
           {images.svg.url && (
-            <Button href={images.svg.url} target="_blank">
+            <Button href={images.svg.url} target="_blank" rel="noreferrer">
               SVG
             </Button>
           )}
           {images.png.url && (
-            <Button href={images.png.url} target="_blank">
+            <Button href={images.png.url} target="_blank" rel="noreferrer">
               PNG
             </Button>
           )}
           {images.jpg.url && (
-            <Button href={images.jpg.url} target="_blank">
+            <Button href={images.jpg.url} target="_blank" rel="noreferrer">
               JPG
             </Button>
           )}

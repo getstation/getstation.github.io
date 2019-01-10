@@ -126,7 +126,7 @@ const SliderMention = ({ title, data, background, link }) => {
               marginTop: rem(30),
             })}
           >
-            <TweetsLink href={link.url} target="_blank">
+            <TweetsLink href={link.url} target="_blank" rel="noreferrer">
               {link.text}
             </TweetsLink>
           </div>
