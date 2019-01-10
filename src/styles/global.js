@@ -1,7 +1,8 @@
 import { injectGlobal, css } from 'emotion';
 import normalize from './normalize';
+import aos from './aos';
 import slick from './slick';
-import { rem, rgba } from 'polished';
+import { rem } from 'polished';
 import * as font from './fonts';
 import * as color from './colors';
 import * as transition from './transitions';
@@ -252,6 +253,6 @@ injectGlobal`
     ${navItems};
     }
   }
-
+  ${aos};
 }
 `;
