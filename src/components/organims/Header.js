@@ -86,7 +86,7 @@ const Header = ({
         navMobileOpen ? 'navMobile-open' : 'navMobile-close',
         css({
           backgroundColor: isFloatted
-            ? 'rgba(255, 255, 255, 0.88)'
+            ? 'rgba(255, 255, 255, 0.95)'
             : 'transparent',
           backdropFilter: isFloatted ? 'blur(10px)' : 'none',
           [mqNavMobile]: {
@@ -94,7 +94,7 @@ const Header = ({
             background: navMobileOpen
               ? color.light
               : isFloatted
-              ? 'rgba(255, 255, 255, 0.88)'
+              ? 'rgba(255, 255, 255, 0.95)'
               : 'transparent',
           },
           [mqNavDesktop]: {
