@@ -67,6 +67,20 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
                 size={20}
                 color={theme === 'light' ? 'light' : 'clr1Light'}
               />
+              <span
+                className={css({
+                  position: 'absolute !important',
+                  overflow: 'hidden !important',
+                  clip: 'rect(0, 0, 0, 0)!important',
+                  width: '1px !important',
+                  height: '1px !important',
+                  margin: '-1px',
+                  padding: '0 !important',
+                  border: '0 !important',
+                })}
+              >
+                {item.type}
+              </span>
             </a>
           ))}
       </div>
