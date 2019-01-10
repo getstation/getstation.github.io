@@ -38,7 +38,7 @@ const ColImage = styled('div')`
 
 const Subtitle = styled('div')`
   text-transform: uppercase;
-  font-weight: ${font.weightBold};
+  font-weight: ${font.weightMedium};
   font-size: ${rem(20)};
 `;
 
