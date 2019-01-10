@@ -36,7 +36,7 @@ class SimpleSlider extends React.Component {
         {
           breakpoint: 576,
           settings: {
-            centerMode: false,
+            centerMode: true,
             variableWidth: false,
             slidesToShow: 1,
           },
