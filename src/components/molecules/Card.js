@@ -56,7 +56,7 @@ const Card = ({ title, theme, images, size, ...rest }) => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: rem(140),
+          height: size === 'big' ? rem(220) : rem(140),
           borderRadius: `${rem(8)} ${rem(8)} 0 0`,
           backgroundImage: `url(${theme === 'dark' ? darkGrid : lightGrid})`,
         })}
@@ -64,7 +64,7 @@ const Card = ({ title, theme, images, size, ...rest }) => {
         {size === 'big' && (
           <div
             className={css({
-              height: rem(140),
+              height: rem(220),
               width: '100%',
               backgroundImage: `url(${images.svg.url ||
                 images.png.url ||
