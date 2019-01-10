@@ -99,6 +99,9 @@ const Header = ({
             ? 'rgba(255, 255, 255, 0.95)'
             : 'transparent',
           backdropFilter: isFloatted ? 'blur(10px)' : 'none',
+          borderBottom: `1px solid ${
+            isFloatted ? rgba(color.clr1, 0.64) : 'transparent'
+          }`,
           [mqNavMobile]: {
             height: navMobileOpen ? '100vh' : 'auto',
             background: navMobileOpen
@@ -106,11 +109,6 @@ const Header = ({
               : isFloatted
               ? 'rgba(255, 255, 255, 0.95)'
               : 'transparent',
-          },
-          [mqNavDesktop]: {
-            borderBottom: `1px solid ${
-              isFloatted ? rgba(color.clr1, 0.64) : 'transparent'
-            }`,
           },
         }),
       )}
@@ -132,7 +130,7 @@ const Header = ({
         <h1
           className={css({
             [mqNavMobile]: {
-              padding: `${rem(30)} 0 ${rem(10)}`,
+              padding: `${rem(24)} 0 ${rem(3)}`,
             },
           })}
         >
