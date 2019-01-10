@@ -10,6 +10,7 @@ import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as transition from '../../styles/transitions';
 import styled from 'react-emotion';
+import { checkForResolveTypeResolver } from 'graphql-tools';
 
 const Section = styled('header')`
   position: fixed;
@@ -27,6 +28,15 @@ const linkType = type => {
       return 'a';
     default:
       return Link;
+  }
+};
+
+const relType = type => {
+  switch (type) {
+    case 'external':
+      return 'noreferrer';
+    default:
+      return '';
   }
 };
 
@@ -178,6 +188,7 @@ const Header = ({
                 element={linkType(link.type)}
                 to={link.url}
                 isFloatted={isFloatted}
+                rel={relType(link.type)}
               >
                 {link.text}
               </NavLink>
