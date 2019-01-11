@@ -125,6 +125,13 @@ export default props => (
             reward_title
             reward_subtitle
             reward_url
+            reward_img_footer {
+              url
+              dimensions {
+                height
+                width
+              }
+            }
             column_1_title
             column_2_title
             column_3_title

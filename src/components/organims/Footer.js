@@ -4,6 +4,7 @@ import { rem, rgba } from 'polished';
 import FooterLink from '../../components/atoms/LinkFooter';
 import Tooltip from '../../components/atoms/Tooltip';
 import Icon from '../../components/atoms/Icon';
+import Reward from '../../components/molecules/Reward';
 import Wrapper from '../layout/Wrapper';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
@@ -175,61 +176,12 @@ const Footer = ({ footer, download, ...rest }) => {
             })}
           >
             {DATA.reward_title && DATA.reward_url && (
-              <a
-                href={DATA.reward_url}
-                target="_blank"
-                rel="noreferrer"
-                className={css({
-                  display: 'flex',
-                  alignItems: 'center',
-                  transition: `transform .2s ${transition.base}`,
-                  '&:hover': {
-                    transform: `translateY(${rem(-2)})`,
-                  },
-                  [mqMax[0]]: {
-                    justifyContent: 'center',
-                  },
-                  [mqMin[0]]: {
-                    paddingRight: rem(30),
-                  },
-                })}
-              >
-                <div className={css({ paddingRight: rem(12), flexGrow: 0 })}>
-                  <Icon
-                    type="cup"
-                    color="light"
-                    size={23}
-                    className={css({
-                      display: 'block',
-                    })}
-                  />
-                </div>
-                <div>
-                  {DATA.reward_title && (
-                    <div
-                      className={css({
-                        color: color.light,
-                        fontSize: rem(12),
-                        fontWeight: font.weightBold,
-                        lineHeight: 1.1,
-                      })}
-                    >
-                      {DATA.reward_title}
-                    </div>
-                  )}
-                  {DATA.reward_subtitle && (
-                    <div
-                      className={css({
-                        lineHeight: 1.1,
-                        color: color.light,
-                        fontSize: rem(12),
-                      })}
-                    >
-                      {DATA.reward_subtitle}
-                    </div>
-                  )}
-                </div>
-              </a>
+              <Reward
+                url={DATA.reward_url}
+                title={DATA.reward_title}
+                subtitle={DATA.reward_subtitle}
+                img={DATA.reward_img_footer}
+              />
             )}
             {DATA.socials_links && (
               <ul

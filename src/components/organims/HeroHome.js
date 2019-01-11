@@ -7,6 +7,7 @@ import { mqMin, mqMax } from '../../styles/breackpoint';
 import Wrapper from '../layout/Wrapper';
 import AppNumber from '../atoms/AppsNumber';
 import Title from '../atoms/Title';
+import Reward from '../molecules/Reward';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
@@ -96,9 +97,11 @@ const HeroHome = ({
   image,
   video,
   videoPoster,
+  reward,
   className,
   ...rest
 }) => {
+  console.log(reward);
   return (
     <div
       className={cx(
@@ -180,6 +183,16 @@ const HeroHome = ({
           <div style={{ display: 'inline-block' }}>
             <DownloadApp data={download} className={downloadTracking} />
           </div>
+          {reward.reward_url && reward.reward_title && (
+            <div style={{ marginTop: '40px' }}>
+              <Reward
+                url={reward.reward_url}
+                title={reward.reward_title}
+                subtitle={reward.reward_subtitle}
+                img={reward.reward_img_header}
+              />
+            </div>
+          )}
         </div>
         {image.url && (
           <Illustration>

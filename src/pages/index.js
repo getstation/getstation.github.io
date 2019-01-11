@@ -14,7 +14,7 @@ import SliderMentions from '../components/organims/SliderMentions';
 const IndexPage = props => {
   const DATA = props.data.content.data;
   const DOWNLOAD = props.data.download;
-
+  const FOOTER = props.data.footer.data;
   return (
     <App headerTheme="dark">
       <Seo
@@ -31,6 +31,7 @@ const IndexPage = props => {
         image={DATA.hero_image}
         download={DOWNLOAD}
         downloadTracking={DATA.hero_download_tracking_class}
+        reward={FOOTER}
       />
       <Reassurance
         title={DATA.reassurance_title}
@@ -231,6 +232,20 @@ export const pageQuery = graphql`
           type
           url {
             url
+          }
+        }
+      }
+    }
+    footer: prismicFooter {
+      data {
+        reward_title
+        reward_subtitle
+        reward_url
+        reward_img_header {
+          url
+          dimensions {
+            height
+            width
           }
         }
       }
