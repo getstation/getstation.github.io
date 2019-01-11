@@ -86,7 +86,7 @@ export const ThemesButton = {
     },
   },
   clr5: {
-    '&button.is-active, &button:hover, &:focus': {
+    '&.is-active, &:hover, &:focus': {
       background: color.clr5,
       borderColor: color.clr5,
       color: color.light,
