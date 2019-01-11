@@ -175,13 +175,16 @@ const Footer = ({ footer, download, ...rest }) => {
               },
             })}
           >
-            {DATA.reward_title && DATA.reward_url && (
-              <Reward
-                url={DATA.reward_url}
-                title={DATA.reward_title}
-                subtitle={DATA.reward_subtitle}
-                img={DATA.reward_img_footer}
-              />
+            {DATA.reward_img.url && DATA.reward_url && (
+              <div
+                className={css({
+                  [mqMin[0]]: {
+                    paddingRight: rem(30),
+                  },
+                })}
+              >
+                <Reward url={DATA.reward_url} img={DATA.reward_img} />
+              </div>
             )}
             {DATA.socials_links && (
               <ul

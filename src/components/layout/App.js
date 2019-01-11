@@ -122,10 +122,8 @@ export default props => (
             download_tracking_class
             gradient_top
             gradient_bottom
-            reward_title
-            reward_subtitle
             reward_url
-            reward_img_footer {
+            reward_img {
               url
               dimensions {
                 height

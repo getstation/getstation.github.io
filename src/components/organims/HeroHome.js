@@ -97,11 +97,11 @@ const HeroHome = ({
   image,
   video,
   videoPoster,
-  reward,
+  rewardUrl,
+  rewardImg,
   className,
   ...rest
 }) => {
-  console.log(reward);
   return (
     <div
       className={cx(
@@ -183,14 +183,20 @@ const HeroHome = ({
           <div style={{ display: 'inline-block' }}>
             <DownloadApp data={download} className={downloadTracking} />
           </div>
-          {reward.reward_url && reward.reward_title && (
-            <div style={{ marginTop: '40px' }}>
-              <Reward
-                url={reward.reward_url}
-                title={reward.reward_title}
-                subtitle={reward.reward_subtitle}
-                img={reward.reward_img_header}
-              />
+          {rewardUrl && rewardImg.url && (
+            <div
+              className={css({
+                marginTop: '50px',
+                marginBottom: '30px',
+                textAlign: 'center',
+                [[mqMin[2]]]: {
+                  textAlign: 'left',
+                  marginTop: '60px',
+                  marginBottom: '0',
+                },
+              })}
+            >
+              <Reward url={rewardUrl} img={rewardImg} />
             </div>
           )}
         </div>
