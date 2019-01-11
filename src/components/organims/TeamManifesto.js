@@ -39,7 +39,6 @@ const Grid = styled('div')`
 
 const Title = styled('h2')`
   text-transform: uppercase;
-  font-weight: ${font.weightMedium};
   ${mqMin[1]} {
     font-size: ${rem(18)};
   }
