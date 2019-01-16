@@ -41,6 +41,7 @@ export const Themes = {
       '&:active': {
         background: color.clr1Dark,
         color: rgba(color.light, 0.7),
+        transform: `translateY(${rem(2)})`,
       },
     },
   },
@@ -48,12 +49,24 @@ export const Themes = {
     button: {
       background: color.light,
       color: color.clr1,
+      '&:hover, &:focus': {
+        transform: `translateY(${rem(-2)})`,
+      },
+      '&:active': {
+        transform: `translateY(${rem(2)})`,
+      },
     },
   },
   dark: {
     button: {
       background: color.neutralDarker,
       color: color.light,
+      '&:hover, &:focus': {
+        transform: `translateY(${rem(-2)})`,
+      },
+      '&:active': {
+        transform: `translateY(${rem(2)})`,
+      },
     },
   },
   ghost: {
@@ -65,11 +78,13 @@ export const Themes = {
         background: color.clr1Dark,
         boxShadow: `inset 0 0 0 2px ${color.clr1Dark}`,
         color: color.light,
+        transform: `translateY(${rem(-2)})`,
       },
       '&:active': {
         background: color.clr1Dark,
         boxShadow: `inset 0 0 0 2px ${color.clr1Dark}`,
         color: rgba(color.light, 0.7),
+        transform: `translateY(${rem(2)})`,
       },
     },
   },

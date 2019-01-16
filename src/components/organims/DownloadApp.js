@@ -23,7 +23,6 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
                 > div {
                   transition: all 0.2s ${transition.base};
                   &:hover {
-                    transform: translateY(${rem(-2)});
                     box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
                   }
                 }
