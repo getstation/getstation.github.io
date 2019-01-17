@@ -11,15 +11,18 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
   const DATA = data.data;
   return (
     <div {...rest}>
+      <p>------------------</p>
+      <CustomView condition={!isMobile}>
+        <a className="desktop" href={DATA.button_url.url}>
+          {DATA.button_text} - Desktop
+        </a>
+        <p>{DATA.button_url.url}</p>
+      </CustomView>
+      <p>------------------</p>
       <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>
         {DATA.button_text && DATA.button_url && (
           <div>
-            <CustomView condition={!isMobile}>
-              <a className="desktop" href={DATA.button_url.url}>
-                {DATA.button_text} - Desktop
-              </a>
-              <p>{DATA.button_url.url}</p>
-            </CustomView>
+            >
             <CustomView condition={isMobile}>
               <a className="mobile" href={DATA.button_url_mobile.url}>
                 {DATA.button_text} - Mobile
