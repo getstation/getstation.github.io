@@ -13,46 +13,48 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
     <div {...rest}>
       <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>
         {!isMobile && DATA.button_text && DATA.button_url && (
-          <Button
-            to={DATA.button_url.url}
-            theme={theme}
-            size="L"
-            shadow
-            className={cx(
-              css`
-                > div {
-                  transition: all 0.2s ${transition.base};
-                  &:hover {
-                    box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
-                  }
-                }
-              `,
-              className,
-            )}
-          >
-            {DATA.button_text} - Desktop
-          </Button>
+          <a href={DATA.button_url.url}>{DATA.button_text} - Desktop</a>
+          // <Button
+          //   to={DATA.button_url.url}
+          //   theme={theme}
+          //   size="L"
+          //   shadow
+          //   className={cx(
+          //     css`
+          //       > div {
+          //         transition: all 0.2s ${transition.base};
+          //         &:hover {
+          //           box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
+          //         }
+          //       }
+          //     `,
+          //     className,
+          //   )}
+          // >
+          //   {DATA.button_text} - Desktop
+          // </Button>
         )}
         {isMobile && DATA.button_text && DATA.button_url && (
-          <Button
-            to={DATA.button_url_mobile.url}
-            theme={theme}
-            size="L"
-            shadow
-            className={cx(
-              css`
-                > div {
-                  transition: all 0.2s ${transition.base};
-                  &:hover {
-                    box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
-                  }
-                }
-              `,
-              className,
-            )}
-          >
-            {DATA.button_text} - Mobile
-          </Button>
+          <a href={DATA.button_url_mobile.url}>{DATA.button_text} - Mobile</a>
+          // <Button
+          //   to={DATA.button_url_mobile.url}
+          //   theme={theme}
+          //   size="L"
+          //   shadow
+          //   className={cx(
+          //     css`
+          //       > div {
+          //         transition: all 0.2s ${transition.base};
+          //         &:hover {
+          //           box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
+          //         }
+          //       }
+          //     `,
+          //     className,
+          //   )}
+          // >
+          //   {DATA.button_text} - Mobile
+          // </Button>
         )}
       </div>
       <div
