@@ -15,11 +15,13 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
         {DATA.button_text && DATA.button_url && (
           <div>
             <CustomView condition={!isMobile}>
-              <a href={DATA.button_url.url}>{DATA.button_text} - Desktop</a>
+              <a className="desktop" href={DATA.button_url.url}>
+                {DATA.button_text} - Desktop
+              </a>
               <p>{DATA.button_url.url}</p>
             </CustomView>
             <CustomView condition={isMobile}>
-              <a href={DATA.button_url_mobile.url}>
+              <a className="mobile" href={DATA.button_url_mobile.url}>
                 {DATA.button_text} - Mobile
               </a>
               <p>{DATA.button_url_mobile.url}</p>
