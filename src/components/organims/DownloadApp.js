@@ -1,6 +1,6 @@
 import React from 'react';
 import { css, cx } from 'emotion';
-import { isMobile } from 'react-device-detect';
+import { isMobile,CustomView } from 'react-device-detect';
 import Icon from '../../components/atoms/Icon';
 import { rem, rgba } from 'polished';
 import Button from '../atoms/Button';
