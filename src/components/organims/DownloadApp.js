@@ -12,10 +12,9 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
   return (
     <div {...rest}>
       <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>
-        {DATA.button_text && DATA.button_url && (
+        {!isMobile && DATA.button_text && DATA.button_url && (
           <Button
-            to={!isMobile ? DATA.button_url.url : DATA.button_url_mobile.url}
-            key={!isMobile ? 666: 333}
+            to={DATA.button_url.url}
             theme={theme}
             size="L"
             shadow
@@ -31,7 +30,28 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
               className,
             )}
           >
-            {!isMobile ? DATA.button_url.url : DATA.button_url_mobile.url}
+            {DATA.button_text} - Desktop
+          </Button>
+        )}
+        {isMobile && DATA.button_text && DATA.button_url && (
+          <Button
+            to={DATA.button_url_mobile.url}
+            theme={theme}
+            size="L"
+            shadow
+            className={cx(
+              css`
+                > div {
+                  transition: all 0.2s ${transition.base};
+                  &:hover {
+                    box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
+                  }
+                }
+              `,
+              className,
+            )}
+          >
+            {DATA.button_text} - Mobile
           </Button>
         )}
       </div>
