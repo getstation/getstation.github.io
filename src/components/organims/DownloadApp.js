@@ -30,7 +30,7 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
               className,
             )}
           >
-            {DATA.button_text}
+            {!isMobile ? DATA.button_url.url : DATA.button_url_mobile.url}
           </Button>
         )}
       </div>
