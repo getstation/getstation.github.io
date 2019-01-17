@@ -15,6 +15,7 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
         {DATA.button_text && DATA.button_url && (
           <Button
             to={!isMobile ? DATA.button_url.url : DATA.button_url_mobile.url}
+            key={!isMobile ? 666: 333}
             theme={theme}
             size="L"
             shadow
