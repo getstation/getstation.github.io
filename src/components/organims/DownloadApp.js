@@ -12,8 +12,16 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
   return (
     <div {...rest}>
       <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>
-        {!isMobile && DATA.button_text && DATA.button_url && (
-          <a href={DATA.button_url.url}>{DATA.button_text} - Desktop</a>
+        {DATA.button_text && DATA.button_url && (
+          <CustomView condition={!isMobile }>
+            <a href={DATA.button_url.url}>{DATA.button_text} - Desktop</a>
+            <p>{DATA.button_url.url}</p>
+          </CustomView>
+          <CustomView  condition={isMobile }>
+            <a href={DATA.button_url_mobile.url}>{DATA.button_text} - Mobile</a>
+            <p>{DATA.button_url_mobile.url}</p>
+          </CustomView>
+        
           // <Button
           //   to={DATA.button_url.url}
           //   theme={theme}
@@ -32,28 +40,6 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
           //   )}
           // >
           //   {DATA.button_text} - Desktop
-          // </Button>
-        )}
-        {isMobile && DATA.button_text && DATA.button_url && (
-          <a href={DATA.button_url_mobile.url}>{DATA.button_text} - Mobile</a>
-          // <Button
-          //   to={DATA.button_url_mobile.url}
-          //   theme={theme}
-          //   size="L"
-          //   shadow
-          //   className={cx(
-          //     css`
-          //       > div {
-          //         transition: all 0.2s ${transition.base};
-          //         &:hover {
-          //           box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
-          //         }
-          //       }
-          //     `,
-          //     className,
-          //   )}
-          // >
-          //   {DATA.button_text} - Mobile
           // </Button>
         )}
       </div>
