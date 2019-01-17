@@ -1,6 +1,6 @@
 import React from 'react';
 import { css, cx } from 'emotion';
-import { isMobile,CustomView } from 'react-device-detect';
+import { isMobile, CustomView } from 'react-device-detect';
 import Icon from '../../components/atoms/Icon';
 import { rem, rgba } from 'polished';
 import Button from '../atoms/Button';
@@ -13,34 +13,18 @@ const DownloadApp = ({ data, theme, className, ...rest }) => {
     <div {...rest}>
       <div className={css({ marginBottom: rem(15), textAlign: 'center' })}>
         {DATA.button_text && DATA.button_url && (
-          <CustomView condition={!isMobile }>
-            <a href={DATA.button_url.url}>{DATA.button_text} - Desktop</a>
-            <p>{DATA.button_url.url}</p>
-          </CustomView>
-          <CustomView  condition={isMobile }>
-            <a href={DATA.button_url_mobile.url}>{DATA.button_text} - Mobile</a>
-            <p>{DATA.button_url_mobile.url}</p>
-          </CustomView>
-        
-          // <Button
-          //   to={DATA.button_url.url}
-          //   theme={theme}
-          //   size="L"
-          //   shadow
-          //   className={cx(
-          //     css`
-          //       > div {
-          //         transition: all 0.2s ${transition.base};
-          //         &:hover {
-          //           box-shadow: 0 7px 16px ${rgba(color.clr1Dark, 0.25)};
-          //         }
-          //       }
-          //     `,
-          //     className,
-          //   )}
-          // >
-          //   {DATA.button_text} - Desktop
-          // </Button>
+          <div>
+            <CustomView condition={!isMobile}>
+              <a href={DATA.button_url.url}>{DATA.button_text} - Desktop</a>
+              <p>{DATA.button_url.url}</p>
+            </CustomView>
+            <CustomView condition={isMobile}>
+              <a href={DATA.button_url_mobile.url}>
+                {DATA.button_text} - Mobile
+              </a>
+              <p>{DATA.button_url_mobile.url}</p>
+            </CustomView>
+          </div>
         )}
       </div>
       <div
