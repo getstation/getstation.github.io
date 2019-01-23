@@ -54,6 +54,8 @@ const Card = ({ data, ...rest }) => {
                 element={item.type === 'internal' ? Link : 'a'}
                 shadow={item.theme === 'primary' ? true : false}
                 className={item.tracking_class}
+                target={item.type === 'external' ? '_blank' : null}
+                rel={item.type === 'external' ? 'noreferrer' : null}
               >
                 {item.text}
               </Button>

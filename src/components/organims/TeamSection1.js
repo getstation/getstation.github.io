@@ -54,6 +54,8 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
             type={button.top.type}
             size="L"
             className={button.top.tracking}
+            target={button.top.type === 'external' ? '_blank' : null}
+            rel={button.top.type === 'external' ? 'noreferrer' : null}
           >
             {button.top.text}
           </Button>
@@ -85,6 +87,8 @@ const TeamSection1 = ({ text, button, members, className, ...rest }) => (
             type={button.bottom.type}
             size="L"
             className={button.bottom.tracking}
+            target={button.bottom.type === 'external' ? '_blank' : null}
+            rel={button.bottom.type === 'external' ? 'noreferrer' : null}
           >
             {button.bottom.text}
           </Button>

@@ -110,6 +110,8 @@ const FeatureMore = ({ data, ...rest }) => {
                   theme="ghost"
                   element={item.button_type === 'internal' ? Link : 'a'}
                   className={item.button_tracking_class}
+                  target={item.button_type === 'external' ? '_blank' : null}
+                  rel={item.button_type === 'external' ? 'noreferrer' : null}
                 >
                   {item.button_text}
                 </Button>

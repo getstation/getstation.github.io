@@ -107,6 +107,8 @@ const TeamManifesto = ({ data, button, ...rest }) => (
             type={button.type}
             size="L"
             className={button.tracking}
+            target={button.type === 'external' ? '_blank' : null}
+            rel={button.type === 'external' ? 'noreferrer' : null}
           >
             {button.text}
           </Button>
