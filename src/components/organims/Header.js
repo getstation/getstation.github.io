@@ -186,7 +186,8 @@ const Header = ({
                 element={linkType(link.type)}
                 to={link.url}
                 isFloatted={isFloatted}
-                rel={relType(link.type)}
+                target={link.type === 'external' ? '_blank' : null}
+                rel={link.type === 'external' ? 'noreferrer' : null}
               >
                 {link.text}
               </NavLink>
