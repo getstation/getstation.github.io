@@ -11,7 +11,7 @@ const themeSwitcher = theme => {
       return Themes.clr2;
     case 'Stay focused':
       return Themes.clr3;
-    case 'Centralise everything':
+    case 'Centralize everything':
       return Themes.clr4;
     case 'Work faster':
       return Themes.clr5;
@@ -28,7 +28,7 @@ const themeButtonSwitcher = theme => {
       return ThemesButton.clr2;
     case 'Stay focused':
       return ThemesButton.clr3;
-    case 'Centralise everything':
+    case 'Centralize everything':
       return ThemesButton.clr4;
     case 'Work faster':
       return ThemesButton.clr5;
