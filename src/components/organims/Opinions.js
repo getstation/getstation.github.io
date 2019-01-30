@@ -9,6 +9,7 @@ import { mqMin, mqMax } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
 import quoteImg from '../../images/quote.svg';
+import { isMobile, CustomView } from 'react-device-detect';
 
 const TIMER = 4000;
 
@@ -231,15 +232,32 @@ class Opinons extends React.Component {
                 marginTop: rem(30),
               })}
             >
-              <Button
-                to={download.url}
-                size="L"
-                shadow
-                data-aos="fade"
-                className={download.tracking}
-              >
-                {download.text}
-              </Button>
+              <div>
+                <CustomView condition={!isMobile}>
+                  <Button
+                    to={download.url}
+                    size="L"
+                    shadow
+                    data-aos="fade"
+                    className={download.tracking}
+                  >
+                    {download.text}
+                  </Button>
+                </CustomView>
+              </div>
+              <div>
+                <CustomView condition={isMobile}>
+                  <Button
+                    to={download.url_mobile}
+                    size="L"
+                    shadow
+                    data-aos="fade"
+                    className={download.tracking}
+                  >
+                    {download.text}
+                  </Button>
+                </CustomView>
+              </div>
             </div>
           )}
         </Wrapper>

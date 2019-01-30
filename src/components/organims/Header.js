@@ -10,7 +10,25 @@ import { mqNavMobile, mqNavDesktop } from '../../styles/breackpoint';
 import * as font from '../../styles/fonts.js';
 import * as transition from '../../styles/transitions';
 import styled from 'react-emotion';
-import { checkForResolveTypeResolver } from 'graphql-tools';
+import { isMobile, CustomView } from 'react-device-detect';
+
+const DownloadButton = ({ theme, isFloatted, url, text, trackingClass }) => (
+  <Button
+    theme={theme === 'dark' || isFloatted ? 'primary' : 'light'}
+    to={url}
+    className={cx(
+      'header-nav-button',
+      trackingClass,
+      css({
+        [mqNavMobile]: {
+          marginTop: rem(20),
+        },
+      }),
+    )}
+  >
+    {text}
+  </Button>
+);
 
 const Section = styled('header')`
   position: fixed;
@@ -193,21 +211,30 @@ const Header = ({
               </NavLink>
             ))}
           {DATA.download_text && DOWNLOAD.button_url && (
-            <Button
-              theme={theme === 'dark' || isFloatted ? 'primary' : 'light'}
-              to={DOWNLOAD.button_url.url}
-              className={cx(
-                'header-nav-button',
-                DATA.download_tracking_class,
-                css({
-                  [mqNavMobile]: {
-                    marginTop: rem(20),
-                  },
-                }),
-              )}
-            >
-              {DATA.download_text}
-            </Button>
+            <div>
+              <div>
+                <CustomView condition={!isMobile}>
+                  <DownloadButton
+                    theme={theme}
+                    isFloatted={isFloatted}
+                    url={DOWNLOAD.button_url.url}
+                    text={DATA.download_text}
+                    trackingClass={DATA.download_tracking_class}
+                  />
+                </CustomView>
+              </div>
+              <div>
+                <CustomView condition={isMobile}>
+                  <DownloadButton
+                    theme={theme}
+                    isFloatted={isFloatted}
+                    url={DOWNLOAD.button_url_mobile.url}
+                    text={DATA.download_text}
+                    trackingClass={DATA.download_tracking_class}
+                  />
+                </CustomView>
+              </div>
+            </div>
           )}
         </div>
       </Wrapper>

@@ -8,6 +8,7 @@ import SectionBase from '../molecules/SectionBase';
 import { FeatureCardBase, FeatureCardSlider } from '../molecules/FeatureCard';
 import Tag from '../atoms/Tag';
 import Button from '../atoms/Button';
+import { isMobile, CustomView } from 'react-device-detect';
 
 const gutter = {
   s: 15,
@@ -72,15 +73,34 @@ class FeatureCards extends React.Component {
         footer={
           this.props.data.download_text &&
           this.props.download.button_url.url && (
-            <Button
-              to={this.props.download.button_url.url}
-              size="L"
-              shadow
-              data-aos="fade"
-              className={this.props.data.download_tracking_class}
-            >
-              {this.props.data.download_text}
-            </Button>
+            <div>
+              <div>
+                <CustomView condition={!isMobile}>
+                  <Button
+                    to={this.props.download.button_url.url}
+                    size="L"
+                    shadow
+                    data-aos="fade"
+                    className={this.props.data.download_tracking_class}
+                  >
+                    {this.props.data.download_text}
+                  </Button>
+                </CustomView>
+              </div>
+              <div>
+                <CustomView condition={isMobile}>
+                  <Button
+                    to={this.props.download.button_url_mobile.url}
+                    size="L"
+                    shadow
+                    data-aos="fade"
+                    className={this.props.data.download_tracking_class}
+                  >
+                    {this.props.data.download_text}
+                  </Button>
+                </CustomView>
+              </div>
+            </div>
           )
         }
       >

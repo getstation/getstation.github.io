@@ -66,6 +66,7 @@ const IndexPage = props => {
           download={{
             text: DATA.download_text,
             url: DOWNLOAD.data.button_url.url,
+            url_mobile: DOWNLOAD.data.button_url_mobile.url,
             tracking: DATA.opinion_download_tracking_class,
           }}
         />
