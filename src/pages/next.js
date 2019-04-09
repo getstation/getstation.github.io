@@ -4,7 +4,7 @@ import App from '../components/layout/App';
 import Seo from '../components/molecules/Seo';
 import SectionFullPage from '../components/molecules/SectionFullPage';
 
-const NotFoundPage = props => {
+const DownloadNextPage = props => {
   const DATA = props.data.content.data;
   return (
     <App headerTheme="dark">
@@ -34,10 +34,10 @@ const NotFoundPage = props => {
     </App>
   );
 };
-export default NotFoundPage;
+export default DownloadNextPage;
 export const pageQuery = graphql`
-  query notFoundQuery {
-    content: prismic404(id: { eq: "Prismic__404__XBYOSxEAANRffCOr" }) {
+  query downloadNextQuery {
+    content: prismic404(id: { eq: "Prismic__404__XKxhBhAAACMANvTB" }) {
       data {
         title
         subtitle {
