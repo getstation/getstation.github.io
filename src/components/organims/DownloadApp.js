@@ -12,7 +12,7 @@ class DownloadApp extends React.Component {
     super(props);
     this.state = {
       isMobile: false,
-    }
+    };
   }
 
   componentDidMount() {
@@ -20,10 +20,8 @@ class DownloadApp extends React.Component {
     // or not
     this.setState({
       isMobile: ReactMobileDetect.isMobile,
-    })
-
+    });
   }
-
 
   render() {
     const { props, state } = this;
