@@ -5,6 +5,7 @@
   "author": "Laurent Sutterlity <laurent@sutterlity.fr>",
   "dependencies": {
     "add": "^2.0.6",
+    "auth0-js": "^9.10.2",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
     "gatsby": "^2.0.83",
