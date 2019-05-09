@@ -1,14 +1,11 @@
 import React from 'react';
 import { graphql } from 'gatsby';
-import App from '../components/layout/App';
 import AppMinimal from '../components/layout/AppMinimal';
-import Seo from '../components/molecules/Seo';
 
-import { login, logout, isAuthenticated, getProfile, getTokens } from "../utils/auth"
+import { login, isAuthenticated, getProfile, getTokens } from "../utils/auth"
 
 const DownloadNextPage = props => {
   if (!isAuthenticated()) {
-    console.warn('Redirecting to login...');
     login();
     return <p>Redirecting to login...</p>
   }
