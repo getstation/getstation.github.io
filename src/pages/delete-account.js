@@ -1,12 +1,15 @@
 import React from 'react';
-import { graphql, Link } from 'gatsby';
+import { graphql, navigate } from 'gatsby';
 import AppMinimal from '../components/layout/AppMinimal';
 
 import { login, isAuthenticated, getProfile, getTokens } from "../utils/auth"
 import SectionFullPage from '../components/molecules/SectionFullPage';
 import Button from '../components/atoms/Button';
+import DeleteAccountButton from '../components/molecules/DeleteAccountButton';
 
 const replaceName = (str, name) => str.replace('[name]', name);
+
+const sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
 const DownloadNextPage = props => {
   if (!isAuthenticated()) {
@@ -17,6 +20,11 @@ const DownloadNextPage = props => {
   const DATA = props.data.content.data;
   const user = getProfile();
   // const tokens = getTokens();
+
+  const deleteAccount = async () => {
+    await sleep(2000); // temporary
+    navigate('/404'); // temporary
+  };
 
   return (
     <AppMinimal>
@@ -32,15 +40,9 @@ const DownloadNextPage = props => {
         }}
         background={DATA.background.url}
       >
-        <Button
-          to={'/next'}
-          element={'a'}
-          size={'L'}
-          shadow={true}
-          theme="danger"
-        >
+        <DeleteAccountButton method={deleteAccount} >
           {DATA.button_confirm_text}
-        </Button>
+        </DeleteAccountButton>
       </SectionFullPage>
     </AppMinimal>
   );
