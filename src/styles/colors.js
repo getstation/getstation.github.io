@@ -18,6 +18,7 @@ export const clr4 = '#66c6ed';
 export const clr5 = '#7985ff';
 
 export const clr6 = '#f2827d';
+export const clr6Dark = '#e26057';
 
 export const divider = '#a1d3ff';
 

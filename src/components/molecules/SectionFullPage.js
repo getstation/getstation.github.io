@@ -28,6 +28,7 @@ const SectionFullPage = ({
   cta,
   image,
   background,
+  children,
   ...rest
 }) => {
   return (
@@ -79,6 +80,7 @@ const SectionFullPage = ({
             >
               {cta.text}
             </Button>
+            {children}
           </div>
         )}
       </Wrapper>
