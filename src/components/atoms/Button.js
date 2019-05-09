@@ -187,7 +187,7 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
 };
 
 Button.propTypes = {
-  element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  element: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   theme: PropTypes.oneOf(Object.keys(Themes)),
   size: PropTypes.oneOf(Object.keys(Sizes)),
   children: PropTypes.node.isRequired,
