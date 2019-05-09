@@ -1,24 +1,52 @@
-import auth0 from 'auth0-js';
 import { navigate } from 'gatsby';
 
 const isBrowser = typeof window !== 'undefined';
 
+const noop = () => {};
+const noopWebAuth = {
+  logout: noop,
+  authorize: noop,
+  parseHash: noop,
+  checkSession: noop,
+};
+
+const initialAuthState = {
+  isLoggedIn: false,
+  user: null,
+  tokens: null,
+};
+
+// ref can be mutated but not `authState` properties
+let authState = initialAuthState;
+
+const setAuthState = (authResult) => {
+  authState = {
+    tokens: {
+      accessToken: authResult.accessToken,
+      idToken: authResult.idToken,
+      expiresAt: authResult.expiresIn * 1000 + new Date().getTime(),
+    },
+    user: authResult.idTokenPayload,
+    isLoggedIn: true,
+  };
+};
+
 const auth = isBrowser
-  ? new auth0.WebAuth({
+  ? new (require('auth0-js').default.WebAuth)({
       domain: process.env.AUTH0_DOMAIN,
       clientID: process.env.AUTH0_CLIENT_ID,
       redirectUri: `${process.env.AUTH0_CALLBACK}/delete-account-auth0-callback`,
       responseType: 'token id_token',
       scope: 'openid profile email',
     })
-  : {};
+  : noopWebAuth ;
 
 export const isAuthenticated = () => {
   if (!isBrowser) {
     return;
   }
 
-  return localStorage.getItem('isLoggedIn') === 'true';
+  return Boolean(authState.isLoggedIn);
 };
 
 export const login = () => {
@@ -33,27 +61,17 @@ const setSession = (cb = () => {}) => (err, authResult) => {
   if (err) {
     console.error(err);
     logout('/delete-account');
-    // navigate('/');
-    cb();
-    return;
+    return cb();
   }
 
   if (authResult && authResult.accessToken && authResult.idToken) {
-    const tokens = {
-      accessToken: authResult.accessToken,
-      idToken: authResult.idToken,
-      expiresAt: authResult.expiresIn * 1000 + new Date().getTime(),
-    };
-
-    localStorage.setItem('user', JSON.stringify(authResult.idTokenPayload));
-    localStorage.setItem('tokens', JSON.stringify(tokens));
-    localStorage.setItem('isLoggedIn', true);
+    setAuthState(authResult);
     navigate('/delete-account');
-    cb();
+    return cb();
   }
 };
 
-export const silentAuth = callback => {
+export const checkSession = callback => {
   if (!isAuthenticated()) return callback();
   auth.checkSession({}, setSession(callback));
 };
@@ -71,8 +89,7 @@ export const getProfile = () => {
     return;
   }
 
-  const user = localStorage.getItem('user');
-  return user ? JSON.parse(user) : undefined;
+  return authState.user;
 };
 
 export const getTokens = () => {
@@ -80,13 +97,10 @@ export const getTokens = () => {
     return;
   }
 
-  const tokens = localStorage.getItem('tokens');
-  return tokens ? JSON.parse(tokens) : undefined;
+  return authState.tokens;
 };
 
 export const logout = (uri = '') => {
-  localStorage.setItem('user', '');
-  localStorage.setItem('tokens', '');
-  localStorage.setItem('isLoggedIn', false);
+  authState = initialAuthState;
   auth.logout({ returnTo: `${process.env.AUTH0_CALLBACK}${uri}` });
 };

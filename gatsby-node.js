@@ -4,7 +4,7 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       module: {
         rules: [
           {
-            test: /bad-module/,
+            test: /auth0-js/,
             use: loaders.null(),
           },
         ],
