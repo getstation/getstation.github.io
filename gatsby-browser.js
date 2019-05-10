@@ -5,6 +5,9 @@
  */
 
 import React from "react"
+import { ApolloProvider } from 'react-apollo';
+
+import { client } from './src/utils/apollo';
 import { checkSession } from "./src/utils/auth"
 
 class SessionCheck extends React.Component {
@@ -30,5 +33,11 @@ class SessionCheck extends React.Component {
 }
 
 export const wrapRootElement = ({ element }) => {
-  return <SessionCheck>{element}</SessionCheck>
-}
+  return (
+    <SessionCheck>
+      <ApolloProvider client={client}>
+        {element}
+      </ApolloProvider>
+    </SessionCheck>
+  );
+};
