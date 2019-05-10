@@ -4,7 +4,6 @@ import AppMinimal from '../components/layout/AppMinimal';
 
 import { login, isAuthenticated, getProfile, getTokens } from "../utils/auth"
 import SectionFullPage from '../components/molecules/SectionFullPage';
-import Button from '../components/atoms/Button';
 import DeleteAccountButton from '../components/molecules/DeleteAccountButton';
 
 const replaceName = (str, name) => str.replace('[name]', name);
@@ -21,9 +20,14 @@ const DownloadNextPage = props => {
   const user = getProfile();
   // const tokens = getTokens();
 
+  const onAccountDeleted = async () => {
+    await sleep(2000);
+    navigate('/logout');
+  };
+
   const deleteAccount = async () => {
-    await sleep(2000); // temporary
-    navigate('/404'); // temporary
+    await sleep(1000);
+    onAccountDeleted();
   };
 
   return (
