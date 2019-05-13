@@ -35,7 +35,7 @@ const auth = isBrowser
   ? new (require('auth0-js').default.WebAuth)({
       domain: process.env.AUTH0_DOMAIN,
       clientID: process.env.AUTH0_CLIENT_ID,
-      redirectUri: `${process.env.AUTH0_CALLBACK}/delete-account-auth0-callback`,
+      redirectUri: `${window.location.origin}/delete-account-auth0-callback`,
       responseType: 'token id_token',
       scope: 'openid profile email',
     })
@@ -102,5 +102,8 @@ export const getTokens = () => {
 
 export const logout = (uri = '') => {
   authState = initialAuthState;
-  auth.logout({ returnTo: `${process.env.AUTH0_CALLBACK}${uri}` });
+  if (isBrowser) {
+    const origin = window.location.origin;
+    auth.logout({ returnTo: `${origin}${uri}` });
+  }
 };
