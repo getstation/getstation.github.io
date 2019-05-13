@@ -31,9 +31,6 @@ const setAuthState = (authResult) => {
   };
 };
 
-console.warn(process.env);
-console.warn(process.env.AUTH0_DOMAIN);
-
 const auth = isBrowser
   ? new (require('auth0-js').default.WebAuth)({
       domain: process.env.AUTH0_DOMAIN,

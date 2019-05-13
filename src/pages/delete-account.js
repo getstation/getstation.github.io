@@ -40,7 +40,6 @@ const DeleteAccountPage = props => {
   };
 
   const createDeleteAccountCallback = (deleteAccount) => async () => {
-    console.log('........', tokens);
     const res = await deleteAccount();
     console.log('===========>', res);
     onAccountDeleted();
