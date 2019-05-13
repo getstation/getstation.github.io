@@ -6,26 +6,20 @@ import PropTypes from 'prop-types';
 class DeleteAccountButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { done: false, deleting: false };
     this.onClickButton = this.onClickButton.bind(this);
   }
 
   onClickButton(e) {
     e.preventDefault();
-    this.setState({ deleting: true });
-    this.props.method().then(() => {
-      this.setState({ deleting: false, done: true });
-    });
+    this.props.onClick();
   }
 
   render() {
-    let buttonText = this.props.children;
-    if (this.state.deleting) buttonText = 'Account deletion...';
-    if (this.state.done) buttonText = 'Done';
+    const buttonText = this.props.children;
 
     return (
       <Button
-        disabled={this.state.deleting || this.state.done}
+        disabled={this.props.disabled}
         onClick={this.onClickButton}
         to="/"
         element={Link}
@@ -41,7 +35,8 @@ class DeleteAccountButton extends React.Component {
 
 DeleteAccountButton.propTypes = {
   children: PropTypes.string.isRequired, // button text
-  method: PropTypes.func.isRequired, // should return a promise
+  onClick: PropTypes.func.isRequired,
+  disabled: PropTypes.bool,
 };
 
 export default DeleteAccountButton

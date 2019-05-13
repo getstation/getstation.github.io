@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { graphql, navigate } from 'gatsby';
 import gql from "graphql-tag";
 import { Mutation } from "react-apollo";
 
 import AppMinimal from '../components/layout/AppMinimal';
-import { login, isAuthenticated, getProfile, getTokens } from "../utils/auth"
+import { login, isAuthenticated, getProfile } from "../utils/auth"
 import SectionFullPage from '../components/molecules/SectionFullPage';
 import DeleteAccountButton from '../components/molecules/DeleteAccountButton';
 
@@ -30,28 +30,50 @@ const DeleteAccountPage = props => {
     return <p>Redirecting to login...</p>
   }
 
+  const [deleting, setDeleting] = useState(false);
+  const [done, setDone] = useState(false);
+  const [deleteAccountError, setDeleteAccountError] = useState(null);
+
   const DATA = props.data.content.data;
   const user = getProfile();
-  const tokens = getTokens();
-
-  const onAccountDeleted = async () => {
-    await sleep(2000);
-    navigate('/logout');
-  };
 
   const createDeleteAccountCallback = (deleteAccount) => async () => {
-    const res = await deleteAccount();
-    console.log('===========>', res);
-    onAccountDeleted();
+    setDeleting(true);
+    try {
+      const res = await deleteAccount();
+      console.log('=> deleteAccount result:', res);
+    } catch(e) {
+      console.error('=> deleteAccount error:', e);
+      setDeleteAccountError(String(e));
+      return;
+    }
+
+    setDeleting(false);
+    setDone(true);
+
+    await sleep(2000);
+    navigate('/');
   };
+
+  const isButtonDisabled = () => Boolean(deleting || done || deleteAccountError);
+
+  const getButtonText = () => {
+    if (deleteAccountError) return DATA.button_confirm_error_text;
+    if (done) return DATA.button_confirm_done_text;
+    if (deleting) return DATA.button_confirm_deleting_text;
+    return DATA.button_confirm_text;
+  };
+
+  const getTitle = () => replaceName(DATA.title, user.given_name);
+  const getSubTitle = () => deleteAccountError ? deleteAccountError : DATA.subtitle;
 
   return (
     <Mutation mutation={DELETE_ACCOUNT}>
       {(deleteAccount) => (
         <AppMinimal>
           <SectionFullPage
-            title={replaceName(DATA.title, user.given_name)}
-            subtitle={DATA.subtitle}
+            title={getTitle()}
+            subtitle={getSubTitle()}
             cta={{
               url: '/logout',
               text: DATA.button_cancel_text,
@@ -61,8 +83,11 @@ const DeleteAccountPage = props => {
             }}
             background={DATA.background.url}
           >
-            <DeleteAccountButton method={createDeleteAccountCallback(deleteAccount)} >
-              {DATA.button_confirm_text}
+            <DeleteAccountButton
+              onClick={createDeleteAccountCallback(deleteAccount)}
+              disabled={isButtonDisabled()}
+            >
+              {getButtonText()}
             </DeleteAccountButton>
           </SectionFullPage>
         </AppMinimal>
@@ -79,6 +104,9 @@ export const pageQuery = graphql`
         subtitle
         button_cancel_text
         button_confirm_text
+        button_confirm_error_text
+        button_confirm_done_text
+        button_confirm_deleting_text
         background {
           url
           dimensions {
