@@ -52,7 +52,7 @@ const DeleteAccountPage = props => {
     setDone(true);
 
     await sleep(2000);
-    navigate('/');
+    navigate('/logout');
   };
 
   const isButtonDisabled = () => Boolean(deleting || done || deleteAccountError);
