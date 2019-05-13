@@ -1,7 +1,9 @@
 import React from 'react';
 import { graphql, navigate } from 'gatsby';
-import AppMinimal from '../components/layout/AppMinimal';
+import gql from "graphql-tag";
+import { Mutation } from "react-apollo";
 
+import AppMinimal from '../components/layout/AppMinimal';
 import { login, isAuthenticated, getProfile, getTokens } from "../utils/auth"
 import SectionFullPage from '../components/molecules/SectionFullPage';
 import DeleteAccountButton from '../components/molecules/DeleteAccountButton';
@@ -10,7 +12,19 @@ const replaceName = (str, name) => str.replace('[name]', name);
 
 const sleep = (ms) => new Promise(res => setTimeout(res, ms));
 
-const DownloadNextPage = props => {
+const DELETE_ACCOUNT = gql`
+  mutation {
+    deleteMyData {
+      results {
+        name,
+        status,
+        message
+      } 
+    }
+  }
+`;
+
+const DeleteAccountPage = props => {
   if (!isAuthenticated()) {
     login();
     return <p>Redirecting to login...</p>
@@ -18,40 +32,46 @@ const DownloadNextPage = props => {
 
   const DATA = props.data.content.data;
   const user = getProfile();
-  // const tokens = getTokens();
+  const tokens = getTokens();
 
   const onAccountDeleted = async () => {
     await sleep(2000);
     navigate('/logout');
   };
 
-  const deleteAccount = async () => {
-    await sleep(1000);
+  const createDeleteAccountCallback = (deleteAccount) => async () => {
+    console.log('........', tokens);
+    const res = await deleteAccount();
+    console.log('===========>', res);
     onAccountDeleted();
   };
 
   return (
-    <AppMinimal>
-      <SectionFullPage
-        title={replaceName(DATA.title, user.given_name)}
-        subtitle={DATA.subtitle}
-        cta={{
-          url: '/logout',
-          text: DATA.button_cancel_text,
-          theme: 'light',
-          shadow: true,
-          size: 'L',
-        }}
-        background={DATA.background.url}
-      >
-        <DeleteAccountButton method={deleteAccount} >
-          {DATA.button_confirm_text}
-        </DeleteAccountButton>
-      </SectionFullPage>
-    </AppMinimal>
+    <Mutation mutation={DELETE_ACCOUNT}>
+      {(deleteAccount) => (
+        <AppMinimal>
+          <SectionFullPage
+            title={replaceName(DATA.title, user.given_name)}
+            subtitle={DATA.subtitle}
+            cta={{
+              url: '/logout',
+              text: DATA.button_cancel_text,
+              theme: 'light',
+              shadow: true,
+              size: 'L',
+            }}
+            background={DATA.background.url}
+          >
+            <DeleteAccountButton method={createDeleteAccountCallback(deleteAccount)} >
+              {DATA.button_confirm_text}
+            </DeleteAccountButton>
+          </SectionFullPage>
+        </AppMinimal>
+      )}
+    </Mutation>
   );
 };
-export default DownloadNextPage;
+export default DeleteAccountPage;
 export const pageQuery = graphql`
   query deleteAccountPageQuery {
     content: prismicDeleteAccount {
