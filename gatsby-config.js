@@ -10,6 +10,12 @@ module.exports = {
     siteUrl: `https://getstation.com/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        whitelist: ['AUTH0_DOMAIN', 'AUTH0_CLIENT_ID', 'GRAPHQL_URI'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
