@@ -19,6 +19,11 @@ const initialAuthState = {
 // ref can be mutated but not `authState` properties
 let authState = initialAuthState;
 
+const getOrigin = () => {
+  if (isBrowser) return window.location.origin;
+  return '';
+};
+
 const setAuthState = (authResult) => {
   authState = {
     tokens: {
@@ -35,25 +40,17 @@ const auth = isBrowser
   ? new (require('auth0-js').default.WebAuth)({
       domain: process.env.AUTH0_DOMAIN,
       clientID: process.env.AUTH0_CLIENT_ID,
-      redirectUri: `${window.location.origin}/delete-account-auth0-callback`,
+      redirectUri: `${getOrigin()}/delete-account-auth0-callback`,
       responseType: 'token id_token',
       scope: 'openid profile email',
     })
   : noopWebAuth ;
 
 export const isAuthenticated = () => {
-  if (!isBrowser) {
-    return;
-  }
-
   return Boolean(authState.isLoggedIn);
 };
 
 export const login = () => {
-  if (!isBrowser) {
-    return;
-  }
-
   auth.authorize();
 };
 
@@ -77,33 +74,18 @@ export const checkSession = callback => {
 };
 
 export const handleAuthentication = () => {
-  if (!isBrowser) {
-    return;
-  }
-
   auth.parseHash(setSession());
 };
 
 export const getProfile = () => {
-  if (!isBrowser) {
-    return;
-  }
-
   return authState.user;
 };
 
 export const getTokens = () => {
-  if (!isBrowser) {
-    return;
-  }
-
   return authState.tokens;
 };
 
 export const logout = (uri = '') => {
   authState = initialAuthState;
-  if (isBrowser) {
-    const origin = window.location.origin;
-    auth.logout({ returnTo: `${origin}${uri}` });
-  }
+  auth.logout({ returnTo: `${getOrigin()}${uri}` });
 };
