@@ -8,11 +8,12 @@ class AppNumber extends React.Component {
     fetch('https://api.getstation.com/graphql', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ query: '{ servicesConnection { totalCount } }' }),
+      body: JSON.stringify({
+        query: '{ applicationsConnection { totalCount } }' }),
     })
       .then(res => res.json())
       .then(res =>
-        this.setState({ number: res.data.servicesConnection.totalCount }),
+        this.setState({ number: res.data.applicationsConnection.totalCount }),
       );
   }
   render() {
