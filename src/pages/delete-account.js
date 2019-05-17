@@ -15,11 +15,7 @@ const sleep = (ms) => new Promise(res => setTimeout(res, ms));
 const DELETE_ACCOUNT = gql`
   mutation {
     deleteMyData {
-      results {
-        name,
-        status,
-        message
-      } 
+      success
     }
   }
 `;
