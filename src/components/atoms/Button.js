@@ -45,6 +45,23 @@ export const Themes = {
       },
     },
   },
+  danger: {
+    button: {
+      background: color.clr6,
+      color: color.light,
+      '&:hover, &:focus': {
+        background: color.clr6Dark,
+        color: color.light,
+        transform: `translateY(${rem(-2)})`,
+      },
+
+      '&:active': {
+        background: color.clr6Dark,
+        color: rgba(color.light, 0.7),
+        transform: `translateY(${rem(2)})`,
+      },
+    },
+  },
   light: {
     button: {
       background: color.light,
@@ -170,7 +187,7 @@ const Button = ({ element, disabled, size, theme, shadow, ...props }) => {
 };
 
 Button.propTypes = {
-  element: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
+  element: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
   theme: PropTypes.oneOf(Object.keys(Themes)),
   size: PropTypes.oneOf(Object.keys(Sizes)),
   children: PropTypes.node.isRequired,

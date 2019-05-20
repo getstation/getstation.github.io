@@ -52,13 +52,21 @@
     brew install yarn --ignore-dependencies
     ```
 
-1.  **Prismic API KEY**
+1.  **Configuration and API Keys**
 
     Create a `.env.development` at the root of the project.
 
     ```sh
     # Prismic API_KEY
     API_KEY=XXXXX_YOUR_TOKEN_XXXXX
+    
+    # Auth0
+    AUTH0_DOMAIN=station.eu.auth0.com
+    AUTH0_CLIENT_ID=XXXXX_YOUR_CLIENT_ID_XXXXX
+    
+    # GraphQL
+    GRAPHQL_URI=http://127.0.0.1:4001/graphql
+
     ```
 
 ## 🔨 Commands
