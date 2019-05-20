@@ -40,7 +40,12 @@ const auth = isBrowser
   ? new (require('auth0-js').default.WebAuth)({
       domain: process.env.AUTH0_DOMAIN,
       clientID: process.env.AUTH0_CLIENT_ID,
-      redirectUri: `${getOrigin()}/delete-account-auth0-callback`,
+
+      // trailing `/` is necessary otherwise a redirection will happen
+      // and some browser (like safari) will lose the hash of the URL
+      // that contains the authentication result
+      // https://bugs.webkit.org/show_bug.cgi?id=24175
+      redirectUri: `${getOrigin()}/delete-account-auth0-callback/`,
       responseType: 'token id_token',
       scope: 'openid profile email',
     })
