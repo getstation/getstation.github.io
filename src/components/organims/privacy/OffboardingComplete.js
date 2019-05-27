@@ -1,7 +1,11 @@
 import React from 'react';
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
+import { css } from 'emotion';
+import { rem } from 'polished';
 
 import SectionMinimal from '../../molecules/SectionMinimal';
+import Button from '../../atoms/Button';
+import Content from '../../molecules/Content';
 
 class OffboardingComplete extends React.Component {
   constructor(props) {
@@ -24,15 +28,28 @@ class OffboardingComplete extends React.Component {
   actualRender(queryResults) {
     // Extract data from Query
     if (!queryResults) return null;
-    const data = queryResults.content.data;
-    const bkgUrl = data.background.url;
+    const { bkg_image, content, button_confirm_text } = queryResults.content.data;
 
     // Render with data
     return (
-      <SectionMinimal background={bkgUrl}>
-        You are nowhere to be found anymore now. Crushed by a blackhole
+      <SectionMinimal background={bkg_image.url}>
+        <Content>
+          <div dangerouslySetInnerHTML={{__html: content.html}} />
+        </Content>
+
         <br/>
-        <button onClick={this.logout}>Logout</button>
+        
+        <Button
+          theme="primary"
+          size="L"
+          to="/"
+          element={Link}
+          className={css({
+            margin: `${rem(20)} ${rem(20)}`,
+          })}
+        >
+          {button_confirm_text}
+        </Button>
       </SectionMinimal>
     );
   }
@@ -43,9 +60,14 @@ class OffboardingComplete extends React.Component {
  */
 const QUERY = graphql`
   query privacyOffboardingComplete {
-    content: prismicDeleteAccount {
+    content: prismicOffboarding(uid: { eq: "offboarding-complete" }) {
       data {
-        background {
+        title,
+        content {
+          html,
+        },
+        button_confirm_text,
+        bkg_image {
           url
           dimensions {
             width

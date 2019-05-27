@@ -1,5 +1,5 @@
 import React from 'react';
-import { StaticQuery, graphql } from "gatsby";
+import { StaticQuery, graphql, Link } from "gatsby";
 import { css } from 'emotion';
 import { rem } from 'polished';
 
@@ -20,10 +20,6 @@ class OffboardingCancel extends React.Component {
     this.actualRender = this.actualRender.bind(this);
   }
 
-  backToSite() {
-    alert('Navigate to homepage !');
-  }
-
   openStation() {
     alert('Opening station ...');
   }
@@ -31,11 +27,17 @@ class OffboardingCancel extends React.Component {
   actualRender(queryResults) {
     // Extract data from Query
     if (!queryResults) return null;
-    const data = queryResults.content.data;
+    const {
+      title,
+      bkg_image,
+      content,
+      button_cancel_text,
+      button_confirm_text,
+    } = queryResults.content.data;
 
     // Render with data
     return (
-      <SectionMinimal background={data.bkg_image.url}>
+      <SectionMinimal background={bkg_image.url}>
         <Title
           element="h1"
           className={css({
@@ -46,37 +48,36 @@ class OffboardingCancel extends React.Component {
             },
           })}
         >
-          {data.title}
+          {title}
         </Title>
 
-        <br/>
-
         <Content>
-          { data.content.html }
+          <div dangerouslySetInnerHTML={{__html: content.html}} />
         </Content>
 
         <br/>
 
         <Button
-          onClick={this.backToSite}
           theme="ghost"
           size="L"
+          to="/"
+          element={Link}
           className={css({
             margin: `${rem(20)} ${rem(20)}`,
           })}
         >
-          {data.button_cancel_text}
+          {button_cancel_text}
         </Button>
 
         <Button
           onClick={this.openStation}
-          theme="danger"
+          theme="primary"
           size="L"
           className={css({
             margin: `${rem(20)} ${rem(20)}`,
           })}
         >
-          {data.button_confirm_text}
+          {button_confirm_text}
         </Button>
       </SectionMinimal>
     );
@@ -97,7 +98,7 @@ class OffboardingCancel extends React.Component {
  */
 const QUERY = graphql`
   query privacyOffboardCancel {
-    content: prismicOffboarding {
+    content: prismicOffboarding(uid: { eq: "offboarding-cancel" }) {
       data {
         title,
         content {
