@@ -10,6 +10,7 @@ import SectionMinimal from '../../molecules/SectionMinimal';
 import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
 import Content from '../../molecules/Content';
+import Modal from '../../molecules/Modal';
 
 class Offboarding extends React.Component {
   constructor(props) {
@@ -21,6 +22,7 @@ class Offboarding extends React.Component {
 
     this.state = {
       confirm: false,
+      showModal: false,
     }
   }
 
@@ -42,7 +44,7 @@ class Offboarding extends React.Component {
   }
 
   actualRender(queryResults) {
-    const { confirm } = this.state;
+    const { confirm, showModal } = this.state;
     const { profile } = this.props;
 
     // Extract data from Query
@@ -70,7 +72,7 @@ class Offboarding extends React.Component {
         <br/>
 
         <Content>
-          { data.content.html }
+          <div dangerouslySetInnerHTML={{__html: data.content.html}} />
         </Content>
 
         <br/>
@@ -97,7 +99,7 @@ class Offboarding extends React.Component {
           {data.button_confirm_text}
         </Button>
 
-        { confirm && 
+        { confirm &&
           <div id="overlay-modal">
             <div id="confirm-modal">
               ERASING, are you sure ?
@@ -106,6 +108,18 @@ class Offboarding extends React.Component {
               <button onClick={this.confirm}>Fo' sure</button>
             </div>
           </div>
+        }
+
+        { showModal &&
+          <Modal
+            title={data.body[0].primary.modal_title}
+            onCancel={() => console.log('onCancel')}
+            cancelContent={data.body[0].primary.modal_cta_cancel}
+            continueContent={data.body[0].primary.modal_cta_confirm}
+            onContinue={() => console.log('onContinue')}
+          >
+            {data.body[0].primary.modal_content.text}
+          </Modal>
         }
       </SectionMinimal>
     );
@@ -126,7 +140,7 @@ class Offboarding extends React.Component {
  */
 const QUERY = graphql`
   query privacyOffboarding {
-    content: prismicOffboarding {
+    content: prismicOffboarding(uid: { eq: "offboarding-process" }) {
       data {
         title,
         content {
@@ -143,6 +157,16 @@ const QUERY = graphql`
           dimensions {
             width
             height
+          }
+        },
+        body {
+          primary {
+            modal_title,
+            modal_content {
+              text,
+            },
+            modal_cta_cancel,
+            modal_cta_confirm
           }
         }
       }
