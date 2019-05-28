@@ -1,5 +1,4 @@
 import React from 'react';
-import { graphql } from "gatsby";
 
 import AppMinimal from '../components/layout/AppMinimal';
 import Seo from '../components/molecules/Seo';
