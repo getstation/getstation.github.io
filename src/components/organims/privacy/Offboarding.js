@@ -54,6 +54,7 @@ class Offboarding extends React.Component {
       console.log(res);
       this.navigate('confirmed');
     } catch (err) {
+      console.log(err);
       this.navigate('failed');
     }
   }
@@ -125,7 +126,7 @@ class Offboarding extends React.Component {
               onContinue={this.confirm(deleteAccount)}
             >
               { !loading && !error &&
-                <div>{data.body[0].primary.modal_content.text}</div>
+                <div>{data.body[0].primary.modal_content.text.replace('[email]', profile.email)}</div>
               }
               {loading && <p>Loading...</p>}
               {error && <p>Error :( Please try again</p>}
