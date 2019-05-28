@@ -47,12 +47,11 @@ class PrivacyLogin extends React.Component {
 
     // Extract data from Query
     if (!queryResults) return null;
-    const data = queryResults.content.data;
-    const bkgUrl = data.background.url;
+    const { bkg_image, title } = queryResults.content.data;
 
     // Render with data
     return (
-      <SectionMinimal background={bkgUrl}>
+      <SectionMinimal background={bkg_image.url} bgStaticCenter="true">
         <Title
           element="h1"
           className={css({
@@ -62,7 +61,7 @@ class PrivacyLogin extends React.Component {
               fontSize: font.XXXL,
             }
           })}>
-          Delete your Station account
+          {title}
         </Title>
         <LoginBox id="login-box"></LoginBox>
       </SectionMinimal>
@@ -75,14 +74,11 @@ class PrivacyLogin extends React.Component {
  */
 const QUERY = graphql`
   query privacyLoginData {
-    content: prismicDeleteAccount {
+    content: prismicOffboarding(uid: { eq: "privacy-login" }) {
       data {
-        background {
+        title,
+        bkg_image {
           url
-          dimensions {
-            width
-            height
-          }
         }
       }
     }

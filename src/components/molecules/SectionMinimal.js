@@ -7,12 +7,17 @@ import Wrapper from '../layout/Wrapper';
 const SectionMinimal = ({
   background,
   children,
+  bgStaticCenter,
   ...rest
 }) => {
   return (
     <Section
       className={css`
         background-image: url(${background || ''});
+        ${ bgStaticCenter
+          ? 'background-position: center 330px; background-size: auto;'
+          : ''
+        }
       `}
       {...rest}
     >

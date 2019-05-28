@@ -18,7 +18,7 @@ class PrivacyBox extends React.Component {
       auth: { redirect: false },
       container: 'login-box',
       theme: {
-        logo: 'https://cdn4.iconfinder.com/data/icons/video-game-items-concepts/128/magic-spell-fire-512.png',
+        logo: 'https://assets.getstation.com/emails/facebook-profile.png',
         primaryColor: '#164d7f',
       },
       languageDictionary: {
