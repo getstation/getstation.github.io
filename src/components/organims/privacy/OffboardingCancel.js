@@ -16,7 +16,6 @@ class OffboardingCancel extends React.Component {
     super(props);
     this.logout = props.logout;
     this.navigate = props.navigate;
-
     this.actualRender = this.actualRender.bind(this);
   }
 
@@ -103,19 +102,11 @@ const QUERY = graphql`
         title,
         content {
           html,
-          raw {
-            type,
-            text,
-          },
         },
         button_confirm_text,
         button_cancel_text,
         bkg_image {
           url
-          dimensions {
-            width
-            height
-          }
         }
       }
     }

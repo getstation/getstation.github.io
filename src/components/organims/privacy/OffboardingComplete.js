@@ -69,10 +69,6 @@ const QUERY = graphql`
         button_confirm_text,
         bkg_image {
           url
-          dimensions {
-            width
-            height
-          }
         }
       }
     }
