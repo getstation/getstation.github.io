@@ -7,6 +7,7 @@ import PrivacyLogin from './privacy/PrivacyLogin';
 import Offboarding from './privacy/Offboarding';
 import OffboardingCancel from './privacy/OffboardingCancel';
 import OffboardingComplete from './privacy/OffboardingComplete';
+import OffboardingFail from './privacy/OffboardingFail';
 
 class PrivacyBox extends React.Component {
   constructor(props) {
@@ -99,6 +100,8 @@ class PrivacyBox extends React.Component {
         return (<OffboardingCancel navigate={this.navigate} logout={this.onLogout}></OffboardingCancel>);
       case 'confirmed':
         return (<OffboardingComplete navigate={this.navigate} logout={this.onLogout}></OffboardingComplete>);
+      case 'failed':
+        return (<OffboardingFail navigate={this.navigate}></OffboardingFail>);
     }
 
     if (isAuthenticated || route === 'offboarding') {
