@@ -2,6 +2,8 @@ import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
 import { css } from 'emotion';
 import { rem } from 'polished';
+import { Mutation } from "react-apollo";
+import gql from "graphql-tag";
 
 import { mqMin } from '../../../styles/breackpoint';
 import * as font from '../../../styles/fonts';
@@ -11,6 +13,14 @@ import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
 import Content from '../../molecules/Content';
 import Modal from '../../molecules/Modal';
+
+const DELETE_ACCOUNT = gql`
+  mutation {
+    deleteMyData {
+      success
+    }
+  }
+`;
 
 class Offboarding extends React.Component {
   constructor(props) {
@@ -31,20 +41,25 @@ class Offboarding extends React.Component {
   }
 
   offboard = () => {
-    this.setState({ confirm: true });
+    this.setState({ showModal: true });
   }
 
   close = () => {
-    this.setState({ confirm: false });
+    this.setState({ showModal: false });
   }
 
-  confirm = () => {
-    alert('ERASING YOU NOW');
-    this.navigate('confirmed')
+  confirm = (deleteAccount) => async () => {
+    try {
+      const res = await deleteAccount();
+      console.log(res);
+      this.navigate('confirmed');
+    } catch (err) {
+      this.navigate('failed');
+    }
   }
 
   actualRender(queryResults) {
-    const { confirm, showModal } = this.state;
+    const { showModal } = this.state;
     const { profile } = this.props;
 
     // Extract data from Query
@@ -99,27 +114,24 @@ class Offboarding extends React.Component {
           {data.button_confirm_text}
         </Button>
 
-        { confirm &&
-          <div id="overlay-modal">
-            <div id="confirm-modal">
-              ERASING, are you sure ?
-              <br/>
-              <button onClick={this.close}>Actually NO !</button>
-              <button onClick={this.confirm}>Fo' sure</button>
-            </div>
-          </div>
-        }
-
         { showModal &&
-          <Modal
-            title={data.body[0].primary.modal_title}
-            onCancel={() => console.log('onCancel')}
-            cancelContent={data.body[0].primary.modal_cta_cancel}
-            continueContent={data.body[0].primary.modal_cta_confirm}
-            onContinue={() => console.log('onContinue')}
-          >
-            {data.body[0].primary.modal_content.text}
-          </Modal>
+          <Mutation mutation={DELETE_ACCOUNT}>
+          {(deleteAccount, { loading, error }) => (
+            <Modal
+              title={data.body[0].primary.modal_title}
+              onCancel={this.close}
+              cancelContent={data.body[0].primary.modal_cta_cancel}
+              continueContent={data.body[0].primary.modal_cta_confirm}
+              onContinue={this.confirm(deleteAccount)}
+            >
+              { !loading && !error &&
+                <div>{data.body[0].primary.modal_content.text}</div>
+              }
+              {loading && <p>Loading...</p>}
+              {error && <p>Error :( Please try again</p>}
+            </Modal>
+          )}
+        </Mutation>
         }
       </SectionMinimal>
     );
