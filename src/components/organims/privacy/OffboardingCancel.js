@@ -67,17 +67,6 @@ class OffboardingCancel extends React.Component {
         >
           {button_cancel_text}
         </Button>
-
-        <Button
-          onClick={this.openStation}
-          theme="primary"
-          size="L"
-          className={css({
-            margin: `${rem(20)} ${rem(20)}`,
-          })}
-        >
-          {button_confirm_text}
-        </Button>
       </SectionMinimal>
     );
   }

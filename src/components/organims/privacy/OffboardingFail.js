@@ -19,7 +19,7 @@ class OffboardingFail extends React.Component {
   }
 
   contactUs() {
-    alert('Contact us right now !');
+    window.location.href = "mailto:privacy@getstation.com";
   }
 
   retry = () => {
@@ -80,7 +80,7 @@ class OffboardingFail extends React.Component {
         </Button>
 
         <Button
-          onClick={this.contactUs}
+        onClick={this.contactUs}
           theme="primary"
           size="L"
           className={css({

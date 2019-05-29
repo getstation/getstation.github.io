@@ -3,9 +3,12 @@ import { StaticQuery, graphql, Link } from "gatsby";
 import { css } from 'emotion';
 import { rem } from 'polished';
 
+import { mqMin } from '../../../styles/breackpoint';
+import * as font from '../../../styles/fonts';
+
 import SectionMinimal from '../../molecules/SectionMinimal';
+import Title from '../../atoms/Title';
 import Button from '../../atoms/Button';
-import Content from '../../molecules/Content';
 
 class OffboardingComplete extends React.Component {
   constructor(props) {
@@ -33,14 +36,23 @@ class OffboardingComplete extends React.Component {
     // Render with data
     return (
       <SectionMinimal background={bkg_image.url}>
-        <Content>
+        <Title
+          element="h1"
+          className={css({
+            margin: `${rem(40)} 0 ${rem(10)}`,
+            fontSize: font.XXL,
+            [[mqMin[2]]]: {
+              fontSize: font.XXXL,
+            },
+          })}
+        >
           <div dangerouslySetInnerHTML={{__html: content.html}} />
-        </Content>
+        </Title>
 
         <br/>
         
         <Button
-          theme="primary"
+          theme="ghost"
           size="L"
           to="/"
           element={Link}
@@ -62,7 +74,6 @@ const QUERY = graphql`
   query privacyOffboardingComplete {
     content: prismicOffboarding(uid: { eq: "offboarding-complete" }) {
       data {
-        title,
         content {
           html,
         },

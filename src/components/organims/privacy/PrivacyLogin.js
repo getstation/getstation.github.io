@@ -3,8 +3,9 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { rem } from 'polished';
+
 import * as font from '../../../styles/fonts';
-import { mqMin, mqMax } from '../../../styles/breackpoint';
+import { mqMin } from '../../../styles/breackpoint';
 
 import SectionMinimal from '../../molecules/SectionMinimal';
 import Title from '../../atoms/Title';
@@ -26,19 +27,9 @@ const LoadingMessage = styled('div')`
 class PrivacyLogin extends React.Component {
   constructor(props) {
     super(props);
-    
-    this.state = {
-      logging: false,
-    };
 
     this.login = props.login;
-    this.loginHandler = this.loginHandler.bind(this);
     this.actualRender = this.actualRender.bind(this);
-  }
-
-  loginHandler() {
-    this.setState({ logging: true });
-    this.login();
   }
 
   render() {
@@ -51,8 +42,6 @@ class PrivacyLogin extends React.Component {
   }
 
   actualRender(queryResults) {
-    const { logging } = this.state;
-
     // Extract data from Query
     if (!queryResults) return null;
     const { bkg_image, title } = queryResults.content.data;
@@ -75,7 +64,7 @@ class PrivacyLogin extends React.Component {
           {title}
         </Title>
         <LoginBox id="login-box">
-          <LoadingMessage>Loading...</LoadingMessage>
+          <LoadingMessage>Loading session...</LoadingMessage>
         </LoginBox>
       </SectionMinimal>
     );

@@ -75,10 +75,6 @@ class Offboarding extends React.Component {
     );
   }
 
-  /**
-   * Function that will render the actual content of the component
-   * @param {*} queryResults 
-   */
   actualRender(queryResults) {
     const { showModal } = this.state;
     const { profile } = this.props;
@@ -149,7 +145,7 @@ class Offboarding extends React.Component {
                 { !loading && !error &&
                   <div>{data.body[0].primary.modal_content.text.replace('[email]', profile.email)}</div>
                 }
-                {loading && <p>Loading...</p>}
+                {loading && <p>Processing request...</p>}
                 {error && <p>An error occured :( Please contact us !</p>}
               </Content>
             </Modal>
