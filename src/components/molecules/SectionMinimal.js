@@ -8,17 +8,15 @@ const SectionMinimal = ({
   background,
   children,
   bgStaticCenter,
+  customCss,
   ...rest
 }) => {
   return (
     <Section
-      className={css`
-        background-image: url(${background || ''});
-        ${ bgStaticCenter
-          ? 'background-position: center 330px; background-size: auto;'
-          : ''
-        }
-      `}
+      className={css({
+        backgroundImage: `url(${background || ''})`,
+        ...customCss,
+      })}
       {...rest}
     >
       <Wrapper>

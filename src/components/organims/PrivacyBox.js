@@ -72,13 +72,7 @@ class PrivacyBox extends React.Component {
   }
 
   handleAuthentication = (idToken) => (error, profile) => {
-    if (error) {
-      console.warn('Something crashed');
-      throw new Error(error);
-    }
-
-    console.info('Logged in');
-    console.log(profile);
+    if (error) throw new Error(error);
 
     // Init an Apollo Client
     this.client = new ApolloClient({
@@ -95,7 +89,6 @@ class PrivacyBox extends React.Component {
   }
 
   navigate(route) {
-    console.log('Navigating to: ', route);
     this.setState({ route });
   }
 
@@ -104,7 +97,6 @@ class PrivacyBox extends React.Component {
   }
 
   onLogout() {
-    console.info('Login out');
     this.lock.logout();
   }
 

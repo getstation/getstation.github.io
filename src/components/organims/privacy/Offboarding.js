@@ -14,6 +14,7 @@ import Button from '../../atoms/Button';
 import Content from '../../molecules/Content';
 import Modal from '../../molecules/Modal';
 
+// API Query to delete personal data
 const DELETE_ACCOUNT = gql`
   mutation {
     deleteMyData {
@@ -22,6 +23,10 @@ const DELETE_ACCOUNT = gql`
   }
 `;
 
+/**
+ * UI Componenent displaying the prompt to delete an account and
+ * the confirmation modal.
+ */
 class Offboarding extends React.Component {
   constructor(props) {
     super(props);
@@ -51,14 +56,29 @@ class Offboarding extends React.Component {
   confirm = (deleteAccount) => async () => {
     try {
       const res = await deleteAccount();
-      console.log(res);
       this.navigate('confirmed');
     } catch (err) {
-      console.log(err);
       this.navigate('failed');
     }
   }
 
+  /**
+   * Wrap the rendered DOM into a Gatsby StaticQuery and will
+   * inject the required data.
+   */
+  render() {
+    return (
+      <StaticQuery
+        query={QUERY}
+        render={this.actualRender}
+      ></StaticQuery>
+    );
+  }
+
+  /**
+   * Function that will render the actual content of the component
+   * @param {*} queryResults 
+   */
   actualRender(queryResults) {
     const { showModal } = this.state;
     const { profile } = this.props;
@@ -125,25 +145,18 @@ class Offboarding extends React.Component {
               continueContent={data.body[0].primary.modal_cta_confirm}
               onContinue={this.confirm(deleteAccount)}
             >
-              { !loading && !error &&
-                <div>{data.body[0].primary.modal_content.text.replace('[email]', profile.email)}</div>
-              }
-              {loading && <p>Loading...</p>}
-              {error && <p>Error :( Please try again</p>}
+              <Content>
+                { !loading && !error &&
+                  <div>{data.body[0].primary.modal_content.text.replace('[email]', profile.email)}</div>
+                }
+                {loading && <p>Loading...</p>}
+                {error && <p>An error occured :( Please contact us !</p>}
+              </Content>
             </Modal>
           )}
         </Mutation>
         }
       </SectionMinimal>
-    );
-  }
-
-  render() {
-    return (
-      <StaticQuery
-        query={QUERY}
-        render={this.actualRender}
-      ></StaticQuery>
     );
   }
 }
