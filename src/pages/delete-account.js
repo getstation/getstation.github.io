@@ -5,6 +5,7 @@ import { Mutation } from "react-apollo";
 
 import AppMinimal from '../components/layout/AppMinimal';
 import { login, isAuthenticated, getProfile } from "../utils/auth"
+import Seo from '../components/molecules/Seo';
 import SectionFullPage from '../components/molecules/SectionFullPage';
 import DeleteAccountButton from '../components/molecules/DeleteAccountButton';
 
@@ -67,6 +68,10 @@ const DeleteAccountPage = props => {
     <Mutation mutation={DELETE_ACCOUNT}>
       {(deleteAccount) => (
         <AppMinimal>
+          <Seo
+            title={DATA.seo_title}
+            description={DATA.seo_description}
+          />
           <SectionFullPage
             title={getTitle()}
             subtitle={getSubTitle()}
@@ -91,6 +96,7 @@ const DeleteAccountPage = props => {
     </Mutation>
   );
 };
+
 export default DeleteAccountPage;
 export const pageQuery = graphql`
   query deleteAccountPageQuery {
@@ -98,6 +104,9 @@ export const pageQuery = graphql`
       data {
         title
         subtitle
+        bulletpoints {
+          html
+        }
         button_cancel_text
         button_confirm_text
         button_confirm_error_text
@@ -110,6 +119,8 @@ export const pageQuery = graphql`
             height
           }
         }
+        seo_title
+        seo_description
       }
     }
   }

@@ -120,6 +120,7 @@ const Content = styled('div')`
 
   ul,
   ol {
+    display: inline-block;
     padding-left: ${rem(20)};
     ${spacing};
     ol,
@@ -131,6 +132,10 @@ const Content = styled('div')`
 
   ul {
     list-style: disc;
+  }
+
+  li {
+    text-align: left;
   }
 
   ol {
