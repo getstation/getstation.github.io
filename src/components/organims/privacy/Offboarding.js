@@ -84,6 +84,7 @@ class Offboarding extends React.Component {
     const data = queryResults.content.data;
 
     const title = data.title.replace('[name]', profile.given_name);
+    const modalContent = data.body[0].primary.modal_content.html.replace('[email]', profile.email);
 
     // Render with data
     return (
@@ -143,7 +144,7 @@ class Offboarding extends React.Component {
             >
               <Content>
                 { !loading && !error &&
-                  <div>{data.body[0].primary.modal_content.text.replace('[email]', profile.email)}</div>
+                  <div dangerouslySetInnerHTML={{__html: modalContent}}/>
                 }
                 {loading && <p>Processing request...</p>}
                 {error && <p>An error occured :( Please contact us !</p>}
@@ -167,25 +168,17 @@ const QUERY = graphql`
         title,
         content {
           html,
-          raw {
-            type,
-            text,
-          },
         },
         button_confirm_text,
         button_cancel_text,
         bkg_image {
-          url
-          dimensions {
-            width
-            height
-          }
+          url,
         },
         body {
           primary {
             modal_title,
             modal_content {
-              text,
+              html,
             },
             modal_cta_cancel,
             modal_cta_confirm
