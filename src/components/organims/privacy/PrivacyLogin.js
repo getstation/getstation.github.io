@@ -13,15 +13,17 @@ import Title from '../../atoms/Title';
 const boxWidth = 300;
 const boxHeight = 502;
 const sharedStyle = {
-  boxShadow: 'rgba(0, 0, 0, 0.15) 0px 4px 10px 0px',
-  borderRadius: rem('5px'),
   display: 'inline-block',
   height: `${boxHeight}px`,
   width: `${boxWidth}px`,
   verticalAlign: 'middle',
 }
 
-const LoginBox = styled.div(sharedStyle);
+const LoginBox = styled.div({
+  ...sharedStyle,
+  boxShadow: 'rgba(0, 0, 0, 0.20) 0px 4px 12px 0px',
+  borderRadius: rem('5px'),
+});
 const LoadingMessage = styled.div({
   ...sharedStyle,
   display: 'inline-block',

@@ -13,12 +13,12 @@ const Wrapper = styled('div')`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, .3);
+  background-color: rgba(0, 0, 0, .6);
   z-index: 1;
 `;
 
 const Container = styled('div')`
-  width: 400px;
+  width: 450px;
   max-height: 500px;
   background-color: ${color.light};
   border-radius: 5px;
@@ -49,17 +49,22 @@ const Description = styled('div')`
 const Body = styled('div')`
   color: black;
   position: relative;
-  padding: 20px;
+  padding: 40px;
 `;
 
 const Footer = styled('div')`
   white-space: nowrap;
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  & button {
+  padding: 0 40px 40px 40px;
+  & > a {
     flexBasis: 48%;
     margin-left: 5px;
+    width: 100%;
+    margin: 0 10px;
+    & > div {
+      width: 100%;
+    }
   }
 `;
 

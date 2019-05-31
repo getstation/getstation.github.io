@@ -72,7 +72,7 @@ class PrivacyBox extends React.Component {
   }
 
   handleAuthentication = (idToken) => (error, profile) => {
-    if (error) throw new Error(error);
+    if (error) throw new Error(error.original);
 
     // Init an Apollo Client
     this.client = new ApolloClient({
