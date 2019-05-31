@@ -19,10 +19,6 @@ class OffboardingCancel extends React.Component {
     this.actualRender = this.actualRender.bind(this);
   }
 
-  openStation() {
-    alert('Opening station ...');
-  }
-
   actualRender(queryResults) {
     // Extract data from Query
     if (!queryResults) return null;
