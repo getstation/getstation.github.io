@@ -10,19 +10,24 @@ import { mqMin } from '../../../styles/breackpoint';
 import SectionMinimal from '../../molecules/SectionMinimal';
 import Title from '../../atoms/Title';
 
-const LoginBox = styled('div')`
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 10px 0px;
-  border-radius: 0.8125rem;
-  display: inline-block;
-  height: 502px;
-  width: 300px;
-  vertical-align: middle;
-`;
+const boxWidth = 300;
+const boxHeight = 502;
+const sharedStyle = {
+  boxShadow: 'rgba(0, 0, 0, 0.15) 0px 4px 10px 0px',
+  borderRadius: rem('5px'),
+  display: 'inline-block',
+  height: `${boxHeight}px`,
+  width: `${boxWidth}px`,
+  verticalAlign: 'middle',
+}
 
-const LoadingMessage = styled('div')`
-  display: inline-block;
-  line-height: 502px;
-`;
+const LoginBox = styled.div(sharedStyle);
+const LoadingMessage = styled.div({
+  ...sharedStyle,
+  display: 'inline-block',
+  lineHeight: `${boxHeight}px`,
+  marginLeft: `-${boxWidth}px`,
+});
 
 class PrivacyLogin extends React.Component {
   constructor(props) {
@@ -63,9 +68,8 @@ class PrivacyLogin extends React.Component {
           })}>
           {title}
         </Title>
-        <LoginBox id="login-box">
-          <LoadingMessage>Loading session...</LoadingMessage>
-        </LoginBox>
+        <LoginBox id="login-box"></LoginBox>
+        <LoadingMessage>Loading session...</LoadingMessage>
       </SectionMinimal>
     );
   }
