@@ -65,7 +65,7 @@ const SectionFullPage = ({
         {subtitle && (
           <TextBigger dangerouslySetInnerHTML={{ __html: subtitle }} />
         )}
-        {cta.text && (
+        {cta && cta.text && (
           <div
             className={css({
               marginTop: rem(40),
