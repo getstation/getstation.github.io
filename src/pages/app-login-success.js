@@ -11,6 +11,10 @@ class AppLoginSuccess extends React.Component {
     const { data } = props.data.prismicAppLoginSuccess;
     return (
       <AppMinimal>
+        <Seo
+          title={data.seo_title}
+          description={data.seo_description}
+        />
         <SectionFullPage
           title={data.title.text}
           subtitle={data.subtitle.text}
@@ -48,6 +52,8 @@ export const pageQuery = graphql`
         bkg_image {
           url
         }
+        seo_description
+        seo_title
       }
     }
   }

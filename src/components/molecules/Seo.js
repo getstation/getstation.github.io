@@ -10,12 +10,16 @@ const Seo = ({ title, description, image }) => (
     <meta property="og:url" content="https://getstation.com/" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={image} />
+    {image && 
+      <meta property="og:image" content={image} />
+    }
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://getstation.com/" />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
-    <meta property="twitter:image" content={image} />
+    {image &&
+      <meta property="twitter:image" content={image} />
+    }
   </Helmet>
 );
 
