@@ -88,5 +88,6 @@ module.exports = {
         gtmPreview: `${process.env.GTM_PREVIEW}`,
       },
     },
+    'gatsby-plugin-client-side-redirect',
   ],
 };
