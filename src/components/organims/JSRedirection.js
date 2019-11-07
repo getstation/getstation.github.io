@@ -14,9 +14,9 @@ const JSRedirection = ({
   })
 
   return (
-    <App headerTheme="dark">
+    <span>
       Redirecting to <a href={redirectionURL}>{redirectionTitle}</a>..
-    </App>
+    </span>
   );
 };
 export default JSRedirection;
