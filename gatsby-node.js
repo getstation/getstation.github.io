@@ -19,3 +19,12 @@ exports.createPages = ({ graphql, actions }) => {
   //
   createRedirect({ fromPath: '/invite-a-colleague.html', toPath: '/invite-a-colleague' });
 }
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  if (page.path.match(/^\/welcome/)) {
+    page.matchPath = "/welcome/*"
+    // Update the page.
+    createPage(page)
+  }
+}

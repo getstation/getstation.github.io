@@ -74,7 +74,7 @@
 1.  **Download dependencies**
 
     ```sh
-    yarn install
+    yarn
     ```
 
 1.  **Start developing**
@@ -82,7 +82,7 @@
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    gatsby develop
+    npm run develop
     ```
 
     Your site is now running at `http://localhost:8000`!
@@ -92,7 +92,7 @@
 1.  **Build**
 
     ```sh
-    gatsby build
+    npm run build
     ```
 
 1.  **Serve Build**
@@ -103,5 +103,5 @@
 
 1.  **Launch Storybook**
     ```sh
-    yarn storybook
+    npm run storybook
     ```
