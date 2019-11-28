@@ -30,6 +30,15 @@ class WelcomeByOrg extends React.Component{
       pictureUrl: '',
     }
   }
+  componentWillMount(){
+    const { data } = this.props;
+    const parsedUrl = new URL(window.location.href);
+
+    // If url contain ?dl=true just dl the file too !
+    if(parsedUrl && parsedUrl.searchParams.get('dl')){
+      window.location= data.button_url.url;
+    }
+  }
   componentDidMount(){
     const { organizationSlug, client, data } = this.props;
     client
