@@ -18,6 +18,9 @@
 }
 .description{
  margin-top: 25px;
+ max-width: 500px;
+ hyphens: auto;
+ text-align: center;
 }
 .logosContainer{
   display: flex;
@@ -41,7 +44,7 @@
   margin-top: 35px;
 }
 .videoOfStation{
-  height: 400px;
+  height: auto;
   width: 400px;
   border-radius: 10.4px;
   box-shadow: 10px 10px 42px -21px rgba(0,0,0,0.75);
@@ -49,4 +52,7 @@
 .details{
   margin-top: 35px;
   margin-bottom: 25px;
+  max-width: 500px;
+  hyphens: auto;
+  text-align: center;
 }

@@ -89,7 +89,15 @@ class WelcomeByOrg extends React.Component{
             {data.button_text}
           </Button>
           <p className={styles.details}>{this.state.details}</p>
-          <img src={data.illustration.url} className={styles.videoOfStation} />
+          <video
+            className={styles.videoOfStation}
+            src={data.illustration.url}
+            autoPlay
+            playsInline
+            muted
+            loop
+            ref="video"
+          />
         </section>
       </AppMinimal>
     )
