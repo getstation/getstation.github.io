@@ -1,0 +1,36 @@
+.main{
+  background-size: 100%;
+  bottom: 0;
+  width: 100vw;
+  position: absolute;
+  height: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.logosContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+.logoIcon{
+  width: 50px;
+  height: 50px;
+}
+.logoSeparator{
+  width: auto;
+  height: 30px
+}
+.buttonDownload{
+  display: flex;
+  justify-content: flex-between
+}
+.videoOfStation{
+  height: 400;
+  width: 400;
+  border-radius: 10.4px;
+  box-shadow: 10px 10px 42px -21px rgba(0,0,0,0.75);
+}
