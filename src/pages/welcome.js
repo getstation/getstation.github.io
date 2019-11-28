@@ -63,11 +63,11 @@ class WelcomeByOrg extends React.Component{
             <img src={data.linkbewteenorgandstationicons.url}  className={styles.logoSeparator} />
             <img src={data.stationicon.url}  className={styles.logoIcon} />
           </div>
-          <h1>
+          <h1 className={styles.title}>
             {this.state.title}
           </h1>
+          <h2 className={styles.description}>
             {this.state.description}
-          <h2>
           </h2>
           <Button
             className={styles.buttonDownload}
@@ -79,7 +79,7 @@ class WelcomeByOrg extends React.Component{
             <img src={data.download_icon.url}/>
             {data.button_text}
           </Button>
-          <p>{this.state.details}</p>
+          <p className={styles.details}>{this.state.details}</p>
           <img src={data.illustration.url} className={styles.videoOfStation} />
         </section>
       </AppMinimal>

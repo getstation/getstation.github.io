@@ -1,5 +1,5 @@
 .main{
-  background-size: 100%;
+  background-size: 100% !important;
   bottom: 0;
   width: 100vw;
   position: absolute;
@@ -11,14 +11,25 @@
   align-items: center;
   overflow-x: hidden;
 }
+.title{
+ font-size: 35px;
+ font-weight: bold;
+ margin-top: 35px;
+}
+.description{
+ margin-top: 25px;
+}
 .logosContainer{
   display: flex;
   justify-content: center;
   align-items: center ;
 }
+.logosContainer>*{
+  margin-right: 35px;
+}
 .logoIcon{
-  width: 50px;
-  height: 50px;
+  width: auto;
+  height: 50px !important;
 }
 .logoSeparator{
   width: auto;
@@ -26,11 +37,16 @@
 }
 .buttonDownload{
   display: flex;
-  justify-content: flex-between
+  justify-content: flex-between;
+  margin-top: 35px;
 }
 .videoOfStation{
-  height: 400;
-  width: 400;
+  height: 400px;
+  width: 400px;
   border-radius: 10.4px;
   box-shadow: 10px 10px 42px -21px rgba(0,0,0,0.75);
+}
+.details{
+  margin-top: 35px;
+  margin-bottom: 25px;
 }
