@@ -4,6 +4,7 @@ import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { graphql } from 'gatsby';
 import { httpLink } from '../utils/apollo';
+import NotFoundPage from './404'
 
 import {WelcomeByOrg} from '../components/organims/welcomeByOrg';
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Redirect, navigate} from '@reach/router';
 import AppMinimal from '../layout/AppMinimal';
 import Seo from '../molecules/Seo';
 import Button from '../atoms/Button';
@@ -28,9 +29,8 @@ export class WelcomeByOrg extends React.Component{
     }
   }
   componentWillMount(){
-    const { data } = this.props;
+    const { data, organizationSlug } = this.props;
     const parsedUrl = new URL(window.location.href);
-
     // If url contain ?dl=true just dl the file too !
     if(parsedUrl && parsedUrl.searchParams.get('dl')){
       window.location= data.button_url.url;
@@ -45,12 +45,18 @@ export class WelcomeByOrg extends React.Component{
     })
     .then(res=>{
       const {name, pictureUrl, slug} = res.data.organizationWithSlug;
+      if(!name || !slug || ! pictureUrl) {
+        return this.setState({
+          unreachable: true
+        })
+      }
       this.setState({
         title: data.maintitle.text.replace('{{organizationName}}', name),
         description: data.description.text.replace('{{organizationName}}', name),
         details: data.details.text.replace('{{organizationName}}', name),
         email:  data.second_step_text.text.replace('{{organizationName}}', slug),
         pictureUrl,
+        unreachable: false,
       });
     })
     .catch(err=>console.error(err))
@@ -65,6 +71,9 @@ export class WelcomeByOrg extends React.Component{
   render(){
     const { data } = this.props;
     // Separeted into two step, the second is after user as clicked download.
+    if(this.state.unreachable){
+      return <Redirect noThrow to='/404'/>;
+    }
     return !this.state.hasDownloaded ? (
       <AppMinimal>
         <Seo
