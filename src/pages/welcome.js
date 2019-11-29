@@ -1,108 +1,11 @@
 import React from 'react';
-import styles from './welcome.module.css';
 import {Router} from '@reach/router';
 import { ApolloClient } from 'apollo-client';
 import { InMemoryCache } from 'apollo-cache-inmemory';
 import { graphql } from 'gatsby';
-import gql from 'graphql-tag';
-import AppMinimal from '../components/layout/AppMinimal';
-import Seo from '../components/molecules/Seo';
-import Button from '../components/atoms/Button';
-
 import { httpLink } from '../utils/apollo';
 
-const getOrgInfo = gql`
-  query($slug: String!) {
-    organizationWithSlug(slug: $slug) {
-      name,
-      pictureUrl,
-    }
-  }
-`;
-
-class WelcomeByOrg extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      title: 'Your organization name',
-      description: 'Your organization description',
-      details: 'Your organization details',
-      pictureUrl: '',
-    }
-  }
-  componentWillMount(){
-    const { data } = this.props;
-    const parsedUrl = new URL(window.location.href);
-
-    // If url contain ?dl=true just dl the file too !
-    if(parsedUrl && parsedUrl.searchParams.get('dl')){
-      window.location= data.button_url.url;
-    }
-  }
-  componentDidMount(){
-    const { organizationSlug, client, data } = this.props;
-    client
-    .query({
-      query: getOrgInfo,
-      variables: { slug: organizationSlug}
-    })
-    .then(res=>{
-      console.log('res', res)
-      const {name, pictureUrl} = res.data.organizationWithSlug;
-      this.setState({
-        title: data.maintitle.text.replace('{{organizationName}}', name),
-        description: data.description.text.replace('{{organizationName}}', name),
-        details: data.details.text.replace('{{organizationName}}', name),
-        pictureUrl,
-      });
-    })
-    .catch(err=>console.error(err))
-  }
-  render(){
-    const { data } = this.props;
-    return (
-      <AppMinimal>
-        <Seo
-          title={this.state.title}
-          description={this.state.description}
-        />
-        <section className={styles.main} style={{background: `url(${data.bkg_image.url}) no-repeat bottom`}}>
-          <div className={styles.logosContainer}>
-            <img src={this.state.pictureUrl}  className={styles.logoIcon} />
-            <img src={data.linkbewteenorgandstationicons.url}  className={styles.logoSeparator} />
-            <img src={data.stationicon.url}  className={styles.logoIcon} />
-          </div>
-          <h1 className={styles.title}>
-            {this.state.title}
-          </h1>
-          <h2 className={styles.description}>
-            {this.state.description}
-          </h2>
-          <Button
-            className={styles.buttonDownload}
-            element="button"
-            size="L"
-            shadow={false}
-            onClick={()=>{window.open(data.button_url.url)}}
-            >
-            <img src={data.download_icon.url}/>
-            {data.button_text}
-          </Button>
-          <p className={styles.details}>{this.state.details}</p>
-          <video
-            className={styles.videoOfStation}
-            src={data.illustration.url}
-            autoPlay
-            playsInline
-            muted
-            loop
-            ref="video"
-          />
-        </section>
-      </AppMinimal>
-    )
-  }
-}
+import {WelcomeByOrg} from '../components/organims/welcomeByOrg';
 
 export default class Welcome extends React.Component{
   constructor(props){
@@ -125,7 +28,6 @@ export default class Welcome extends React.Component{
     )
   }
 }
-
 
 export const pageQuery = graphql`
   query welcome {
@@ -161,6 +63,48 @@ export const pageQuery = graphql`
         }
         description {
           text
+        },
+        top_text{
+          text         
+        },
+        first_step_icon{
+          url
+        },
+        icons_separators{
+          url
+        },
+        second_step_icon{
+          url
+        },
+        first_step_text{
+          text
+        },
+        second_step_text{
+          text
+        },
+        bold_text{
+          text
+        },
+        list_explanation_icon_1{
+          url
+        },
+        list_explanation_text_1{
+          text
+        },
+        list_explanation_icon_2{
+          url
+        },
+        list_explanation_text_2{
+          text
+        },
+        list_explanation_icon_3{
+          url
+        },
+        list_explanation_text_3{
+          text
+        },
+        illustration_picture{
+          url
         }
       }
     }

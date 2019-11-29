@@ -1,0 +1,138 @@
+body{
+  overflow-x: hidden;
+}
+.main{
+  background-size: 100% !important;
+  bottom: 0;
+  width: 100vw;
+  position: absolute;
+  height: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+.title{
+ font-size: 35px;
+ font-weight: bold;
+ margin-top: 35px;
+}
+.description{
+ margin-top: 25px;
+ max-width: 500px;
+ hyphens: auto;
+ text-align: center;
+}
+.logosContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center ;
+}
+.logosContainer>*{
+  margin-right: 35px;
+}
+.logoIconContainer{
+  width: 90px;
+  height: 90px !important;
+  border-radius: 90px;
+}
+.logoIcon{
+  width: 90px;
+  height: 90px !important;
+  border-radius: 90px;
+}
+.logoSeparator{
+  width: auto;
+  height: 30px
+}
+.buttonDownload{
+  display: flex;
+  justify-content: flex-between;
+  margin-top: 35px;
+}
+.videoOfStation{
+  height: auto;
+  width: 400px;
+  border-radius: 10.4px;
+  box-shadow: 10px 10px 42px -21px rgba(0,0,0,0.75);
+}
+.details{
+  margin-top: 35px;
+  margin-bottom: 25px;
+  max-width: 500px;
+  hyphens: auto;
+  text-align: center;
+}
+.hasDownloadedSection{
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  bottom: 0;
+  width: 100vw;
+  position: absolute;
+  overflow-x: hidden;
+}
+.isdownloading{
+  font-style: italic;
+  margin-bottom: 40px;
+  font-size: 22px;
+}
+
+.formWizzardText{
+  color: #66c6ed;
+  margin-right: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.formWizzardSeparator{
+  margin: 0 20px;
+}
+
+.iconsNumber{
+  margin-right: 6px;
+}
+
+.whatnext{
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 50px;
+  margin-top: 50px;
+}
+.bottomSection{
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  width: 75vw;
+  max-height: 250px;
+  height: 250px;
+}
+
+.someInformations{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 22px;
+}
+
+.someInformations > p{
+  max-width: 38ch;
+  hyphens: auto;
+}
+
+.iconsBottom{
+  width: 50px;
+  height: 50px;
+  float: left;
+}
+
+.stationSample{
+  width: 50% !important;
+  height: auto;
+  height: 170% !important;
+}
