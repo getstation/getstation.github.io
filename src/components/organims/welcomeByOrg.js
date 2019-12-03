@@ -153,7 +153,12 @@ export class WelcomeByOrg extends React.Component{
         isLoading: false,
       });
     })
-    .catch(err=>console.error(err))
+    .catch(err=>{
+      console.error(err);
+      this.setState({
+        unreachable: true,
+      })
+    })
   }
   handleClickDownload(){
     const{data} = this.props;
