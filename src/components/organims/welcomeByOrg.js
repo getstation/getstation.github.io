@@ -1,18 +1,21 @@
 import React from 'react';
-import {Redirect, navigate} from '@reach/router';
+import {has} from 'lodash';
+import {Redirect} from '@reach/router';
 import AppMinimal from '../layout/AppMinimal';
 import Seo from '../molecules/Seo';
 import Button from '../atoms/Button';
 import { css } from 'emotion'
 import { Global } from '@emotion/core'
-// import styles from './welcome.module.css';
 import gql from 'graphql-tag';
+
+import HasBeenDownloaded from './HasBeenDownloaded';
 
 const getOrgInfo = gql`
   query($slug: String!) {
-    organizationWithSlug(slug: $slug) {
+    organizationBySlug(slug: $slug) {
       slug,
       name,
+      domain,
       pictureUrl,
     }
   }
@@ -91,86 +94,6 @@ const main = css`
   hyphens: auto;
   text-align: center;
  `
- 
- const hasDownloadedSection = css`
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  bottom: 0;
-  width: 100vw;
-  position: absolute;
-  overflow-x: hidden;
- `
- 
- const isdownloading = css`
-  font-style: italic;
-  margin-bottom: 40px;
-  font-size: 22px;
- `
- 
- 
- const formWizzardText = css`
-  color: #66c6ed;
-  margin-right: 30px;
-  font-size: 24px;
-  font-weight: bold;
- `
- 
- 
- const formWizzardSeparator = css`
-  margin: 0 20px;
- `
- 
- 
- const iconsNumber = css`
-  margin-right: 6px;
- `
- 
- 
- const whatnext = css`
-  font-size: 35px;
-  font-weight: bold;
-  margin-bottom: 50px;
-  margin-top: 50px;
- `
- 
- const bottomSection = css`
-  display: flex;
-  justify-content: center;
-  align-content: center;
-  width: 75vw;
-  max-height: 250px;
-  height: 250px;
- `
- 
- 
- const someInformations = css`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  font-size: 22px;
-  & > p{
-    max-width: 38ch;
-    hyphens: auto;
-  }
- `
- 
- 
- const iconsBottom = css`
-  width: 50px;
-  height: 50px;
-  float: left;
- `
- 
- 
- const stationSample = css`
-  width: 50% !important;
-  height: auto;
-  height: 170% !important;
- ` 
 
 export class WelcomeByOrg extends React.Component{
   constructor(props){
@@ -185,7 +108,7 @@ export class WelcomeByOrg extends React.Component{
     }
   }
   componentWillMount(){
-    const { data, organizationSlug } = this.props;
+    const { data } = this.props;
     const parsedUrl = new URL(window.location.href);
     // If url contain ?dl=true just dl the file too !
     if(parsedUrl && parsedUrl.searchParams.get('dl')){
@@ -200,17 +123,20 @@ export class WelcomeByOrg extends React.Component{
       variables: { slug: organizationSlug}
     })
     .then(res=>{
-      const {name, pictureUrl, slug} = res.data.organizationWithSlug;
-      if(!name || !slug || ! pictureUrl) {
+      // Insufisent data, go to 404
+      const propsToChecks = 'data.organizationBySlug';
+      if(!has(res, propsToChecks) || (!has(res, `${propsToChecks}.name`) && !has(res, `${propsToChecks}.domain`))) {
         return this.setState({
           unreachable: true
         })
       }
+      const {name, pictureUrl, domain} = res.data.organizationBySlug;
       this.setState({
-        title: data.maintitle.text.replace('{{organizationName}}', name),
-        description: data.description.text.replace('{{organizationName}}', name),
-        details: data.details.text.replace('{{organizationName}}', name),
-        email:  data.second_step_text.text.replace('{{organizationName}}', slug),
+        title: data.maintitle.text.replace('{{organizationName}}', name || domain),
+        description: data.description.text.replace('{{organizationName}}', name || domain),
+        details: data.details.text.replace('{{organizationName}}', name || domain),
+        email:  data.second_step_text.text.replace('{{organizationName}}', domain),
+        list_explanation_text_1:  data.list_explanation_text_1.text.replace('{{organizationName}}', name ||domain),
         pictureUrl,
         unreachable: false,
       });
@@ -245,8 +171,14 @@ export class WelcomeByOrg extends React.Component{
         />
         <section className={main} style={{background: `url(${data.bkg_image.url}) no-repeat bottom`}}>
           <div className={logosContainer}>
-            <img src={this.state.pictureUrl}  className={logoIcon} />
-            <img src={data.linkbewteenorgandstationicons.url}  className={logoSeparator} />
+            {
+              this.state.pictureUrl &&
+              <>
+                <img src={this.state.pictureUrl}  className={logoIcon} />
+                <img src={data.linkbewteenorgandstationicons.url}  className={logoSeparator} />
+              </>
+            }
+          
             <img src={data.stationicon.url}  className={logoIcon} />
           </div>
           <h1 className={title}>
@@ -277,28 +209,6 @@ export class WelcomeByOrg extends React.Component{
           />
         </section>
       </AppMinimal>
-    ) : (
-    <AppMinimal>
-      <section className={hasDownloadedSection}>
-        <p className={isdownloading}>{data.top_text.text}</p>
-        <div>
-          <img className={iconsNumber} src={data.first_step_icon.url} />
-          <span className={formWizzardText}>{data.first_step_text.text}</span>
-          <img className={formWizzardSeparator} src={data.icons_separators.url} />
-          <img className={iconsNumber} src={data.second_step_icon.url} />
-          <span className={formWizzardText}>{this.state.email}</span>
-        </div>
-        <p className={whatnext}>{data.bold_text.text}</p>
-        <section className={bottomSection}>
-          <div className={someInformations}>
-            <p><img className={iconsBottom} src={data.list_explanation_icon_1.url}/>{data.list_explanation_text_1.text}</p>
-            <p><img className={iconsBottom} src={data.list_explanation_icon_2.url}/>{data.list_explanation_text_2.text}</p>
-            <p><img className={iconsBottom} src={data.list_explanation_icon_3.url}/>{data.list_explanation_text_3.text}</p>
-          </div>
-          <img className={stationSample} src={data.illustration_picture.url}/>
-        </section>
-      </section>
-    </AppMinimal>
-    )
+    ) : <HasBeenDownloaded email={this.state.email} list_explanation_text_1={this.state.list_explanation_text_1} prismicdata={data}/>
   }
 }
