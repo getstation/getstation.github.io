@@ -24,7 +24,8 @@ export default class Welcome extends React.Component{
     const { data } = props.data.prismicWelcome;
     return (
       <Router>
-        <WelcomeByOrg path="/welcome/:organizationSlug" data={data} client={client}/>
+        <WelcomeByOrg  path="/welcome/:organizationSlug" data={data} client={client}/>
+        <WelcomeByOrg default/>
       </Router> 
     )
   }

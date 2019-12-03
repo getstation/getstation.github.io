@@ -128,6 +128,11 @@ export class WelcomeByOrg extends React.Component{
   }
   componentDidMount(){
     const { organizationSlug, client, data } = this.props;
+    if(!organizationSlug || !client || !data){
+      return this.setState({
+        unreachable: true,
+      })
+    }
     client
     .query({
       query: getOrgInfo,
@@ -173,17 +178,17 @@ export class WelcomeByOrg extends React.Component{
     if(this.state.unreachable){
       return <Redirect noThrow to='/404'/>;
     }
-    // if(this.state.isLoading){
-    //   return <AppMinimal>
-    //     <div className={loadingContainer}>
-    //       <Lottie
-    //         options={optionsLoading}
-    //         height={230}
-    //         width={400}
-    //       />
-    //     </div>
-    //   </AppMinimal>
-    // }
+    if(this.state.isLoading){
+      return <AppMinimal>
+        <div className={loadingContainer}>
+          <Lottie
+            options={optionsLoading}
+            height={230}
+            width={400}
+          />
+        </div>
+      </AppMinimal>
+    }
     return this.state.step === 1 ? (
       <AppMinimal>
         <Seo
