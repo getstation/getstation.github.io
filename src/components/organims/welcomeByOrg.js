@@ -173,18 +173,18 @@ export class WelcomeByOrg extends React.Component{
     if(this.state.unreachable){
       return <Redirect noThrow to='/404'/>;
     }
-    if(this.state.isLoading){
-      return <AppMinimal>
-        <div className={loadingContainer}>
-          <Lottie
-            options={optionsLoading}
-            height={230}
-            width={400}
-          />
-        </div>
-      </AppMinimal>
-    }
-    return this.state.hasDownloaded === 1 ? (
+    // if(this.state.isLoading){
+    //   return <AppMinimal>
+    //     <div className={loadingContainer}>
+    //       <Lottie
+    //         options={optionsLoading}
+    //         height={230}
+    //         width={400}
+    //       />
+    //     </div>
+    //   </AppMinimal>
+    // }
+    return this.state.step === 1 ? (
       <AppMinimal>
         <Seo
           title={this.state.title}
