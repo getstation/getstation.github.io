@@ -20,6 +20,7 @@ exports.createPages = ({ graphql, actions }) => {
   createRedirect({ fromPath: '/invite-a-colleague.html', toPath: '/invite-a-colleague' });
 }
 
+// Re-routing some url overriding gatsby pages way
 exports.onCreatePage = async ({ page, actions }) => {
   const { createPage } = actions
   if (page.path.match(/^\/welcome/)) {
