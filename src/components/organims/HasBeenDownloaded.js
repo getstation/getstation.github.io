@@ -87,7 +87,6 @@ export default class HasBeenDownloaded extends React.Component{
 
   constructor(props){
     super(props);
-    console.log('props', props)
     this.email = props.email || 'organization email';
     this.list_explanation_text_1 = props.list_explanation_text_1 || 'organization explanation';
     this.prismicdata = props.prismicdata || null;

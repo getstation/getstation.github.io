@@ -7,8 +7,16 @@ import Button from '../atoms/Button';
 import { css } from 'emotion'
 import { Global } from '@emotion/core'
 import gql from 'graphql-tag';
+import Lottie from 'react-lottie';
 
 import HasBeenDownloaded from './HasBeenDownloaded';
+const animationData = require('../../animations/preloader-animation.json');
+
+const optionsLoading = {
+  loop: true,
+  autoplay: true,
+  animationData,
+};
 
 const getOrgInfo = gql`
   query($slug: String!) {
@@ -19,6 +27,14 @@ const getOrgInfo = gql`
       pictureUrl,
     }
   }
+`;
+
+const loadingContainer = css`
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const main = css`
@@ -57,12 +73,6 @@ const main = css`
   }
  `
  
- const logoIconContainer = css`
-  width: 90px;
-  height: 90px !important;
-  border-radius: 90px;
- `
- 
  const logoIcon = css`
   width: 90px;
   height: 90px !important;
@@ -99,12 +109,13 @@ export class WelcomeByOrg extends React.Component{
   constructor(props){
     super(props);
     this.state = {
+      step: 1,
+      isLoading: true,
       title: 'Your organization name',
       description: 'Your organization description',
       details: 'Your organization details',
       email: 'name.org',
       pictureUrl: '',
-      hasDownloaded: false,
     }
   }
   componentWillMount(){
@@ -139,6 +150,7 @@ export class WelcomeByOrg extends React.Component{
         list_explanation_text_1:  data.list_explanation_text_1.text.replace('{{organizationName}}', name ||domain),
         pictureUrl,
         unreachable: false,
+        isLoading: false,
       });
     })
     .catch(err=>console.error(err))
@@ -147,7 +159,7 @@ export class WelcomeByOrg extends React.Component{
     const{data} = this.props;
     window.open(data.button_url.url);
     this.setState({
-      hasDownloaded: true
+      step: 2
     })
   }
   render(){
@@ -156,7 +168,18 @@ export class WelcomeByOrg extends React.Component{
     if(this.state.unreachable){
       return <Redirect noThrow to='/404'/>;
     }
-    return !this.state.hasDownloaded ? (
+    if(this.state.isLoading){
+      return <AppMinimal>
+        <div className={loadingContainer}>
+          <Lottie
+            options={optionsLoading}
+            height={230}
+            width={400}
+          />
+        </div>
+      </AppMinimal>
+    }
+    return this.state.hasDownloaded === 1 ? (
       <AppMinimal>
         <Seo
           title={this.state.title}

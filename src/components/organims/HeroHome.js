@@ -208,7 +208,7 @@ const HeroHome = ({
                 autoplay: true,
                 animationData: require('../../animations/coffee.json'),
               }}
-              height={357}
+              height={920}
               width={920}
             />
             {video && (
