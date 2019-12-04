@@ -21,7 +21,6 @@ margin-bottom: 40px;
 font-size: 22px;
 `
 
-
 const formWizzardText = css`
 color: #66c6ed;
 margin-right: 30px;
@@ -29,16 +28,13 @@ font-size: 24px;
 font-weight: bold;
 `
 
-
 const formWizzardSeparator = css`
 margin: 0 20px;
 `
 
-
 const iconsNumber = css`
 margin-right: 6px;
 `
-
 
 const whatnext = css`
 font-size: 35px;
@@ -56,7 +52,6 @@ max-height: 250px;
 height: 250px;
 `
 
-
 const someInformations = css`
 display: flex;
 flex-direction: column;
@@ -68,13 +63,11 @@ font-size: 22px;
 }
 `
 
-
 const iconsBottom = css`
 width: 50px;
 height: 50px;
 float: left;
 `
-
 
 const stationSample = css`
 width: 50% !important;
@@ -82,40 +75,35 @@ height: auto;
 height: 170% !important;
 ` 
 
-
 export default class HasBeenDownloaded extends React.Component{
 
   constructor(props){
     super(props);
-    this.email = props.email || 'organization email';
-    this.list_explanation_text_1 = props.list_explanation_text_1 || 'organization explanation';
-    this.prismicdata = props.prismicdata || null;
   }
 
-
   render(){
-    if(!this.prismicdata){
-      return <></>;
-    }
+    const {top_text, first_step_icon, first_step_text, icons_separators,
+       second_step_icon, email, bold_text, list_explanation_icon_1, list_explanation_text_1, list_explanation_icon_2, list_explanation_text_2,
+       list_explanation_icon_3, list_explanation_text_3, illustration_picture} = this.props;
     return(
       <AppMinimal>
         <section className={hasDownloadedSection}>
-          <p className={isdownloading}>{this.prismicdata.top_text.text}</p>
+          <p className={isdownloading}>{top_text}</p>
           <div>
-            <img className={iconsNumber} src={this.prismicdata.first_step_icon.url} />
-            <span className={formWizzardText}>{this.prismicdata.first_step_text.text}</span>
-            <img className={formWizzardSeparator} src={this.prismicdata.icons_separators.url} />
-            <img className={iconsNumber} src={this.prismicdata.second_step_icon.url} />
-            <span className={formWizzardText}>{this.email}</span>
+            <img className={iconsNumber} src={first_step_icon} />
+            <span className={formWizzardText}>{first_step_text}</span>
+            <img className={formWizzardSeparator} src={icons_separators} />
+            <img className={iconsNumber} src={second_step_icon} />
+            <span className={formWizzardText}>{email}</span>
           </div>
-          <p className={whatnext}>{this.prismicdata.bold_text.text}</p>
+          <p className={whatnext}>{bold_text}</p>
           <section className={bottomSection}>
             <div className={someInformations}>
-              <p><img className={iconsBottom} src={this.prismicdata.list_explanation_icon_1.url}/>{this.list_explanation_text_1}</p>
-              <p><img className={iconsBottom} src={this.prismicdata.list_explanation_icon_2.url}/>{this.prismicdata.list_explanation_text_2.text}</p>
-              <p><img className={iconsBottom} src={this.prismicdata.list_explanation_icon_3.url}/>{this.prismicdata.list_explanation_text_3.text}</p>
+              <p><img className={iconsBottom} src={list_explanation_icon_1}/>{list_explanation_text_1}</p>
+              <p><img className={iconsBottom} src={list_explanation_icon_2}/>{list_explanation_text_2}</p>
+              <p><img className={iconsBottom} src={list_explanation_icon_3}/>{list_explanation_text_3}</p>
             </div>
-            <img className={stationSample} src={this.prismicdata.illustration_picture.url}/>
+            <img className={stationSample} src={illustration_picture}/>
           </section>
         </section>
       </AppMinimal>
