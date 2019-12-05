@@ -84,11 +84,9 @@ export default class DownloadByOrganization extends React.Component{
 
   constructor(props){
     super(props);
-    console.log(this)
   }
   render(){
     const {onClickDownload, title, description, bkg_image, pictureUrl, linkbewteenorgandstationicons, stationicon, download_icon, button_text, details, illustration} = this.props;
-    console.log('picturel', pictureUrl)
     return( 
     <AppMinimal>
       <Seo

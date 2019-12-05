@@ -97,9 +97,7 @@ export default class Welcome extends React.Component{
         unreachable: true,
       });
       }
-      console.log('res', res)
       const {name, pictureUrl, domain} = res.data.organizationBySlug;
-      console.log('picturUrl', pictureUrl)
       this.setState({
         filledOrgData:{
           title: data.maintitle.text.replace('{{organizationName}}', name || domain),
