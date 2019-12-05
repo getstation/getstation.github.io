@@ -6,8 +6,9 @@ const hasDownloadedSection = css`
 height: 100vh;
 width: 100vw;
 display: flex;
+padding-top: 70px;
 flex-direction: column;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
 bottom: 0;
 width: 100vw;
@@ -19,17 +20,17 @@ const isdownloading = css`
 font-style: italic;
 margin-bottom: 40px;
 font-size: 22px;
+color: #3c505d
 `
 
 const formWizzardText = css`
 color: #66c6ed;
-margin-right: 30px;
 font-size: 24px;
 font-weight: bold;
 `
 
 const formWizzardSeparator = css`
-margin: 0 20px;
+margin: 0 60px;
 `
 
 const iconsNumber = css`
@@ -58,8 +59,12 @@ flex-direction: column;
 justify-content: space-evenly;
 font-size: 22px;
 & > p{
+  margin-top:60px;
   max-width: 38ch;
   hyphens: auto;
+}
+&>p:first-child{
+  margin-top: 120px;
 }
 `
 
@@ -67,6 +72,7 @@ const iconsBottom = css`
 width: 50px;
 height: 50px;
 float: left;
+margin-right: 30px;
 `
 
 const stationSample = css`

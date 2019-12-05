@@ -9,23 +9,21 @@ const optionsLoading = {
   loop: true,
   autoplay: true,
   animationData,
-};
-
+}
 
 const loadingContainer = css`
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-top: calc(50vh - 250px)
 `;
 
 export const Loading = () =>(
   <AppMinimal>
     <div className={loadingContainer}>
       <Lottie
+        className={imgLoading}
         options={optionsLoading}
-        height={230}
+        height={400}
         width={400}
       />
     </div>

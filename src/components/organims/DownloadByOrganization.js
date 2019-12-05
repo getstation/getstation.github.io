@@ -12,11 +12,12 @@ const main = css`
   bottom: 0;
   width: 100vw;
   position: absolute;
+  padding-top: 70px;
   height: 100vw;
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   overflow-x: hidden;
  `
@@ -25,6 +26,7 @@ const main = css`
   font-size: 35px;
   font-weight: bold;
   margin-top: 35px;
+  color: #292929;
  `
  
  const descriptionStyle = css`
@@ -61,22 +63,23 @@ const main = css`
  const buttonDownload = css`
   display: flex;
   justify-content: flex-between;
-  margin-top: 35px;
+  margin-top: 60px;
  `
  
  const videoOfStation = css`
   height: auto;
   width: 400px;
   border-radius: 10.4px;
-  box-shadow: 10px 10px 42px -21px rgba(0,0,0,0.75);
+  box-shadow: 10px 10px 42px -21px rgba(60,80,93,0.24);
  `
  
  const detailsStyle = css`
-  margin-top: 35px;
+  margin-top: 80px;
   margin-bottom: 25px;
   max-width: 500px;
   hyphens: auto;
   text-align: center;
+  color: rgba(16, 61, 112, 0.35);
  `
 
 
