@@ -34,6 +34,7 @@ export default class Welcome extends React.Component{
     this.state={
       step: 1,
       isLoading: true,
+      unreachable: false,
       filledOrgData:{
         title: 'Your organization name',
         description: 'Your organization description',
@@ -59,6 +60,13 @@ export default class Welcome extends React.Component{
     const organizationSlug = splittedPathName.length > 0 ? splittedPathName[1] : null;
     // We do not want netlify to do this..
     if(!window) return 
+    if(!organizationSlug){
+      this.setState({
+        isLoading: false,
+        unreachable: true,
+      });
+      return;
+    }
     const currentUrl = new URL(window.location);
     if(currentUrl.search && currentUrl.search.includes('?dl')){
       this.setState({
@@ -78,8 +86,9 @@ export default class Welcome extends React.Component{
       const propsToChecks = 'data.organizationBySlug';
       if(!has(res, propsToChecks) || (!has(res, `${propsToChecks}.name`) && !has(res, `${propsToChecks}.domain`))) {
         return this.setState({
-          unreachable: true
-        })
+        isLoading: false,
+        unreachable: true,
+      });
       }
       const {name, pictureUrl, domain} = res.data.organizationBySlug;
       this.setState({
@@ -98,12 +107,18 @@ export default class Welcome extends React.Component{
     .catch(err=>{
       this.setState({
         isLoading: false,
+        unreachable: true,
       });
       console.error(err)
     })
 
   }
   render(){
+    // Cannot render data, go to 404.. way fo netlify
+    if(this.state.unreachable && typeof window !== 'undefined'){
+      window.location.href = '/404';
+      return <></>;
+    }
     const { props } = this;
     const { data } = props.data.prismicWelcome;
     if(this.state.isLoading){
