@@ -54,6 +54,10 @@ const main = css`
   height: 30px
  `
  
+ const downloadIconStyle = css`
+  margin-right: 8px; 
+ `; 
+
  const buttonDownload = css`
   display: flex;
   justify-content: flex-between;
@@ -84,6 +88,7 @@ export default class DownloadByOrganization extends React.Component{
   }
   render(){
     const {onClickDownload, title, description, bkg_image, pictureUrl, linkbewteenorgandstationicons, stationicon, download_icon, button_text, details, illustration} = this.props;
+    console.log('picturel', pictureUrl)
     return( 
     <AppMinimal>
       <Seo
@@ -121,7 +126,7 @@ export default class DownloadByOrganization extends React.Component{
           shadow={false}
           onClick={onClickDownload}
           >
-          <img src={download_icon}/>
+          <img src={download_icon} className={downloadIconStyle}/>
           {button_text}
         </Button>
         <p className={detailsStyle}>{details}</p>

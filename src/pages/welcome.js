@@ -24,6 +24,9 @@ const getOrgInfo = gql`
   }
 `;
 
+/**
+ * This Page is special because it combines data from prismic which contains some templating elements & filled with data coming from our API
+ */
 export default class Welcome extends React.Component{
   constructor(props){
     super(props);
@@ -51,6 +54,12 @@ export default class Welcome extends React.Component{
       step: 2
     })
   }
+  componentDidUpdate(){
+    //Cannot render data, go to 404.. way fo netlify
+    if(this.state.unreachable && typeof window !== 'undefined'){
+      window.location.href = '/404';
+    }
+  }
   componentDidMount(){
     const {data} = this.props.data.prismicWelcome;
     const {client} = this;
@@ -58,11 +67,10 @@ export default class Welcome extends React.Component{
     const matchedUrl =  this.props['*'];
     const splittedPathName = matchedUrl.split('/');
     const organizationSlug = splittedPathName.length > 0 ? splittedPathName[1] : null;
-    // We do not want netlify to do this..
+    // We do not want ssr to do this..
     if(!window) return 
     if(!organizationSlug){
       this.setState({
-        isLoading: false,
         unreachable: true,
       });
       return;
@@ -84,29 +92,29 @@ export default class Welcome extends React.Component{
     .then(res=>{
       // Insufisent data, go to 404
       const propsToChecks = 'data.organizationBySlug';
-      if(!has(res, propsToChecks) || (!has(res, `${propsToChecks}.name`) && !has(res, `${propsToChecks}.domain`))) {
+      if(!has(res, propsToChecks) || !res.data.organizationBySlug) {
         return this.setState({
-        isLoading: false,
         unreachable: true,
       });
       }
+      console.log('res', res)
       const {name, pictureUrl, domain} = res.data.organizationBySlug;
+      console.log('picturUrl', pictureUrl)
       this.setState({
         filledOrgData:{
           title: data.maintitle.text.replace('{{organizationName}}', name || domain),
           description: data.description.text.replace('{{organizationName}}', name || domain),
           details: data.details.text.replace('{{organizationName}}', name || domain),
-          email:  data.second_step_text.text.replace('{{organizationName}}', domain),
+          email:  data.second_step_text.text.replace('{{organizationDomain}}', domain),
           list_explanation_text_1:  data.list_explanation_text_1.text.replace('{{organizationName}}', name ||domain),
+          pictureUrl,
         },
-        pictureUrl,
         isLoading: false,
         apiData: data
       })
     })
     .catch(err=>{
       this.setState({
-        isLoading: false,
         unreachable: true,
       });
       console.error(err)
@@ -114,11 +122,6 @@ export default class Welcome extends React.Component{
 
   }
   render(){
-    // Cannot render data, go to 404.. way fo netlify
-    if(this.state.unreachable && typeof window !== 'undefined'){
-      window.location.href = '/404';
-      return <></>;
-    }
     const { props } = this;
     const { data } = props.data.prismicWelcome;
     if(this.state.isLoading){
