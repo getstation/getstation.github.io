@@ -21,7 +21,6 @@ export const Loading = () =>(
   <AppMinimal>
     <div className={loadingContainer}>
       <Lottie
-        className={imgLoading}
         options={optionsLoading}
         height={400}
         width={400}
