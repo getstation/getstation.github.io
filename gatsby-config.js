@@ -88,10 +88,6 @@ module.exports = {
         gtmPreview: `${process.env.GTM_PREVIEW}`,
       },
     },
-    {
-      resolve: `gatsby-plugin-create-client-paths`,
-      options: { prefixes: [`/welcome/*`] },
-    },
     'gatsby-plugin-netlify',
     'gatsby-plugin-client-side-redirect',
   ],
