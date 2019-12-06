@@ -92,6 +92,7 @@ module.exports = {
       resolve: `gatsby-plugin-create-client-paths`,
       options: { prefixes: [`/welcome/*`] },
     },
+    'gatsby-plugin-netlify',
     'gatsby-plugin-client-side-redirect',
   ],
 };
