@@ -14,7 +14,10 @@ const optionsLoading = {
 const loadingContainer = css`
   width: 100vw;
   height: 100vh;
-  padding-top: calc(50vh - 250px)
+  padding-top: calc(50vh - 250px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Loading = () =>(
@@ -22,8 +25,8 @@ export const Loading = () =>(
     <div className={loadingContainer}>
       <Lottie
         options={optionsLoading}
-        height={400}
-        width={400}
+        height={250}
+        width={250}
       />
     </div>
   </AppMinimal>

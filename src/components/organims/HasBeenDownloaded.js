@@ -6,7 +6,7 @@ const hasDownloadedSection = css`
 height: 100vh;
 width: 100vw;
 display: flex;
-padding-top: 70px;
+padding-top: 120px;
 flex-direction: column;
 justify-content: flex-start;
 align-items: center;
@@ -25,8 +25,8 @@ color: #3c505d
 
 const formWizzardText = css`
 color: #66c6ed;
-font-size: 24px;
-font-weight: bold;
+font-size: 22px;
+font-weight: 500;
 `
 
 const formWizzardSeparator = css`
@@ -38,7 +38,7 @@ margin-right: 6px;
 `
 
 const whatnext = css`
-font-size: 35px;
+font-size: 32px;
 font-weight: bold;
 margin-bottom: 50px;
 margin-top: 50px;
@@ -54,9 +54,10 @@ height: 250px;
 `
 
 const someInformations = css`
+height: 400px
 display: flex;
 flex-direction: column;
-justify-content: space-evenly;
+justify-content: center;
 font-size: 22px;
 & > p{
   margin-top:60px;
@@ -64,7 +65,7 @@ font-size: 22px;
   hyphens: auto;
 }
 &>p:first-child{
-  margin-top: 120px;
+  margin-top: 45px;
 }
 `
 
@@ -76,9 +77,10 @@ margin-right: 30px;
 `
 
 const stationSample = css`
-width: 50% !important;
-height: auto;
-height: 170% !important;
+width: 600px !important;
+height: 400px !important;
+margin-right: -180px;
+margin-left: 12px;
 ` 
 
 export default class HasBeenDownloaded extends React.Component{
