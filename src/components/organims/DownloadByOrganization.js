@@ -71,6 +71,7 @@ const main = css`
   width: 400px;
   border-radius: 10.4px;
   box-shadow: 10px 10px 42px -21px rgba(60,80,93,0.24);
+  border: solid 1.3px rgba(151, 151, 151, 0.17);
  `
  
  const detailsStyle = css`
