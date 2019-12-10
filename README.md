@@ -74,7 +74,7 @@
 1.  **Download dependencies**
 
     ```sh
-    yarn install
+    yarn
     ```
 
 1.  **Start developing**
@@ -82,17 +82,17 @@
     Navigate into your new site’s directory and start it up.
 
     ```sh
-    gatsby develop
+    npm run develop
     ```
 
-    Your site is now running at `http://localhost:8000`!
+    Your site is now running at `http://localhost:8000`
 
     \_Note: You'll also see a second link: `http://localhost:8000/___graphql`. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql).\_
 
 1.  **Build**
 
     ```sh
-    gatsby build
+    npm run build
     ```
 
 1.  **Serve Build**
@@ -103,5 +103,5 @@
 
 1.  **Launch Storybook**
     ```sh
-    yarn storybook
+    npm run storybook
     ```
