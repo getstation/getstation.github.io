@@ -1,18 +1,19 @@
-exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
-  if (stage === 'build-html') {
-    actions.setWebpackConfig({
-      module: {
-        rules: [
-          {
-            test: /auth0-js/,
-            use: loaders.null(),
-          },
-        ],
-      },
-    });
-  }
-};
+const path = require('path');
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        react: path.resolve('./node_modules/react'),
+        '@getstation/use-firebase-auth': path.resolve('./node_modules/@getstation/use-firebase-auth'),
+        'apollo-client': path.resolve('./node_modules/apollo-client'),
+        'react-apollo': path.resolve('./node_modules/react-apollo'),
+        '@apollo/react-common': path.resolve('./node_modules/@apollo/react-common'),
+        '@apollo/react-hooks': path.resolve('./node_modules/@apollo/react-hooks'),
+      },
+    },
+  });
+};
 
 exports.createPages = ({ graphql, actions }) => {
   const { createRedirect } = actions;

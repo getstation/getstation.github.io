@@ -4,15 +4,17 @@
   "version": "1.0.0",
   "author": "Laurent Sutterlity <laurent@sutterlity.fr>",
   "dependencies": {
+    "@getstation/authentication": "^0.1.0",
+    "@getstation/theme": "^0.22.0",
+    "@getstation/use-firebase-auth": "^2.0.0-rc.0",
     "add": "^2.0.6",
     "apollo-cache-inmemory": "^1.5.1",
     "apollo-client": "^2.5.1",
     "apollo-link-context": "^1.0.17",
     "apollo-link-http": "^1.5.14",
-    "auth0-js": "^9.10.2",
-    "auth0-lock": "^11.16.0",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
+    "firebase": "7.5.0",
     "gatsby": "^2.4.2",
     "gatsby-image": "^2.0.25",
     "gatsby-plugin-client-side-redirect": "^0.0.2",
@@ -37,14 +39,15 @@
     "prismic-javascript": "^2.0.3",
     "prismic-reactjs": "^0.3.2",
     "prop-types": "^15.6.2",
-    "react": "^16.8.6",
+    "react": "^16.12.0",
     "react-anchor-link-smooth-scroll": "^1.0.11",
     "react-apollo": "^2.5.5",
     "react-device-detect": "^1.6.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.12.0",
     "react-emotion": "^9.2.12",
     "react-headroom": "^2.2.4",
     "react-helmet": "^5.2.0",
+    "react-jss": "^10.0.0",
     "react-lottie": "^1.2.3",
     "react-pose": "^4.0.4",
     "react-pose-text": "^3.1.0",
@@ -54,8 +57,9 @@
     "yarn": "^1.12.1"
   },
   "resolutions": {
-    "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "**/react": "16.12.0",
+    "**/react-dom": "16.12.0",
+    "**/react-apollo": "2.5.5"
   },
   "keywords": [
     "gatsby"

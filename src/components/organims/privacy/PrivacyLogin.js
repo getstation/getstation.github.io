@@ -4,6 +4,10 @@ import styled from 'react-emotion';
 import { css } from 'emotion';
 import { rem } from 'polished';
 
+import { AuthenticationBox, ApolloProvider, FirebaseAuthProvider } from '@getstation/authentication';
+
+console.log(ApolloProvider, FirebaseAuthProvider);
+
 import * as font from '../../../styles/fonts';
 import { mqMin } from '../../../styles/breackpoint';
 
@@ -35,7 +39,6 @@ class PrivacyLogin extends React.Component {
   constructor(props) {
     super(props);
 
-    this.login = props.login;
     this.actualRender = this.actualRender.bind(this);
   }
 
@@ -51,14 +54,12 @@ class PrivacyLogin extends React.Component {
   actualRender(queryResults) {
     // Extract data from Query
     if (!queryResults) return null;
-    const { bkg_image, title } = queryResults.content.data;
+    const { title } = queryResults.content.data;
+    const { onAuthenticated } = this.props;
 
     // Render with data
     return (
-      <SectionMinimal background={bkg_image.url} customCss={{
-        backgroundPosition: 'center calc(50% + 80px)',
-        backgroundSize: 'auto',
-      }}>
+      <SectionMinimal>
         <Title
           element="h1"
           className={css({
@@ -70,8 +71,7 @@ class PrivacyLogin extends React.Component {
           })}>
           {title}
         </Title>
-        <LoginBox id="login-box"></LoginBox>
-        <LoadingMessage>Loading session...</LoadingMessage>
+        <AuthenticationBox allowSignUp={false} onAuthenticated={onAuthenticated} />
       </SectionMinimal>
     );
   }
@@ -85,9 +85,6 @@ const QUERY = graphql`
     content: prismicOffboarding(uid: { eq: "privacy-login" }) {
       data {
         title,
-        bkg_image {
-          url
-        }
       }
     }
   }
