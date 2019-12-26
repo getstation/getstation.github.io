@@ -44,8 +44,8 @@ class Privacy extends React.Component {
             title="Station • Privacy access"
             description="Manage your personal data on Station"
           />
-          <Unavailable />
-          {/* <PrivacyBox></PrivacyBox> */}
+          {/* <Unavailable /> */}
+          <PrivacyBox></PrivacyBox>
         </AppMinimal>
       );
     }

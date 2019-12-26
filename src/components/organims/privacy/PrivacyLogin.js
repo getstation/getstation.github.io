@@ -3,6 +3,7 @@ import { StaticQuery, graphql } from "gatsby";
 import styled from 'react-emotion';
 import { css } from 'emotion';
 import { rem } from 'polished';
+import { ProvidedAuthenticationBox } from '@getstation/authentication-ui';
 
 import * as font from '../../../styles/fonts';
 import { mqMin } from '../../../styles/breackpoint';
@@ -70,7 +71,16 @@ class PrivacyLogin extends React.Component {
           })}>
           {title}
         </Title>
-        <LoginBox id="login-box"></LoginBox>
+        <LoginBox>
+          <ProvidedAuthenticationBox
+            apiGQLEndpoint={'http://localhost:4001/graphql'}
+            firebaseConfig={{
+              apiKey: 'AIzaSyBWT2NtRDh7Au42wNczUjFShxkTtFWMDds',
+              authDomain: 'browserx-dev.firebaseapp.com'
+            }}
+            onAuthenticated={this.props.onAuthenticated}
+          />
+        </LoginBox>
         <LoadingMessage>Loading session...</LoadingMessage>
       </SectionMinimal>
     );

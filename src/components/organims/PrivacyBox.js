@@ -1,5 +1,6 @@
 import React from 'react';
 import Auth0Lock from "auth0-lock";
+import { ProvidedAuthenticationBox } from '@getstation/authentication-ui';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { InMemoryCache } from 'apollo-cache-inmemory';
@@ -18,12 +19,9 @@ class PrivacyBox extends React.Component {
 
     // Will hold Apollo Client
     this.client = null;
-    // Init Auth0 Lock
-    this.lock = this.initLock();
+
 
     // Bind necessary functions
-    this.onLogin = this.onLogin.bind(this);
-    this.onLogout = this.onLogout.bind(this);
     this.navigate = this.navigate.bind(this);
     this.handleAuthentication = this.handleAuthentication.bind(this);
 
@@ -35,69 +33,29 @@ class PrivacyBox extends React.Component {
     };
   }
   
-  initLock() {
-    return new Auth0Lock(process.env.AUTH0_CLIENT_ID, process.env.AUTH0_DOMAIN, {
-      autoclose: true,
-      auth: { redirect: false },
-      container: 'login-box',
-      theme: {
-        logo: 'https://assets.getstation.com/emails/facebook-profile.png',
-        primaryColor: '#164d7f',
-      },
-      languageDictionary: {
-        title: "Station"
-      },
-    });
-  }
-
-  async componentDidMount() {
-    // Closure to get rid of this binding problems
-    const lock = this.lock;
-    const handleAuthentication = this.handleAuthentication;
-
-    // Check user's session
-    lock.checkSession({}, function (error, authResult) {
-      if (error || !authResult) {
-        lock.show();
-      } else {
-        // User has an active session, so we can use the accessToken directly.
-        lock.getUserInfo(authResult.accessToken, handleAuthentication(authResult.idToken));
-      }
-    });
-
-    // Register authentication listener
-    lock.on("authenticated", authResult => {
-      lock.getUserInfo(authResult.accessToken, handleAuthentication(authResult.idToken));
-    });
-  }
-
-  handleAuthentication = (idToken) => (error, profile) => {
-    if (error) throw new Error(error.original);
-
+  handleAuthentication = ({ user }) => {
+    // todo: have better `onAuthenticated`: profile, sycnhronous
+    user.getIdToken().then(idToken => {
+      this.client = new ApolloClient({
+        link: authLink(idToken).concat(httpLink),
+        cache: new InMemoryCache(),
+      });
+      
+      // Update state
+      this.setState({
+        profile: {
+          given_name: 'Toto',
+          email: 'email@oo.fr',
+        },
+        isAuthenticated: true,
+        route: 'offboarding',
+      });
+    })
     // Init an Apollo Client
-    this.client = new ApolloClient({
-      link: authLink(idToken).concat(httpLink),
-      cache: new InMemoryCache(),
-    });
-
-    // Update state
-    this.setState({
-      profile,
-      isAuthenticated: true,
-      route: 'offboarding',
-    });
   }
 
   navigate(route) {
     this.setState({ route });
-  }
-
-  onLogin() {
-    this.lock.show();
-  }
-
-  onLogout() {
-    this.lock.logout();
   }
 
   render() {
@@ -124,7 +82,11 @@ class PrivacyBox extends React.Component {
       );
     }
 
-    return (<PrivacyLogin login={this.onLogin}></PrivacyLogin>);
+    return (
+      <PrivacyLogin
+        onAuthenticated={this.handleAuthentication}
+      />
+    );
   }
 }
 
