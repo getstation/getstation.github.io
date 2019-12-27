@@ -11,7 +11,6 @@
     "apollo-link-context": "^1.0.17",
     "apollo-link-http": "^1.5.14",
     "auth0-js": "^9.10.2",
-    "auth0-lock": "^11.16.0",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
     "gatsby": "^2.4.2",

@@ -1,6 +1,4 @@
 import React from 'react';
-import Auth0Lock from "auth0-lock";
-import { ProvidedAuthenticationBox } from '@getstation/authentication-ui';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { InMemoryCache } from 'apollo-cache-inmemory';
