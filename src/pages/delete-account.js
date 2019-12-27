@@ -1,21 +1,9 @@
 import React from 'react';
 
-import { css } from 'emotion';
 import AppMinimal from '../components/layout/AppMinimal';
 import Seo from '../components/molecules/Seo';
 
 import PrivacyBox from '../components/organims/PrivacyBox';
-import SectionMinimal from '../components/molecules/SectionMinimal';
-import Title from '../components/atoms/Title';
-
-// remove me when back on
-const Unavailable = () => (
-  <SectionMinimal>
-    <Title element="h1">
-      This feature is momentarily unavailable. Please come back in a few days.
-    </Title>
-  </SectionMinimal>
-);
 
 class Privacy extends React.Component {
   constructor(props) {
@@ -44,7 +32,6 @@ class Privacy extends React.Component {
             title="Station • Privacy access"
             description="Manage your personal data on Station"
           />
-          {/* <Unavailable /> */}
           <PrivacyBox></PrivacyBox>
         </AppMinimal>
       );
