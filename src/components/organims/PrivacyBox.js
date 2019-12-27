@@ -33,25 +33,22 @@ class PrivacyBox extends React.Component {
     };
   }
   
-  handleAuthentication = ({ user }) => {
-    // todo: have better `onAuthenticated`: profile, sycnhronous
-    user.getIdToken().then(idToken => {
-      this.client = new ApolloClient({
-        link: authLink(idToken).concat(httpLink),
-        cache: new InMemoryCache(),
-      });
-      
-      // Update state
-      this.setState({
-        profile: {
-          given_name: 'Toto',
-          email: 'email@oo.fr',
-        },
-        isAuthenticated: true,
-        route: 'offboarding',
-      });
-    })
+  handleAuthentication = ({ idToken }) => {
     // Init an Apollo Client
+    this.client = new ApolloClient({
+      link: authLink(idToken).concat(httpLink),
+      cache: new InMemoryCache(),
+    });
+    
+    // Update state
+    this.setState({
+      profile: {
+        given_name: 'Toto',
+        email: 'email@oo.fr',
+      },
+      isAuthenticated: true,
+      route: 'offboarding',
+    });
   }
 
   navigate(route) {
