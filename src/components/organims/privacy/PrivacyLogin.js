@@ -54,10 +54,10 @@ class PrivacyLogin extends React.Component {
           {title}
         </Title>
           <ProvidedAuthenticationBox
-            apiGQLEndpoint={'http://localhost:4001/graphql'}
+            apiGQLEndpoint={process.env.GRAPHQL_URI}
             firebaseConfig={{
-              apiKey: 'AIzaSyBWT2NtRDh7Au42wNczUjFShxkTtFWMDds',
-              authDomain: 'browserx-dev.firebaseapp.com'
+              apiKey: process.env.FIREBASE_API_KEY,
+              authDomain: process.env.FIREBASE_AUTH_DOMAIN,
             }}
             allowSignUp={false}
             onAuthenticated={this.props.onAuthenticated}

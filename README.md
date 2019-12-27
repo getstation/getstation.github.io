@@ -63,6 +63,9 @@
     # GraphQL
     GRAPHQL_URI=http://127.0.0.1:4001/graphql
 
+    # Firebase
+    FIREBASE_API_KEY=xxx
+    FIREBASE_AUTH_DOMAIN=xxx
     ```
 
 ## 🔨 Commands
