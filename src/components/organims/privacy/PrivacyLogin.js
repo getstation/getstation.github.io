@@ -37,7 +37,10 @@ class PrivacyLogin extends React.Component {
       <SectionMinimal wrapperClassname={css({
         display: 'flex',
         flexDirection: 'column',
-        alignItems: 'center'
+        alignItems: 'center',
+        // line-height is set globally but we expect intial
+        // line hight for ProvidedAuthenticationBox
+        lineHeight: 'initial',
       })}>
         <Title
           element="h1"
