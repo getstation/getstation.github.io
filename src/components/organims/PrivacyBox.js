@@ -4,6 +4,7 @@ import { ProvidedAuthenticationBox } from '@getstation/authentication-ui';
 import { ApolloClient } from 'apollo-client';
 import { ApolloProvider } from 'react-apollo';
 import { InMemoryCache } from 'apollo-cache-inmemory';
+import gql from "graphql-tag";
 
 import PrivacyLogin from './privacy/PrivacyLogin';
 import Offboarding from './privacy/Offboarding';
@@ -13,6 +14,14 @@ import OffboardingFail from './privacy/OffboardingFail';
 
 import { httpLink, authLink } from '../../utils/apollo';
 
+const GET_CURRENT_USER_QUERY = gql`
+query GetCurentUser {
+  user: viewer {
+    given_name,
+    email
+  }
+}
+`;
 class PrivacyBox extends React.Component {
   constructor(props) {
     super(props);
@@ -33,18 +42,22 @@ class PrivacyBox extends React.Component {
     };
   }
   
-  handleAuthentication = ({ idToken }) => {
+  handleAuthentication = async ({ idToken }) => {
     // Init an Apollo Client
     this.client = new ApolloClient({
       link: authLink(idToken).concat(httpLink),
       cache: new InMemoryCache(),
     });
+
+    const { data } = await this.client.query({
+      query: GET_CURRENT_USER_QUERY
+    })
     
     // Update state
     this.setState({
       profile: {
-        given_name: 'Toto',
-        email: 'email@oo.fr',
+        given_name: data.user.given_name,
+        email: data.user.email,
       },
       isAuthenticated: true,
       route: 'offboarding',
