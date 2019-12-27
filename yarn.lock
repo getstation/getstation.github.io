@@ -1599,10 +1599,10 @@
     signedsource "^1.0.0"
     yargs "^9.0.0"
 
-"@getstation/authentication-ui@^1.0.0-rc.2":
-  version "1.0.0-rc.2"
-  resolved "https://registry.yarnpkg.com/@getstation/authentication-ui/-/authentication-ui-1.0.0-rc.2.tgz#867c895bdaba676928cbb11f84b86d6891d09a30"
-  integrity sha512-PU4fAYwgCnPKYzmG32WUVYst4KR6faoULs8LlgnmPGwWrx6P3BQ0BSwEy01udwQiN59UcJYgXKcCFuJA/JgS/A==
+"@getstation/authentication-ui@^1.0.0-rc.6":
+  version "1.0.0-rc.6"
+  resolved "https://registry.yarnpkg.com/@getstation/authentication-ui/-/authentication-ui-1.0.0-rc.6.tgz#7b5ce3e129e077b757f66bf3b103ffb779ba1bb5"
+  integrity sha512-wDxRTTddpnUXS0QqCXOv3RevAeNq6MhpUcmql/FkFlEsaDZj56HxyeDZKMr2zLQ7FXIgTTfVp9JKQVE9m3Yvlg==
   dependencies:
     "@apollo/react-hooks" "^3.1.3"
     "@babel/runtime" "^7.7.7"
