@@ -9,6 +9,7 @@ const SectionMinimal = ({
   children,
   bgStaticCenter,
   customCss,
+  wrapperClassname,
   ...rest
 }) => {
   return (
@@ -19,7 +20,7 @@ const SectionMinimal = ({
       })}
       {...rest}
     >
-      <Wrapper>
+      <Wrapper className={wrapperClassname}>
         {children}
       </Wrapper>
     </Section>

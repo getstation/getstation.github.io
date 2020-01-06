@@ -13,7 +13,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-env-variables`,
       options: {
-        whitelist: ['AUTH0_DOMAIN', 'AUTH0_CLIENT_ID', 'GRAPHQL_URI'],
+        whitelist: ['GRAPHQL_URI', 'FIREBASE_API_KEY', 'FIREBASE_AUTH_DOMAIN'],
       },
     },
     'gatsby-plugin-react-helmet',

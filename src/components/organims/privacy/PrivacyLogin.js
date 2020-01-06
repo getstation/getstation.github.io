@@ -1,35 +1,14 @@
 import React from 'react';
 import { StaticQuery, graphql } from "gatsby";
-import styled from 'react-emotion';
 import { css } from 'emotion';
 import { rem } from 'polished';
+import { ProvidedAuthenticationBox } from '@getstation/authentication-ui';
 
 import * as font from '../../../styles/fonts';
 import { mqMin } from '../../../styles/breackpoint';
 
 import SectionMinimal from '../../molecules/SectionMinimal';
 import Title from '../../atoms/Title';
-
-const boxWidth = 300;
-const boxHeight = 502;
-const sharedStyle = {
-  display: 'inline-block',
-  height: `${boxHeight}px`,
-  width: `${boxWidth}px`,
-  verticalAlign: 'middle',
-}
-
-const LoginBox = styled.div({
-  ...sharedStyle,
-  boxShadow: 'rgba(0, 0, 0, 0.20) 0px 4px 12px 0px',
-  borderRadius: rem('5px'),
-});
-const LoadingMessage = styled.div({
-  ...sharedStyle,
-  display: 'inline-block',
-  lineHeight: `${boxHeight}px`,
-  marginLeft: `-${boxWidth}px`,
-});
 
 class PrivacyLogin extends React.Component {
   constructor(props) {
@@ -51,14 +30,18 @@ class PrivacyLogin extends React.Component {
   actualRender(queryResults) {
     // Extract data from Query
     if (!queryResults) return null;
-    const { bkg_image, title } = queryResults.content.data;
+    const { title } = queryResults.content.data;
 
     // Render with data
     return (
-      <SectionMinimal background={bkg_image.url} customCss={{
-        backgroundPosition: 'center calc(50% + 80px)',
-        backgroundSize: 'auto',
-      }}>
+      <SectionMinimal wrapperClassname={css({
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        // line-height is set globally but we expect intial
+        // line hight for ProvidedAuthenticationBox
+        lineHeight: 'initial',
+      })}>
         <Title
           element="h1"
           className={css({
@@ -70,8 +53,15 @@ class PrivacyLogin extends React.Component {
           })}>
           {title}
         </Title>
-        <LoginBox id="login-box"></LoginBox>
-        <LoadingMessage>Loading session...</LoadingMessage>
+          <ProvidedAuthenticationBox
+            apiGQLEndpoint={process.env.GRAPHQL_URI}
+            firebaseConfig={{
+              apiKey: process.env.FIREBASE_API_KEY,
+              authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+            }}
+            allowSignUp={false}
+            onAuthenticated={this.props.onAuthenticated}
+          />
       </SectionMinimal>
     );
   }
@@ -85,9 +75,6 @@ const QUERY = graphql`
     content: prismicOffboarding(uid: { eq: "privacy-login" }) {
       data {
         title,
-        bkg_image {
-          url
-        }
       }
     }
   }
