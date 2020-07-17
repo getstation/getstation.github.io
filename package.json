@@ -31,7 +31,7 @@
     "gatsby-transformer-sharp": "^2.1.10",
     "graphql-tag": "^2.10.1",
     "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "polished": "^2.3.1",
     "prismic-javascript": "^2.0.3",
     "prismic-reactjs": "^0.3.2",
