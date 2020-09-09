@@ -41,6 +41,11 @@ status = 301
 force = true
 
 [[redirects]]
+from = "https://getstation.com/delete-account"
+to = "/delete-account"
+status = 200
+
+[[redirects]]
 from = "https://getstation.com/*"
 to = "https://stationhq.com"
 status = 301
