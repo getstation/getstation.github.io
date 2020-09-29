@@ -5,12 +5,6 @@ status = 301
 force = true
 
 [[redirects]]
-from = "https://getstation.com/email-verification-result"
-to = "https://stationhq.com/email-verification-result"
-status = 301
-force = true
-
-[[redirects]]
 from = "https://getstation.com/features"
 to = "https://stationhq.com/power-ups"
 status = 301
