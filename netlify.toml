@@ -33,3 +33,9 @@ from = "https://getstation.com"
 to = "https://stationhq.com"
 status = 301
 force = true
+
+[[redirects]]
+from = "http://getstation.com"
+to = "https://stationhq.com"
+status = 301
+force = true
