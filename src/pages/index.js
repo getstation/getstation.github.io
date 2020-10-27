@@ -14,6 +14,17 @@ import SliderMentions from '../components/organims/SliderMentions';
 const IndexPage = props => {
   const DATA = props.data.content.data;
   const DOWNLOAD = props.data.download;
+
+  // clear service workers
+  if (window.navigator && navigator.serviceWorker) {
+    navigator.serviceWorker.getRegistrations()
+      .then(function(registrations) {
+        for(let registration of registrations) {
+          registration.unregister();
+        }
+      });
+  }
+
   return (
     <App headerTheme="dark">
       <Seo
