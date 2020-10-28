@@ -15,16 +15,6 @@ const IndexPage = props => {
   const DATA = props.data.content.data;
   const DOWNLOAD = props.data.download;
 
-  // clear service workers
-  try {
-    navigator.serviceWorker.getRegistrations()
-      .then(function(registrations) {
-        for(let registration of registrations) {
-          registration.unregister();
-        }
-      });
-  } catch (e) {}
-
   return (
     <App headerTheme="dark">
       <Seo

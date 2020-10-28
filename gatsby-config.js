@@ -29,6 +29,7 @@ module.exports = {
         icon: 'src/images/icon.png', // This path is relative to the root of the site.
       },
     },
+    'gatsby-plugin-remove-serviceworker',
     'gatsby-plugin-sharp',
     {
       resolve: 'gatsby-source-prismic',
