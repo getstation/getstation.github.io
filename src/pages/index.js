@@ -16,14 +16,14 @@ const IndexPage = props => {
   const DOWNLOAD = props.data.download;
 
   // clear service workers
-  if (window.navigator && navigator.serviceWorker) {
+  try {
     navigator.serviceWorker.getRegistrations()
       .then(function(registrations) {
         for(let registration of registrations) {
           registration.unregister();
         }
       });
-  }
+  } catch (e) {}
 
   return (
     <App headerTheme="dark">
