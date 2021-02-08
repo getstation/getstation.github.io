@@ -1,42 +1,36 @@
 [[redirects]]
 from = "https://getstation.com/developers-and-partners"
-to = "https://stationhq.com"
+to = "https://stationhq.com?utm_source=getstation.com&utm_medium=301_redirect&utm_campaign=traffic_from%20_old_site"
 status = 301
 force = true
 
 [[redirects]]
 from = "https://getstation.com/features"
-to = "https://stationhq.com/power-ups"
+to = "https://stationhq.com/power-ups?utm_source=getstation.com&utm_medium=301_redirect&utm_campaign=traffic_from%20_old_site"
 status = 301
 force = true
 
 [[redirects]]
 from = "https://getstation.com/press"
-to = "https://stationhq.com/press"
+to = "https://stationhq.com/press?utm_source=getstation.com&utm_medium=301_redirect&utm_campaign=traffic_from%20_old_site"
 status = 301
 force = true
 
 [[redirects]]
 from = "https://getstation.com/privacy"
-to = "http://faq.stationhq.com/en/articles/4263572-what-are-your-privacy-policies"
+to = "https://faq.stationhq.com/en/articles/4263572-what-are-your-privacy-policies?utm_source=getstation.com&utm_medium=301_redirect&utm_campaign=traffic_from%20_old_site"
 status = 301
 force = true
 
 [[redirects]]
 from = "https://getstation.com/team"
-to = "https://stationhq.com/team"
+to = "https://stationhq.com/team?utm_source=getstation.com&utm_medium=301_redirect&utm_campaign=traffic_from%20_old_site"
 status = 301
 force = true
 
 [[redirects]]
 from = "https://getstation.com"
-to = "https://stationhq.com"
-status = 301
-force = true
-
-[[redirects]]
-from = "http://getstation.com"
-to = "https://stationhq.com"
+to = "https://stationhq.com?utm_source=getstation.com&utm_medium=301_redirect&utm_campaign=traffic_from%20_old_site"
 status = 301
 force = true
 
