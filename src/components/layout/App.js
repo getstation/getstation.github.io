@@ -36,19 +36,19 @@ class App extends React.Component {
             {
               "type": "apple",
               "url": {
-                "url": "https://github.com/getstation/desktop-app/releases/latest"
+                "url": "https://github.com/getstation/desktop-app/releases/latest/download/Station.dmg"
               }
             },
             {
               "type": "windows",
               "url": {
-                "url": "https://github.com/getstation/desktop-app/releases/latest"
+                "url": "https://github.com/getstation/desktop-app/releases/latest/download/Station-Setup.exe"
               }
             },
             {
               "type": "linux",
               "url": {
-                "url": "https://github.com/getstation/desktop-app/releases/latest"
+                "url": "https://github.com/getstation/desktop-app/releases/latest/download/Station-x86_64.AppImage"
               }
             }
           ]
