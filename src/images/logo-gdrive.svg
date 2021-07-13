@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 52.4 (67378) - http://www.bohemiancoding.com/sketch -->
+    <title>logo-gdrive</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M5.88517968,0.649592542 L8.02150653,7.72131351 L3.03477426,17.2661928 L0,11.7007233 L5.88517968,0.649592542 Z M17.9028762,11.7047521 L17.9047264,11.7087809 L17.9009662,11.7078216 L14.9499309,17.2116444 L3.04886006,17.2601176 L7.6932357,11.6744403 L17.8586491,11.6997001 L11.0026831,10.0975253 L5.88517968,0.639488622 L11.942433,0.64856936 L17.8990563,11.6997001 L17.9056814,11.6997001 L17.9028762,11.704816 L17.9028762,11.7047521 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="card-feature-double-copy-3" transform="translate(-40.000000, -210.000000)">
+            <g id="logo-gdrive" transform="translate(40.000000, 210.000000)">
+                <g id="circle-yellow" fill="#FCCD48">
+                    <circle cx="17" cy="17" r="17"></circle>
+                </g>
+                <g id="icon/providers/i--gdrive" transform="translate(8.000000, 8.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="provider-svg--gdrive" fill="#FFFFFF" fill-rule="nonzero" xlink:href="#path-1"></use>
+                    <g id="colors/plain/c--white" mask="url(#mask-2)" fill="#FFFFFF" fill-rule="evenodd">
+                        <rect id="Rectangle" x="0" y="0" width="18.0004205" height="18.0004205"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
