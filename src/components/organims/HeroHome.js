@@ -5,9 +5,7 @@ import { rem } from 'polished';
 import Lottie from 'react-lottie';
 import { mqMin, mqMax } from '../../styles/breackpoint';
 import Wrapper from '../layout/Wrapper';
-import AppNumber from '../atoms/AppsNumber';
 import Title from '../atoms/Title';
-import Reward from '../molecules/Reward';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
@@ -97,8 +95,6 @@ const HeroHome = ({
   image,
   video,
   videoPoster,
-  rewardUrl,
-  rewardImg,
   className,
   ...rest
 }) => {
@@ -183,22 +179,6 @@ const HeroHome = ({
           <div style={{ display: 'inline-block' }}>
             <DownloadApp data={download} className={downloadTracking} />
           </div>
-          {rewardUrl && rewardImg.url && (
-            <div
-              className={css({
-                marginTop: '50px',
-                marginBottom: '30px',
-                textAlign: 'center',
-                [[mqMin[2]]]: {
-                  textAlign: 'left',
-                  marginTop: '60px',
-                  marginBottom: '0',
-                },
-              })}
-            >
-              <Reward url={rewardUrl} img={rewardImg} />
-            </div>
-          )}
         </div>
         {image.url && (
           <Illustration>
@@ -242,7 +222,7 @@ const HeroHome = ({
                   },
                 })}
               >
-                <AppNumber /> {legend}
+                <span>670+</span> {legend}
               </p>
             )}
           </Illustration>

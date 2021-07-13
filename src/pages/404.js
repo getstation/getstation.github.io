@@ -1,11 +1,36 @@
 import React from 'react';
-import { graphql } from 'gatsby';
 import App from '../components/layout/App';
 import Seo from '../components/molecules/Seo';
 import SectionFullPage from '../components/molecules/SectionFullPage';
+import img_404 from '../images/404-img.svg';
+import bkg_404 from '../images/bkg-404.svg';
+import slack_img from '../images/slack-imgs.png';
 
-const NotFoundPage = props => {
-  const DATA = props.data.content.data;
+const NotFoundPage = () => {
+  const DATA = {
+    "title": "You landed on uncharted territory",
+    "subtitle": {
+      "html": "<p>No worries though: <strong>we&#39;re here to help</strong>.</p>"
+    },
+    "button_text": "Find my way back",
+    "button_url": "/",
+    "button_type": "internal",
+    "image": {
+      "url": img_404,
+      "dimensions": {
+        "width": 180,
+        "height": 77
+      }
+    },
+    "bkg_image": {
+      "url": bkg_404
+    },
+    "seo_title": "Station • 404",
+    "seo_description": "You landed on uncharted territory. No worries though: we're here to help.",
+    "seo_image": {
+      "url": slack_img
+    }
+  };
   return (
     <App headerTheme="dark">
       <Seo
@@ -35,33 +60,3 @@ const NotFoundPage = props => {
   );
 };
 export default NotFoundPage;
-export const pageQuery = graphql`
-  query notFoundQuery {
-    content: prismic404(id: { eq: "Prismic__404__XBYOSxEAANRffCOr" }) {
-      data {
-        title
-        subtitle {
-          html
-        }
-        button_text
-        button_url
-        button_type
-        image {
-          url
-          dimensions {
-            width
-            height
-          }
-        }
-        bkg_image {
-          url
-        }
-        seo_title
-        seo_description
-        seo_image {
-          url
-        }
-      }
-    }
-  }
-`;

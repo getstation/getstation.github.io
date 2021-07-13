@@ -30,15 +30,15 @@ module.exports = {
       },
     },
     'gatsby-plugin-remove-serviceworker',
-    'gatsby-plugin-sharp',
-    {
-      resolve: 'gatsby-source-prismic',
-      options: {
-        repositoryName: 'station-website',
-        accessToken: `${process.env.API_KEY}`,
-        shouldNormalizeImage: () => true,
-      },
-    },
+    // 'gatsby-plugin-sharp',
+    // {
+    //   resolve: 'gatsby-source-prismic',
+    //   options: {
+    //     repositoryName: 'station-website',
+    //     accessToken: `${process.env.API_KEY}`,
+    //     shouldNormalizeImage: () => true,
+    //   },
+    // },
     'gatsby-transformer-sharp',
     {
       resolve: `gatsby-source-filesystem`,

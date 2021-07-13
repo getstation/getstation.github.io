@@ -4,7 +4,6 @@ import { rem, rgba } from 'polished';
 import FooterLink from '../../components/atoms/LinkFooter';
 import Tooltip from '../../components/atoms/Tooltip';
 import Icon from '../../components/atoms/Icon';
-import Reward from '../../components/molecules/Reward';
 import Wrapper from '../layout/Wrapper';
 import DownloadApp from '../organims/DownloadApp';
 import * as font from '../../styles/fonts';
@@ -175,17 +174,6 @@ const Footer = ({ footer, download, ...rest }) => {
               },
             })}
           >
-            {DATA.reward_img.url && DATA.reward_url && (
-              <div
-                className={css({
-                  [mqMin[0]]: {
-                    paddingRight: rem(30),
-                  },
-                })}
-              >
-                <Reward url={DATA.reward_url} img={DATA.reward_img} />
-              </div>
-            )}
             {DATA.socials_links && (
               <ul
                 className={css({

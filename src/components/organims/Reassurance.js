@@ -6,8 +6,10 @@ import Wrapper from '../layout/Wrapper';
 import Title from '../atoms/Title';
 import * as font from '../../styles/fonts';
 import * as color from '../../styles/colors';
+import { Link } from 'gatsby';
+import Button from '../atoms/Button';
 
-const Reassurance = ({ title, content, logos, ...rest }) => {
+const Reassurance = ({ title, content, logos, button, ...rest }) => {
   return (
     <div
       className={css({
@@ -60,37 +62,16 @@ const Reassurance = ({ title, content, logos, ...rest }) => {
             {content}
           </p>
         )}
-        {logos && (
-          <ul
-            className={css({
-              display: 'flex',
-              flexWrap: 'wrap',
-              justifyContent: 'center',
-              alignItems: 'center',
-            })}
-          >
-            {logos.map(
-              (item, index) =>
-                item.image.url && (
-                  <li
-                    key={`${index}-logos`}
-                    className={css({
-                      margin: rem(10),
-                    })}
-                  >
-                    {item.image.url && (
-                      <img
-                        src={item.image.url}
-                        alt={item.title}
-                        width={item.image.dimensions.width || null}
-                        height={item.image.dimensions.height || null}
-                      />
-                    )}
-                  </li>
-                ),
-            )}
-          </ul>
-        )}
+        <Button
+          to={button.url}
+          size="M"
+          theme="ghost"
+          className={button.tracking}
+          element={'a'}
+          data-aos="fade"
+        >
+          {button.text}
+        </Button>
       </div>
     </div>
   );

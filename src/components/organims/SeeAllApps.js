@@ -3,7 +3,6 @@ import { Link } from 'gatsby';
 import { rem } from 'polished';
 import { keyframes } from 'react-emotion';
 import { css } from 'emotion';
-import AppNumber from '../atoms/AppsNumber';
 import SectionBase from '../molecules/SectionBase';
 import Button from '../atoms/Button';
 
@@ -17,7 +16,7 @@ const SeeAllApps = ({ title, data, button, ...rest }) => {
     <SectionBase
       title={
         <React.Fragment>
-          <AppNumber /> {title}
+          <span>670+</span> {title}
         </React.Fragment>
       }
       footer={
