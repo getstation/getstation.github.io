@@ -66,6 +66,7 @@
     "build": "gatsby build",
     "serve": "gatsby serve",
     "develop": "gatsby develop",
+    "deploy": "gatsby build && gh-pages -d public",
     "format": "prettier --write '**/*.js'",
     "test": "yarn clean && yarn build && yarn build-storybook && echo build ok",
     "storybook": "start-storybook -p 6006",
