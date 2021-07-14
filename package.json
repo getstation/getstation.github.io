@@ -1,6 +1,7 @@
 {
-  "name": "hello-gatsby",
-  "description": "Hello Gatsby starter",
+  "name": "station-website",
+  "private": true,
+  "description": "Station website",
   "version": "1.0.0",
   "author": "Laurent Sutterlity <laurent@sutterlity.fr>",
   "dependencies": {

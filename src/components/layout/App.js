@@ -128,6 +128,12 @@ class App extends React.Component {
               "text": "Privacy",
               "url": "https://github.com/getstation/desktop-app/wiki/FAQ#-data--privacy",
               "tooltip": null
+            },
+            {
+              "type": "external",
+              "text": "Going open-source",
+              "url": "https://medium.com/@julien_26779/handing-station-to-mankind-b1225e4e7413",
+              "tooltip": null
             }
           ],
           "column_3_list": [
