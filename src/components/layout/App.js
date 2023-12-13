@@ -124,10 +124,9 @@ class App extends React.Component {
               "tooltip": ""
             },
             {
-              "type": "external",
+              "type": "internal",
               "text": "Privacy",
-              "url": "https://github.com/getstation/desktop-app/wiki/FAQ#-data--privacy",
-              "tooltip": null
+              "url": "/privacy"
             },
             {
               "type": "external",

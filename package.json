@@ -5,16 +5,9 @@
   "version": "1.0.0",
   "author": "Laurent Sutterlity <laurent@sutterlity.fr>",
   "dependencies": {
-    "@getstation/authentication-ui": "^1.0.2",
-    "add": "^2.0.6",
-    "apollo-cache-inmemory": "^1.5.1",
-    "apollo-client": "^2.5.1",
-    "apollo-link-context": "^1.0.17",
-    "apollo-link-http": "^1.5.14",
     "emotion": "^9.2.12",
     "emotion-server": "^9.2.12",
     "gatsby": "^2.4.2",
-    "gatsby-image": "^2.0.25",
     "gatsby-plugin-client-side-redirect": "^0.0.2",
     "gatsby-plugin-emotion": "^2.0.5",
     "gatsby-plugin-env-variables": "^1.0.1",
@@ -24,38 +17,31 @@
     "gatsby-plugin-polyfill-io": "^1.0.5",
     "gatsby-plugin-react-helmet": "^3.0.5",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
-    "gatsby-plugin-resolve-src": "^1.1.4",
+    "gatsby-plugin-resolve-src": "^2.1.0",
     "gatsby-plugin-sharp": "^2.0.17",
     "gatsby-plugin-sitemap": "^2.0.4",
     "gatsby-source-filesystem": "^2.0.13",
     "gatsby-source-prismic": "^2.2.0",
     "gatsby-transformer-sharp": "^2.1.10",
-    "graphql-tag": "^2.10.1",
-    "isomorphic-fetch": "^2.2.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "polished": "^2.3.1",
     "prismic-javascript": "^2.0.3",
     "prismic-reactjs": "^0.3.2",
-    "prop-types": "^15.6.2",
-    "react": "^16.8.6",
-    "react-anchor-link-smooth-scroll": "^1.0.11",
-    "react-apollo": "^2.5.5",
+    "prop-types": "^15.8.1",
+    "react": "^16.14.0",
+    "react-anchor-link-smooth-scroll": "^1.0.12",
     "react-device-detect": "^1.6.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.14.0",
     "react-emotion": "^9.2.12",
     "react-headroom": "^2.2.4",
     "react-helmet": "^5.2.0",
     "react-lottie": "^1.2.3",
-    "react-pose": "^4.0.4",
-    "react-pose-text": "^3.1.0",
     "react-slick": "^0.23.2",
-    "slugify": "^1.3.4",
-    "truncate": "^2.0.1",
-    "yarn": "^1.12.1"
+    "slugify": "^1.3.4"
   },
   "resolutions": {
-    "react": "16.8.6",
-    "react-dom": "16.8.6"
+    "react": "16.14.0",
+    "react-dom": "16.14.0"
   },
   "keywords": [
     "gatsby"
@@ -65,7 +51,7 @@
     "clean": "gatsby clean && rm -rf storybook-static",
     "build": "gatsby build",
     "serve": "gatsby serve",
-    "develop": "gatsby develop",
+    "dev": "gatsby develop",
     "deploy": "gatsby build && gh-pages -d public",
     "format": "prettier --write '**/*.js'",
     "test": "yarn clean && yarn build && yarn build-storybook && echo build ok",
@@ -93,6 +79,6 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/sutter/hello-gatsby"
+    "url": "https://github.com/getstation/getstation.github.io"
   }
 }
