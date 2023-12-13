@@ -54,7 +54,7 @@
     "dev": "gatsby develop",
     "deploy": "gatsby build && gh-pages -d public",
     "format": "prettier --write '**/*.js'",
-    "test": "yarn clean && yarn build && yarn build-storybook && echo build ok",
+    "test": "npm run clean && npm run build && npm run build-storybook && echo build ok",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
